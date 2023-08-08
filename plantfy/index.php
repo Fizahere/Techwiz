@@ -551,84 +551,29 @@ include_once('components/addtocart.php')
                     <div class="swiper">
                         <div class="swiper-wrapper">
                             <!-- Quick Shop Item Start -->
-                            <div class="quick-shop-item swiper-slide js-scroll ShortFadeInUp">
+                            <?php
+                            $query = $pdo->query("Select * from categories");
+                            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+                            foreach($result as $categories){
+                                ?>
+                                   <div class="quick-shop-item swiper-slide js-scroll ShortFadeInUp">
                                 <div class="quick-shop-item__image">
-                                    <a href="shop-fullwidth.html">
+                                    <a href="shop-fullwidth.php">
                                         <img src="assets/images/quick-shop/quick-shop-1.png" alt="Quick Shop" width="203" height="226" loading="lazy" />
                                     </a>
                                 </div>
                                 <div class="quick-shop-item__content">
                                     <h4 class="quick-shop-item__title">
-                                        <a href="shop-fullwidth.html">
-                                            Name of Category
+                                        <a href="shop-fullwidth.php">
+                                            <?php echo $categories['Name'] ?>
                                         </a>
                                     </h4>
                                 </div>
                             </div>
-                            <!-- Quick Shop Item End -->
-                            <!-- Quick Shop Item Start -->
-                            <div class="quick-shop-item swiper-slide js-scroll ShortFadeInUp">
-                                <div class="quick-shop-item__image">
-                                    <a href="shop-fullwidth.html">
-                                        <img src="assets/images/quick-shop/quick-shop-2.png" alt="Quick Shop" width="203" height="226" loading="lazy" />
-                                    </a>
-                                </div>
-                                <div class="quick-shop-item__content">
-                                    <h4 class="quick-shop-item__title">
-                                        <a href="shop-fullwidth.html">
-                                            Name of Category
-                                        </a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <!-- Quick Shop Item End -->
-                            <!-- Quick Shop Item Start -->
-                            <div class="quick-shop-item swiper-slide js-scroll ShortFadeInUp">
-                                <div class="quick-shop-item__image">
-                                    <a href="shop-fullwidth.html">
-                                        <img src="assets/images/quick-shop/quick-shop-3.png" alt="Quick Shop" width="203" height="226" loading="lazy" />
-                                    </a>
-                                </div>
-                                <div class="quick-shop-item__content">
-                                    <h4 class="quick-shop-item__title">
-                                        <a href="shop-fullwidth.html">
-                                            Name of Category
-                                        </a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <!-- Quick Shop Item End -->
-                            <!-- Quick Shop Item Start -->
-                            <div class="quick-shop-item swiper-slide js-scroll ShortFadeInUp">
-                                <div class="quick-shop-item__image">
-                                    <a href="shop-fullwidth.html">
-                                        <img src="assets/images/quick-shop/quick-shop-4.png" alt="Quick Shop" width="203" height="226" loading="lazy" />
-                                    </a>
-                                </div>
-                                <div class="quick-shop-item__content">
-                                    <h4 class="quick-shop-item__title">
-                                        <a href="shop-fullwidth.html">
-                                            Name of Category
-                                        </a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <!-- Quick Shop Item End -->
-                            <!-- Quick Shop Item Start -->
-                            <div class="quick-shop-item swiper-slide js-scroll ShortFadeInUp">
-                                <div class="quick-shop-item__image">
-                                    <a href="shop-fullwidth.html">
-                                        <img src="assets/images/quick-shop/quick-shop-5.png" alt="Quick Shop" width="203" height="226" loading="lazy" />
-                                    </a>
-                                </div>
-                                <div class="quick-shop-item__content">
-                                    <h4 class="quick-shop-item__title">
-                                        <a href="shop-fullwidth.html">
-                                            Name of Category
-                                        </a>
-                                    </h4>
-                                </div>
-                            </div>
+                                <?php
+                            }
+                            ?>
+                         
                             <!-- Quick Shop Item End -->
                         </div>
                     </div>
@@ -653,7 +598,7 @@ include_once('components/addtocart.php')
             <div class="container-fluid custom-container">
                 <!-- Section Title Start -->
                 <div class="section-title text-center js-scroll ShortFadeInUp">
-                    <h3 class="section-title__title">Popular product</h3>
+                    <h3 class="section-title__title">Some of our product</h3>
                 </div>
                 <!-- Section Title End -->
 
