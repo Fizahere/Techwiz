@@ -849,6 +849,7 @@ include_once('components/addtocart.php')
         <!-- Newsletter End -->
     </main>
 
+<<<<<<< HEAD
     <!-- Footer Start -->
    <?php
 include_once('components/footer.php')
@@ -859,3 +860,8 @@ include_once('components/footer.php')
 
 <!-- Mirrored from htmldemo.net/plantfy/plantfy/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:56 GMT -->
 </html>
+=======
+    <?php
+  include("./components/footer.php");
+  ?>
+>>>>>>> f7c0b15346a95c0f18e37ac761358dbd1c344dba
