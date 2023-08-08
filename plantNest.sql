@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 10:37 AM
+-- Generation Time: Aug 09, 2023 at 01:30 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -28,19 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
-  `ID` int(11) NOT NULL,
-  `Username` varchar(225) DEFAULT NULL,
-  `Fullname` varchar(225) DEFAULT NULL,
-  `Email` varchar(225) DEFAULT NULL,
-  `Password` varchar(225) DEFAULT NULL
+  `adminID` int(11) NOT NULL,
+  `adminName` varchar(225) DEFAULT NULL,
+  `adminEmail` varchar(225) DEFAULT NULL,
+  `password` varchar(225) DEFAULT NULL,
+  `adminImage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`ID`, `Username`, `Fullname`, `Email`, `Password`) VALUES
-(1, 'Fiza', 'Fiza Batool', 'fiza@gmail.com', '1234');
+INSERT INTO `admins` (`adminID`, `adminName`, `adminEmail`, `password`, `adminImage`) VALUES
+(1, 'Fiza', 'fiza@gmail.com', '1234', 0);
 
 -- --------------------------------------------------------
 
@@ -49,17 +49,18 @@ INSERT INTO `admins` (`ID`, `Username`, `Fullname`, `Email`, `Password`) VALUES
 --
 
 CREATE TABLE `categories` (
-  `cateory_ID` int(11) NOT NULL,
-  `Name` varchar(225) DEFAULT NULL
+  `cateoryID` int(11) NOT NULL,
+  `categoryName` varchar(225) DEFAULT NULL,
+  `categoryImage` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`cateory_ID`, `Name`) VALUES
-(1, 'category1'),
-(2, 'category2');
+INSERT INTO `categories` (`cateoryID`, `categoryName`, `categoryImage`) VALUES
+(1, 'category1', 0),
+(2, 'category2', 0);
 
 -- --------------------------------------------------------
 
@@ -68,14 +69,22 @@ INSERT INTO `categories` (`cateory_ID`, `Name`) VALUES
 --
 
 CREATE TABLE `orders` (
-  `Order_ID` int(11) NOT NULL,
-  `User_ID` int(11) DEFAULT NULL,
-  `Plant_ID` int(11) DEFAULT NULL,
-  `Quantity` varchar(225) DEFAULT NULL,
-  `Order_Date` timestamp NULL DEFAULT current_timestamp(),
-  `Total_Amount` varchar(225) DEFAULT NULL,
-  `Order_Status` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
+  `orderID` int(11) NOT NULL,
+  `userID` int(11) DEFAULT NULL,
+  `productID` int(11) DEFAULT NULL,
+  `productQuantity` varchar(225) DEFAULT NULL,
+  `orderDate` timestamp NULL DEFAULT current_timestamp(),
+  `totalAmount` varchar(225) DEFAULT NULL,
+  `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `orderDate`, `totalAmount`, `orderStatus`) VALUES
+(1, 5, 2, '2', '2023-08-09 09:44:02', '5677', 'pending'),
+(2, 5, 1, '2', '2023-08-09 09:44:04', '5677', 'pending');
 
 -- --------------------------------------------------------
 
@@ -84,19 +93,19 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `products` (
-  `Plant_ID` int(11) NOT NULL,
-  `Name` varchar(225) DEFAULT NULL,
-  `Description` varchar(225) DEFAULT NULL,
-  `Price` varchar(225) DEFAULT NULL,
-  `Image` varchar(225) DEFAULT NULL,
-  `cateory_ID` int(11) DEFAULT NULL
+  `productID` int(11) NOT NULL,
+  `productName` varchar(225) DEFAULT NULL,
+  `productDescription` varchar(225) DEFAULT NULL,
+  `productPrice` varchar(225) DEFAULT NULL,
+  `productImage` varchar(225) DEFAULT NULL,
+  `cateoryID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`Plant_ID`, `Name`, `Description`, `Price`, `Image`, `cateory_ID`) VALUES
+INSERT INTO `products` (`productID`, `productName`, `productDescription`, `productPrice`, `productImage`, `cateoryID`) VALUES
 (1, 'sunflower', 'jkkkkkkkkkkkkkkkk', '00', 'ioyi', 2),
 (2, 'sunflower2', 'jkkkkkkkkkkkkkkkk', '00', 'ioyi', 2);
 
@@ -107,18 +116,18 @@ INSERT INTO `products` (`Plant_ID`, `Name`, `Description`, `Price`, `Image`, `ca
 --
 
 CREATE TABLE `users` (
-  `User_ID` int(11) NOT NULL,
-  `Username` varchar(225) DEFAULT NULL,
-  `Fullname` varchar(225) DEFAULT NULL,
-  `Email` varchar(225) DEFAULT NULL,
-  `Password` varchar(225) DEFAULT NULL
+  `userID` int(11) NOT NULL,
+  `firstName` varchar(225) DEFAULT NULL,
+  `lastName` varchar(225) DEFAULT NULL,
+  `userEmail` varchar(225) NOT NULL,
+  `userPassword` varchar(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`User_ID`, `Username`, `Fullname`, `Email`, `Password`) VALUES
+INSERT INTO `users` (`userID`, `firstName`, `lastName`, `userEmail`, `userPassword`) VALUES
 (1, 'ali', 'ali', 'ali@gmail.com', '123456'),
 (2, 'fatima', 'fatima', 'fatima@gmail.com', '12345678\r\n'),
 (3, 'zainab', 'zainab', 'zainab@gmail.com', '7444'),
@@ -133,34 +142,36 @@ INSERT INTO `users` (`User_ID`, `Username`, `Fullname`, `Email`, `Password`) VAL
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`adminID`),
+  ADD UNIQUE KEY `adminEmail` (`adminEmail`);
 
 --
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`cateory_ID`);
+  ADD PRIMARY KEY (`cateoryID`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`Order_ID`),
-  ADD KEY `p_fk` (`Plant_ID`),
-  ADD KEY `u_fk` (`User_ID`);
+  ADD PRIMARY KEY (`orderID`),
+  ADD KEY `p_fk` (`productID`),
+  ADD KEY `u_fk` (`userID`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`Plant_ID`),
-  ADD KEY `c_fk` (`cateory_ID`);
+  ADD PRIMARY KEY (`productID`),
+  ADD KEY `c_fk` (`cateoryID`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`User_ID`);
+  ADD PRIMARY KEY (`userID`),
+  ADD UNIQUE KEY `userEmail` (`userEmail`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -170,31 +181,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cateory_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cateoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `Plant_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -204,14 +215,14 @@ ALTER TABLE `users`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `p_fk` FOREIGN KEY (`Plant_ID`) REFERENCES `products` (`Plant_ID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `u_fk` FOREIGN KEY (`User_ID`) REFERENCES `users` (`User_ID`) ON DELETE SET NULL ON UPDATE SET NULL;
+  ADD CONSTRAINT `p_fk` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `u_fk` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `c_fk` FOREIGN KEY (`cateory_ID`) REFERENCES `categories` (`cateory_ID`) ON DELETE SET NULL ON UPDATE SET NULL;
+  ADD CONSTRAINT `c_fk` FOREIGN KEY (`cateoryID`) REFERENCES `categories` (`cateoryID`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
