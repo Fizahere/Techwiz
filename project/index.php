@@ -1,5 +1,5 @@
 <?php
-include_once('php/query.php');
+include_once('components/query.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

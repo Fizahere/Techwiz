@@ -1,7 +1,7 @@
 <?php
 
-include_once('php/connection.php');
-include_once('php/functions.php');
+include_once('components/connection.php');
+include_once('components/functions.php');
 
 function getRoot()
 {
