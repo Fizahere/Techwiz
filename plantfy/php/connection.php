@@ -1,6 +1,6 @@
 <?php
 
-$server = 'mysql:host=localhost;dbname=techwiz';
+$server = 'mysql:host=localhost;dbname=db_PlantsShop';
 $user = 'root';
 $password = '';
 
