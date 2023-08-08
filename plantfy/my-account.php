@@ -1,820 +1,616 @@
 <?php
 include("./components/header.php");
+if (!isset($_SESSION['USER'])) {
+    redirectWindow('login.php');
+}
+;
 ?>
+<style>
+    .profile img {
+        width: 18rem;
+        height: 16rem;
+        border-radius: 50%;
+        margin-left: 3rem;
+    }
 
+    .profile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-    <!-- Cart Sidebar Start -->
-    <!-- Cart Offcanvas Start -->
-    <?php
+    .name {
+        margin-left: 3rem !important;
+    }
+    #signout_btn{
+        width: 20rem!important;
+        height: 4rem;
+    }
+ 
+</style>
+
+<!-- Cart Sidebar Start -->
+<!-- Cart Offcanvas Start -->
+<?php
 include_once('components/addtocart.php')
- ?>
-    <!-- Cart Offcanvas End -->
+    ?>
+<!-- Cart Offcanvas End -->
 
-    <!-- Cart Sidebar End -->
+<!-- Cart Sidebar End -->
 
-    <!-- Search Start -->
-    <div class="search-modal modal fade" id="SearchModal">
-        <!-- Search Close Start -->
-        <button class="search-modal__close" data-bs-dismiss="modal" aria-label="remove">
-            <i class="lastudioicon-e-remove"></i>
-        </button>
-        <!-- Search Close End  -->
+<!-- Search Start -->
+<div class="search-modal modal fade" id="SearchModal">
+    <!-- Search Close Start -->
+    <button class="search-modal__close" data-bs-dismiss="modal" aria-label="remove">
+        <i class="lastudioicon-e-remove"></i>
+    </button>
+    <!-- Search Close End  -->
 
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <!-- Search Form Start  -->
-                <div class="search-modal__form">
-                    <form action="#">
-                        <input type="text" placeholder="Search product…" />
-                        <button class="" aria-label="search">
-                            <i class="lastudioicon-zoom-1"></i>
-                        </button>
-                    </form>
-                </div>
-                <!-- Search Form End  -->
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Search Form Start  -->
+            <div class="search-modal__form">
+                <form action="#">
+                    <input type="text" placeholder="Search product…" />
+                    <button class="" aria-label="search">
+                        <i class="lastudioicon-zoom-1"></i>
+                    </button>
+                </form>
             </div>
+            <!-- Search Form End  -->
         </div>
     </div>
+</div>
 
-    <!-- Search End -->
+<!-- Search End -->
 
-    <!-- Offcanvas Menu Start -->
-    <div class="offcanvas offcanvas-end offcanvas-sidebar" tabindex="-1" id="offcanvasSidebar">
-        <button type="button" class="offcanvas-sidebar__close" data-bs-dismiss="offcanvas" aria-label="remove">
-            <i class="lastudioicon-e-remove"></i>
-        </button>
-        <div class="offcanvas-body">
-            <!-- Off Canvas Sidebar Menu Start -->
-            <div class="offcanvas-sidebar__menu">
-                <ul class="offcanvas-menu-list">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="blog.html">News & Events</a></li>
-                    <li><a href="faqs.html">FAQs</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <!-- Off Canvas Sidebar Menu End -->
+<!-- Offcanvas Menu Start -->
+<div class="offcanvas offcanvas-end offcanvas-sidebar" tabindex="-1" id="offcanvasSidebar">
+    <button type="button" class="offcanvas-sidebar__close" data-bs-dismiss="offcanvas" aria-label="remove">
+        <i class="lastudioicon-e-remove"></i>
+    </button>
+    <div class="offcanvas-body">
+        <!-- Off Canvas Sidebar Menu Start -->
+        <div class="offcanvas-sidebar__menu">
+            <ul class="offcanvas-menu-list">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="blog.html">News & Events</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <!-- Off Canvas Sidebar Menu End -->
 
-            <!-- Off Canvas Sidebar Banner Start -->
-            <div class="offcanvas-sidebar__banner" style="
+        <!-- Off Canvas Sidebar Banner Start -->
+        <div class="offcanvas-sidebar__banner" style="
                 background-image: url(assets/images/shop-sidebar-banner.jpg);
             ">
-                <h3 class="banner-title">NEW NOW</h3>
-                <h4 class="banner-sub-title">WARM WOOL PREMIUM COAT</h4>
-                <a href="#" class="banner-btn">Discover</a>
-            </div>
-            <!-- Off Canvas Sidebar Banner End -->
+            <h3 class="banner-title">NEW NOW</h3>
+            <h4 class="banner-sub-title">WARM WOOL PREMIUM COAT</h4>
+            <a href="#" class="banner-btn">Discover</a>
+        </div>
+        <!-- Off Canvas Sidebar Banner End -->
 
-            <!-- Off Canvas Sidebar Info Start -->
-            <div class="offcanvas-sidebar__info">
-                <ul class="offcanvas-info-list">
-                    <li><a href="tel:+61225315600">(+612) 2531 5600</a></li>
-                    <li><a href="mailto:info@exmple.com">info@exmple.com</a></li>
-                    <li>
-                        <span>
+        <!-- Off Canvas Sidebar Info Start -->
+        <div class="offcanvas-sidebar__info">
+            <ul class="offcanvas-info-list">
+                <li><a href="tel:+61225315600">(+612) 2531 5600</a></li>
+                <li><a href="mailto:info@exmple.com">info@exmple.com</a></li>
+                <li>
+                    <span>
                         PO Box 1622 Colins Street West Victoria 8077 Australia
                     </span>
-                    </li>
-                </ul>
-            </div>
-            <!-- Off Canvas Sidebar Info End -->
-
-            <!-- Off Canvas Sidebar Social Start -->
-            <div class="offcanvas-sidebar__social">
-                <ul class="offcanvas-social">
-                    <li>
-                        <a href="#" aria-label="facebook">
-                            <i class="lastudioicon-b-facebook"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="twitter">
-                            <i class="lastudioicon-b-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="instagram">
-                            <i class="lastudioicon-b-instagram"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- Off Canvas Sidebar Social End -->
-
-            <!-- Off Canvas Sidebar Social End -->
-            <div class="offcanvas-sidebar__copyright">
-                <p>
-                    &copy;
-                    <span class="current-year">2023</span>
-                    <span> Plantfy </span> Made with by
-                    <a href="https://hasthemes.com/">HasThemes</a>
-                </p>
-            </div>
-            <!-- Off Canvas Sidebar Social End -->
+                </li>
+            </ul>
         </div>
+        <!-- Off Canvas Sidebar Info End -->
+
+        <!-- Off Canvas Sidebar Social Start -->
+        <div class="offcanvas-sidebar__social">
+            <ul class="offcanvas-social">
+                <li>
+                    <a href="#" aria-label="facebook">
+                        <i class="lastudioicon-b-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="twitter">
+                        <i class="lastudioicon-b-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="instagram">
+                        <i class="lastudioicon-b-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Off Canvas Sidebar Social End -->
+
+        <!-- Off Canvas Sidebar Social End -->
+        <div class="offcanvas-sidebar__copyright">
+            <p>
+                &copy;
+                <span class="current-year">2023</span>
+                <span> Plantfy </span> Made with by
+                <a href="https://hasthemes.com/">HasThemes</a>
+            </p>
+        </div>
+        <!-- Off Canvas Sidebar Social End -->
     </div>
+</div>
 
-    <!-- Offcanvas Menu End -->
+<!-- Offcanvas Menu End -->
 
-    <!-- Mobile Menu Start -->
-    <div class="mobile-menu offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
-        <!-- offcanvas-header Start -->
-        <div class="offcanvas-header">
-            <button type="button" class="mobile-menu__close" data-bs-dismiss="offcanvas" aria-label="Close">
-                <i class="lastudioicon-e-remove"></i>
+<!-- Mobile Menu Start -->
+<div class="mobile-menu offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+    <!-- offcanvas-header Start -->
+    <div class="offcanvas-header">
+        <button type="button" class="mobile-menu__close" data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="lastudioicon-e-remove"></i>
+        </button>
+    </div>
+    <!-- offcanvas-header End -->
+
+    <!-- offcanvas-body Start -->
+    <div class="offcanvas-body">
+        <nav class="navbar-mobile-menu">
+            <ul class="mobile-menu-items">
+                <li>
+                    <a href="#">
+                        Demos
+                        <span class="menu-expand" aria-label="down-arrow">
+                            <i class="lastudioicon-down-arrow"></i>
+                        </span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="index.html">Plant 01</a></li>
+                        <li><a href="index-2.html">Plant 02</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        Pages
+                        <span class="menu-expand" aria-label="down-arrow">
+                            <i class="lastudioicon-down-arrow"></i>
+                        </span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                        <li><a href="our-team.html">Our Team</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="faqs.html">FAQ's</a></li>
+                        <li><a href="term-of-use.html">term of use</a></li>
+                        <li><a href="404.html">404 Page</a></li>
+                        <li>
+                            <a href="login-register.html">Login & Register</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        Shop
+                        <span class="menu-expand" aria-label="down-arrow">
+                            <i class="lastudioicon-down-arrow"></i>
+                        </span>
+                    </a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-col">
+                            <h5 class="mega-menu-title">Shop Layout</h5>
+                            <ul class="">
+                                <li>
+                                    <a href="shop-fullwidth.html">Shop Fullwidth</a>
+                                </li>
+                                <li>
+                                    <a href="shop-sidebar.html">Shop Sidebar</a>
+                                </li>
+                                <li>
+                                    <a href="shop-masonry.html">Shop Masonry</a>
+                                </li>
+                                <li>
+                                    <a href="shop-3-columns.html">Shop 03 Columns</a>
+                                </li>
+                                <li>
+                                    <a href="shop-4-columns.html">Shop 04 Columns</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-col">
+                            <ul class="">
+                                <li><a href="#">Featured Banner</a></li>
+                                <li class="mega-menu-title">Hover Style</li>
+                                <li><a href="#">Hover Style 01</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h5 class="mega-menu-title">Shop Pages</h5>
+                            <ul class="">
+                                <li>
+                                    <a href="my-account.html">My Account</a>
+                                </li>
+                                <li><a href="cart.html">Cart</a></li>
+                                <li>
+                                    <a href="order-tracking.html">Order Tracking</a>
+                                </li>
+                                <li><a href="wishlist.html">Wishlist</a></li>
+                                <li><a href="compare.html">Compare</a></li>
+                                <li>
+                                    <a href="empty-cart.html">Cart Empty</a>
+                                </li>
+                                <li><a href="checkout.html">Checkout</a></li>
+                                <li><a href="thank-you.html">Thank You</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-col">
+                            <h5 class="mega-menu-title">Product Pages</h5>
+                            <ul class="">
+                                <li>
+                                    <a href="product-single.html">
+                                        Product Simple
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="product-single-variable.html">
+                                        Product Variable
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="product-single-carousel.html">
+                                        Product Carousel
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="product-single-affiliate.html">
+                                        Product Affiliate
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="product-single-countdown.html">
+                                        Product CountDown
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        Collections
+                        <span class="menu-expand" aria-label="down-arrow">
+                            <i class="lastudioicon-down-arrow"></i>
+                        </span>
+                    </a>
+                    <div class="mega-menu">
+                        <div class="mega-menu__banner">
+                            <a href="#">
+                                <div class="mega-menu__banner--image">
+                                    <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner" width="269"
+                                        height="271" />
+                                </div>
+                                <div class="mega-menu__banner--caption">
+                                    <h4 class="caption-title">New Arrival</h4>
+                                    <p class="caption-desc">
+                                        Non curabitur gravida
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu__content">
+                            <h4 class="mega-menu__content--title">
+                                Summer Collection 2023
+                            </h4>
+                            <div class="d-flex flex-wrap">
+                                <ul class="mega-menu__content--list">
+                                    <li>
+                                        <a href="#">Dresses and jumpsuits</a>
+                                    </li>
+                                    <li><a href="#">Shirts</a></li>
+                                    <li><a href="#">T-shirts and tops</a></li>
+                                    <li>
+                                        <a href="#">Jackets and Suit Jackets</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Cardigans and sweaters</a>
+                                    </li>
+                                    <li><a href="#">Sweatshirts</a></li>
+                                    <li><a href="#">Coats</a></li>
+                                </ul>
+                                <ul class="mega-menu__content--list">
+                                    <li><a href="#">Trousers</a></li>
+                                    <li><a href="#">Jeans</a></li>
+                                    <li><a href="#">Skirts</a></li>
+                                    <li><a href="#">Shorts</a></li>
+                                    <li>
+                                        <a href="#">Bikinis and swimsuits</a>
+                                    </li>
+                                    <li><a href="#">Sportswear</a></li>
+                                    <li>
+                                        <a href="#">Underwear and lingerie</a>
+                                    </li>
+                                    <li><a href="#">Pyjamas</a></li>
+                                </ul>
+                            </div>
+                            <div class="mt-auto">
+                                <ul class="mega-menu__info">
+                                    <li><a href="#">info@exmple.com</a></li>
+                                    <li><a href="#">(626)997-4298</a></li>
+                                </ul>
+                                <div class="mega-menu__social">
+                                    <div class="mega-menu__social--lable">
+                                        Connect with us
+                                    </div>
+                                    <ul class="mega-menu__social--social">
+                                        <li>
+                                            <a href="#" aria-label="facebook">
+                                                <i class="lastudioicon-b-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-label="twitter">
+                                                <i class="lastudioicon-b-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-label="instagram">
+                                                <i class="lastudioicon-b-instagram"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        Blog
+                        <span class="menu-expand" aria-label="down-arrow">
+                            <i class="lastudioicon-down-arrow"></i>
+                        </span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="blog-right-sidebar.html">
+                                Blog Right Sidebar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="blog-left-sidebar.html">
+                                Blog Left Sidebar
+                            </a>
+                        </li>
+                        <li><a href="blog.html">Blog No Sidebar</a></li>
+                        <li><a href="blog-single.html">Single Post</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- offcanvas-body end -->
+</div>
+
+<!-- Mobile Menu End -->
+
+<!-- Mobile Meta Start -->
+<div class="mobile-meta d-md-none">
+    <ul class="mobile-meta-items">
+        <li>
+            <button data-bs-toggle="modal" data-bs-target="#SearchModal" aria-label="search">
+                <i class="lastudioicon-zoom-1"></i>
             </button>
-        </div>
-        <!-- offcanvas-header End -->
+        </li>
+        <li>
+            <a href="wishlist.html" aria-label="wishlist">
+                <i class="lastudioicon-heart-1"></i>
+                <span class="badge">03</span>
+            </a>
+        </li>
+        <li>
+            <a href="compare.html" aria-label="compare">
+                <i class="lastudioicon-ic_compare_arrows_24px"> </i>
+                <span class="badge">03</span>
+            </a>
+        </li>
+        <li>
+            <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="cart">
+                <i class="lastudioicon-shopping-cart-1"></i>
+                <span class="badge">03</span>
+            </button>
+        </li>
+    </ul>
+</div>
 
-        <!-- offcanvas-body Start -->
-        <div class="offcanvas-body">
-            <nav class="navbar-mobile-menu">
-                <ul class="mobile-menu-items">
-                    <li>
-                        <a href="#">
-                            Demos
-                            <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="index.html">Plant 01</a></li>
-                            <li><a href="index-2.html">Plant 02</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Pages
-                            <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="coming-soon.html">Coming Soon</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
-                            <li><a href="faqs.html">FAQ's</a></li>
-                            <li><a href="term-of-use.html">term of use</a></li>
-                            <li><a href="404.html">404 Page</a></li>
-                            <li>
-                                <a href="login-register.html">Login & Register</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Shop
-                            <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
-                        </a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-col">
-                                <h5 class="mega-menu-title">Shop Layout</h5>
-                                <ul class="">
-                                    <li>
-                                        <a href="shop-fullwidth.html">Shop Fullwidth</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-sidebar.html">Shop Sidebar</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-masonry.html">Shop Masonry</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-3-columns.html">Shop 03 Columns</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-4-columns.html">Shop 04 Columns</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="mega-menu-col">
-                                <ul class="">
-                                    <li><a href="#">Featured Banner</a></li>
-                                    <li class="mega-menu-title">Hover Style</li>
-                                    <li><a href="#">Hover Style 01</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-menu-col">
-                                <h5 class="mega-menu-title">Shop Pages</h5>
-                                <ul class="">
-                                    <li>
-                                        <a href="my-account.html">My Account</a>
-                                    </li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li>
-                                        <a href="order-tracking.html">Order Tracking</a>
-                                    </li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                    <li><a href="compare.html">Compare</a></li>
-                                    <li>
-                                        <a href="empty-cart.html">Cart Empty</a>
-                                    </li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="thank-you.html">Thank You</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-menu-col">
-                                <h5 class="mega-menu-title">Product Pages</h5>
-                                <ul class="">
-                                    <li>
-                                        <a href="product-single.html">
-                                            Product Simple
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="product-single-variable.html">
-                                            Product Variable
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="product-single-carousel.html">
-                                            Product Carousel
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="product-single-affiliate.html">
-                                            Product Affiliate
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="product-single-countdown.html">
-                                            Product CountDown
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Collections
-                            <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
-                        </a>
-                        <div class="mega-menu">
-                            <div class="mega-menu__banner">
-                                <a href="#">
-                                    <div class="mega-menu__banner--image">
-                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner" width="269" height="271" />
-                                    </div>
-                                    <div class="mega-menu__banner--caption">
-                                        <h4 class="caption-title">New Arrival</h4>
-                                        <p class="caption-desc">
-                                            Non curabitur gravida
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="mega-menu__content">
-                                <h4 class="mega-menu__content--title">
-                                    Summer Collection 2023
-                                </h4>
-                                <div class="d-flex flex-wrap">
-                                    <ul class="mega-menu__content--list">
-                                        <li>
-                                            <a href="#">Dresses and jumpsuits</a>
-                                        </li>
-                                        <li><a href="#">Shirts</a></li>
-                                        <li><a href="#">T-shirts and tops</a></li>
-                                        <li>
-                                            <a href="#">Jackets and Suit Jackets</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Cardigans and sweaters</a>
-                                        </li>
-                                        <li><a href="#">Sweatshirts</a></li>
-                                        <li><a href="#">Coats</a></li>
-                                    </ul>
-                                    <ul class="mega-menu__content--list">
-                                        <li><a href="#">Trousers</a></li>
-                                        <li><a href="#">Jeans</a></li>
-                                        <li><a href="#">Skirts</a></li>
-                                        <li><a href="#">Shorts</a></li>
-                                        <li>
-                                            <a href="#">Bikinis and swimsuits</a>
-                                        </li>
-                                        <li><a href="#">Sportswear</a></li>
-                                        <li>
-                                            <a href="#">Underwear and lingerie</a>
-                                        </li>
-                                        <li><a href="#">Pyjamas</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mt-auto">
-                                    <ul class="mega-menu__info">
-                                        <li><a href="#">info@exmple.com</a></li>
-                                        <li><a href="#">(626)997-4298</a></li>
-                                    </ul>
-                                    <div class="mega-menu__social">
-                                        <div class="mega-menu__social--lable">
-                                            Connect with us
-                                        </div>
-                                        <ul class="mega-menu__social--social">
-                                            <li>
-                                                <a href="#" aria-label="facebook">
-                                                    <i
-                                                    class="lastudioicon-b-facebook"
-                                                ></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" aria-label="twitter">
-                                                    <i
-                                                    class="lastudioicon-b-twitter"
-                                                ></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" aria-label="instagram">
-                                                    <i
-                                                    class="lastudioicon-b-instagram"
-                                                ></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Blog
-                            <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="blog-right-sidebar.html">
-                                    Blog Right Sidebar
-                                </a>
-                            </li>
-                            <li>
-                                <a href="blog-left-sidebar.html">
-                                    Blog Left Sidebar
-                                </a>
-                            </li>
-                            <li><a href="blog.html">Blog No Sidebar</a></li>
-                            <li><a href="blog-single.html">Single Post</a></li>
-                        </ul>
-                    </li>
+<!-- Mobile Meta End -->
+
+<main>
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-section">
+        <div class="container-fluid custom-container">
+            <div class="breadcrumb-wrapper text-center">
+                <h2 class="breadcrumb-wrapper__title">My Account</h2>
+                <ul class="breadcrumb-wrapper__items justify-content-center">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>My Account</span></li>
                 </ul>
-            </nav>
+            </div>
         </div>
-        <!-- offcanvas-body end -->
     </div>
+    <!-- Breadcrumb End -->
 
-    <!-- Mobile Menu End -->
+    <!-- My Account Start -->
+    <div class="my-account-section section-padding-2">
+        <div class="container-fluid custom-container">
+            <!-- My Account Tabs Start -->
+            <div class="my-account-tab">
+                <!-- My Account Tabs Menu Start -->
+                <div class="my-account-tab__menu">
+                    <ul class="nav justify-content-center">
+                        <li>
+                            <button class="account-btn active" data-bs-toggle="tab" data-bs-target="#dashboard"
+                                type="button">
+                                Profile
+                            </button>
+                        </li>
+                        <li>
+                            <button class="account-btn" data-bs-toggle="tab" data-bs-target="#orders" type="button">
+                                Logout
+                            </button>
+                        </li>
 
-    <!-- Mobile Meta Start -->
-    <div class="mobile-meta d-md-none">
-        <ul class="mobile-meta-items">
-            <li>
-                <button data-bs-toggle="modal" data-bs-target="#SearchModal" aria-label="search">
-                    <i class="lastudioicon-zoom-1"></i>
-                </button>
-            </li>
-            <li>
-                <a href="wishlist.html" aria-label="wishlist">
-                    <i class="lastudioicon-heart-1"></i>
-                    <span class="badge">03</span>
-                </a>
-            </li>
-            <li>
-                <a href="compare.html" aria-label="compare">
-                    <i class="lastudioicon-ic_compare_arrows_24px"> </i>
-                    <span class="badge">03</span>
-                </a>
-            </li>
-            <li>
-                <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="cart">
-                    <i class="lastudioicon-shopping-cart-1"></i>
-                    <span class="badge">03</span>
-                </button>
-            </li>
-        </ul>
+                    </ul>
+                </div>
+                <!-- My Account Tabs Menu End -->
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="dashboard">
+                        <!-- My Account Dashboard Start -->
+                        <?php
+                        $user = $_SESSION['USER'];
+                        foreach ($user as $item) {
+                            $userName = $item['Username'];
+                            $lastName = $item['Fullname'];
+                            $emailAddress = $item['Email'];
+                            $userID = $item['User_ID'];
+                            // echo '<script>alert("'.$userName.'")</script>';
+                        }
+                        ?>
+
+                        <div class="my-account-dashboard">
+                            <form action="#" method='post'>
+                                <div class="container mt-3">
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+
+
+
+                                        <!-- Single Form Start -->
+
+                                        <div class="col-md-6">
+                                            <input type="hidden" name="userID" value="<?php echo $userID ?>">
+                                            <div class="single-form">
+                                                <label class="single-form__label">Username *</label>
+                                                <input class="single-form__input" type="text" name="username"
+                                                    value="<?php echo $userName ?>" />
+
+                                                <!-- Single Form Start -->
+                                            </div>
+                                            <!-- Single Form Start -->
+                                            <div class="single-form">
+                                                <label class="single-form__label">Full Name *</label>
+                                                <input class="single-form__input" type="text" name="fullname"
+                                                    value="<?php echo $lastName ?>" />
+                                            </div>
+
+                                            <div class="single-form">
+                                                <label class="single-form__label">Email Address *</label>
+                                                <input class="single-form__input" type="text" name="email"
+                                                    value="<?php echo $emailAddress ?>" />
+
+                                                <!-- Single Form Start -->
+                                            </div>
+
+
+                                            <!-- Single Form Start -->
+                                            <div class="single-form">
+                                                <button class="single-form__btn btn" name="edit">
+                                                    Save Change
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="orders">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <div class="single-form">
+                                        <button class="single-form__btn btn" id='signout_btn'>
+                                            <a href="logout.php"><h4 class='h6'>Sign Out ?</h4></a>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Account Tabs End -->
     </div>
+    </div>
+    <!-- My Account End -->
 
-    <!-- Mobile Meta End -->
+    <!-- Newsletter Start -->
+    <!-- Newsletter Start -->
+    <div class="newsletter-section">
+        <div class="newsletter-left" style="background-image: url(assets/images/newsletter-bg-1.jpg)">
+            <!-- Newsletter Wrapper Start -->
+            <div class="newsletter-wrapper text-center">
+                <h4 class="newsletter-wrapper__title">Follow us on</h4>
+                <p>
+                    Proin volutpat vitae libero at tincidunt. Maecenas sapien
+                    lectus, vehicula vel euismod sed, vulputate
+                </p>
 
-    <main>
-        <!-- Breadcrumb Start -->
-        <div class="breadcrumb-section">
-            <div class="container-fluid custom-container">
-                <div class="breadcrumb-wrapper text-center">
-                    <h2 class="breadcrumb-wrapper__title">My Account</h2>
-                    <ul class="breadcrumb-wrapper__items justify-content-center">
-                        <li><a href="index.html">Home</a></li>
-                        <li><span>My Account</span></li>
+                <div class="newsletter-social">
+                    <ul class="newsletter-social__list">
+                        <li>
+                            <a href="https://www.facebook.com/" aria-label="facebook">
+                                <i class="lastudioicon-b-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/" aria-label="twitter">
+                                <i class="lastudioicon-b-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/" aria-label="instagram">
+                                <i class="lastudioicon-b-instagram"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://elements.envato.com/" aria-label="envato">
+                                <i class="lastudioicon-envato"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <!-- Breadcrumb End -->
-
-        <!-- My Account Start -->
-        <div class="my-account-section section-padding-2">
-            <div class="container-fluid custom-container">
-                <!-- My Account Tabs Start -->
-                <div class="my-account-tab">
-                    <!-- My Account Tabs Menu Start -->
-                    <div class="my-account-tab__menu">
-                        <ul class="nav justify-content-center">
-                            <li>
-                                <button class="account-btn active" data-bs-toggle="tab" data-bs-target="#dashboard" type="button">
-                                     Profile
-                                </button>
-                            </li>
-                            <li>
-                                <button class="account-btn" data-bs-toggle="tab" data-bs-target="#orders" type="button">
-                                    Orders
-                                </button>
-                            </li>
-                            <li>
-                                <button class="account-btn" data-bs-toggle="tab" data-bs-target="#download" type="button">
-                                    Download
-                                </button>
-                            </li>
-                            <li>
-                                <button class="account-btn" data-bs-toggle="tab" data-bs-target="#address" type="button">
-                                    Address
-                                </button>
-                            </li>
-                            <li>
-                                <button class="account-btn" data-bs-toggle="tab" data-bs-target="#account-detail" type="button">
-                                    Account Detail
-                                </button>
-                            </li>
-                            <li>
-                                <a class="account-btn" href="login-register.html">Logout</a>
-                            </li>
-                        </ul>
+        <div class="newsletter-right" style="background-image: url(assets/images/newsletter-bg-2.jpg)">
+            <div class="newsletter-wrapper text-center">
+                <h4 class="newsletter-wrapper__title">10% off when you sign up</h4>
+                <p>
+                    Proin volutpat vitae libero at tincidunt. Maecenas sapien
+                    lectus, vehicula vel euismod sed, vulputate
+                </p>
+                <form action="#">
+                    <div class="newsletter-form-style-1">
+                        <input type="text" placeholder="Enter your email address..." />
+                        <button>Subscribe</button>
                     </div>
-                    <!-- My Account Tabs Menu End -->
-
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="dashboard">
-                            <!-- My Account Dashboard Start -->
-                            <div class="my-account-dashboard">
-                            <form action="#">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <!-- Single Form Start -->
-                                            <div class="single-form">
-                                                <label class="single-form__label">First name *</label>
-                                                <input class="single-form__input" type="text" />
-                                            </div>
-                                            <!-- Single Form Start -->
-                                        </div>
-                                        <div class="col-md-6">
-                                            <!-- Single Form Start -->
-                                            <div class="single-form">
-                                                <label class="single-form__label">Last name *</label>
-                                                <input class="single-form__input" type="text" />
-                                            </div>
-                                            <!-- Single Form Start -->
-                                        </div>
-                                    </div>
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <label class="single-form__label">Display name *</label>
-                                        <input class="single-form__input" type="text" />
-                                    </div>
-                                    <!-- Single Form Start -->
-
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <label class="single-form__label">Email address *</label>
-                                        <input class="single-form__input" type="email" />
-                                    </div>
-                                    <!-- Single Form Start -->
-
-                                    <p class="my-account-detail__legend">
-                                        Password change
-                                    </p>
-
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <label class="single-form__label">Current password (leave blank
-                                            to leave unchanged)</label>
-                                        <input class="single-form__input" type="password" />
-                                    </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <label class="single-form__label">New password (leave blank to
-                                            leave unchanged)</label>
-                                        <input class="single-form__input" type="password" />
-                                    </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <label class="single-form__label">Confirm new password</label>
-                                        <input class="single-form__input" type="password" />
-                                    </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <button class="single-form__btn btn">
-                                            Save Change
-                                        </button>
-                                    </div>
-                                    <!-- Single Form Start -->
-                                </form>
-                            </div>
-                            <!-- My Account Dashboard End -->
-                        </div>
-                        <div class="tab-pane fade" id="orders">
-                            <!-- My Account Orders Start -->
-                            <div class="my-account-orders">
-                                <div class="my-account-table table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <span>Order</span>
-                                                </th>
-                                                <th>
-                                                    <span>Date</span>
-                                                </th>
-                                                <th>
-                                                    <span>Status</span>
-                                                </th>
-                                                <th>
-                                                    <span>Total</span>
-                                                </th>
-                                                <th>
-                                                    <span>Actions</span>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="#"> #6564 </a>
-                                                </td>
-                                                <td>
-                                                    <time>May 29, 2023</time>
-                                                </td>
-                                                <td>On hold</td>
-                                                <td>
-                                                    <span>$216.97</span>
-                                                    for 3 items
-                                                </td>
-                                                <td>
-                                                    <a class="btn" href="#">View</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- My Account Orders End -->
-                        </div>
-                        <div class="tab-pane fade" id="download">
-                            <!-- My Account Download Start -->
-                            <div class="my-account-download">
-                                <div class="my-account-table table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <span>Order</span>
-                                                </th>
-                                                <th>
-                                                    <span>Date</span>
-                                                </th>
-                                                <th>
-                                                    <span>Expire</span>
-                                                </th>
-                                                <th>
-                                                    <span>Actions</span>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="#"> #6564 </a>
-                                                </td>
-                                                <td>
-                                                    <time>May 29, 2023</time>
-                                                </td>
-                                                <td>Never</td>
-                                                <td>
-                                                    <a class="btn" href="#">Download</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- My Account Download End -->
-                        </div>
-                        <div class="tab-pane fade" id="address">
-                            <!-- My Account Address Start -->
-                            <div class="my-account-address">
-                                <p>
-                                    The following addresses will be used on
-                                    the checkout page by default.
-                                </p>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="my-account-address__content">
-                                            <h4 class="my-account-address__title">
-                                                Billing address
-                                            </h4>
-                                            <a class="my-account-address__edit" href="#">Edit</a>
-                                            <address>
-                                                Verna Cormier<br />Keebler
-                                                    Group<br />House. #15, Block
-                                                    #C, Level #5, Banasree Prime
-                                                    Street<br />Dhaka<br />Dhaka<br />1219<br />Bangladesh
-                                            </address>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="my-account-address__content">
-                                            <h4 class="my-account-address__title">
-                                                Shipping address
-                                            </h4>
-                                            <a class="my-account-address__edit" href="#">Edit</a>
-                                            <address>
-                                                Verna Cormier<br />Keebler
-                                                    Group<br />House. #15, Block
-                                                    #C, Level #5, Banasree Prime
-                                                    Street<br />Dhaka<br />Dhaka<br />1219<br />Bangladesh
-                                            </address>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- My Account Address End -->
-                        </div>
-                        <div class="tab-pane fade" id="account-detail">
-                            <!-- My Account Account Detail Start -->
-                            <div class="my-account-detail">
-                                <form action="#">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <!-- Single Form Start -->
-                                            <div class="single-form">
-                                                <label class="single-form__label">First name *</label>
-                                                <input class="single-form__input" type="text" />
-                                            </div>
-                                            <!-- Single Form Start -->
-                                        </div>
-                                        <div class="col-md-6">
-                                            <!-- Single Form Start -->
-                                            <div class="single-form">
-                                                <label class="single-form__label">Last name *</label>
-                                                <input class="single-form__input" type="text" />
-                                            </div>
-                                            <!-- Single Form Start -->
-                                        </div>
-                                    </div>
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <label class="single-form__label">Display name *</label>
-                                        <input class="single-form__input" type="text" />
-                                    </div>
-                                    <!-- Single Form Start -->
-
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <label class="single-form__label">Email address *</label>
-                                        <input class="single-form__input" type="email" />
-                                    </div>
-                                    <!-- Single Form Start -->
-
-                                    <p class="my-account-detail__legend">
-                                        Password change
-                                    </p>
-
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <label class="single-form__label">Current password (leave blank
-                                            to leave unchanged)</label>
-                                        <input class="single-form__input" type="password" />
-                                    </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <label class="single-form__label">New password (leave blank to
-                                            leave unchanged)</label>
-                                        <input class="single-form__input" type="password" />
-                                    </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <label class="single-form__label">Confirm new password</label>
-                                        <input class="single-form__input" type="password" />
-                                    </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <button class="single-form__btn btn">
-                                            Save Change
-                                        </button>
-                                    </div>
-                                    <!-- Single Form Start -->
-                                </form>
-                            </div>
-                            <!-- My Account Account Detail End -->
-                        </div>
-                    </div>
-                </div>
-                <!-- My Account Tabs End -->
+                </form>
             </div>
+
         </div>
-        <!-- My Account End -->
+    </div>
+</main>
 
-        <!-- Newsletter Start -->
-        <!-- Newsletter Start -->
-        <div class="newsletter-section">
-            <div class="newsletter-left" style="background-image: url(assets/images/newsletter-bg-1.jpg)">
-                <!-- Newsletter Wrapper Start -->
-                <div class="newsletter-wrapper text-center">
-                    <h4 class="newsletter-wrapper__title">Follow us on</h4>
-                    <p>
-                        Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                        lectus, vehicula vel euismod sed, vulputate
-                    </p>
-
-                    <div class="newsletter-social">
-                        <ul class="newsletter-social__list">
-                            <li>
-                                <a href="#" aria-label="facebook">
-                                    <i class="lastudioicon-b-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="twitter">
-                                    <i class="lastudioicon-b-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="instagram">
-                                    <i class="lastudioicon-b-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="vimeo">
-                                    <i class="lastudioicon-b-vimeo"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="envato">
-                                    <i class="lastudioicon-envato"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Newsletter Wrapper End -->
-            </div>
-            <div class="newsletter-right" style="background-image: url(assets/images/newsletter-bg-2.jpg)">
-                <!-- Newsletter Wrapper Start -->
-                <div class="newsletter-wrapper text-center">
-                    <h4 class="newsletter-wrapper__title">10% off when you sign up</h4>
-                    <p>
-                        Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                        lectus, vehicula vel euismod sed, vulputate
-                    </p>
-                    <form action="#">
-                        <div class="newsletter-form-style-1">
-                            <input type="text" placeholder="Enter your email address..." />
-                            <button>Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- Newsletter Wrapper End -->
-            </div>
-        </div>
-        <!-- Newsletter End -->
-
-        <!-- Newsletter End -->
-    </main>
-
-<<<<<<< HEAD
-    <!-- Footer Start -->
-    <?php
-    include_once('components/footer.php')
+<?php
+include_once('components/footer.php')
     ?>
 </body>
 
-
-<!-- Mirrored from htmldemo.net/plantfy/plantfy/my-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:38 GMT -->
 </html>
-=======
-    <?php
-  include("./components/footer.php");
-  ?>
->>>>>>> f7c0b15346a95c0f18e37ac761358dbd1c344dba

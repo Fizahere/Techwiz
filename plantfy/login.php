@@ -1,6 +1,6 @@
 <?php
 include_once('php/query.php')
-?>
+    ?>
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -323,8 +323,8 @@ include_once('php/query.php')
     <!-- Cart Sidebar Start -->
     <!-- Cart Offcanvas Start -->
     <?php
-include_once('components/addtocart.php')
- ?>
+    include_once('components/addtocart.php')
+        ?>
     <!-- Cart Offcanvas End -->
 
     <!-- Cart Sidebar End -->
@@ -390,8 +390,8 @@ include_once('components/addtocart.php')
                     <li><a href="mailto:info@exmple.com">info@exmple.com</a></li>
                     <li>
                         <span>
-                        PO Box 1622 Colins Street West Victoria 8077 Australia
-                    </span>
+                            PO Box 1622 Colins Street West Victoria 8077 Australia
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -452,8 +452,8 @@ include_once('components/addtocart.php')
                         <a href="#">
                             Demos
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="index.html">Plant 01</a></li>
@@ -464,8 +464,8 @@ include_once('components/addtocart.php')
                         <a href="#">
                             Pages
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="about.html">About us</a></li>
@@ -484,8 +484,8 @@ include_once('components/addtocart.php')
                         <a href="#">
                             Shop
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <div class="mega-menu">
                             <div class="mega-menu-col">
@@ -570,14 +570,15 @@ include_once('components/addtocart.php')
                         <a href="#">
                             Collections
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <div class="mega-menu">
                             <div class="mega-menu__banner">
                                 <a href="#">
                                     <div class="mega-menu__banner--image">
-                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner" width="269" height="271" />
+                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner"
+                                            width="269" height="271" />
                                     </div>
                                     <div class="mega-menu__banner--caption">
                                         <h4 class="caption-title">New Arrival</h4>
@@ -634,23 +635,17 @@ include_once('components/addtocart.php')
                                         <ul class="mega-menu__social--social">
                                             <li>
                                                 <a href="#" aria-label="facebook">
-                                                    <i
-                                                    class="lastudioicon-b-facebook"
-                                                ></i>
+                                                    <i class="lastudioicon-b-facebook"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#" aria-label="twitter">
-                                                    <i
-                                                    class="lastudioicon-b-twitter"
-                                                ></i>
+                                                    <i class="lastudioicon-b-twitter"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#" aria-label="instagram">
-                                                    <i
-                                                    class="lastudioicon-b-instagram"
-                                                ></i>
+                                                    <i class="lastudioicon-b-instagram"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -663,8 +658,8 @@ include_once('components/addtocart.php')
                         <a href="#">
                             Blog
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -751,117 +746,121 @@ include_once('components/addtocart.php')
                                 <div class="login-register__form">
                                     <!-- Single Form Start -->
                                     <div class="single-form">
-                                        <input class="single-form__input" name="email" type="text" placeholder="Email address *" />
+                                        <input class="single-form__input" name="email" type="text"
+                                            placeholder="Email address *" />
                                     </div>
-                                   
+
                                     <div class="single-form">
-                                        <input class="single-form__input" name="password" type="password" placeholder="Password *" />
+                                        <input class="single-form__input" name="password" type="password"
+                                            placeholder="Password *" />
                                     </div>
-                                  
+
                                     <div class="single-form">
-                                        <p class="lost-password text-primary">
-                                            <a href="signup.php">Sign Up</a>
+                                        <p class="lost-password">
+                                            <span>Dont've an account?
+                                                <a href="signup.php" class='text-primary'>Sign Up</a>
+                                            </span>
                                         </p>
                                     </div>
-                                    
+
                                     <div class="single-form">
                                         <button class="single-form__btn btn" type='submit' name='login'>
                                             Log In
                                         </button>
                                     </div>
-                                 
+
                                 </div>
                             </form>
 
                         </div>
                         <!-- Log In & Register Box End -->
-              </div>
-              <div class="col-md-3"></div>
-
-            </div>
-        </div>
-        <!-- Log In & Register End -->
-
-        <!-- Newsletter Start -->
-        <!-- Newsletter Start -->
-        <div class="newsletter-section">
-            <div class="newsletter-left" style="background-image: url(assets/images/newsletter-bg-1.jpg)">
-                <!-- Newsletter Wrapper Start -->
-                <div class="newsletter-wrapper text-center">
-                    <h4 class="newsletter-wrapper__title">Follow us on</h4>
-                    <p>
-                        Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                        lectus, vehicula vel euismod sed, vulputate
-                    </p>
-
-                    <div class="newsletter-social">
-                        <ul class="newsletter-social__list">
-                            <li>
-                                <a href="#" aria-label="facebook">
-                                    <i class="lastudioicon-b-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="twitter">
-                                    <i class="lastudioicon-b-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="instagram">
-                                    <i class="lastudioicon-b-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="vimeo">
-                                    <i class="lastudioicon-b-vimeo"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="envato">
-                                    <i class="lastudioicon-envato"></i>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
-                </div>
-                <!-- Newsletter Wrapper End -->
-            </div>
-            <div class="newsletter-right" style="background-image: url(assets/images/newsletter-bg-2.jpg)">
-                <!-- Newsletter Wrapper Start -->
-                <div class="newsletter-wrapper text-center">
-                    <h4 class="newsletter-wrapper__title">10% off when you sign up</h4>
-                    <p>
-                        Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                        lectus, vehicula vel euismod sed, vulputate
-                    </p>
-                    <form action="#">
-                        <div class="newsletter-form-style-1">
-                            <input type="text" placeholder="Enter your email address..." />
-                            <button>Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- Newsletter Wrapper End -->
-            </div>
-        </div>
-        <!-- Newsletter End -->
+                    <div class="col-md-3"></div>
 
-        <!-- Newsletter End -->
+                </div>
+            </div>
+            <!-- Log In & Register End -->
+
+            <!-- Newsletter Start -->
+            <!-- Newsletter Start -->
+            <div class="newsletter-section">
+                <div class="newsletter-left" style="background-image: url(assets/images/newsletter-bg-1.jpg)">
+                    <!-- Newsletter Wrapper Start -->
+                    <div class="newsletter-wrapper text-center">
+                        <h4 class="newsletter-wrapper__title">Follow us on</h4>
+                        <p>
+                            Proin volutpat vitae libero at tincidunt. Maecenas sapien
+                            lectus, vehicula vel euismod sed, vulputate
+                        </p>
+
+                        <div class="newsletter-social">
+                            <ul class="newsletter-social__list">
+                                <li>
+                                    <a href="#" aria-label="facebook">
+                                        <i class="lastudioicon-b-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="twitter">
+                                        <i class="lastudioicon-b-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="instagram">
+                                        <i class="lastudioicon-b-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="vimeo">
+                                        <i class="lastudioicon-b-vimeo"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="envato">
+                                        <i class="lastudioicon-envato"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Newsletter Wrapper End -->
+                </div>
+                <div class="newsletter-right" style="background-image: url(assets/images/newsletter-bg-2.jpg)">
+                    <!-- Newsletter Wrapper Start -->
+                    <div class="newsletter-wrapper text-center">
+                        <h4 class="newsletter-wrapper__title">10% off when you sign up</h4>
+                        <p>
+                            Proin volutpat vitae libero at tincidunt. Maecenas sapien
+                            lectus, vehicula vel euismod sed, vulputate
+                        </p>
+                        <form action="#">
+                            <div class="newsletter-form-style-1">
+                                <input type="text" placeholder="Enter your email address..." />
+                                <button>Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Newsletter Wrapper End -->
+                </div>
+            </div>
+            <!-- Newsletter End -->
+
+            <!-- Newsletter End -->
     </main>
 
-<<<<<<< HEAD
-    <!-- Footer Start -->
-   <?php
-include_once('components/footer.php')
-   ?>
+    <<<<<<< HEAD <!-- Footer Start -->
+        <?php
+        include_once('components/footer.php')
+            ?>
 
 </body>
 
 
 <!-- Mirrored from htmldemo.net/plantfy/plantfy/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:56 GMT -->
+
 </html>
 =======
-    <?php
-  include("./components/footer.php");
-  ?>
+<?php
+include("./components/footer.php");
+?>
 >>>>>>> f7c0b15346a95c0f18e37ac761358dbd1c344dba

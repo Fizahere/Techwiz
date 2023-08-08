@@ -70,17 +70,15 @@ if (isset($_POST['login'])) {
 }
 ;
 
-//insert
-if(isset($_POST['insert'])){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $id = $_POST['id'];
-
-    $authModel->update($name, $email, $password, $id, $pdo);
-    redirectWindow('index.php');
+if(isset($_POST['edit'])){
+    $userID = $_POST['userID'];
+    $userName = $_POST['username'];
+    $fullName = $_POST['fullname'];
+    $emailAddress = $_POST['email'];
+ 
+    $authModel->update($userName,$fullName,$emailAddress,$userID,$pdo);
+    redirectWindow('my-account.php');
+    // $query = $pdo->prepare('update users set ')
 }
-
-
 
 ?>
