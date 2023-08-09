@@ -1,3 +1,8 @@
+<?php
+
+include_once('php/query.php')
+
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -716,11 +721,11 @@ include_once('components/addtocart.php')
             <div class="container-fluid custom-container">
                 <div class="breadcrumb-wrapper text-center">
                     <h2 class="breadcrumb-wrapper__title">
-                        Log In & Register
+                        LogIn OR SignUp
                     </h2>
                     <ul class="breadcrumb-wrapper__items justify-content-center">
                         <li><a href="index.html">Home</a></li>
-                        <li><span>Log In & Register</span></li>
+                        <li><span>Log In / Sign Up to Continue</span></li>
                     </ul>
                 </div>
             </div>
@@ -740,19 +745,25 @@ include_once('components/addtocart.php')
                             <form action="#" method='post'>
                                 <div class="login-register__form">
                                     <div class="single-form">
-                                        <input class="single-form__input" name="username" type="text" placeholder="Username *" />
+                                        <input class="single-form__input" id="username" name="username" type="text" placeholder="Username *" required/>
+                                    <span id="errorFirstName"></span>
                                     </div>
                                     <div class="single-form">
-                                        <input class="single-form__input" name="fullname" type="text" placeholder="Fullname *" />
+                                        <input class="single-form__input" id="lastname" name="fullname" type="text" placeholder="Fullname *" required/>
+                                        <span id="errorLastName"></span>
                                     </div>
                                     <div class="single-form">
-                                        <input class="single-form__input" name="email" type="email" placeholder="Email address *" />
+                                        <input class="single-form__input" id="email" name="email" type="email" placeholder="Email address *" required/>
+                                        <span id="errorEmail"></span>
                                     </div>
                                    
                                     <div class="single-form">
-                                        <input class="single-form__input" type="password" name="password" placeholder="Password *" />
+                                        <input class="single-form__input" id="password" type="password" name="password" placeholder="Password *" required/>
+                                        <span id="errorPassword"></span>
                                     </div>
-                                
+                                    <!-- <p class="text-danger">
+                             //   <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
+                            </p> -->
                                     <div class="single-form">
                                     <div class="single-form">
                                         <p class="lost-password">
@@ -762,7 +773,7 @@ include_once('components/addtocart.php')
                                         </p>
                                     </div>
                                     
-                                        <button type="submit" name="signup" class="single-form__btn btn">
+                                        <button type="submit" id="signup" name="signup" class="single-form__btn btn">
                                             Sign Up
                                         </button>
                                         
@@ -858,6 +869,6 @@ include_once('components/addtocart.php')
     <!-- JS Vendor, Plugins & Activation Script Files -->
 
 
-
+<script src="assets/js/app.js"></script>
 </body>
 </html>

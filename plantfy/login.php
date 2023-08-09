@@ -746,13 +746,15 @@ include_once('php/query.php')
                                 <div class="login-register__form">
                                     <!-- Single Form Start -->
                                     <div class="single-form">
-                                        <input class="single-form__input" name="email" type="text"
-                                            placeholder="Email address *" />
-                                    </div>
+                                        <input class="single-form__input" id="loginEmail" name="email" type="email"
+                                            placeholder="Email address *" required/>
+                                    <span id="errorEmailLogin"></span>
+                                        </div>
 
                                     <div class="single-form">
-                                        <input class="single-form__input" name="password" type="password"
-                                            placeholder="Password *" />
+                                        <input class="single-form__input" id="loginPassword" name="password" type="password"
+                                            placeholder="Password *" required/>
+                                    <span id="errorPasswordLogin"></span>
                                     </div>
 
                                     <div class="single-form">
@@ -764,7 +766,7 @@ include_once('php/query.php')
                                     </div>
 
                                     <div class="single-form">
-                                        <button class="single-form__btn btn" type='submit' name='login'>
+                                        <button class="single-form__btn btn" type='submit' id="login" name='login'>
                                             Log In
                                         </button>
                                     </div>
@@ -848,19 +850,12 @@ include_once('php/query.php')
             <!-- Newsletter End -->
     </main>
 
-    <<<<<<< HEAD <!-- Footer Start -->
+ <!-- Footer Start -->
         <?php
         include_once('components/footer.php')
             ?>
 
+<script src="assets/js/app.js"></script>
+
 </body>
-
-
-<!-- Mirrored from htmldemo.net/plantfy/plantfy/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:56 GMT -->
-
 </html>
-=======
-<?php
-include("./components/footer.php");
-?>
->>>>>>> f7c0b15346a95c0f18e37ac761358dbd1c344dba

@@ -487,17 +487,17 @@ include_once('components/addtocart.php')
                              $result = $query->fetchAll(PDO::FETCH_ASSOC);
                              foreach($result as $categories){
                             ?>
-                            <a href="shop-fullwidth.php?id=<?php echo $categories['category_ID'] ?>">
+                            <a href="shop-fullwidth.php?id=<?php echo $categories['categoryID'] ?>">
                                    <div class="quick-shop-item swiper-slide js-scroll ShortFadeInUp">
                                 <div class="quick-shop-item__image">
-                                    <a href="shop-fullwidth.php?id=<?php echo $categories['category_ID'] ?>">
-                                        <img src="assets/images/quick-shop/<?php echo $categories['ctgImage'] ?>" alt="Quick Shop" width="203" height="226" loading="lazy" />
+                                    <a href="shop-fullwidth.php?id=<?php echo $categories['categoryID'] ?>">
+                                        <img src="assets/images/quick-shop/<?php echo $categories['categoryImage'] ?>" alt="Quick Shop" width="203" height="226" loading="lazy" />
                                     </a>
                                 </div>
                                 <div class="quick-shop-item__content">
                                     <h4 class="quick-shop-item__title">
-                                        <a href="shop-fullwidth.php?id=<?php echo $categories['category_ID'] ?>">
-                                            <?php echo $categories['Name'] ?>
+                                        <a href="shop-fullwidth.php?id=<?php echo $categories['categoryID'] ?>">
+                                            <?php echo $categories['categoryName'] ?>
                                         </a>
                                     </h4>
                                 </div>
@@ -541,7 +541,7 @@ include_once('components/addtocart.php')
                        
                             <!-- Single product Start -->
                             <?php
-                            $query = $pdo->query("Select * from plants");
+                            $query = $pdo->query("Select * from products");
                             $result = $query->fetchAll(PDO::FETCH_ASSOC);
                             foreach($result as $plants){
                                 ?>
@@ -561,7 +561,7 @@ include_once('components/addtocart.php')
                                     <div class="single-product__thumbnail--holder">
                                         <a href="product-single.html">
                                             
-                                            <img src="assets/images/products/<?php echo $plants['Image'] ?>" alt="Product" width="344" height="370" loading="lazy" />
+                                            <img src="assets/images/products/<?php echo $plants['productImage'] ?>" alt="Product" width="344" height="370" loading="lazy" />
                                             <!-- <img class="product-hover" src="assets/images/products/product-10.png" alt="Product" width="344" height="370" loading="lazy" /> -->
                                         </a>
                                     </div>
@@ -589,11 +589,11 @@ include_once('components/addtocart.php')
                                     </div>
                                     <h3 class="single-product__info--title">
                                         <a href="product-single.html">
-                                            <?php echo $plants['Name'] ?>
+                                            <?php echo $plants['productName'] ?>
                                         </a>
                                     </h3>
                                     <div class="single-product__info--price">
-                                        <ins>$<?php echo $plants['Price'] ?></ins>
+                                        <ins>$<?php echo $plants['productPrice'] ?></ins>
                                     </div>
                                 </div>
                             </div>

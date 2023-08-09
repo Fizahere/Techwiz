@@ -5,7 +5,7 @@ class Auth
     //before signup check if user already exist in database
     function findUserWithEmail($email, $pdo)
     {
-        $query = $pdo->prepare('select * from users where Email = :email');
+        $query = $pdo->prepare('select * from users where userEmail = :email');
         $query->bindParam(':email', $email);
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -17,7 +17,7 @@ class Auth
         //encrypt password in database
         $password = password_hash($password, PASSWORD_DEFAULT);
         //inert data into signup tabel (in database)
-        $query = $pdo->prepare('insert into users (Username,Fullname,Email,Password) values(:username,:fullname,:email,:password)');
+        $query = $pdo->prepare('insert into users (firstName,lastName,userEmail,userPassword) values(:username,:fullname,:email,:password)');
         //bind placeholders with parameters
         $query->bindParam(':username', $username);
         $query->bindParam(':fullname', $fullname);
@@ -30,7 +30,7 @@ class Auth
     //update 
     function update($userName,$fullName,$emailAddress,$userID,$pdo)
     {
-        $query = $pdo->prepare("update users set Username = :name, Fullname = :fullname, Email = :email where User_ID = :id");
+        $query = $pdo->prepare("update users set firstName = :name, lastName = :fullname, userEmail = :email where UserID = :id");
         $query->bindParam('name', $userName);
         $query->bindParam('fullname', $fullName);
         $query->bindParam('email', $emailAddress);
