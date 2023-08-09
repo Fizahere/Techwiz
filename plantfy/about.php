@@ -525,7 +525,7 @@ include_once('components/addtocart.php')
             <div class="container-fluid custom-container">
                 <!-- Section Title Start -->
                 <div class="section-title-3 text-center js-scroll ShortFadeInUp">
-                    <h3 class="section-title-3__title">Testimonial</h3>
+                    <h3 class="section-title-3__title">Reviews</h3>
                 </div>
                 <!-- Section Title End -->
 
@@ -537,7 +537,7 @@ include_once('components/addtocart.php')
                                 <!-- Testimonial Item Start -->
                                 <div class="testimonial-item-2 text-center">
                                     <div class="testimonial-item-2__title">
-                                        Design Quality
+                                        Product Quality
                                     </div>
                                     <p class="testimonial-item-2__description">
                                         “Excellent Theme with an impressive
@@ -557,7 +557,7 @@ include_once('components/addtocart.php')
                                 <!-- Testimonial Item Start -->
                                 <div class="testimonial-item-2 text-center">
                                     <div class="testimonial-item-2__title">
-                                        Design Quality
+                                        Product Quality
                                     </div>
                                     <p class="testimonial-item-2__description">
                                         “Excellent Theme with an impressive
@@ -599,9 +599,9 @@ include_once('components/addtocart.php')
                             <div class="instagram-item__image">
                                 <img src="assets/images/instagram/about-instagram-1.jpg" alt="Instagram" width="946" height="525" loading="lazy" />
                             </div>
-                            <div class="instagram-item__icon">
+                            <!-- <div class="instagram-item__icon">
                                 <i class="lastudioicon-b-instagram"></i>
-                            </div>
+                            </div> -->
                         </a>
                     </div>
                     <!-- Instagram item End -->
