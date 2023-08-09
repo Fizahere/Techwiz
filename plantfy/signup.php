@@ -3,6 +3,7 @@
 
 
 <!-- Mirrored from htmldemo.net/plantfy/plantfy/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:55 GMT -->
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -20,7 +21,8 @@
     <!-- Font CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
 
     <!-- Vendor CSS (Bootstrap & Icon Font) -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
@@ -91,7 +93,8 @@
             <div class="container-fluid custom-container">
                 <div class="row align-items-center position-relative">
                     <div class="col-md-4 col-3 d-xl-none">
-                        <button class="header__main--toggle header__main--toggle-dark" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="menu">
+                        <button class="header__main--toggle header__main--toggle-dark" data-bs-toggle="offcanvas"
+                            data-bs-target="#mobileMenu" aria-label="menu">
                             <i class="lastudioicon-menu-8-1"></i>
                         </button>
                     </div>
@@ -187,12 +190,14 @@
                                         </div>
                                     </li>
                                     <li class="position-static">
-                                        <a href="#">Collections <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
+                                        <a href="#">Collections <i class="lastudioicon-down-arrow"
+                                                aria-hidden="true"></i></a>
                                         <div class="mega-menu mega-menu--wrapper d-flex flex-wrap">
                                             <div class="mega-menu__banner">
                                                 <a href="#">
                                                     <div class="mega-menu__banner--image">
-                                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner" width="470" height="475" />
+                                                        <img src="assets/images/megamenu-fashion-01.jpg"
+                                                            alt="Fashion Banner" width="470" height="475" />
                                                     </div>
                                                     <div class="mega-menu__banner--caption">
                                                         <h4 class="caption-title">New Arrival</h4>
@@ -268,9 +273,11 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-4 col-3">
-                        <div class="header__main--meta header__main--dark d-flex justify-content-end align-items-center">
+                        <div
+                            class="header__main--meta header__main--dark d-flex justify-content-end align-items-center">
                             <!-- Meta Item List Start -->
-                            <ul class="meta-items-list meta-items-list--dark d-flex justify-content-end align-items-center">
+                            <ul
+                                class="meta-items-list meta-items-list--dark d-flex justify-content-end align-items-center">
                                 <li class="search d-none d-lg-block">
                                     <form action="#">
                                         <div class="meta-search meta-search--dark">
@@ -283,9 +290,7 @@
                                 </li>
                                 <li class="wishlist">
                                     <a href="wishlist.html" aria-label="Wishlist">
-                                        <i
-                                        class="lastudioicon lastudioicon-heart-1"
-                                    ></i>
+                                        <i class="lastudioicon lastudioicon-heart-1"></i>
                                         <span class="badge">03</span>
                                     </a>
                                 </li>
@@ -295,10 +300,9 @@
                                     </button>
                                 </li>
                             </ul>
-                            <button class="toggle-icon d-none d-xl-block" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="menu">
-                                <span class="bar-icon"
-                                ><i class="lastudioicon-menu-8-1"></i
-                            ></span>
+                            <button class="toggle-icon d-none d-xl-block" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasSidebar" aria-label="menu">
+                                <span class="bar-icon"><i class="lastudioicon-menu-8-1"></i></span>
                             </button>
                             <!-- Meta Item List Start -->
                         </div>
@@ -335,8 +339,8 @@
                                 <a href="#">Princess set</a>
                             </h4>
                             <span class="offcanvas-cart-item__quantity">
-                            1 × $69.99
-                        </span>
+                                1 × $69.99
+                            </span>
                         </div>
                         <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
                             <i class="lastudioicon-e-remove"></i>
@@ -357,8 +361,8 @@
                                 <a href="#">Senecio stapeliiformis </a>
                             </h4>
                             <span class="offcanvas-cart-item__quantity">
-                            1 × $89.99
-                        </span>
+                                1 × $89.99
+                            </span>
                         </div>
                         <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
                             <i class="lastudioicon-e-remove"></i>
@@ -379,8 +383,8 @@
                                 <a href="#">Hoya burtoniae </a>
                             </h4>
                             <span class="offcanvas-cart-item__quantity">
-                            1 × $35.99
-                        </span>
+                                1 × $35.99
+                            </span>
                         </div>
                         <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
                             <i class="lastudioicon-e-remove"></i>
@@ -408,7 +412,8 @@
                 <li>
                     <a href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-miterlimit="10">
                                 <path d="m9.5 2.5 3 3M1.5 10.5l3 3M11.5.5l3 3-10 10-4 1 1-4Z"></path>
                             </g>
                         </svg>
@@ -429,8 +434,11 @@
                 <li>
                     <a href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14">
-                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
-                                <path d="M5.5 4.5h5M5.5 9.5h5M13.5 7.5a2 2 0 0 1 2-2v-4a1 1 0 0 0-1-1h-13a1 1 0 0 0-1 1V5a2 2 0 0 1 0 4v3.5a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-3a2 2 0 0 1-2-2Z"></path>
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-miterlimit="10">
+                                <path
+                                    d="M5.5 4.5h5M5.5 9.5h5M13.5 7.5a2 2 0 0 1 2-2v-4a1 1 0 0 0-1-1h-13a1 1 0 0 0-1 1V5a2 2 0 0 1 0 4v3.5a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-3a2 2 0 0 1-2-2Z">
+                                </path>
                             </g>
                         </svg>
                         <span>Coupon</span>
@@ -556,8 +564,8 @@
                     <li><a href="mailto:info@exmple.com">info@exmple.com</a></li>
                     <li>
                         <span>
-                        PO Box 1622 Colins Street West Victoria 8077 Australia
-                    </span>
+                            PO Box 1622 Colins Street West Victoria 8077 Australia
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -618,8 +626,8 @@
                         <a href="#">
                             Demos
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="index.html">Plant 01</a></li>
@@ -630,8 +638,8 @@
                         <a href="#">
                             Pages
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="about.html">About us</a></li>
@@ -650,8 +658,8 @@
                         <a href="#">
                             Shop
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <div class="mega-menu">
                             <div class="mega-menu-col">
@@ -736,14 +744,15 @@
                         <a href="#">
                             Collections
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <div class="mega-menu">
                             <div class="mega-menu__banner">
                                 <a href="#">
                                     <div class="mega-menu__banner--image">
-                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner" width="269" height="271" />
+                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner"
+                                            width="269" height="271" />
                                     </div>
                                     <div class="mega-menu__banner--caption">
                                         <h4 class="caption-title">New Arrival</h4>
@@ -800,23 +809,17 @@
                                         <ul class="mega-menu__social--social">
                                             <li>
                                                 <a href="#" aria-label="facebook">
-                                                    <i
-                                                    class="lastudioicon-b-facebook"
-                                                ></i>
+                                                    <i class="lastudioicon-b-facebook"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#" aria-label="twitter">
-                                                    <i
-                                                    class="lastudioicon-b-twitter"
-                                                ></i>
+                                                    <i class="lastudioicon-b-twitter"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#" aria-label="instagram">
-                                                    <i
-                                                    class="lastudioicon-b-instagram"
-                                                ></i>
+                                                    <i class="lastudioicon-b-instagram"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -829,8 +832,8 @@
                         <a href="#">
                             Blog
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -917,6 +920,12 @@
                                 <div class="login-register__form">
                                     <!-- Single Form Start -->
                                     <div class="single-form">
+                                        <input class="single-form__input" type="text" placeholder="Username *" />
+                                    </div>
+                                    <div class="single-form">
+                                        <input class="single-form__input" type="text" placeholder="Fullname *" />
+                                    </div>
+                                    <div class="single-form">
                                         <input class="single-form__input" type="email" placeholder="Email address *" />
                                     </div>
                                     <!-- Single Form Start -->
@@ -926,17 +935,7 @@
                                     </div>
                                     <!-- Single Form Start -->
                                     <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <p class="privacy-policy-text">
-                                            Your personal data will be used
-                                            to support your experience
-                                            throughout this website, to
-                                            manage access to your account,
-                                            and for other purposes described
-                                            in our
-                                            <a href="#">privacy policy</a>.
-                                        </p>
-                                    </div>
+
                                     <!-- Single Form Start -->
 
                                     <!-- Single Form Start -->
@@ -949,13 +948,13 @@
                                 </div>
                             </form>
 
-                           
+
                         </div>
                         <!-- Log In & Register Box End -->
                     </div>
                     <div class="col-md-3"></div>
-      
-                  </div>
+
+                </div>
             </div>
         </div>
         <!-- Log In & Register End -->
@@ -1028,98 +1027,9 @@
     </main>
 
     <!-- Footer Start -->
-    <footer class="footer-section-2 footer-dark">
-        <div class="container-fluid custom-container">
-            <!-- Footer Main Start -->
-            <div class="footer-main footer-padding align-items-center">
-                <div class="footer-left">
-                    <div class="footer-about text-lg-start text-center">
-                        <a class="footer-about__logo" href="#">
-                            <img src="assets/images/logo-white.png" alt="Logo" loading="lazy" />
-                        </a>
-                        <p>
-                            Proin volutpat vitae libero at tincidunt. Maecenas sapie
-                        </p>
-                    </div>
-                </div>
-                <div class="footer-right">
-                    <div class="footer-link">
-                        <div class="footer-link__wrapper">
-                            <h4 class="footer-title text-white">Company links</h4>
-
-                            <ul class="footer-link__list">
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="shop-fullwidth.html">Shop</a></li>
-                                <li><a href="term-of-use.html">Help Center</a></li>
-                                <li>
-                                    <a href="term-of-use.html">Policy & Privacy</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="footer-link__wrapper">
-                            <h4 class="footer-title text-white">Category</h4>
-
-                            <ul class="footer-link__list">
-                                <li><a href="shop-fullwidth.html">Man</a></li>
-                                <li><a href="shop-fullwidth.html">Woman</a></li>
-                                <li><a href="shop-fullwidth.html">Kids</a></li>
-                                <li>
-                                    <a href="shop-fullwidth.html">Accessories</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="footer-link__wrapper">
-                            <h4 class="footer-title text-white">Contact</h4>
-
-                            <ul class="footer-link__list">
-                                <li>
-                                    <span>
-                                    4517 Washington Ave. Manchester, Kentucky
-                                    39495
-                                </span>
-                                </li>
-                                <li>
-                                    <a href="mailto:info@example.com">
-                                        info@example.com
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tel:626997-4298">(626)997-4298</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Main End -->
-
-            <!-- Footer CopyRight Start -->
-            <div class="footer-copyright">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <div class="text-center text-md-start">
-                            <p>
-                                &copy;
-                                <span class="current-year">2023</span>
-                                <span> Plantfy </span> Made with
-                                <i class="lastudioicon-heart-1"></i>
-                                by
-                                <a href="https://hasthemes.com/">HasThemes</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="d-flex justify-content-center justify-content-md-end">
-                            <li><a href="term-of-use.html">Term of user</a></li>
-                            <li><a href="#">Payment refund</a></li>
-                            <li><a href="#">Accessibility</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer CopyRight End -->
-        </div>
-    </footer>
+    <?php
+    include_once('components/footer.php')
+        ?>
 
     <!-- Footer End -->
 
@@ -1141,4 +1051,5 @@
 
 
 <!-- Mirrored from htmldemo.net/plantfy/plantfy/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:56 GMT -->
+
 </html>

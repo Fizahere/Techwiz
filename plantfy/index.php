@@ -1,3 +1,4 @@
+<<<<<<< HEAD:plantfy/index-2.php
 @@ -1,2353 +0,0 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -289,6 +290,11 @@
     </header>
 
     <!-- Header End -->
+=======
+<?php
+include("./components/header.php");
+?>
+>>>>>>> 205f4f7a0750595f789b5c44f315ef8aea1575d8:plantfy/index.php
 
     <!-- Cart Sidebar Start -->
     <!-- Cart Offcanvas Start -->
