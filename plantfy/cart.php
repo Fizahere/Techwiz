@@ -13,7 +13,8 @@ include("./components/header.php");
     if (isset($_POST['addToCartBtn'])) {
         $productId = array_column($_SESSION['cart'], 'getId');
         if (in_array($_POST['productID'], $productId)) {
-            echo "<script>alert('Product already exists in the cart')</script>";
+            echo "<script>alert('Product already exists in the cart')
+            </script>";
         } else {
             if (isset($_SESSION['cart'])) {
                 $count = count($_SESSION['cart']);
