@@ -17,12 +17,12 @@ include("./components/header.php");
         } else {
             if (isset($_SESSION['cart'])) {
                 $count = count($_SESSION['cart']);
-                $_SESSION['cart'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage']);
+                $_SESSION['cart'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
                 echo "<script>alert('Product added into cart')
                 location.assign('index.php');
                 </script>";
             } else {
-                $_SESSION['cart'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage']);
+                $_SESSION['cart'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
                 echo "<script>alert('Product added into cart');
                 location.assign('index.php');
                 </script>";
@@ -38,9 +38,9 @@ include("./components/header.php");
             if($_GET['removeFromCart'] == $value['getId']){
                 unset($_SESSION['cart'][$key]);
                 $_SESSION['cart'] = array_values($_SESSION['cart']);
-                echo "<script>alert('Product successfully deleted from the cart')</script>
+                echo "<script>alert('Product successfully deleted from the cart')
                 location.assign('cart.php');
-                ";
+                </script>";
             }
         }
     }
@@ -128,26 +128,26 @@ include("./components/header.php");
                                         <td class="cart-product-price text-md-center" data-title="Price">
                                             <span class="price-amount">
                                                 <ins>
-                                                    <?php echo $item['getPrice'] ?>
+                                                    $<?php echo $item['getPrice'] ?>
                                                 </ins>
                                             </span>
                                         </td>
 
                                         <td class="cart-product-quantity text-md-center" data-title="Quantity">
                                             <div class="cart-table__quantity product-quantity">
-                                                <button type="button" class="decrease">
+                                                <!-- <button type="button" class="decrease">
                                                     <i class="lastudioicon-i-delete-2"></i>
-                                                </button>
-                                                <input class="quantity-input" type="text" value="1" />
-                                                <button type="button" class="increase">
+                                                </button> -->
+                                                <input class="quantity-input" type="text" value="<?php echo $item['getQty'] ?>" />
+                                                <!-- <button type="button" class="increase">
                                                     <i class="lastudioicon-i-add-2"></i>
-                                                </button>
+                                                </button> -->
                                             </div>
                                         </td>
 
                                         <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
                                             <span class="price-amount">
-                                                $69.99
+                                                $<?php echo $item['getPrice'] * $item['getQty'] ?>
                                             </span>
                                         </td>
                                     </tr>

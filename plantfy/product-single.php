@@ -94,7 +94,7 @@ include_once('components/addtocart.php')
                                                 <button type="button" class="decrease">
                                                     <i class="lastudioicon-i-delete-2"></i>
                                                 </button>
-                                                <input class="quantity-input" type="text" value="1" />
+                                                <input class="quantity-input" name="getQty" type="text" value="1" />
                                                 <button type="button" class="increase">
                                                     <i class="lastudioicon-i-add-2"></i>
                                                 </button>
