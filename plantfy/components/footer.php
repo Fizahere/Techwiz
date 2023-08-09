@@ -1,61 +1,46 @@
-<footer class="footer-section footer-dark">
+<!-- Footer Start -->
+<footer class="footer-section-2 footer-dark">
         <div class="container-fluid custom-container">
             <!-- Footer Main Start -->
-            <div class="footer-main footer-padding">
-                <div class="footer-main-wrapper">
-                    <!-- Footer About Start -->
-                    <div class="footer-about text-center">
+            <div class="footer-main footer-padding align-items-center">
+                <div class="footer-left">
+                    <div class="footer-about text-lg-start text-center">
                         <a class="footer-about__logo" href="#">
-                            <img src="assets/images/logo-white.png" alt="Logo" width="190" height="35" loading="lazy" />
+                            <img src="assets/images/logo-white.png" alt="Logo" loading="lazy" />
                         </a>
                         <p>
-                            Proin volutpat vitae libero at tincidunt. Maecenas
-                            sapien lectus,
+                            Proin volutpat vitae libero at tincidunt. Maecenas sapie
                         </p>
                     </div>
-                    <!-- Footer About End -->
-
-                    <!-- Footer Newsletter Start -->
-                    <div class="footer-newsletter">
-                        <form action="#">
-                            <input class="footer-newsletter__input" type="text" placeholder="Sign up for newsletter" />
-                            <button class="footer-newsletter__btn">
-                                Subscribe
-                            </button>
-                        </form>
-                    </div>
-                    <!-- Footer Newsletter End -->
-
-                    <!-- Footer Link Start -->
+                </div>
+                <div class="footer-right">
                     <div class="footer-link">
                         <div class="footer-link__wrapper">
-                            <h4 class="footer-title">Company links</h4>
+                            <h4 class="footer-title text-white">Company links</h4>
 
                             <ul class="footer-link__list">
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="shop-fullwidth.html">Shop</a></li>
-                                <li><a href="term-of-use.html">Help Center</a></li>
+                                <li><a href="about.php">About us</a></li>
+                                <li><a href="shop-fullwidth.php">Shop</a></li>
+                                <li><a href="term-of-use.php">Help Center</a></li>
                                 <li>
-                                    <a href="term-of-use.html">
-                                        Policy &amp; Privacy
-                                    </a>
+                                    <a href="term-of-use.php">Policy & Privacy</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="footer-link__wrapper">
-                            <h4 class="footer-title">Category</h4>
+                            <h4 class="footer-title text-white">Category</h4>
 
                             <ul class="footer-link__list">
-                                <li><a href="shop-fullwidth.html">Man</a></li>
-                                <li><a href="shop-fullwidth.html">Woman</a></li>
-                                <li><a href="shop-fullwidth.html">Kids</a></li>
+                                <li><a href="shop-fullwidth.php">Man</a></li>
+                                <li><a href="shop-fullwidth.php">Woman</a></li>
+                                <li><a href="shop-fullwidth.php">Kids</a></li>
                                 <li>
-                                    <a href="shop-fullwidth.html">Accessories</a>
+                                    <a href="shop-fullwidth.php">Accessories</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="footer-link__wrapper">
-                            <h4 class="footer-title">Contact</h4>
+                            <h4 class="footer-title text-white">Contact</h4>
 
                             <ul class="footer-link__list">
                                 <li>
@@ -75,74 +60,9 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- Footer Link End -->
                 </div>
             </div>
             <!-- Footer Main End -->
-
-            <!-- Footer Wrapper Start -->
-            <div class="footer-wrapper">
-                <div class="row align-items-center gy-3">
-                    <div class="col-lg-8">
-                        <!-- Footer store & social Start -->
-                        <div class="footer-store-social">
-                            <!-- Footer store Start -->
-                            <div class="footer-store">
-                                <h4 class="footer-store-social__title">
-                                    Available on
-                                </h4>
-                                <ul class="footer-store__btns">
-                                    <li>
-                                        <a href="#">
-                                            <img src="assets/images/apple-store.png" alt="Apple Store" width="130" height="38" loading="lazy" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="assets/images/google-store.png" alt="Google Store" width="130" height="38" loading="lazy" />
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Footer store End -->
-
-                            <!-- Footer social Start -->
-                            <div class="footer-social">
-                                <h4 class="footer-store-social__title">
-                                    Connect with us
-                                </h4>
-                                <ul class="footer-social__icon">
-                                    <li>
-                                        <a href="#" aria-label="facebook">
-                                            <i class="lastudioicon-b-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" aria-label="twitter">
-                                            <i class="lastudioicon-b-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" aria-label="instagram">
-                                            <i class="lastudioicon-b-instagram"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Footer social End -->
-                        </div>
-                        <!-- Footer store & social End -->
-                    </div>
-                    <div class="col-lg-4">
-                        <!-- Footer Payment Start -->
-                        <div class="footer-payment text-center text-lg-end">
-                            <img src="assets/images/footer-payment-white.png" alt="Footer Payment" width="310" height="38" loading="lazy" />
-                        </div>
-                        <!-- Footer Payment End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Wrapper End -->
 
             <!-- Footer CopyRight Start -->
             <div class="footer-copyright">
@@ -150,7 +70,7 @@
                     <div class="col-md-6">
                         <div class="text-center text-md-start">
                             <p>
-                                ©
+                                &copy;
                                 <span class="current-year">2023</span>
                                 <span> Plantfy </span> Made with
                                 <i class="lastudioicon-heart-1"></i>
@@ -161,7 +81,7 @@
                     </div>
                     <div class="col-md-6">
                         <ul class="d-flex justify-content-center justify-content-md-end">
-                            <li><a href="term-of-use.html">Term of user</a></li>
+                            <li><a href="term-of-use.php">Term of user</a></li>
                             <li><a href="#">Payment refund</a></li>
                             <li><a href="#">Accessibility</a></li>
                         </ul>
@@ -171,3 +91,25 @@
             <!-- Footer CopyRight End -->
         </div>
     </footer>
+
+    <!-- Footer End -->
+
+    <!-- JS Vendor, Plugins & Activation Script Files -->
+
+    <!-- Bootstrap JS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/masonry.pkgd.min.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    <script src="assets/js/nice-select2.js"></script>
+
+    <!-- Activation JS -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+
+<!-- Mirrored from phpdemo.net/plantfy/plantfy/login-register.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:56 GMT -->
+</php>
