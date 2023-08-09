@@ -119,6 +119,8 @@ include_once('php/query.php')
                                     <li>
                                         <a class="active" href="index.php">
                                             Home
+                                        <a class="active" href="index.php">
+                                          Home
                                         </a>
                                     </li>
                                     <li>
@@ -496,8 +498,8 @@ include_once('php/query.php')
             <nav class="navbar-mobile-menu">
                 <ul class="mobile-menu-items">
                     <li>
-                        <a href="#">
-                            Demos
+                        <a href="index.php">
+                            Home
                             <span class="menu-expand" aria-label="down-arrow">
                                 <i class="lastudioicon-down-arrow"></i>
                             </span>
