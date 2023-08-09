@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 06:33 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Aug 10, 2023 at 09:39 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `admins` (
   `adminEmail` varchar(225) DEFAULT NULL,
   `password` varchar(225) DEFAULT NULL,
   `adminImage` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admins`
@@ -51,16 +51,16 @@ INSERT INTO `admins` (`adminID`, `adminName`, `adminEmail`, `password`, `adminIm
 CREATE TABLE `categories` (
   `categoryID` int(11) NOT NULL,
   `categoryName` varchar(225) DEFAULT NULL,
-  `categoryImage` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `categoryImage` varchar(225) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`categoryID`, `categoryName`, `categoryImage`) VALUES
-(1, 'category1', 0),
-(2, 'category2', 0);
+(1, 'Indoor plants', 'quick-shop-1.png'),
+(2, 'Outdoor plants', 'quick-shop-2.png');
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,7 @@ CREATE TABLE `orders` (
   `orderDate` timestamp NULL DEFAULT current_timestamp(),
   `totalAmount` varchar(225) DEFAULT NULL,
   `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
@@ -99,16 +99,20 @@ CREATE TABLE `products` (
   `productPrice` varchar(225) DEFAULT NULL,
   `productImage` varchar(225) DEFAULT NULL,
   `productStock` varchar(255) NOT NULL,
-  `cateoryID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `categoryID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`productID`, `productName`, `productDescription`, `productPrice`, `productImage`, `productStock`, `cateoryID`) VALUES
-(1, 'sunflower', 'jkkkkkkkkkkkkkkkk', '00', 'ioyi', '', 2),
-(2, 'sunflower2', 'jkkkkkkkkkkkkkkkk', '00', 'ioyi', '', 2);
+INSERT INTO `products` (`productID`, `productName`, `productDescription`, `productPrice`, `productImage`, `productStock`, `categoryID`) VALUES
+(1, 'Bambino dwarf', 'Ficus lyrata Bambino has an extremely compact, upright, branching nature; slightly smaller and thicker leaves compared to Ficus lyrata', '39.99', 'product-01.png', '24', 1),
+(2, 'Golden pothos', 'Epipremnum aureum commonly called golden pothos or devil\'s ivy, is native to the Solomon Islands.', '39.99', 'product-02.png', '20', 1),
+(3, 'Ninja jewel alocasia', 'Alocasia \'Ninja\' is a compact Jewel Alocasia with deep green to black, rounded shield leaves and striking white veining. ', '35.99', 'product-03.png', '36', 1),
+(4, 'Croton', 'Croton is a small shrub used as a landscape plant in tropical climates. In its native habitat, croton is a branching, bushy shrub.', '25.99', 'product-04.png', '15', 2),
+(5, 'Pentas', 'Colorful pentas, also known as Egyptian starcluster or star flower, are one of the best choices to attract pollinators like butterflies.', '26.99', 'product-05.png', '17', 2),
+(6, 'Lantana', 'Lantana is an annual or perennial, small, broadleaf evergreen shrub in the Verbenaceae (verbena) family that has woody stems but a sprawling habit.', '23.99', 'product-05.png', '34', 2);
 
 -- --------------------------------------------------------
 
@@ -122,7 +126,7 @@ CREATE TABLE `users` (
   `lastName` varchar(225) DEFAULT NULL,
   `userEmail` varchar(225) NOT NULL,
   `userPassword` varchar(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -165,7 +169,7 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`productID`),
-  ADD KEY `c_fk` (`cateoryID`);
+  ADD KEY `c_fk` (`categoryID`);
 
 --
 -- Indexes for table `users`
@@ -200,7 +204,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -223,7 +227,7 @@ ALTER TABLE `orders`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `c_fk` FOREIGN KEY (`cateoryID`) REFERENCES `categories` (`categoryID`) ON DELETE SET NULL ON UPDATE SET NULL;
+  ADD CONSTRAINT `c_fk` FOREIGN KEY (`categoryID`) REFERENCES `categories` (`categoryID`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
