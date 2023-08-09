@@ -39,7 +39,11 @@ include_once('php/query.php')
     <!-- Style CSS -->
     <link rel="stylesheet" href="assets/css/style.min.css" />
 </head>
-
+<style>
+    #navItems{
+        margin-right: 5rem;
+    }
+</style>
 
 <body>
     <!-- Header Start -->
@@ -109,156 +113,29 @@ include_once('php/query.php')
                     </div>
                     <div class="col-xl-6 d-none d-xl-block">
                         <div class="header__main--menu">
-                            <nav class="navbar-menu">
+                            <nav class="navbar-menu" id='navItems'>
                                 <!-- Menu Item List Start -->
                                 <ul class="menu-items-list menu-items-list--dark d-flex justify-content-center">
                                     <li>
-                                        <a class="active" href="#">
-                                            Demos <i class="lastudioicon-down-arrow" aria-hidden="true"></i>
+                                        <a class="active" href="index.php">
+                                            Home
                                         </a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Plant 01</a></li>
-                                            <li><a href="index-2.html">Plant 02</a></li>
-                                        </ul>
                                     </li>
                                     <li>
-                                        <a href="#">Pages <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="about.html">About us</a></li>
-                                            <li><a href="coming-soon.html">Coming Soon</a></li>
-                                            <li><a href="our-team.html">Our Team</a></li>
-                                            <li><a href="contact-us.html">Contact Us</a></li>
-                                            <li><a href="faqs.html">FAQ's</a></li>
-                                            <li><a href="term-of-use.html">term of use</a></li>
-                                            <li><a href="404.html">404 Page</a></li>
-                                            <li><a href="login-register.html">Login & Register</a></li>
-                                        </ul>
+                                        <a href="about.php">About Us</a>
                                     </li>
-                                    <li class="position-static">
+                                    <li>
+                                        <a href="contact-us.php">Contact Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="faqs.php">FAQs</a>
+                                    </li>
+                                    <li>
+                                        <a href="my-account.php">Profile</a>
+                                    </li>
+
+                                    <li>
                                         <a href="#">Shop <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
-                                        <div class="mega-menu mega-menu-width d-flex flex-wrap">
-                                            <div class="mega-menu-col">
-                                                <h5 class="mega-menu-title">Shop Layout</h5>
-                                                <ul class="">
-                                                    <li><a href="shop-fullwidth.html">Shop Fullwidth</a></li>
-                                                    <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
-                                                    <li><a href="shop-masonry.html">Shop Masonry</a></li>
-                                                    <li><a href="shop-3-columns.html">Shop 03 Columns</a></li>
-                                                    <li><a href="shop-4-columns.html">Shop 04 Columns</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="mega-menu-col">
-                                                <ul class="">
-                                                    <li><a href="#">Featured Banner</a></li>
-                                                    <li class="mega-menu-title">Hover Style</li>
-                                                    <li><a href="#">Hover Style 01</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="mega-menu-col">
-                                                <h5 class="mega-menu-title">Shop Pages</h5>
-                                                <ul class="">
-                                                    <li><a href="my-account.html">My Account</a></li>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="order-tracking.html">Order Tracking</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="compare.html">Compare</a></li>
-                                                    <li><a href="empty-cart.html">Cart Empty</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="thank-you.html">Thank You</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="mega-menu-col">
-                                                <h5 class="mega-menu-title">Product Pages</h5>
-                                                <ul class="">
-                                                    <li><a href="product-single.html">Product Simple</a></li>
-                                                    <li>
-                                                        <a href="product-single-variable.html">Product Variable</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="product-single-carousel.html">Product Carousel</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="product-single-affiliate.html">
-                                                            Product Affiliate
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="product-single-countdown.html">
-                                                            Product CountDown
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="position-static">
-                                        <a href="#">Collections <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
-                                        <div class="mega-menu mega-menu--wrapper d-flex flex-wrap">
-                                            <div class="mega-menu__banner">
-                                                <a href="#">
-                                                    <div class="mega-menu__banner--image">
-                                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner" width="470" height="475" />
-                                                    </div>
-                                                    <div class="mega-menu__banner--caption">
-                                                        <h4 class="caption-title">New Arrival</h4>
-                                                        <p class="caption-desc">Non curabitur gravida</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="mega-menu__content">
-                                                <h4 class="mega-menu__content--title">Summer Collection 2023</h4>
-                                                <div class="d-flex flex-wrap">
-                                                    <ul class="mega-menu__content--list">
-                                                        <li><a href="#">Dresses and jumpsuits</a></li>
-                                                        <li><a href="#">Shirts</a></li>
-                                                        <li><a href="#">T-shirts and tops</a></li>
-                                                        <li><a href="#">Jackets and Suit Jackets</a></li>
-                                                        <li><a href="#">Cardigans and sweaters</a></li>
-                                                        <li><a href="#">Sweatshirts</a></li>
-                                                        <li><a href="#">Coats</a></li>
-                                                    </ul>
-                                                    <ul class="mega-menu__content--list">
-                                                        <li><a href="#">Trousers</a></li>
-                                                        <li><a href="#">Jeans</a></li>
-                                                        <li><a href="#">Skirts</a></li>
-                                                        <li><a href="#">Shorts</a></li>
-                                                        <li><a href="#">Bikinis and swimsuits</a></li>
-                                                        <li><a href="#">Sportswear</a></li>
-                                                        <li><a href="#">Underwear and lingerie</a></li>
-                                                        <li><a href="#">Pyjamas</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="mt-auto">
-                                                    <ul class="mega-menu__info">
-                                                        <li><a href="#">info@exmple.com</a></li>
-                                                        <li><a href="#">(626)997-4298</a></li>
-                                                    </ul>
-                                                    <div class="mega-menu__social">
-                                                        <div class="mega-menu__social--lable">Connect with us</div>
-                                                        <ul class="mega-menu__social--social">
-                                                            <li>
-                                                                <a href="#" aria-label="facebook">
-                                                                    <i class="lastudioicon-b-facebook"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#" aria-label="twitter">
-                                                                    <i class="lastudioicon-b-twitter"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#" aria-label="instagram">
-                                                                    <i class="lastudioicon-b-instagram"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#">Blog <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
                                         <ul class="sub-menu">
                                             <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
                                             <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
@@ -315,186 +192,186 @@ include_once('php/query.php')
 
     <!-- Cart Sidebar Start -->
     <!-- Cart Offcanvas Start -->
-    
+
     <div class="offcanvas offcanvas-end cart-offcanvas" id="cartSidebar">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title">My Cart</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="remove">
-            <i class="lastudioicon-e-remove"></i>
-        </button>
-    </div>
-    <div class="offcanvas-body">
-        <ul class="offcanvas-cart-list">
-            <li>
-                <!-- Offcanvas Cart Item Start -->
-                <div class="offcanvas-cart-item">
-                    <div class="offcanvas-cart-item__thumbnail">
-                        <a href="#">
-                            <img src="assets/images/products/product-02.png" width="70" height="84" alt="product" />
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">My Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="remove">
+                <i class="lastudioicon-e-remove"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="offcanvas-cart-list">
+                <li>
+                    <!-- Offcanvas Cart Item Start -->
+                    <div class="offcanvas-cart-item">
+                        <div class="offcanvas-cart-item__thumbnail">
+                            <a href="#">
+                                <img src="assets/images/products/product-02.png" width="70" height="84" alt="product" />
+                            </a>
+                        </div>
+                        <div class="offcanvas-cart-item__content">
+                            <h4 class="offcanvas-cart-item__title">
+                                <a href="#">Princess set</a>
+                            </h4>
+                            <span class="offcanvas-cart-item__quantity">
+                                1 × $69.99
+                            </span>
+                        </div>
+                        <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
+                            <i class="lastudioicon-e-remove"></i>
                         </a>
                     </div>
-                    <div class="offcanvas-cart-item__content">
-                        <h4 class="offcanvas-cart-item__title">
-                            <a href="#">Princess set</a>
-                        </h4>
-                        <span class="offcanvas-cart-item__quantity">
-                        1 × $69.99
-                    </span>
-                    </div>
-                    <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
-                        <i class="lastudioicon-e-remove"></i>
-                    </a>
-                </div>
-                <!-- Offcanvas Cart Item End -->
-            </li>
-            <li>
-                <!-- Offcanvas Cart Item Start -->
-                <div class="offcanvas-cart-item">
-                    <div class="offcanvas-cart-item__thumbnail">
-                        <a href="#">
-                            <img src="assets/images/products/product-04.png" width="70" height="84" alt="product" />
+                    <!-- Offcanvas Cart Item End -->
+                </li>
+                <li>
+                    <!-- Offcanvas Cart Item Start -->
+                    <div class="offcanvas-cart-item">
+                        <div class="offcanvas-cart-item__thumbnail">
+                            <a href="#">
+                                <img src="assets/images/products/product-04.png" width="70" height="84" alt="product" />
+                            </a>
+                        </div>
+                        <div class="offcanvas-cart-item__content">
+                            <h4 class="offcanvas-cart-item__title">
+                                <a href="#">Senecio stapeliiformis </a>
+                            </h4>
+                            <span class="offcanvas-cart-item__quantity">
+                                1 × $89.99
+                            </span>
+                        </div>
+                        <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
+                            <i class="lastudioicon-e-remove"></i>
                         </a>
                     </div>
-                    <div class="offcanvas-cart-item__content">
-                        <h4 class="offcanvas-cart-item__title">
-                            <a href="#">Senecio stapeliiformis </a>
-                        </h4>
-                        <span class="offcanvas-cart-item__quantity">
-                        1 × $89.99
-                    </span>
-                    </div>
-                    <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
-                        <i class="lastudioicon-e-remove"></i>
-                    </a>
-                </div>
-                <!-- Offcanvas Cart Item End -->
-            </li>
-            <li>
-                <!-- Offcanvas Cart Item Start -->
-                <div class="offcanvas-cart-item">
-                    <div class="offcanvas-cart-item__thumbnail">
-                        <a href="#">
-                            <img src="assets/images/products/product-05.png" width="70" height="84" alt="product" />
+                    <!-- Offcanvas Cart Item End -->
+                </li>
+                <li>
+                    <!-- Offcanvas Cart Item Start -->
+                    <div class="offcanvas-cart-item">
+                        <div class="offcanvas-cart-item__thumbnail">
+                            <a href="#">
+                                <img src="assets/images/products/product-05.png" width="70" height="84" alt="product" />
+                            </a>
+                        </div>
+                        <div class="offcanvas-cart-item__content">
+                            <h4 class="offcanvas-cart-item__title">
+                                <a href="#">Hoya burtoniae </a>
+                            </h4>
+                            <span class="offcanvas-cart-item__quantity">
+                                1 × $35.99
+                            </span>
+                        </div>
+                        <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
+                            <i class="lastudioicon-e-remove"></i>
                         </a>
                     </div>
-                    <div class="offcanvas-cart-item__content">
-                        <h4 class="offcanvas-cart-item__title">
-                            <a href="#">Hoya burtoniae </a>
-                        </h4>
-                        <span class="offcanvas-cart-item__quantity">
-                        1 × $35.99
-                    </span>
-                    </div>
-                    <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
-                        <i class="lastudioicon-e-remove"></i>
-                    </a>
+                    <!-- Offcanvas Cart Item End -->
+                </li>
+            </ul>
+        </div>
+        <div class="offcanvas-footer">
+            <!-- Free Shipping Goal Start-->
+            <div class="free-shipping-goal">
+                <div class="free-shipping-goal__label text-center">
+                    Buy $3.03 more to enjoy
+                    <strong>FREE Shipping</strong>
                 </div>
-                <!-- Offcanvas Cart Item End -->
-            </li>
-        </ul>
-    </div>
-    <div class="offcanvas-footer">
-        <!-- Free Shipping Goal Start-->
-        <div class="free-shipping-goal">
-            <div class="free-shipping-goal__label text-center">
-                Buy $3.03 more to enjoy
-                <strong>FREE Shipping</strong>
+                <div class="free-shipping-goal__loading-bar">
+                    <div class="load-percent" style="width: 98.49%"></div>
+                </div>
             </div>
-            <div class="free-shipping-goal__loading-bar">
-                <div class="load-percent" style="width: 98.49%"></div>
+            <!-- Free Shipping Goal End-->
+
+            <!-- Cart Meta Start-->
+            <ul class="cart-meta">
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+                                <path d="m9.5 2.5 3 3M1.5 10.5l3 3M11.5.5l3 3-10 10-4 1 1-4Z"></path>
+                            </g>
+                        </svg>
+                        <span>Note</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15.313" height="16" viewBox="0 0 15.313 16">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m.656 3.5 7 3 7-3M7.656 15.5v-9"></path>
+                                <path d="m.656 12.5 7 3 7-3v-9l-7-3-7 3Z"></path>
+                            </g>
+                        </svg>
+                        <span>Shipping</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+                                <path d="M5.5 4.5h5M5.5 9.5h5M13.5 7.5a2 2 0 0 1 2-2v-4a1 1 0 0 0-1-1h-13a1 1 0 0 0-1 1V5a2 2 0 0 1 0 4v3.5a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-3a2 2 0 0 1-2-2Z"></path>
+                            </g>
+                        </svg>
+                        <span>Coupon</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Cart Meta End-->
+
+            <!-- Cart Totals Table Start-->
+            <div class="cart-totals-table">
+                <table class="table">
+                    <tbody>
+                        <tr class="cart-subtotal">
+                            <th>Subtotal</th>
+                            <td>
+                                <span>$195.97</span>
+                            </td>
+                        </tr>
+
+                        <tr class="cart-shipping-totals">
+                            <th>Shipping</th>
+                            <td>
+                                <ul class="shipping-methods">
+                                    <li class="single-form">
+                                        <input type="radio" name="shipping" id="flat-rate" />
+                                        <label for="flat-rate" class="single-form__label radio-label">
+                                            <span></span>
+                                            Flat rate:
+                                            <strong class="price">$20.00</strong>
+                                        </label>
+                                    </li>
+                                    <li class="single-form">
+                                        <input type="radio" name="shipping" id="local-pickup" />
+                                        <label for="local-pickup" class="single-form__label radio-label">
+                                            <span></span>
+                                            Local pickup</label>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr class="order-total">
+                            <th>Total</th>
+                            <td data-title="Total">
+                                <strong><span>$215.97</span></strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            <!-- Cart Totals Table End-->
+
+            <!-- Cart Buttons End-->
+            <div class="cart-buttons">
+                <a href="#" class="cart-buttons__btn-1 btn">Checkout</a>
+                <a href="#" class="cart-buttons__btn-2 btn">View Cart</a>
+            </div>
+            <!-- Cart Buttons End-->
         </div>
-        <!-- Free Shipping Goal End-->
-
-        <!-- Cart Meta Start-->
-        <ul class="cart-meta">
-            <li>
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
-                            <path d="m9.5 2.5 3 3M1.5 10.5l3 3M11.5.5l3 3-10 10-4 1 1-4Z"></path>
-                        </g>
-                    </svg>
-                    <span>Note</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15.313" height="16" viewBox="0 0 15.313 16">
-                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m.656 3.5 7 3 7-3M7.656 15.5v-9"></path>
-                            <path d="m.656 12.5 7 3 7-3v-9l-7-3-7 3Z"></path>
-                        </g>
-                    </svg>
-                    <span>Shipping</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14">
-                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
-                            <path d="M5.5 4.5h5M5.5 9.5h5M13.5 7.5a2 2 0 0 1 2-2v-4a1 1 0 0 0-1-1h-13a1 1 0 0 0-1 1V5a2 2 0 0 1 0 4v3.5a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-3a2 2 0 0 1-2-2Z"></path>
-                        </g>
-                    </svg>
-                    <span>Coupon</span>
-                </a>
-            </li>
-        </ul>
-        <!-- Cart Meta End-->
-
-        <!-- Cart Totals Table Start-->
-        <div class="cart-totals-table">
-            <table class="table">
-                <tbody>
-                    <tr class="cart-subtotal">
-                        <th>Subtotal</th>
-                        <td>
-                            <span>$195.97</span>
-                        </td>
-                    </tr>
-
-                    <tr class="cart-shipping-totals">
-                        <th>Shipping</th>
-                        <td>
-                            <ul class="shipping-methods">
-                                <li class="single-form">
-                                    <input type="radio" name="shipping" id="flat-rate" />
-                                    <label for="flat-rate" class="single-form__label radio-label">
-                                        <span></span>
-                                        Flat rate:
-                                        <strong class="price">$20.00</strong>
-                                    </label>
-                                </li>
-                                <li class="single-form">
-                                    <input type="radio" name="shipping" id="local-pickup" />
-                                    <label for="local-pickup" class="single-form__label radio-label">
-                                        <span></span>
-                                        Local pickup</label>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-
-                    <tr class="order-total">
-                        <th>Total</th>
-                        <td data-title="Total">
-                            <strong><span>$215.97</span></strong>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- Cart Totals Table End-->
-
-        <!-- Cart Buttons End-->
-        <div class="cart-buttons">
-            <a href="#" class="cart-buttons__btn-1 btn">Checkout</a>
-            <a href="#" class="cart-buttons__btn-2 btn">View Cart</a>
-        </div>
-        <!-- Cart Buttons End-->
     </div>
-</div>
-    
+
     <!-- Cart Offcanvas End -->
 
     <!-- Cart Sidebar End -->
@@ -886,6 +763,6 @@ include_once('php/query.php')
 
     <main>
         <!-- Breadcrumb Start -->
-       
+
         <!-- Bre
         
