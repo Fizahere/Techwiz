@@ -129,5 +129,5 @@ if (isset($_POST['sort-by-vaccination-date'])) {
 <script src="js/script.js"></script>
 
 <?php
-include('footer.php')
+include('footer.php');
 ?>

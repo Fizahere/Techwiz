@@ -8,7 +8,7 @@ include_once('header_admin.php')
                 <div class="bg-white rounded h-100 ">
                     <div class="d-flex bg-light justify-content-between">
 
-                        <h4>Vaccine Details  </h4>
+                        <h4>User Details  </h4>
 
 
 
@@ -20,34 +20,34 @@ include_once('header_admin.php')
                                 <tr>
                                     <th scope="col">#</th>
 
-                                    <td>Vaccine Name</td>
-                                    <td>Vaccine Stock</td>
-                                    <td>Hospital Name </td>
+                                    <td>First Name</td>
+                                    <td>Last Name</td>
+                                    <td>Email </td>
                                     
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                        $query = $pdo->query("SELECT * FROM vaccine_details JOIN  hospital_login on  vaccine_details.hospitalID = hospital_login.hospitalID ");
+                        $query = $pdo->query("SELECT * FROM users");
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
                
                         foreach($result as $row){
                         ?>
                                 <tr class="tr-row">
                                     <th scope="row">
-                                        <?php echo $row['vaccineID'] ?>
+                                        <?php echo $row['userID'] ?>
                                     </th>
 
                                     <td>
-                                        <?php echo $row['vaccineName'] ?>
+                                        <?php echo ucfirst($row['firstName']) ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['vaccineStock'] ?>
+                                        <?php echo ucfirst($row['lastName'] )?>
                                     </td>
                                    
                                     <td>
-                                        <?php echo $row['hospitalName'] ?>
+                                        <?php echo $row['userEmail'] ?>
                                     </td>
                                     
                                    

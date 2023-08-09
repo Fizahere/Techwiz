@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 01:30 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Aug 09, 2023 at 06:33 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_plantsshop`
+-- Database: `plantnest`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +33,7 @@ CREATE TABLE `admins` (
   `adminEmail` varchar(225) DEFAULT NULL,
   `password` varchar(225) DEFAULT NULL,
   `adminImage` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admins`
@@ -49,16 +49,16 @@ INSERT INTO `admins` (`adminID`, `adminName`, `adminEmail`, `password`, `adminIm
 --
 
 CREATE TABLE `categories` (
-  `cateoryID` int(11) NOT NULL,
+  `categoryID` int(11) NOT NULL,
   `categoryName` varchar(225) DEFAULT NULL,
   `categoryImage` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`cateoryID`, `categoryName`, `categoryImage`) VALUES
+INSERT INTO `categories` (`categoryID`, `categoryName`, `categoryImage`) VALUES
 (1, 'category1', 0),
 (2, 'category2', 0);
 
@@ -76,7 +76,7 @@ CREATE TABLE `orders` (
   `orderDate` timestamp NULL DEFAULT current_timestamp(),
   `totalAmount` varchar(225) DEFAULT NULL,
   `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
@@ -98,16 +98,17 @@ CREATE TABLE `products` (
   `productDescription` varchar(225) DEFAULT NULL,
   `productPrice` varchar(225) DEFAULT NULL,
   `productImage` varchar(225) DEFAULT NULL,
+  `productStock` varchar(255) NOT NULL,
   `cateoryID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`productID`, `productName`, `productDescription`, `productPrice`, `productImage`, `cateoryID`) VALUES
-(1, 'sunflower', 'jkkkkkkkkkkkkkkkk', '00', 'ioyi', 2),
-(2, 'sunflower2', 'jkkkkkkkkkkkkkkkk', '00', 'ioyi', 2);
+INSERT INTO `products` (`productID`, `productName`, `productDescription`, `productPrice`, `productImage`, `productStock`, `cateoryID`) VALUES
+(1, 'sunflower', 'jkkkkkkkkkkkkkkkk', '00', 'ioyi', '', 2),
+(2, 'sunflower2', 'jkkkkkkkkkkkkkkkk', '00', 'ioyi', '', 2);
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,7 @@ CREATE TABLE `users` (
   `lastName` varchar(225) DEFAULT NULL,
   `userEmail` varchar(225) NOT NULL,
   `userPassword` varchar(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -149,7 +150,7 @@ ALTER TABLE `admins`
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`cateoryID`);
+  ADD PRIMARY KEY (`categoryID`);
 
 --
 -- Indexes for table `orders`
@@ -187,7 +188,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cateoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -222,7 +223,7 @@ ALTER TABLE `orders`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `c_fk` FOREIGN KEY (`cateoryID`) REFERENCES `categories` (`cateoryID`) ON DELETE SET NULL ON UPDATE SET NULL;
+  ADD CONSTRAINT `c_fk` FOREIGN KEY (`cateoryID`) REFERENCES `categories` (`categoryID`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

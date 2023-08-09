@@ -9,10 +9,10 @@ include_once('header_admin.php');
                 <div class="bg-white rounded h-100 ">
                     <div class="d-flex bg-light justify-content-between">
 
-                        <h4>Hospital Data</h4>
+                        <h4>Category</h4>
 
                         <button type="button" class="btn text-dark  bg-white mb-2 insert" data-bs-toggle="modal"
-                            data-bs-target="#insert-hospital-modal" name="insertCategory">Add hospital
+                            data-bs-target="#insert-category-modal" name="insertCategory">Add category
                         </button>
 
 
@@ -22,65 +22,40 @@ include_once('header_admin.php');
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-
-                                    <th scope="col">Hospital Name</th>
-                                    <th scope="col">Hospital Email</th>
-                                    <th scope="col">Hospital Address</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Category Name</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col"> </th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                        $query = $pdo->query("SELECT * FROM hospital_login");
+                        $query = $pdo->query("SELECT * FROM categories");
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
                
                         foreach($result as $row){
                         ?>
                                 <tr class="tr-row">
                                     <th scope="row">
-                                        <?php echo $row['hospitalID'] ?>
+                                        <?php echo $row['categoryID'] ?>
                                     </th>
 
                                     <td>
-                                        <?php echo $row['hospitalName'] ?>
+                                        <?php echo $row['categoryName'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['hospitalEmail'] ?>
+                                        <?php echo $row['categoryImage'] ?>
                                     </td>
-                                    <td>
-                                        <?php echo $row['hospitalLocation'] ?>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <?php echo $row['hospitalStatus'] ?>
-                                            <div class="mx-auto">
-                                                <i class="fa fa-ellipsis-v" data-bs-toggle="dropdown"
-                                                    aria-expanded="false" id="dropdownMenuButton" aria-haspopup="true"
-                                                    aria-expanded="false"></i>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <form action="" method="post">
-                                                        <input type="hidden" name="statusID"
-                                                            value="<?php echo $row['hospitalID'] ?>">
-                                                        <button class="dropdown-item"
-                                                            name="hospitalApprove">Approve</button>
-                                                        <button class="dropdown-item"
-                                                            name="hospitalReject">Reject</button>
-                                                    </form>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </td>
+                                   
+                              
                                     <td class="">
                                         <button class="btn btn-white edit-btn " data-bs-toggle="modal"
-                                            data-bs-target="#update-hospital-modal<?php echo $row['hospitalID']  ?>">
+                                            data-bs-target="#update-hospital-modal<?php echo $row['categoryID']  ?>">
                                             <i class="fa fa-edit"></i>
                                         </button>
 
                                         <button class="btn btn-white" data-bs-toggle="modal"
-                                            data-bs-target="#delete-hospital-modal<?php echo $row['hospitalID']  ?>">
+                                            data-bs-target="#delete-hospital-modal<?php echo $row['categoryID']  ?>">
                                             <i class="fa fa-trash"></i>
                                         </button>
 
@@ -92,7 +67,7 @@ include_once('header_admin.php');
                                         | [start]                                         |
                                         |                                                 |      
                                         -------------------------------------------------->
-                                <div class="modal" id="update-hospital-modal<?php echo $row['hospitalID'] ?>">
+                                <div class="modal" id="update-hospital-modal<?php echo $row['categoryID'] ?>">
                                     <div class="modal-dialog modal-xl bg-light ">
                                         <div class="modal-content bg-light">
                                             <div class="modal-header">
@@ -168,7 +143,7 @@ include_once('header_admin.php');
                                         | [start]                                         |
                                         |                                                 |      
                                         -------------------------------------------------->
-                                <div class="modal " id="delete-hospital-modal<?php echo $row['hospitalID'] ?>">
+                                <div class="modal " id="delete-hospital-modal<?php echo $row['categoryID'] ?>">
                                     <div class="modal-dialog modal-xl bg-light w-50">
                                         <div class="modal-content bg-light">
                                             <!-- <div class="modal-header">
@@ -232,11 +207,11 @@ include_once('header_admin.php');
                                         | [start]                                         |
                                         |                                                 |      
                                         -------------------------------------------------->
-<div class="modal" id="insert-hospital-modal">
+<div class="modal" id="insert-category-modal">
     <div class="modal-dialog modal-xl bg-white">
         <div class="modal-content bg-white">
             <div class="modal-header">
-                <h4 class="modal-title">Add Hospital</h4>
+                <h4 class="modal-title">Add Category</h4>
                 <button type="button" class="btn-close bg-white" data-bs-dismiss="modal"></button>
             </div>
             <!-- Modal body -->
@@ -248,16 +223,7 @@ include_once('header_admin.php');
                         <div class="col-sm-10"> <input placeholder="Enter hospital name.." class="form-control bg-white"
                                 name="insert-hospital-name"></div>
                     </div>
-                    <div class="mb-3 row form-group">
-                        <label for="" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10"> <input placeholder="Enter hospital email.."
-                                class="form-control bg-white" name="insert-hospital-email"></div>
-                    </div>
-                    <div class="mb-3 row form-group">
-                        <label for="" class="col-sm-2 col-form-label">Location</label>
-                        <div class="col-sm-10"> <input placeholder="Enter hospital location.."
-                                class="form-control bg-white" name="insert-hospital-location"></div>
-                    </div>
+                 
                     <div class="mb-3 row form-group">
     <label for="" class="col-sm-2 col-form-label">Password</label>
     <div class="col-sm-10">
@@ -305,5 +271,5 @@ include_once('header_admin.php');
     }
 </script>
 <?php
-include('footer.php')
+include('footer.php');
 ?>
