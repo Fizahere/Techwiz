@@ -31,7 +31,7 @@ signUp.addEventListener('submit', function (event) {
 firstName.addEventListener('input', function (event) {
     event.preventDefault
     let firstName = document.getElementById('username').value
-    let nameRejax = /[A-Za-z]{3,}$/
+    let nameRejax = /^[A-Za-z]{3,}$/
     if (!firstName) {
         document.getElementById("username").style = "border:1px solid red"
         document.getElementById("errorFirstName").style = "color:red"
@@ -52,7 +52,7 @@ firstName.addEventListener('input', function (event) {
 lastName.addEventListener('input', function (event) {
     event.preventDefault
     let lastName = document.getElementById('lastname').value
-    let nameRejax = /[A-Za-z]{3,}$/
+    let nameRejax = /^[A-Za-z]{3,}$/
     if (!lastName) {
         document.getElementById("lastname").style = "border:1px solid red"
         document.getElementById("errorLastName").style = "color:red"
@@ -91,7 +91,7 @@ email.addEventListener('input', function (event) {
 password.addEventListener('input', function (event) {
     event.preventDefault
     let password = document.getElementById('password').value
-    let passwordRejax = /^[\w]{6,}$/
+    let passwordRejax = /^[\w]{4,}$/
     if (!password) {
         document.getElementById("password").style = "border:1px solid red"
         document.getElementById("errorPassword").style = "color:red"
