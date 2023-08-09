@@ -5,7 +5,7 @@ include_once('php/functions.php');
 
 function getRoot()
 {
-    return '/vaccinationbookingsystem/eProject/';
+    return '/Techwiz/plantfy/';
 }
 
 ?>
