@@ -83,12 +83,12 @@
                             <div class="header-mid-meta">
                                 <ul class="header-mid-meta__item justify-content-end">
                                     <li>
-                                        <a href="my-account.html" aria-label="My Account">
+                                        <a href="my-account.php" aria-label="My Account">
                                             <i class="lastudioicon-single-01-2"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="wishlist.html" aria-label="Wishlist">
+                                        <a href="wishlist.php" aria-label="Wishlist">
                                             <i class="lastudioicon-heart-2"></i>
                                             <span class="badge">03</span>
                                         </a>
@@ -129,21 +129,21 @@
                                 Demos <i class="lastudioicon-down-arrow" aria-hidden="true"></i>
                             </a>
                             <ul class="sub-menu">
-                                <li><a href="index.html">Plant 01</a></li>
-                                <li><a href="index-2.html">Plant 02</a></li>
+                                <li><a href="index.php">Plant 01</a></li>
+                                <li><a href="index-2.php">Plant 02</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#">Pages <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
                             <ul class="sub-menu">
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
-                                <li><a href="our-team.html">Our Team</a></li>
-                                <li><a href="contact-us.html">Contact Us</a></li>
-                                <li><a href="faqs.html">FAQ's</a></li>
-                                <li><a href="term-of-use.html">term of use</a></li>
-                                <li><a href="404.html">404 Page</a></li>
-                                <li><a href="login-register.html">Login & Register</a></li>
+                                <li><a href="about.php">About us</a></li>
+                                <li><a href="coming-soon.php">Coming Soon</a></li>
+                                <li><a href="our-team.php">Our Team</a></li>
+                                <li><a href="contact-us.php">Contact Us</a></li>
+                                <li><a href="faqs.php">FAQ's</a></li>
+                                <li><a href="term-of-use.php">term of use</a></li>
+                                <li><a href="404.php">404 Page</a></li>
+                                <li><a href="login-register.php">Login & Register</a></li>
                             </ul>
                         </li>
                         <li class="position-static">
@@ -152,11 +152,11 @@
                                 <div class="mega-menu-col">
                                     <h5 class="mega-menu-title">Shop Layout</h5>
                                     <ul class="">
-                                        <li><a href="shop-fullwidth.html">Shop Fullwidth</a></li>
-                                        <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
-                                        <li><a href="shop-masonry.html">Shop Masonry</a></li>
-                                        <li><a href="shop-3-columns.html">Shop 03 Columns</a></li>
-                                        <li><a href="shop-4-columns.html">Shop 04 Columns</a></li>
+                                        <li><a href="shop-fullwidth.php">Shop Fullwidth</a></li>
+                                        <li><a href="shop-sidebar.php">Shop Sidebar</a></li>
+                                        <li><a href="shop-masonry.php">Shop Masonry</a></li>
+                                        <li><a href="shop-3-columns.php">Shop 03 Columns</a></li>
+                                        <li><a href="shop-4-columns.php">Shop 04 Columns</a></li>
                                     </ul>
                                 </div>
                                 <div class="mega-menu-col">
@@ -169,12 +169,12 @@
                                 <div class="mega-menu-col">
                                     <h5 class="mega-menu-title">Shop Pages</h5>
                                     <ul class="">
-                                        <li><a href="my-account.html">My Account</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="order-tracking.html">Order Tracking</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="compare.html">Compare</a></li>
-                                        <li><a href="empty-cart.html">Cart Empty</a></li>
+                                        <li><a href="my-account.php">My Account</a></li>
+                                        <li><a href="cart.php">Cart</a></li>
+                                        <li><a href="order-tracking.php">Order Tracking</a></li>
+                                        <li><a href="wishlist.php">Wishlist</a></li>
+                                        <li><a href="compare.php">Compare</a></li>
+                                        <li><a href="empty-cart.php">Cart Empty</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
                                         <li><a href="thank-you.html">Thank You</a></li>
                                     </ul>
