@@ -106,7 +106,7 @@ include_once('php/query.php')
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
                         <div class="header__main--logo text-center text-xl-start">
-                            <a href="index.php">
+                            <a href="index.html">
                                 <img src="assets/images/logo.png" alt="Logo" />
                             </a>
                         </div>
@@ -119,7 +119,7 @@ include_once('php/query.php')
                                     <li>
                                         <a class="active" href="index.php">
                                             Home
-                                      
+                                        </a>
                                     </li>
                                     <li>
                                         <a href="about.php">About Us</a>
@@ -496,8 +496,8 @@ include_once('php/query.php')
             <nav class="navbar-mobile-menu">
                 <ul class="mobile-menu-items">
                     <li>
-                        <a href="index.php">
-                            Home
+                        <a href="#">
+                            Demos
                             <span class="menu-expand" aria-label="down-arrow">
                                 <i class="lastudioicon-down-arrow"></i>
                             </span>
