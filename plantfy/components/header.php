@@ -1,3 +1,6 @@
+<?php
+include("./php/query.php");
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -6,7 +9,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Plantfy - Plants Store Website Template</title>
+    <title>Plants Nest - Plants Store Website</title>
 
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="Plantfy - Plants Store Website Template" />
