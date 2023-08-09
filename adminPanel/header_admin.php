@@ -89,8 +89,7 @@ include("php/query.php");
                 <div class="navbar-nav w-100">
 
 
-                    <a href="hospitalData.php" class="nav-item nav-link "><i class="fa fa-hospital me-2"></i>Hospital
-                        Data</a>
+                    <a href="hospitalData.php" class="nav-item nav-link "><i class="fa fa-hospital me-2"></i></a>
                     <a href="vaccineReport.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Vaccine
                         Details</a>
                     <a href="parentRequest.php" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Parent</a>
@@ -121,7 +120,7 @@ include("php/query.php");
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <?php
-                            $query = $pdo->query("SELECT * from orders where Order_Status	 = 'pending'  LIMIT 1");
+                            $query = $pdo->query("SELECT * from orders where orderStatus	 = 'pending'  LIMIT 1");
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
                         if (empty($result)) {
                             ?>
@@ -159,7 +158,7 @@ include("php/query.php");
 
                                     <h6 class="fw-normal mb-0">
                                         Appointment request for '
-                                        <?php echo ucfirst($row['Order_ID']) ?>'
+                                        <?php echo ucfirst($row['orderStatus']) ?>'
                                     </h6>
                                 </a>
                                 <hr class="dropdown-divider">
