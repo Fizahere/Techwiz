@@ -72,16 +72,17 @@ include("php/query.php");
                 <div class="d-flex align-items-center ms-4 mb-4">
               
                     <div class="ms-3">
-                        <?php
+                        <!-- <hp
                         $user = $_SESSION['Admin'];
                         foreach ($user as $value) {
-                            ?>
+                            ?> -->
                             <h6 class="mb-0">
-                                <?php echo ucfirst($value['adminName'] )?>
+                                <!-- <hp echo ucfirst($value['adminName'] )?> -->
+                                    Admin
                             </h6>
-                            <?php
+                            <!-- <hp
                         }
-                        ?>
+                        ?> -->
                         <span>Admin</span>
                     </div>
                 </div>
@@ -119,15 +120,11 @@ include("php/query.php");
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
-                        <!-- <
-                        $queryParentData = $pdo->query("SELECT * from parent_login where parentStatus = 'pending' LIMIT 2");
-                        $resultParentData = $queryParentData->fetchAll(PDO::FETCH_ASSOC);
-                        $queryHospitalData = $pdo->query("SELECT * from hospital_login where hospitalStatus = 'pending'  LIMIT 2");
-                        $resultHospitalData = $queryHospitalData->fetchAll(PDO::FETCH_ASSOC);
-                        $queryAppointment = $pdo->query("SELECT * from children_details where appointmentStatus = 'pending'  LIMIT 1");
-                        $resultAppointment = $queryAppointment->fetchAll(PDO::FETCH_ASSOC);
-                        if (empty($resultParentData) && empty($resultHospitalData) && empty($resultAppointment)) {
-                            ?> -->
+                        <?php
+                            $query = $pdo->query("SELECT * from orders where Order_Status	 = 'pending'  LIMIT 1");
+                        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+                        if (empty($result)) {
+                            ?>
                             <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown">
                                 <i class="fa fa-bell me-lg-2">
                                 </i>
@@ -135,10 +132,10 @@ include("php/query.php");
 
                             </a>
 
-                            <!-- <hp
+                            <?php
                         } else {
 
-                            ?> -->
+                            ?>
                             <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown">
                                 <i class="fa fa-bell me-lg-2 position-relative">
                                     <div
@@ -149,60 +146,29 @@ include("php/query.php");
 
                             </a>
 
-                            <!-- <p
+                            <?php
 
-                        } ?> -->
+                        } ?>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-
-                            <!-- <
-
-
-                             foreach ($resultParentData as $row1) {
-                                ?> -->
-                                <a href="parentRequest.php" class="dropdown-item link-secondary">
-
-                                    <h6 class="fw-normal mb-0">
-                                        <?php echo ucfirst($row1['parentName']) ?> has requested for registeration
-                                    </h6>
-                                </a>
-                                <hr class="dropdown-divider">
-                                <!-- <php
-                            }
-                            ?> -->
                             <?php
 
 
-                            foreach ($resultAppointment as $row) {
+                            foreach ($result as $row) {
                                 ?>
                                 <a href="childDetails.php" class="dropdown-item link-secondary">
 
                                     <h6 class="fw-normal mb-0">
                                         Appointment request for '
-                                        <?php echo ucfirst($row['childName']) ?>'
+                                        <?php echo ucfirst($row['Order_ID']) ?>'
                                     </h6>
                                 </a>
                                 <hr class="dropdown-divider">
                                 <?php
                             }
-
-                            foreach ($resultHospitalData as $row2) {
-                                ?>
-                                <a href="hospitalData.php" class="dropdown-item link-secondary">
-
-
-                                    <h6 class="fw-normal mb-0">
-                                        <?php echo ucfirst($row2['hospitalName']) ?> hospital has requested for
-                                        registeration
-                                    </h6>
-
-
-                                </a>
-                                <hr class="dropdown-divider">
-                                <?php
-                            }
-                            ?>
+?>
+                           
                             <?php
-                            if (empty($resultHospitalData) && empty($resultParentData) && empty($resultAppointment)) {
+                            if (empty($result)) {
                                 ?>
                                 <a class="dropdown-item text-center link-secondary">No notification</a>
                                 <?php
@@ -221,16 +187,17 @@ include("php/query.php");
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <?php
+                            <!-- <p
                             $user = $_SESSION['Admin'];
                             foreach ($user as $value) {
-                                ?>
+                                ?> -->
                                 <span class="d-none d-lg-inline-flex">
-                                    <?php echo ucfirst($value['adminName']) ?>
+                                    <!-- <p echo ucfirst($value['adminName']) ?> -->
+                                        Admin
                                 </span>
-                                <?php
+                                <!-- <hp
                             }
-                            ?>
+                            ?> -->
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="adminProfile.php" class="dropdown-item">My Profile</a>
