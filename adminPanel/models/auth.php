@@ -65,6 +65,15 @@ class Auth
         $query->bindParam(':contact', $phone);
         $query->execute();
     }
+
+    function abc($admin_ID,$admin_name,$admin_email,$admin_password,$pdo){
+          $query= $pdo -> prepare("update admins set adminName = :name,adminEmail = :email, adminPassword = :password where adminID = :_id");
+            $query -> bindParam('name', $admin_name);
+            $query -> bindParam('email', $admin_email);
+            $query -> bindParam('password', $admin_password);
+            $query -> bindParam('_id', $admin_ID);
+            $query -> execute();
+    }
 }
 
 ?>

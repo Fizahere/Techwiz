@@ -8,18 +8,21 @@ include_once("models/auth.php");
 |   [start]                                                                                      |  
 ------------------------------------------------------------------------------------------------->
 <?php
+$authModel  =  new Auth();
 
 if (isset($_POST['update_admin_info'])) {
     $admin_ID = $_POST['model-admin-ID'];
     $admin_name = $_POST['model-admin-name'];
     $admin_email= $_POST['modal-admin-email'];
     $admin_password= $_POST['modal-admin-password'];
-            $query= $pdo -> prepare("update admins set adminName = :name,adminEmail = :email, adminPassword = :password where adminID = :_id");
-            $query -> bindParam('name', $admin_name);
-            $query -> bindParam('email', $admin_email);
-            $query -> bindParam('password', $admin_password);
-            $query -> bindParam('_id', $admin_ID);
-            $query -> execute();
+            // $query= $pdo -> prepare("update admins set adminName = :name,adminEmail = :email, adminPassword = :password where adminID = :_id");
+            // $query -> bindParam('name', $admin_name);
+            // $query -> bindParam('email', $admin_email);
+            // $query -> bindParam('password', $admin_password);
+            // $query -> bindParam('_id', $admin_ID);
+            // $query -> execute();
+
+            $authModel->abc($admin_ID,$admin_name,$admin_email,$admin_password,$pdo);
             echo "<script>
         location.assign('adminProfile.php')
         </script>";
