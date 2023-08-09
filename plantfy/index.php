@@ -487,20 +487,22 @@ include_once('components/addtocart.php')
                              $result = $query->fetchAll(PDO::FETCH_ASSOC);
                              foreach($result as $categories){
                             ?>
+                            <a href="shop-fullwidth.php?id=<?php echo $categories['category_ID'] ?>">
                                    <div class="quick-shop-item swiper-slide js-scroll ShortFadeInUp">
                                 <div class="quick-shop-item__image">
-                                    <a href="shop-fullwidth.php">
+                                    <a href="shop-fullwidth.php?id=<?php echo $categories['category_ID'] ?>">
                                         <img src="assets/images/quick-shop/<?php echo $categories['ctgImage'] ?>" alt="Quick Shop" width="203" height="226" loading="lazy" />
                                     </a>
                                 </div>
                                 <div class="quick-shop-item__content">
                                     <h4 class="quick-shop-item__title">
-                                        <a href="shop-fullwidth.php">
+                                        <a href="shop-fullwidth.php?id=<?php echo $categories['category_ID'] ?>">
                                             <?php echo $categories['Name'] ?>
                                         </a>
                                     </h4>
                                 </div>
                             </div>
+                            </a>
                                 <?php
                             }
                             ?>
@@ -618,7 +620,7 @@ include_once('components/addtocart.php')
             </div>
         </div>
         <!-- Show Some Product End -->
-
+        <hr style="color:white"></hr>
         <!-- Video Promotion Start -->
         <div class="video-promotion-section" style="background-image: url(assets/images/background-2.jpg)">
             <div class="container-fluid custom-container">

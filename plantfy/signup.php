@@ -735,7 +735,7 @@ include_once('components/addtocart.php')
                     <div class="col-md-6">
                         <!-- Log In & Register Box Start -->
                         <div class="login-register">
-                            <h3 class="login-register__title">Register</h3>
+                            <h3 class="login-register__title">Sign Up</h3>
 
                             <form action="#" method='post'>
                                 <div class="login-register__form">
@@ -754,9 +754,18 @@ include_once('components/addtocart.php')
                                     </div>
                                 
                                     <div class="single-form">
+                                    <div class="single-form">
+                                        <p class="lost-password">
+                                            <span>already have an account?
+                                            <a href="login.php" class='text-primary'>Log in</a>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    
                                         <button type="submit" name="signup" class="single-form__btn btn">
-                                            Register
+                                            Sign Up
                                         </button>
+                                        
                                     </div>
                                 </div>
                             </form>
@@ -848,21 +857,7 @@ include_once('components/addtocart.php')
 
     <!-- JS Vendor, Plugins & Activation Script Files -->
 
-    <!-- Bootstrap JS -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugins JS -->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/masonry.pkgd.min.js"></script>
-    <script src="assets/js/glightbox.min.js"></script>
-    <script src="assets/js/nice-select2.js"></script>
-
-    <!-- Activation JS -->
-    <script src="assets/js/main.js"></script>
 
 </body>
-
-
-<!-- Mirrored from htmldemo.net/plantfy/plantfy/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:56 GMT -->
-
 </html>

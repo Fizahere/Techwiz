@@ -28,16 +28,15 @@ class Auth
     }
 
     //update 
-    // function update($name, $email, $password, $id, $pdo)
-    // {
-    //     $query = $pdo->prepare("update tabelname set Name = :name, Email = :email, Password = :password where ID = :id");
-    //     $query->bindParam('name', $name);
-    //     $query->bindParam('email', $email);
-    //     $query->bindParam('password', $password);
-    //     $query->bindParam('password', $password);
-    //     $query->bindParam('id', $id);
-    //     $query->execute();
-    // }
+    function update($userName,$fullName,$emailAddress,$userID,$pdo)
+    {
+        $query = $pdo->prepare("update users set Username = :name, Fullname = :fullname, Email = :email where User_ID = :id");
+        $query->bindParam('name', $userName);
+        $query->bindParam('fullname', $fullName);
+        $query->bindParam('email', $emailAddress);
+        $query->bindParam('id', $userID);
+        $query->execute();
+    }
 
     // //delete
     // function delete($id, $pdo)
