@@ -613,9 +613,9 @@ include_once('components/addtocart.php')
                             <div class="instagram-item__image">
                                 <img src="assets/images/instagram/about-instagram-2.jpg" alt="Instagram" width="946" height="396" loading="lazy" />
                             </div>
-                            <div class="instagram-item__icon">
+                            <!-- <div class="instagram-item__icon">
                                 <i class="lastudioicon-b-instagram"></i>
-                            </div>
+                            </div> -->
                         </a>
                     </div>
                     <!-- Instagram item End -->
@@ -627,9 +627,9 @@ include_once('components/addtocart.php')
                             <div class="instagram-item__image">
                                 <img src="assets/images/instagram/about-instagram-4.jpg" alt="Instagram" width="946" height="655" loading="lazy" />
                             </div>
-                            <div class="instagram-item__icon">
+                            <!-- <div class="instagram-item__icon">
                                 <i class="lastudioicon-b-instagram"></i>
-                            </div>
+                            </div> -->
                         </a>
                     </div>
                     <!-- Instagram item End -->
@@ -641,9 +641,9 @@ include_once('components/addtocart.php')
                             <div class="instagram-item__image">
                                 <img src="assets/images/instagram/about-instagram-3.jpg" alt="Instagram" width="946" height="525" loading="lazy" />
                             </div>
-                            <div class="instagram-item__icon">
+                            <!-- <div class="instagram-item__icon">
                                 <i class="lastudioicon-b-instagram"></i>
-                            </div>
+                            </div> -->
                         </a>
                     </div>
                     <!-- Instagram item End -->
@@ -658,31 +658,6 @@ include_once('components/addtocart.php')
             <div class="container-fluid custom-container">
                 <!-- Contact Wrapper Start -->
                 <div class="contact-wrapper js-scroll ShortFadeInUp">
-                    <h2 class="contact-wrapper__title">
-                        Let’s talk about your project
-                    </h2>
-                    <form action="#">
-                        <div class="contact-form-style-1">
-                            <!-- Contact Form Style Input Start -->
-                            <div class="contact-form-style-1__input">
-                                <input type="text" placeholder="Your name" />
-                            </div>
-                            <!-- Contact Form Style Input End -->
-
-                            <!-- Contact Form Style Input Start -->
-                            <div class="contact-form-style-1__input">
-                                <input type="text" placeholder="Email address" />
-                            </div>
-                            <!-- Contact Form Style Input End -->
-
-                            <!-- Contact Form Style Input Start -->
-                            <div class="contact-form-style-1__btn">
-                                <button class="btn">Send message</button>
-                            </div>
-                            <!-- Contact Form Style Input End -->
-                        </div>
-                    </form>
-
                     <div class="contact-social">
                         <h2 class="contact-wrapper__title">
                             Connect with us
