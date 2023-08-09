@@ -1,9 +1,8 @@
 <?php
-include("./components/header.php");
+include("./components/sessionHeader.php");
 if (!isset($_SESSION['USER'])) {
     redirectWindow('login.php');
 }
-;
 ?>
 <style>
     .profile img {
@@ -472,7 +471,7 @@ include_once('components/addtocart.php')
                         // print_r($user);
                         foreach ($user as $item) {
                             $userID = $item['userID'];
-                            echo '<script>alert("'.$userID.'")</script>';
+                            // echo '<script>alert("'.$userID.'")</script>';
                         }
                    
                         $query = $pdo->prepare('select * from users where userID = :id');

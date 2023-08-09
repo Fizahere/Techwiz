@@ -13,16 +13,16 @@ $authModel = new Auth();
 // signup
 if (isset($_POST['signup'])) {
     if (empty($_POST['username'])) {
-        redirectWindow('signup.php?error=username is required');
+        redirectWindow('signup.php');
     }
     if (empty($_POST['fullname'])) {
-        redirectWindow('signup.php?error=fullname is required');
+        redirectWindow('signup.php');
     }
     if (empty($_POST['email'])) {
-        redirectWindow('signup.php?error=email is required');
+        redirectWindow('signup.php');
     }
     if (empty($_POST['password'])) {
-        redirectWindow('signup.php?error=password is required');
+        redirectWindow('signup.php');
     }
     $username = $_POST['username'];
     $fullname = $_POST['fullname'];
@@ -39,8 +39,8 @@ if (isset($_POST['signup'])) {
     $user = $authModel->findUserWithEmail($email, $pdo);
 
     if ($user) {
-        $_SESSION['USER'] = $user;
-        redirectWindow('index.php');
+        $_SESSION['USERMain'] = $user;
+        redirectWindow('login.php');
     } else {
         redirectWindow("signup.php?error=Something went wrong");
     }
@@ -60,7 +60,7 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
     // if ($_POST['role'] == 'user') {
     $user = $authModel->findUserWithEmail($email, $pdo);
-    if (password_verify($password, $user[0]['Password'])) {
+    if (password_verify($password, $user[0]['userPassword'])) {
         $_SESSION['USER'] = $user;
         redirectWindow('index.php');
     } else {
