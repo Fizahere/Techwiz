@@ -150,7 +150,7 @@ include_once('components/addtocart.php')
                        
                             <!-- Single product Start -->
                             <?php
-                            $query = $pdo->query("Select * from products");
+                            $query = $pdo->query("Select * from products limit 4");
                             $result = $query->fetchAll(PDO::FETCH_ASSOC);
                             foreach($result as $plants){
                                 ?>

@@ -10,7 +10,6 @@ include_once('components/addtocart.php')
     <!-- Cart Offcanvas End -->
 
     <!-- Cart Sidebar End -->
-
     <main>
         <!-- Error Start -->
         <div class="error-section">

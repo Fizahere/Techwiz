@@ -12,39 +12,37 @@ $authModel = new Auth();
 <?php
 // signup
 if (isset($_POST['signup'])) {
-    if (empty($_POST['username']) && empty($_POST['fullname']) && empty($_POST['email']) && empty($_POST['password'])) {
-        redirectWindow('signup.php');
+    if (empty($_POST['username'])) {
+        redirectWindow('signup.php?error=username is required');
     }
-    // if (empty($_POST['fullname'])) {
-    //     redirectWindow('signup.php');
-    // }
-    // if (empty($_POST['email'])) {
-    //     redirectWindow('signup.php');
-    // }
-    // if (empty($_POST['password'])) {
-    //     redirectWindow('signup.php');
-    // }
-    else {
-        $username = $_POST['username'];
-        $fullname = $_POST['fullname'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+    if (empty($_POST['fullname'])) {
+        redirectWindow('signup.php?error=fullname is required');
+    }
+    if (empty($_POST['email'])) {
+        redirectWindow('signup.php?error=email is required');
+    }
+    if (empty($_POST['password'])) {
+        redirectWindow('signup.php?error=password is required');
+    }
+    $username = $_POST['username'];
+    $fullname = $_POST['fullname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-        //checking if user already exists
-        $user = $authModel->findUserWithEmail($email, $pdo);
-        if ($user) {
-            redirectWindow("signup.php?error=Email already exists");
-        }
+    //checking if user already exists
+    $user = $authModel->findUserWithEmail($email, $pdo);
+    if ($user) {
+        redirectWindow("signup.php?error=Email already exists");
+    }
 
-        $authModel->signup($username, $fullname, $email, $password, $pdo);
-        $user = $authModel->findUserWithEmail($email, $pdo);
+    $authModel->signup($username, $fullname, $email, $password, $pdo);
+    $user = $authModel->findUserWithEmail($email, $pdo);
 
-        if ($user) {
-            $_SESSION['MainUSER'] = $user;
-            redirectWindow('index.php');
-        } else {
-            redirectWindow("signup.php?error=Something went wrong");
-        }
+    if ($user) {
+        $_SESSION['USER'] = $user;
+        redirectWindow('index.php');
+    } else {
+        redirectWindow("signup.php?error=Something went wrong");
     }
 }
 ?>
@@ -62,13 +60,15 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
     // if ($_POST['role'] == 'user') {
     $user = $authModel->findUserWithEmail($email, $pdo);
-    if (password_verify($password, $user[0]['userPassword'])) {
+    if (password_verify($password, $user[0]['Password'])) {
         $_SESSION['USER'] = $user;
         redirectWindow('index.php');
     } else {
         redirectWindow('login.php?error=invalid credentials');
     }
-};
+
+}
+;
 
 if (isset($_POST['edit'])) {
     $userID = $_POST['userID'];
@@ -79,6 +79,6 @@ if (isset($_POST['edit'])) {
     $authModel->update($userName, $fullName, $emailAddress, $userID, $pdo);
     redirectWindow('my-account.php');
     // $query = $pdo->prepare('update users set ')
-}
+};
 
 ?>
