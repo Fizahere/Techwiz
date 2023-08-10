@@ -98,15 +98,15 @@ if(isset($_POST['update_category_info'])){
    
        
     }
-    // ---------------------------------------------------------------------------|
-    // query for update category                                                  |
-    //               [end]                                                        |     
-    // ---------------------------------------------------------------------------|
+// ---------------------------------------------------------------------------|
+// query for update category                                                  |
+//               [end]                                                        |     
+// ---------------------------------------------------------------------------|
     
-    // ---------------------------------------------------------------------------|
-    // query for delete category                                                  |
-    //               [start]                                                      |     
-    // ---------------------------------------------------------------------------|
+// ---------------------------------------------------------------------------|
+// query for delete category                                                  |
+//               [start]                                                      |     
+// ---------------------------------------------------------------------------|
     if (isset($_POST['delete_category_info'])) {
         $category_delete_id = $_POST['delete_category_id'];
         $authModel->deleteCategory( $category_delete_id, $pdo);                
@@ -126,6 +126,59 @@ if(isset($_POST['update_category_info'])){
 <!------------------------------------------------------------------------------
 |   php tag end for queries to add , update , delete                           |
 |   categories  by admin                                                       |
+|   [end]                                                                      |  
+------------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------------
+|   php tag start for queries to add , update , delete                         |
+|   products  by admin  side                                                   |
+|   [start]                                                                    |  
+------------------------------------------------------------------------------->
+<?php
+// ---------------------------------------------------------------------------|
+// query for insert products                                                  |
+//               [start]                                                        |     
+// ---------------------------------------------------------------------------|
+if(isset($_POST['insertProduct'])){
+    $category_name = $_POST['insert-category-name'];
+    $category_image = $_FILES['insert-category-image']['name'];
+    $category_image_size = $_FILES['insert-category-image']['size'];
+    $category_image_tmp_name = $_FILES['insert-category-image']['tmp_name'];
+    $category_image_ext = pathinfo($category_image, PATHINFO_EXTENSION);
+    $destination = "adminImages/".$category_image;
+    if($category_image_size <= 48000000){
+    if($category_image_ext == 'jpg' || $category_image_ext == "png" || $category_image_ext== 'jpeg' || $category_image_ext== 'webp'){
+        if(move_uploaded_file($category_image_tmp_name,$destination)){
+           
+            $authModel->insertCategory($category_name, $category_image, $pdo);
+            echo "<script>alert('category added succesfully')
+            location.assign('category.php')
+            </script>";
+            exit;
+        }
+        
+    }else{
+        echo "<script>alert('not valid extension')
+        location.assign('category.php')
+        </script>";
+    }
+    
+}else{
+    echo "<script>alert('file size is greater')
+    </script>";
+}
+
+
+
+}
+// ---------------------------------------------------------------------------|
+// query for insert products                                                  |
+//               [end]                                                        |     
+// ---------------------------------------------------------------------------|
+?>
+<!------------------------------------------------------------------------------
+|   php tag end for queries to add , update , delete                           |
+|   products  by admin    side                                                 |
 |   [end]                                                                      |  
 ------------------------------------------------------------------------------->
 
