@@ -82,25 +82,31 @@ include_once('components/addtocart.php')
                                         <?php echo $singleItem['productDescription'] ?>
                                     </p>
                                 </div>
-                                <div class="product-single-content__add-to-cart-wrapper">
-                                    <div class="product-single-content__quantity-add-to-cart">
-                                        <div class="product-single-content__quantity product-quantity">
-                                            <button type="button" class="decrease">
-                                                <i class="lastudioicon-i-delete-2"></i>
-                                            </button>
-                                            <input class="quantity-input" type="text" value="1" />
-                                            <button type="button" class="increase">
-                                                <i class="lastudioicon-i-add-2"></i>
+                                <form action="cart.php" method="post">
+                                    <input type="hidden" name="productID" id="" value='<?php echo $singleItem['productID'] ?>'>
+                                    <input type="hidden" name="productName" id="" value='<?php echo $singleItem['productName'] ?>'>
+                                    <input type="hidden" name="productPrice" id="" value='<?php echo $singleItem['productPrice'] ?>'>
+                                    <input type="hidden" name="productDescription" id="" value='<?php echo $singleItem['productDescription'] ?>'>
+                                    <div class="product-single-content__add-to-cart-wrapper">
+                                        <div class="product-single-content__quantity-add-to-cart">
+                                            <div class="product-single-content__quantity product-quantity">
+                                                <button type="button" class="decrease">
+                                                    <i class="lastudioicon-i-delete-2"></i>
+                                                </button>
+                                                <input class="quantity-input" type="text" value="1" />
+                                                <button type="button" class="increase">
+                                                    <i class="lastudioicon-i-add-2"></i>
+                                                </button>
+                                            </div>
+                                            <button name='addToCartBtn' class="product-single-content__add-to-cart btn">
+                                                Add to cart
                                             </button>
                                         </div>
-                                        <button class="product-single-content__add-to-cart btn">
-                                            Add to cart
-                                        </button>
+                                        <a href="#" class="product-add-wishlist">
+                                            Add to Wishlist
+                                        </a>
                                     </div>
-                                    <a href="#" class="product-add-wishlist">
-                                        Add to Wishlist
-                                    </a>
-                                </div>
+                                </form>
                                 <div class="product-single-content__meta">
                                     <div class="product-single-content__meta--item">
                                         <div class="label">Category:</div>

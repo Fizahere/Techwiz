@@ -11,7 +11,8 @@ include_once('components/addtocart.php')
     <!-- Cart Offcanvas End -->
 
     <!-- Cart Sidebar End -->
-    
+
+  
     <main>
         <!-- Breadcrumb Start -->
         <div class="breadcrumb-section">
