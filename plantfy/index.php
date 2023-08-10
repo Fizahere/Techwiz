@@ -221,11 +221,9 @@ include_once('components/addtocart.php')
 
                 <!-- Product btn End -->
                 <div class="text-center js-scroll ShortFadeInUp">
-                    <form action="allProducts.php" method="post">
-                    <button name="viewAllProducts" class="btn product-view-btn">
+                    <a href="allProducts.php" class="btn product-view-btn">
                         View More Items
-                    </button>
-                    </form>
+                        </a>
                     
                 </div>
                 <!-- Product btn End -->
