@@ -113,13 +113,9 @@ include_once('php/query.php')
                                 <!-- Menu Item List Start -->
                                 <ul class="menu-items-list menu-items-list--dark d-flex justify-content-center">
                                     <li>
-                                        <a class="active" href="#">
-                                            Demos <i class="lastudioicon-down-arrow" aria-hidden="true"></i>
+                                        <a class="active" href="index.php">
+                                          Home
                                         </a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Plant 01</a></li>
-                                            <li><a href="index-2.html">Plant 02</a></li>
-                                        </ul>
                                     </li>
                                     <li>
                                         <a href="#">Pages <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
