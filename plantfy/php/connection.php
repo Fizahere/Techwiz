@@ -1,6 +1,6 @@
 <?php
 
-$server = 'mysql:host=localhost;dbname=db_plantsshop';
+$server = 'mysql:host=localhost;dbname=plantNest';
 $user = 'root';
 $password = '';
 
