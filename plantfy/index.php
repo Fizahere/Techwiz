@@ -1,16 +1,7 @@
 <?php
 include("./components/header.php");
-?>
-
-    <!-- Cart Sidebar Start -->
-    <!-- Cart Offcanvas Start -->
-    <?php
-include_once('components/addtocart.php')
  ?>
-    <!-- Cart Offcanvas End -->
 
-    <!-- Cart Sidebar End -->
-    
     <main>
         <!-- Slider Start -->
         <div class="slider-section home-2-slider-navigation slider-active">
@@ -31,7 +22,7 @@ include_once('components/addtocart.php')
                                 </h2>
                                 <ul class="home-1-slider-content-style-1__btns">
                                     <li class="button-01">
-                                        <a class="home-2-slider-content-style-1__btn" href="shop-fullwidth.html">
+                                        <a class="home-2-slider-content-style-1__btn" href="allProducts.php">
                                             Shop now
                                         </a>
                                     </li>

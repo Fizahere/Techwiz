@@ -2,30 +2,13 @@
 include("./components/header.php");
 ?>
 
-    <!-- Cart Sidebar Start -->
-    <!-- Cart Offcanvas Start -->
-    <?php
-include_once('components/addtocart.php')
- ?>
-    <!-- Cart Offcanvas End -->
-
-    <!-- Cart Sidebar End -->
-
-
-
     <main>
 
-        <!-- Popular Product Start -->
-        <!-- <div class="popular-product-section section-padding-1"> -->
             <div class="container-fluid custom-container">
-                <!-- Section Title Start -->
+    
                 <div class="section-title text-center js-scroll ShortFadeInUp">
-                    <!-- <h3 class="section-title__title">Some of our products</h3> -->
                 </div>
-                <!-- Section Title End -->
 
-                <!-- Product Wrapper Start -->
-                <!-- <div class="product-wrapper"> -->
                     <div class="row">
                        
                             <!-- Single product Start -->

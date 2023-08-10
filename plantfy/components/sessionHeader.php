@@ -1,4 +1,11 @@
 <?php
+include("./php/query.php");
+if(!isset($_SESSION['USER'])){
+redirectWindow('login.php');
+}
+?>
+
+<?php
 include_once('php/query.php')
 ?>
 
@@ -366,7 +373,7 @@ include_once('php/query.php')
             <!-- Cart Buttons End-->
             <div class="cart-buttons">
                 <a href="#" class="cart-buttons__btn-1 btn">Checkout</a>
-                <a href="cart.php" class="cart-buttons__btn-2 btn">View Cart</a>
+                <a href="#" class="cart-buttons__btn-2 btn">View Cart</a>
             </div>
             <!-- Cart Buttons End-->
         </div>

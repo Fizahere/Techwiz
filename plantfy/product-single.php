@@ -6,7 +6,7 @@ include("./components/header.php");
 <!-- Cart Sidebar Start -->
 <!-- Cart Offcanvas Start -->
 <?php
-include_once('components/addtocart.php')
+// include_once('components/addtocart.php')
     ?>
 <!-- Cart Offcanvas End -->
 
@@ -87,13 +87,14 @@ include_once('components/addtocart.php')
                                     <input type="hidden" name="productName" id="" value='<?php echo $singleItem['productName'] ?>'>
                                     <input type="hidden" name="productPrice" id="" value='<?php echo $singleItem['productPrice'] ?>'>
                                     <input type="hidden" name="productDescription" id="" value='<?php echo $singleItem['productDescription'] ?>'>
+                                    <input type="hidden" name="productImage" id="" value='<?php echo $singleItem['productImage'] ?>'>
                                     <div class="product-single-content__add-to-cart-wrapper">
                                         <div class="product-single-content__quantity-add-to-cart">
                                             <div class="product-single-content__quantity product-quantity">
                                                 <button type="button" class="decrease">
                                                     <i class="lastudioicon-i-delete-2"></i>
                                                 </button>
-                                                <input class="quantity-input" type="text" value="1" />
+                                                <input class="quantity-input" name="getQty" type="text" value="1" />
                                                 <button type="button" class="increase">
                                                     <i class="lastudioicon-i-add-2"></i>
                                                 </button>
@@ -292,59 +293,6 @@ include_once('components/addtocart.php')
                                                             </p>
                                                         </div>
                                                     </li>
-                                                    <!-- Comment Item End -->
-
-                                                    <!-- Comment Item Start -->
-                                                    <li class="comment-item">
-                                                        <div class="comment-item__author">
-                                                            <img src="assets/images/user/user-2.jpg" alt="Author" width="90"
-                                                                height="90" />
-                                                        </div>
-                                                        <div class="comment-item__content">
-                                                            <div class="comment-item__rating">
-                                                                <span class="star-rating">
-                                                                    <span style="
-                                                                    width: 80%;
-                                                                "></span>
-                                                                </span>
-                                                            </div>
-                                                            <p class="comment-item__description">
-                                                                Fringed jacquard
-                                                                cardigan
-                                                            </p>
-                                                            <p class="comment-item__meta">
-                                                                <strong>HasTheme</strong>
-                                                                - June 3, 2024
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <!-- Comment Item End -->
-
-                                                    <!-- Comment Item Start -->
-                                                    <li class="comment-item">
-                                                        <div class="comment-item__author">
-                                                            <img src="assets/images/user/user-3.jpg" alt="Author" width="90"
-                                                                height="90" />
-                                                        </div>
-                                                        <div class="comment-item__content">
-                                                            <div class="comment-item__rating">
-                                                                <span class="star-rating">
-                                                                    <span style="
-                                                                    width: 80%;
-                                                                "></span>
-                                                                </span>
-                                                            </div>
-                                                            <p class="comment-item__description">
-                                                                Fringed jacquard
-                                                                cardigan
-                                                            </p>
-                                                            <p class="comment-item__meta">
-                                                                <strong>HasTheme</strong>
-                                                                - June 3, 2024
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <!-- Comment Item End -->
                                                 </ul>
                                                 <!-- Comment Items End -->
                                             </div>
@@ -356,7 +304,7 @@ include_once('components/addtocart.php')
                                                     Add a review
                                                 </h3>
 
-                                                <form action="#">
+                                                <form action="#" method='post'>
                                                     <!-- comment Form Start -->
                                                     <div class="comment-form">
                                                         <div class="comment-form__notes">
@@ -398,20 +346,6 @@ include_once('components/addtocart.php')
                                                             </div>
                                                         </div>
 
-                                                        <!-- Single Form Start -->
-                                                        <div class="single-form">
-                                                            <input type="checkbox" name="save" id="save" />
-                                                            <label class="single-form__label checkbox-label" for="save">
-                                                                <span></span>
-                                                                Save my name, email, and
-                                                                website in this browser
-                                                                for the next time I
-                                                                comment.
-                                                            </label>
-                                                        </div>
-                                                        <!-- Single Form Start -->
-
-                                                        <!-- Single Form Start -->
                                                         <div class="single-form">
                                                             <button class="single-form__btn btn">
                                                                 Submit

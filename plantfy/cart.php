@@ -1,33 +1,47 @@
 <?php
+// session_start();
 include("./components/header.php");
+
 ?>
-
-
-<!-- Cart Sidebar Start -->
-<?php
-include_once('components/addtocart.php')
-    ?>
-<!-- Cart Offcanvas Start -->
 
 <main>
     <?php
     //add to cart
     if (isset($_POST['addToCartBtn'])) {
-        if (isset($_SESSION['cart'])) {
-            $count = count($_SESSION['cart']);
-            $_SESSION['cart'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage']);
-            echo "<script>alert('Product added into cart')
-            location.assign('index.php');
-            </script>";
+        $productId = array_column($_SESSION['cartTwo'], 'getId');
+        if (in_array($_POST['productID'], $productId)) {
+            echo "<script>alert('Product already exists in the cart')</script>";
         } else {
-            $_SESSION['cart'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage']);
-            echo "<script>alert('Product added into cart');
-            location.assign('index.php');
-            </script>";
+            if (isset($_SESSION['cartTwo'])) {
+                $count = count($_SESSION['cartTwo']);
+                $_SESSION['cartTwo'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
+                echo "<script>alert('Product added into cart')
+                location.assign('index.php');
+                </script>";
+            } else {
+                $_SESSION['cartTwo'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
+                echo "<script>alert('Product added into cart');
+                location.assign('index.php');
+                </script>";
+            }
+            ;
         }
         ;
 
-    } ?>
+    }
+    ;
+    if (isset($_GET['removeFromCart'])) {
+        foreach($_SESSION['cartTwo'] as $key => $value){
+            if($_GET['removeFromCart'] == $value['getId']){
+                unset($_SESSION['cartTwo'][$key]);
+                $_SESSION['cartTwo'] = array_values($_SESSION['cartTwo']);
+                echo "<script>alert('Product successfully deleted from the cart')
+                location.assign('cart.php');
+                </script>";
+            }
+        }
+    }
+    ?>
     <!-- Breadcrumb Start -->
     <div class="breadcrumb-section">
         <div class="container-fluid custom-container">
@@ -88,17 +102,17 @@ include_once('components/addtocart.php')
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($_SESSION['cart'] as $item) {
+                                foreach ($_SESSION['cartTwo'] as $item) {
                                     ?>
                                     <tr class="cart-item">
                                         <td class="cart-product-remove">
-                                            <a href="#" class="remove">×</a>
+                                            <a href="?removeFromCart=<?php echo $item['getId'] ?>" class="remove">×</a>
                                         </td>
 
                                         <td class="cart-product-thumbnail">
                                             <a href="product-single.html">
-                                                <img src="assets/images/products/product-02.png" alt="Product" width="70"
-                                                    height="89" />
+                                                <img src="assets/images/products/<?php echo $item['getImage'] ?>"
+                                                    alt="Product" width="70" height="89" />
                                             </a>
                                         </td>
 
@@ -110,29 +124,31 @@ include_once('components/addtocart.php')
 
                                         <td class="cart-product-price text-md-center" data-title="Price">
                                             <span class="price-amount">
-                                                <ins><?php echo $item['getPrice'] ?></ins>
+                                                <ins>
+                                                    $<?php echo $item['getPrice'] ?>
+                                                </ins>
                                             </span>
                                         </td>
 
                                         <td class="cart-product-quantity text-md-center" data-title="Quantity">
                                             <div class="cart-table__quantity product-quantity">
-                                                <button type="button" class="decrease">
+                                                <!-- <button type="button" class="decrease">
                                                     <i class="lastudioicon-i-delete-2"></i>
-                                                </button>
-                                                <input class="quantity-input" type="text" value="1" />
-                                                <button type="button" class="increase">
+                                                </button> -->
+                                                <input class="quantity-input" type="text" value="<?php echo $item['getQty'] ?>" />
+                                                <!-- <button type="button" class="increase">
                                                     <i class="lastudioicon-i-add-2"></i>
-                                                </button>
+                                                </button> -->
                                             </div>
                                         </td>
 
                                         <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
                                             <span class="price-amount">
-                                                $69.99
+                                                $<?php echo $item['getPrice'] * $item['getQty'] ?>
                                             </span>
                                         </td>
                                     </tr>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                             </tbody>

@@ -2,16 +2,6 @@
 include("./components/header.php");
 ?>
 
-
-    <!-- Cart Sidebar Start -->
-    <!-- Cart Offcanvas Start -->
-    <?php
-include_once('components/addtocart.php')
- ?>
-    <!-- Cart Offcanvas End -->
-
-    <!-- Cart Sidebar End -->
-
     <!-- Search Start -->
     <div class="search-modal modal fade" id="SearchModal">
         <!-- Search Close Start -->

@@ -1,9 +1,8 @@
 <?php
-include("./components/header.php");
+include("./components/sessionHeader.php");
 if (!isset($_SESSION['USER'])) {
     redirectWindow('login.php');
 }
-;
 ?>
 <style>
     .profile img {
@@ -30,16 +29,6 @@ if (!isset($_SESSION['USER'])) {
  
 </style>
 
-<!-- Cart Sidebar Start -->
-<!-- Cart Offcanvas Start -->
-<?php
-include_once('components/addtocart.php')
-    ?>
-<!-- Cart Offcanvas End -->
-
-<!-- Cart Sidebar End -->
-
-<!-- Search Start -->
 <div class="search-modal modal fade" id="SearchModal">
     <!-- Search Close Start -->
     <button class="search-modal__close" data-bs-dismiss="modal" aria-label="remove">
@@ -63,9 +52,6 @@ include_once('components/addtocart.php')
     </div>
 </div>
 
-<!-- Search End -->
-
-<!-- Offcanvas Menu Start -->
 <div class="offcanvas offcanvas-end offcanvas-sidebar" tabindex="-1" id="offcanvasSidebar">
     <button type="button" class="offcanvas-sidebar__close" data-bs-dismiss="offcanvas" aria-label="remove">
         <i class="lastudioicon-e-remove"></i>
@@ -81,9 +67,7 @@ include_once('components/addtocart.php')
                 <li><a href="contact-us.html">Contact Us</a></li>
             </ul>
         </div>
-        <!-- Off Canvas Sidebar Menu End -->
 
-        <!-- Off Canvas Sidebar Banner Start -->
         <div class="offcanvas-sidebar__banner" style="
                 background-image: url(assets/images/shop-sidebar-banner.jpg);
             ">
@@ -91,9 +75,7 @@ include_once('components/addtocart.php')
             <h4 class="banner-sub-title">WARM WOOL PREMIUM COAT</h4>
             <a href="#" class="banner-btn">Discover</a>
         </div>
-        <!-- Off Canvas Sidebar Banner End -->
 
-        <!-- Off Canvas Sidebar Info Start -->
         <div class="offcanvas-sidebar__info">
             <ul class="offcanvas-info-list">
                 <li><a href="tel:+61225315600">(+612) 2531 5600</a></li>
@@ -105,9 +87,7 @@ include_once('components/addtocart.php')
                 </li>
             </ul>
         </div>
-        <!-- Off Canvas Sidebar Info End -->
-
-        <!-- Off Canvas Sidebar Social Start -->
+  
         <div class="offcanvas-sidebar__social">
             <ul class="offcanvas-social">
                 <li>
@@ -127,9 +107,7 @@ include_once('components/addtocart.php')
                 </li>
             </ul>
         </div>
-        <!-- Off Canvas Sidebar Social End -->
-
-        <!-- Off Canvas Sidebar Social End -->
+    
         <div class="offcanvas-sidebar__copyright">
             <p>
                 &copy;
@@ -142,19 +120,14 @@ include_once('components/addtocart.php')
     </div>
 </div>
 
-<!-- Offcanvas Menu End -->
 
-<!-- Mobile Menu Start -->
 <div class="mobile-menu offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
-    <!-- offcanvas-header Start -->
     <div class="offcanvas-header">
         <button type="button" class="mobile-menu__close" data-bs-dismiss="offcanvas" aria-label="Close">
             <i class="lastudioicon-e-remove"></i>
         </button>
     </div>
-    <!-- offcanvas-header End -->
-
-    <!-- offcanvas-body Start -->
+  
     <div class="offcanvas-body">
         <nav class="navbar-mobile-menu">
             <ul class="mobile-menu-items">
@@ -472,7 +445,7 @@ include_once('components/addtocart.php')
                         // print_r($user);
                         foreach ($user as $item) {
                             $userID = $item['userID'];
-                            echo '<script>alert("'.$userID.'")</script>';
+                            // echo '<script>alert("'.$userID.'")</script>';
                         }
                    
                         $query = $pdo->prepare('select * from users where userID = :id');

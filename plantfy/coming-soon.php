@@ -2,16 +2,6 @@
 include("./components/header.php");
 ?>
 
-
-    <!-- Cart Sidebar Start -->
-    <!-- Cart Offcanvas Start -->
-    <?php
-include_once('components/addtocart.php')
- ?>
-    <!-- Cart Offcanvas End -->
-
-    <!-- Cart Sidebar End -->
-    
     <main>
         <!-- Coming Soon Start -->
         <div class="coming-soon-section section-padding">
