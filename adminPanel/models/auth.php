@@ -2,6 +2,40 @@
 
 class Auth
 {
+//function for insert category;
+    function insertCategory($category_name, $category_image, $pdo)
+    {
+        $query = $pdo->prepare('INSERT into categories(categoryName,categoryImage) values(:c_name,:c_image)');
+        $query -> bindParam('c_name', $category_name);
+        $query -> bindParam('c_image', $category_image);
+        $query -> execute();
+    }
+
+//function for update category on image selection;    
+    function updateCategory( $category_id,$category_name, $category_image, $pdo)
+    {    
+        $query= $pdo -> prepare("update categories set categoryName = :category_name,categoryImage=:category_image where categoryID = :category_id");
+        $query -> bindParam('category_id', $category_id);
+        $query -> bindParam('category_name', $category_name);
+        $query -> bindParam('category_image', $category_image);
+        $query -> execute();
+    }
+
+//function for update category without image selection;    
+    function updateCategoryInelse( $category_id,$category_name,  $pdo)
+    {    
+        $query= $pdo -> prepare("update categories set categoryName = :category_name where categoryID = :category_id");
+        $query -> bindParam('category_id', $category_id);
+        $query -> bindParam('category_name', $category_name);
+        $query -> execute();
+    }
+//function for delete category;    
+    function deleteCategory( $category_delete_id, $pdo)
+    {    
+      $query = $pdo->prepare(" DELETE FROM categories WHERE categoryID = :id");
+      $query->bindParam('id', $category_delete_id);
+      $query->execute();
+    }
     function findUserWithEmailParent($email, $pdo)
     {
         $query = $pdo->prepare('select * from parent_login where parentEmail = :email');
