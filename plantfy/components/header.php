@@ -410,8 +410,8 @@ include("./php/query.php");
             <nav class="navbar-mobile-menu">
                 <ul class="mobile-menu-items">
                     <li>
-                        <a href="#">
-                            Demos
+                        <a href="index.php">
+                            Home
                             <span class="menu-expand" aria-label="down-arrow">
                             <i class="lastudioicon-down-arrow"></i>
                         </span>
