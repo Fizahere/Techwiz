@@ -9,10 +9,10 @@ include_once('header_admin.php');
                 <div class="bg-white rounded h-100 ">
                     <div class="d-flex bg-light justify-content-between">
 
-                        <h4>Category</h4>
+                        <h4>Plant Products & Accessories</h4>
 
                         <button type="button" class="btn text-dark  bg-white mb-2 insert" data-bs-toggle="modal"
-                            data-bs-target="#insert-category-modal" name="insertCategory">Add category
+                            data-bs-target="#insert-product-modal" >Add product
                         </button>
 
 
@@ -22,41 +22,57 @@ include_once('header_admin.php');
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Category Name</th>
-                                    <th scope="col">Image</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Price </th>
+                                    <th scope="col">Stock </th>
+                                    <th scope="col">Category </th>
+                                    <th scope="col">Image </th>
                                     <th scope="col"> </th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                        $query = $pdo->query("SELECT * FROM categories");
+                        $query = $pdo->query("SELECT * FROM `products` INNER JOIN categories ON products.categoryID = categories.categoryID");
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
                
                         foreach($result as $row){
                         ?>
                                 <tr class="tr-row">
                                     <th scope="row">
-                                        <?php echo $row['categoryID'] ?>
+                                        <?php echo $row['productID'] ?>
                                     </th>
 
                                     <td>
-                                        <?php echo $row['categoryName'] ?>
+                                        <?php echo $row['productName'] ?>
                                     </td>
-                                    <td style="width: 50%;">
-                                        <img src="adminImages/<?php echo $row['categoryImage'] ?>" width="50%" alt="">
+                                    <td>
+                                        <?php echo $row['productDescription'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['productPrice'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['productStock'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['categoryID'] ?>
+                                    </td>
+                                    <td >
+                                        <img src="productImages/<?php echo $row['productImage'] ?>" width="50%" alt="">
 
                                     </td>
 
 
                                     <td class="">
                                         <button class="btn btn-white edit-btn " data-bs-toggle="modal"
-                                            data-bs-target="#update-category-modal<?php echo $row['categoryID']  ?>">
+                                            data-bs-target="#update-category-modal<?php echo $row['productID']  ?>">
                                             <i class="fa fa-edit"></i>
                                         </button>
 
                                         <button class="btn btn-white" data-bs-toggle="modal"
-                                            data-bs-target="#delete-category-modal<?php echo $row['categoryID']  ?>">
+                                            data-bs-target="#delete-category-modal<?php echo $row['productID']  ?>">
                                             <i class="fa fa-trash"></i>
                                         </button>
 
@@ -197,7 +213,7 @@ include_once('header_admin.php');
                                         | [start]                                         |
                                         |                                                 |      
                                         -------------------------------------------------->
-<div class="modal" id="insert-category-modal">
+<div class="modal" id="insert-product-modal">
     <div class="modal-dialog modal-xl bg-white">
         <div class="modal-content bg-white">
             <div class="modal-header">
@@ -210,12 +226,32 @@ include_once('header_admin.php');
 
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10"> <input placeholder="Enter category name.." class="form-control bg-white"
+                        <div class="col-sm-10"> <input placeholder="Insert product name.." class="form-control bg-white"
+                                name="insert-product-name"></div>
+                    </div>
+                    <div class="mb-3 row form-group">
+                        <label for="" class="col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-10"> <input placeholder="Add description" class="form-control bg-white"
+                                name="insert-product-description"></div>
+                    </div>
+                    <div class="mb-3 row form-group">
+                        <label for="" class="col-sm-2 col-form-label">Price</label>
+                        <div class="col-sm-10"> <input placeholder="Enter price" class="form-control bg-white"
+                                name="insert-product-name"></div>
+                    </div>
+                    <div class="mb-3 row form-group">
+                        <label for="" class="col-sm-2 col-form-label">Stock</label>
+                        <div class="col-sm-10"> <input placeholder="Add number of stock" class="form-control bg-white"
+                                name="insert-category-name"></div>
+                    </div>
+                    <div class="mb-3 row form-group">
+                        <label for="" class="col-sm-2 col-form-label">Category</label>
+                        <div class="col-sm-10"> <input placeholder="Enter products category" class="form-control bg-white"
                                 name="insert-category-name"></div>
                     </div>
 
                     <div class="mb-3 row form-group">
-                        <label for="" class="col-sm-2 col-form-label"> Image</label>
+                        <label for="" class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-10">
                             <input type="file" name="insert-category-image" class="form-control bg-white">
                         </div>

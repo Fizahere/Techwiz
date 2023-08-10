@@ -12,7 +12,7 @@ include_once('header_admin.php');
                         <h4>Category</h4>
 
                         <button type="button" class="btn text-dark  bg-white mb-2 insert" data-bs-toggle="modal"
-                            data-bs-target="#insert-category-modal" name="insertCategory">Add category
+                            data-bs-target="#insert-category-modal" >Add category
                         </button>
 
 
@@ -44,7 +44,7 @@ include_once('header_admin.php');
                                         <?php echo $row['categoryName'] ?>
                                     </td>
                                     <td style="width: 50%;">
-                                        <img src="adminImages/<?php echo $row['categoryImage'] ?>" width="50%" alt="">
+                                        <img src="categoryImages/<?php echo $row['categoryImage'] ?>" width="50%" alt="">
 
                                     </td>
 
