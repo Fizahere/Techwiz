@@ -15,7 +15,17 @@ include_once('components/addtocart.php')
     if (isset($_POST['addToCartBtn'])) {
         if (isset($_SESSION['cart'])) {
             $count = count($_SESSION['cart']);
+            $_SESSION['cart'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage']);
+            echo "<script>alert('Product added into cart')
+            location.assign('index.php');
+            </script>";
+        } else {
+            $_SESSION['cart'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage']);
+            echo "<script>alert('Product added into cart');
+            location.assign('index.php');
+            </script>";
         }
+        ;
 
     } ?>
     <!-- Breadcrumb Start -->
@@ -77,148 +87,54 @@ include_once('components/addtocart.php')
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="cart-item">
-                                    <td class="cart-product-remove">
-                                        <a href="#" class="remove">×</a>
-                                    </td>
+                                <?php
+                                foreach ($_SESSION['cart'] as $item) {
+                                    ?>
+                                    <tr class="cart-item">
+                                        <td class="cart-product-remove">
+                                            <a href="#" class="remove">×</a>
+                                        </td>
 
-                                    <td class="cart-product-thumbnail">
-                                        <a href="product-single.html">
-                                            <img src="assets/images/products/product-02.png" alt="Product" width="70"
-                                                height="89" />
-                                        </a>
-                                    </td>
+                                        <td class="cart-product-thumbnail">
+                                            <a href="product-single.html">
+                                                <img src="assets/images/products/product-02.png" alt="Product" width="70"
+                                                    height="89" />
+                                            </a>
+                                        </td>
 
-                                    <td class="cart-product-name">
-                                        <a href="product-single.html">
-                                            Princess set
-                                        </a>
-                                    </td>
+                                        <td class="cart-product-name">
+                                            <a href="product-single.html">
+                                                <?php echo $item['getName'] ?>
+                                            </a>
+                                        </td>
 
-                                    <td class="cart-product-price text-md-center" data-title="Price">
-                                        <span class="price-amount">
-                                            <ins>$66.99</ins>
-                                        </span>
-                                    </td>
+                                        <td class="cart-product-price text-md-center" data-title="Price">
+                                            <span class="price-amount">
+                                                <ins><?php echo $item['getPrice'] ?></ins>
+                                            </span>
+                                        </td>
 
-                                    <td class="cart-product-quantity text-md-center" data-title="Quantity">
-                                        <div class="cart-table__quantity product-quantity">
-                                            <button type="button" class="decrease">
-                                                <i class="lastudioicon-i-delete-2"></i>
-                                            </button>
-                                            <input class="quantity-input" type="text" value="1" />
-                                            <button type="button" class="increase">
-                                                <i class="lastudioicon-i-add-2"></i>
-                                            </button>
-                                        </div>
-                                    </td>
+                                        <td class="cart-product-quantity text-md-center" data-title="Quantity">
+                                            <div class="cart-table__quantity product-quantity">
+                                                <button type="button" class="decrease">
+                                                    <i class="lastudioicon-i-delete-2"></i>
+                                                </button>
+                                                <input class="quantity-input" type="text" value="1" />
+                                                <button type="button" class="increase">
+                                                    <i class="lastudioicon-i-add-2"></i>
+                                                </button>
+                                            </div>
+                                        </td>
 
-                                    <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
-                                        <span class="price-amount">
-                                            $69.99
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr class="cart-item">
-                                    <td class="cart-product-remove">
-                                        <a href="#" class="remove">×</a>
-                                    </td>
-
-                                    <td class="cart-product-thumbnail">
-                                        <a href="product-single.html">
-                                            <img src="assets/images/products/product-04.png" alt="Product" width="70"
-                                                height="89" />
-                                        </a>
-                                    </td>
-
-                                    <td class="cart-product-name">
-                                        <a href="product-single.html">
-                                            Senecio stapeliiformis
-                                        </a>
-                                    </td>
-
-                                    <td class="cart-product-price text-md-center" data-title="Price">
-                                        <span class="price-amount">
-                                            <ins>$89.99</ins>
-                                        </span>
-                                    </td>
-
-                                    <td class="cart-product-quantity text-md-center" data-title="Quantity">
-                                        <div class="cart-table__quantity product-quantity">
-                                            <button type="button" class="decrease">
-                                                <i class="lastudioicon-i-delete-2"></i>
-                                            </button>
-                                            <input class="quantity-input" type="text" value="1" />
-                                            <button type="button" class="increase">
-                                                <i class="lastudioicon-i-add-2"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-
-                                    <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
-                                        <span class="price-amount">
-                                            $89.99
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr class="cart-item">
-                                    <td class="cart-product-remove">
-                                        <a href="#" class="remove">×</a>
-                                    </td>
-
-                                    <td class="cart-product-thumbnail">
-                                        <a href="product-single.html">
-                                            <img src="assets/images/products/product-05.png" alt="Product" width="70"
-                                                height="89" />
-                                        </a>
-                                    </td>
-
-                                    <td class="cart-product-name">
-                                        <a href="product-single.html">
-                                            Hoya burtoniae
-                                        </a>
-                                    </td>
-
-                                    <td class="cart-product-price text-md-center" data-title="Price">
-                                        <span class="price-amount">
-                                            <del>$89.99</del>
-                                            <ins>$69.99</ins>
-                                        </span>
-                                    </td>
-
-                                    <td class="cart-product-quantity text-md-center" data-title="Quantity">
-                                        <div class="cart-table__quantity product-quantity">
-                                            <button type="button" class="decrease">
-                                                <i class="lastudioicon-i-delete-2"></i>
-                                            </button>
-                                            <input class="quantity-input" type="text" value="1" />
-                                            <button type="button" class="increase">
-                                                <i class="lastudioicon-i-add-2"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-
-                                    <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
-                                        <span class="price-amount">
-                                            $49.99
-                                        </span>
-                                    </td>
-                                </tr>
-
-                                <tr class="">
-                                    <td colspan="6" class="actions">
-                                        <div class="cart-coupon">
-                                            <input class="cart-coupon__input" type="text" placeholder="Coupon code" />
-                                            <button class="cart-coupon__btn">
-                                                Apply coupon
-                                            </button>
-                                        </div>
-
-                                        <button class="cart-update-btn" type="submit">
-                                            Update cart
-                                        </button>
-                                    </td>
-                                </tr>
+                                        <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
+                                            <span class="price-amount">
+                                                $69.99
+                                            </span>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
