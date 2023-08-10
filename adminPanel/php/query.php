@@ -137,29 +137,33 @@ if(isset($_POST['update_category_info'])){
 <?php
 // ---------------------------------------------------------------------------|
 // query for insert products                                                  |
-//               [start]                                                        |     
+//               [start]                                                      |     
 // ---------------------------------------------------------------------------|
 if(isset($_POST['insertProduct'])){
-    $category_name = $_POST['insert-category-name'];
-    $category_image = $_FILES['insert-category-image']['name'];
-    $category_image_size = $_FILES['insert-category-image']['size'];
-    $category_image_tmp_name = $_FILES['insert-category-image']['tmp_name'];
-    $category_image_ext = pathinfo($category_image, PATHINFO_EXTENSION);
-    $destination = "adminImages/".$category_image;
-    if($category_image_size <= 48000000){
-    if($category_image_ext == 'jpg' || $category_image_ext == "png" || $category_image_ext== 'jpeg' || $category_image_ext== 'webp'){
-        if(move_uploaded_file($category_image_tmp_name,$destination)){
+    $product_name = $_POST['insert-product-name'];
+    $product_description = $_POST['insert-product-description'];
+    $product_price = $_POST['insert-product-price'];
+    $product_stock= $_POST['insert-product-stock'];
+    $product_category= $_POST['insert-product-category'];
+    $product_image = $_FILES['insert-product-image']['name'];
+    $product_image_size = $_FILES['insert-product-image']['size'];
+    $product_image_tmp_name = $_FILES['insert-product-image']['tmp_name'];
+    $product_image_ext = pathinfo($product_image, PATHINFO_EXTENSION);
+    $destination = "productImages/".$product_image;
+    if($product_image_size <= 48000000){
+    if($product_image_ext == 'jpg' || $product_image_ext == "png" || $product_image_ext== 'jpeg' || $product_image_ext== 'webp'){
+        if(move_uploaded_file($product_image_tmp_name,$destination)){
            
-            $authModel->insertCategory($category_name, $category_image, $pdo);
-            echo "<script>alert('category added succesfully')
-            location.assign('category.php')
+            $authModel->insertproduct($product_name, $product_description,$product_price,$product_stock, $product_category, $product_image, $pdo);
+            echo "<script>alert('product added succesfully')
+            location.assign('product.php')
             </script>";
             exit;
         }
         
     }else{
         echo "<script>alert('not valid extension')
-        location.assign('category.php')
+        location.assign('product.php')
         </script>";
     }
     

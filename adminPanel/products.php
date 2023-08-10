@@ -237,23 +237,23 @@ include_once('header_admin.php');
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Price</label>
                         <div class="col-sm-10"> <input placeholder="Enter price" class="form-control bg-white"
-                                name="insert-product-name"></div>
+                                name="insert-product-price"></div>
                     </div>
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Stock</label>
                         <div class="col-sm-10"> <input placeholder="Add number of stock" class="form-control bg-white"
-                                name="insert-category-name"></div>
+                                name="insert-product-stock"></div>
                     </div>
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Category</label>
                         <div class="col-sm-10"> <input placeholder="Enter products category" class="form-control bg-white"
-                                name="insert-category-name"></div>
+                                name="insert-product-category"></div>
                     </div>
 
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-10">
-                            <input type="file" name="insert-category-image" class="form-control bg-white">
+                            <input type="file" name="insert-product-image" class="form-control bg-white">
                         </div>
                     </div>
 

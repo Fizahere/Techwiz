@@ -36,12 +36,16 @@ class Auth
       $query->bindParam('id', $category_delete_id);
       $query->execute();
     }
-//function for insert category;
-function insertProducts($category_name, $category_image, $pdo)
+//function for insert products;
+function insertProducts($product_name, $product_description,$product_price,$product_stock, $product_category, $product_image, $pdo)
     {
-        $query = $pdo->prepare('INSERT into categories(categoryName,categoryImage) values(:c_name,:c_image)');
-        $query -> bindParam('c_name', $category_name);
-        $query -> bindParam('c_image', $category_image);
+        $query = $pdo->prepare('INSERT into products(productName,productDescription,productPrice,productImage,productStock,categoryID) values(:product_name,:product_desc,:product_price,:product_image,:product_stock,:product_category)');
+        $query -> bindParam('product_name', $product_name);
+        $query -> bindParam('product_desc', $product_description);
+        $query -> bindParam('product_price', $product_price);
+        $query -> bindParam('product_image', $product_image);
+        $query -> bindParam('product_stock', $product_stock);
+        $query -> bindParam('product_category', $product_category);
         $query -> execute();
     }
     function findUserWithEmailParent($email, $pdo)
