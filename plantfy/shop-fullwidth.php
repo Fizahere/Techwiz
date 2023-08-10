@@ -828,7 +828,16 @@ include_once('components/addtocart.php')
                 <!-- Shop Wrapper Start -->
                 <div class="shop-wrapper">
                     <div class="row">
-                        <div class="col-lg-3 col-md-4 col-sm-6">
+                        <?php
+                        if(isset($_GET['id'])){
+                            $ctg_id = $_GET['id'];
+                            $query = $pdo->prepare("Select * from products where categoryID = :id");
+                            $query->bindParam("id",$ctg_id);
+                            $query->execute();
+                            $products = $query->fetchAll(PDO::FETCH_ASSOC);
+                            foreach($products as $item){
+                                ?>
+                                 <div class="col-lg-3 col-md-4 col-sm-6">
                             <!-- Single product Start -->
                             <div class="single-product js-scroll ShortFadeInUp">
                                 <div class="single-product__thumbnail">
@@ -836,9 +845,6 @@ include_once('components/addtocart.php')
                                         <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist"><i
                                                     class="lastudioicon-heart-2"
                                                 ></i></a>
-                                    </div>
-                                    <div class="single-product__thumbnail--badge onsale">
-                                        Sale
                                     </div>
                                     <div class="single-product__thumbnail--holder">
                                         <a href="product-single.html">
@@ -865,18 +871,25 @@ include_once('components/addtocart.php')
                                     </div>
                                     <h3 class="single-product__info--title">
                                         <a href="product-single.html">
-                                            Viksberg planter
+                                            <?php echo $item['productName'] ?>
                                         </a>
                                     </h3>
                                     <div class="single-product__info--price">
-                                        <del>$39.99</del>
-                                        <ins>$29.99</ins>
+                                        <ins><?php echo $item['productPrice'] ?></ins>
+                                    </div>
+                                    <div>
+                                        <p><?php echo $item['productDescription'] ?></p>
                                     </div>
                                 </div>
                             </div>
                             <!-- Single product End -->
                         </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
+
+                                <?php
+                            }
+                        }
+                        ?>
+                                               <div class="col-lg-3 col-md-4 col-sm-6">
                             <!-- Single product Start -->
                             <div class="single-product js-scroll ShortFadeInUp">
                                 <div class="single-product__thumbnail">
