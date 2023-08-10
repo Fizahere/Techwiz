@@ -2,14 +2,6 @@
 include("./components/header.php");
 ?>
 
-
-    <!-- Cart Sidebar Start -->
-    <!-- Cart Offcanvas Start -->
-   
-    <!-- Cart Offcanvas End -->
-
-    <!-- Cart Sidebar End -->
-    
     <main>
         <!-- Coming Soon Start -->
         <div class="coming-soon-section section-padding">

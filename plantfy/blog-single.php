@@ -2,14 +2,6 @@
 include("./components/header.php");
 ?>
 
-
-    <!-- Cart Sidebar Start -->
-    <!-- Cart Offcanvas Start -->
-   
-    <!-- Cart Offcanvas End -->
-
-    <!-- Cart Sidebar End -->
-
     <main>
         <!-- Breadcrumbs Start -->
         <div class="single-breadcrumbs">

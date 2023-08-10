@@ -1,14 +1,6 @@
 <?php
 include("./components/header.php");
 ?>
-
-
-    <!-- Cart Sidebar Start -->
-    <!-- Cart Offcanvas Start -->
-   
-    <!-- Cart Offcanvas End -->
-
-    <!-- Cart Sidebar End -->
     
     <main>
         <!-- Breadcrumb Start -->

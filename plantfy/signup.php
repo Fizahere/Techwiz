@@ -56,9 +56,9 @@ include_once('components/header.php')
                                         <input class="single-form__input" id="password" type="password" name="password" placeholder="Password *" required/>
                                         <span id="errorPassword"></span>
                                     </div>
-                                    <!-- <p class="text-danger">
-                             //   <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
-                            </p> -->
+                                    <p class="text-danger">
+                             <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
+                            </p>
                                     <div class="single-form">
                                     <div class="single-form">
                                         <p class="lost-password">
@@ -78,17 +78,13 @@ include_once('components/header.php')
 
 
                         </div>
-                        <!-- Log In & Register Box End -->
                     </div>
                     <div class="col-md-3"></div>
 
                 </div>
             </div>
         </div>
-        <!-- Log In & Register End -->
 
-        <!-- Newsletter Start -->
-        <!-- Newsletter Start -->
         <div class="newsletter-section">
             <div class="newsletter-left" style="background-image: url(assets/images/newsletter-bg-1.jpg)">
                 <!-- Newsletter Wrapper Start -->

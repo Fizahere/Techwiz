@@ -46,7 +46,9 @@ include_once('components/header.php')
                                         <input class="single-form__input" id="loginPassword" name="password" type="password" placeholder="Password *" required/>
                                         <span id="errorPasswordLogin"></span>
                                     </div>
-
+                                    <p class="text-danger">
+                                <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
+                            </p>
                                     <div class="single-form">
                                         <p class="lost-password">
                                             <span>Dont've an account?
@@ -185,16 +187,12 @@ include_once('components/header.php')
         loginPassword.addEventListener('input', function(event) {
             event.preventDefault();
             let loginPasswordValue = loginPassword.value; // Changed variable name to avoid confusion
-            let passwordRegexLogin = /^[\w]{6,}$/;
+        
             if (!loginPasswordValue) {
                 loginPassword.style = "border:1px solid red";
                 document.getElementById("errorPasswordLogin").style.color = "red";
                 document.getElementById("errorPasswordLogin").innerHTML = "Please fill out this field!";
-            } else if (!passwordRegexLogin.test(loginPasswordValue)) {
-                loginPassword.style = "border:1px solid red";
-                document.getElementById("errorPasswordLogin").style.color = "red";
-                document.getElementById("errorPasswordLogin").innerHTML = "Use a strong password!";
-            } else {
+            }  else {
                 loginPassword.style = "";
                 document.getElementById("errorPasswordLogin").innerHTML = "";
             }

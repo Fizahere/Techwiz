@@ -4,11 +4,6 @@ include("./components/header.php");
 
 ?>
 
-
-<!-- Cart Sidebar Start -->
-
-<!-- Cart Offcanvas Start -->
-
 <main>
     <?php
     //add to cart
