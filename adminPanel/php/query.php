@@ -236,6 +236,24 @@ if(isset($_POST['update_product_info'])){
 // query for update products                                                  |
 //               [end]                                                        |     
 // ---------------------------------------------------------------------------|
+// ---------------------------------------------------------------------------|
+// query for delete products                                                  |
+//               [start]                                                      |     
+// ---------------------------------------------------------------------------|
+if (isset($_POST['delete_product_info'])) {
+    $product_delete_id = $_POST['delete_product_id'];
+    $authModel->deleteProducts( $product_delete_id, $pdo);                
+echo
+   "<script>
+   alert('product deleted')
+   location.assign('products.php')
+   </script>";
+
+}
+// ---------------------------------------------------------------------------|
+// query for delete products                                                  |
+//               [end]                                                        |     
+// ---------------------------------------------------------------------------|
 ?>
 <!------------------------------------------------------------------------------
 |   php tag end for queries to add , update , delete                           |

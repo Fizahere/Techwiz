@@ -2,12 +2,6 @@
 include_once('header_admin.php');
 
 ?>
-
-<!---------------------------
-|
-|ALL details of child page
-|
----------------------------->
 <div class="container pt-4">
     <div class="bg-light rounded p-4">
         <div class="row">
@@ -15,7 +9,7 @@ include_once('header_admin.php');
                 <div class="bg-white rounded h-100 ">
                     <div class="d-flex bg-light justify-content-between">
 
-                        <h4> Details of child</h4>
+                        <h4>Orders</h4>
 
                         <form method="post">
                             <button class="btn bg-white text-black mb-2" name="sort-by-vaccination-date">Sort by
@@ -28,14 +22,13 @@ include_once('header_admin.php');
                                 <tr>
                                     <th scope="col">#</th>
 
-                                    <td>Child Name</td>
-                                    <td>Gender</td>
-                                    <td>Age</td>
-                                    <td>Hospital Booked </td>
-                                    <td>Vaccine </td>
-                                    <td>Parent Name </td>
-                                    <td>Date of Vaccination </td>
-                                    <td>Appointment </td>
+                                    <td>User Name</td>
+                                    <td>Product Name</td>
+                                    <td>Quantity</td>
+                                    <td>Amount</td>
+                                    <td>Date</td>
+                                    <td>Status </td>
+                                    <td> </td>
 
                                 </tr>
                             </thead>
@@ -57,47 +50,38 @@ if (isset($_POST['sort-by-vaccination-date'])) {
     $result = getSortedData($pdo);
 } else {
     // By default, get data without sorting
-    $query = $pdo->query("SELECT *
-    FROM children_details
-    INNER JOIN parent_login ON children_details.parentID = parent_login.parentID
-    INNER JOIN vaccine_details ON children_details.vaccineID = vaccine_details.vaccineID
-    INNER JOIN hospital_login ON children_details.hospitalID = hospital_login.hospitalID
-    ORDER BY children_details.childID ASC");
+    $query = $pdo->query("SELECT * FROM orders INNER JOIN users ON orders.userID = users.userID INNER JOIN  products ON orders.productID =products.productID ;");
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
 }
                         foreach($result as $row){
                         ?>
                                 <tr class="tr-row">
                                     <th scope="row">
-                                        <?php echo $row['childID'] ?>
+                                        <?php echo $row['orderID'] ?>
                                     </th>
 
                                     <td>
-                                        <?php echo $row['childName'] ?>
+                                        <?php echo ucfirst($row['firstName']) ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['childGender'] ?>
+                                        <?php echo $row['productName'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['childAge'] ?>
+                                        <?php echo $row['productQuantity'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['hospitalName'] ?>
+                                        <?php echo $row['totalAmount'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $row['vaccineName'] ?>
+                                        <?php echo $row['orderDate'] ?>
                                     </td>
+                                 
 
-                                    <td>
-                                        <?php echo $row['parentName'] ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row['vaccinationDate'] ?>
-                                    </td>
+                                  
                                     
 
                                      <td class="d-flex">
-      <?php echo $row['appointmentStatus'] ?>
+      <?php echo $row['orderStatus'] ?>
       <div class="mx-auto">
         <i class="fa fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false"></i>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

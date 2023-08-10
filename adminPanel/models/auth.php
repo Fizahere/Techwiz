@@ -73,6 +73,13 @@ function updateProductsInelse( $product_id,$product_name,$product_description,$p
         $query -> bindParam('product_category', $product_category);
         $query -> execute();
     }
+//function for delete products;    
+function deleteProducts( $product_delete_id, $pdo)
+    {    
+      $query = $pdo->prepare(" DELETE FROM products WHERE productID = :id");
+      $query->bindParam('id', $product_delete_id);
+      $query->execute();
+    }
     function findUserWithEmailParent($email, $pdo)
     {
         $query = $pdo->prepare('select * from parent_login where parentEmail = :email');

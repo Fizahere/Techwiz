@@ -69,7 +69,7 @@ include_once('header_admin.php');
                                                 <i class="fa fa-edit"></i>
                                             </button>
 
-                                            <button class="btn btn-white" data-bs-toggle="modal" data-bs-target="#delete-category-modal<?php echo $row['productID']  ?>">
+                                            <button class="btn btn-white" data-bs-toggle="modal" data-bs-target="#delete-product-modal<?php echo $row['productID']  ?>">
                                                 <i class="fa fa-trash"></i>
                                             </button>
 
@@ -175,7 +175,7 @@ include_once('header_admin.php');
                                         | modal for delete category information           | 
                                         | [start]                                         |
                                         -------------------------------------------------->
-                                    <div class="modal " id="delete-category-modal<?php echo $row['categoryID'] ?>">
+                                    <div class="modal " id="delete-product-modal<?php echo $row['productID'] ?>">
                                         <div class="modal-dialog modal-xl bg-light w-50">
                                             <div class="modal-content bg-light">
                                                 <!-- <div class="modal-header">
@@ -188,9 +188,9 @@ include_once('header_admin.php');
                                                     <form method="post">
                                                         <div class="d-flex justify-centre">
                                                             <div>
-                                                                <input type="hidden" name="delete_category_id" value="<?php echo $row['categoryID']; ?>">
+                                                                <input type="hidden" name="delete_product_id" value="<?php echo $row['productID']; ?>">
                                                                 <span class="text-bold">'
-                                                                    <?php echo $row['categoryName'] ?>'
+                                                                    <?php echo $row['productName'] ?>'
                                                                 </span>
                                                                 <span> will also delete from database. <span>
                                                                         <p>Are you sure you want to permanently delete this?</p>
@@ -199,7 +199,7 @@ include_once('header_admin.php');
 
                                                         <!-- Modal footer -->
                                                         <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-dark text-white" name="delete_category_info">
+                                                            <button type="submit" class="btn btn-dark text-white" name="delete_product_info">
                                                                 Yes</button>
                                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
                                                         </div>
