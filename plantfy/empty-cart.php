@@ -5,9 +5,7 @@ include("./components/header.php");
 
     <!-- Cart Sidebar Start -->
     <!-- Cart Offcanvas Start -->
-    <?php
-include_once('components/addtocart.php')
- ?>
+   
     <!-- Cart Offcanvas End -->
 
     <!-- Cart Sidebar End -->

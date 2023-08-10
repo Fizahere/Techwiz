@@ -1,17 +1,17 @@
 <?php
-include("./php/query.php");
-
+include_once('php/query.php')
 ?>
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
 
-<!-- Mirrored from htmldemo.net/plantfy/plantfy/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 20:59:57 GMT -->
+<!-- Mirrored from htmldemo.net/plantfy/plantfy/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:55 GMT -->
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Plants Nest - Plants Store Website</title>
+    <title>Plantfy - Plants Store Website Template</title>
 
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="Plantfy - Plants Store Website Template" />
@@ -47,251 +47,460 @@ include("./php/query.php");
         <!-- Header Top Start -->
         <div class="header__top">
             <div class="container-fluid custom-container">
-                <div class="header__top--wrapper justify-content-center">
-                    <p>Free shipping order over $150</p>
+                <div class="header__top--wrapper justify-content-between">
+                    <div class="header__top--left d-none d-md-block">
+                        <ul class="header__top--items">
+                            <li>
+                                <a href="mailto:info.expmale@mail.com" aria-label="mail">
+                                    <i class="lastudioicon-mail-2"></i>
+                                    <span>info.expmale@mail.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+(867)195-6696" aria-label="Phone">
+                                    <i class="lastudioicon-phone-call"></i>
+                                    <span>(867)195-6696</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="Map">
+                                    <i class="lastudioicon-pin-3-1"></i>
+                                    <span>Los Angeles</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header__top--right">
+                        <ul class="header__top--items">
+                            <li>
+                                <a href="login-register.html" aria-label="login">
+                                    <i class="lastudioicon-single-01-1"></i>
+                                    <span>Login</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="term-of-use.html" aria-label="help">
+                                    <i class="lastudioicon-b-meeting-2"></i>
+                                    <span>Help Center</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Header Top End -->
 
-        <!-- Header Middle Start -->
-        <div class="header__middle d-flex align-items-center">
+        <!-- Header Main Start -->
+        <div class="header__main header-shadow d-flex align-items-center">
             <div class="container-fluid custom-container">
-                <div class="row">
-                    <div class="col-md-4 d-none d-md-block">
-                        <!-- Header Middle Search Start -->
-                        <div class="header-mid-search">
-                            <form action="#">
-                                <div class="meta-search meta-search--dark">
-                                    <input type="text" placeholder="Search products…" />
-                                    <button aria-label="Search" aria-label="Search">
-                                        <i class="lastudioicon-zoom-1"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Header Middle Search Start -->
+                <div class="row align-items-center position-relative">
+                    <div class="col-md-4 col-3 d-xl-none">
+                        <button class="header__main--toggle header__main--toggle-dark" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="menu">
+                            <i class="lastudioicon-menu-8-1"></i>
+                        </button>
                     </div>
-                    <div class="col-md-4 col-5">
-                        <!-- Header Middle Logo Start -->
-                        <div class="header-mid-logo text-md-center">
-                            <a href="#">
+                    <div class="col-xl-3 col-md-4 col-6">
+                        <div class="header__main--logo text-center text-xl-start">
+                            <a href="index.html">
                                 <img src="assets/images/logo.png" alt="Logo" />
                             </a>
                         </div>
-                        <!-- Header Middle Logo End -->
                     </div>
-                    <div class="col-md-4 col-7">
-                        <div class="d-flex justify-content-end align-items-center">
-                            <!-- Header Middle Meta Start -->
-                            <div class="header-mid-meta">
-                                <ul class="header-mid-meta__item justify-content-end">
+                    <div class="col-xl-6 d-none d-xl-block">
+                        <div class="header__main--menu">
+                            <nav class="navbar-menu">
+                                <!-- Menu Item List Start -->
+                                <ul class="menu-items-list menu-items-list--dark d-flex justify-content-center">
                                     <li>
-                                        <a href="my-account.php" aria-label="My Account">
-                                            <i class="lastudioicon-single-01-2"></i>
+                                        <a class="active" href="#">
+                                            Demos <i class="lastudioicon-down-arrow" aria-hidden="true"></i>
                                         </a>
+                                        <ul class="sub-menu">
+                                            <li><a href="index.html">Plant 01</a></li>
+                                            <li><a href="index-2.html">Plant 02</a></li>
+                                        </ul>
                                     </li>
                                     <li>
-                                        <a href="wishlist.php" aria-label="Wishlist">
-                                            <i class="lastudioicon-heart-2"></i>
-                                            <span class="badge">03</span>
-                                        </a>
+                                        <a href="#">Pages <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="about.html">About us</a></li>
+                                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                                            <li><a href="our-team.html">Our Team</a></li>
+                                            <li><a href="contact-us.html">Contact Us</a></li>
+                                            <li><a href="faqs.html">FAQ's</a></li>
+                                            <li><a href="term-of-use.html">term of use</a></li>
+                                            <li><a href="404.html">404 Page</a></li>
+                                            <li><a href="login-register.html">Login & Register</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="position-static">
+                                        <a href="#">Shop <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
+                                        <div class="mega-menu mega-menu-width d-flex flex-wrap">
+                                            <div class="mega-menu-col">
+                                                <h5 class="mega-menu-title">Shop Layout</h5>
+                                                <ul class="">
+                                                    <li><a href="shop-fullwidth.html">Shop Fullwidth</a></li>
+                                                    <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
+                                                    <li><a href="shop-masonry.html">Shop Masonry</a></li>
+                                                    <li><a href="shop-3-columns.html">Shop 03 Columns</a></li>
+                                                    <li><a href="shop-4-columns.html">Shop 04 Columns</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="mega-menu-col">
+                                                <ul class="">
+                                                    <li><a href="#">Featured Banner</a></li>
+                                                    <li class="mega-menu-title">Hover Style</li>
+                                                    <li><a href="#">Hover Style 01</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="mega-menu-col">
+                                                <h5 class="mega-menu-title">Shop Pages</h5>
+                                                <ul class="">
+                                                    <li><a href="my-account.html">My Account</a></li>
+                                                    <li><a href="cart.html">Cart</a></li>
+                                                    <li><a href="order-tracking.html">Order Tracking</a></li>
+                                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                                    <li><a href="compare.html">Compare</a></li>
+                                                    <li><a href="empty-cart.html">Cart Empty</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="thank-you.html">Thank You</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="mega-menu-col">
+                                                <h5 class="mega-menu-title">Product Pages</h5>
+                                                <ul class="">
+                                                    <li><a href="product-single.html">Product Simple</a></li>
+                                                    <li>
+                                                        <a href="product-single-variable.html">Product Variable</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-single-carousel.html">Product Carousel</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-single-affiliate.html">
+                                                            Product Affiliate
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-single-countdown.html">
+                                                            Product CountDown
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="position-static">
+                                        <a href="#">Collections <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
+                                        <div class="mega-menu mega-menu--wrapper d-flex flex-wrap">
+                                            <div class="mega-menu__banner">
+                                                <a href="#">
+                                                    <div class="mega-menu__banner--image">
+                                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner" width="470" height="475" />
+                                                    </div>
+                                                    <div class="mega-menu__banner--caption">
+                                                        <h4 class="caption-title">New Arrival</h4>
+                                                        <p class="caption-desc">Non curabitur gravida</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="mega-menu__content">
+                                                <h4 class="mega-menu__content--title">Summer Collection 2023</h4>
+                                                <div class="d-flex flex-wrap">
+                                                    <ul class="mega-menu__content--list">
+                                                        <li><a href="#">Dresses and jumpsuits</a></li>
+                                                        <li><a href="#">Shirts</a></li>
+                                                        <li><a href="#">T-shirts and tops</a></li>
+                                                        <li><a href="#">Jackets and Suit Jackets</a></li>
+                                                        <li><a href="#">Cardigans and sweaters</a></li>
+                                                        <li><a href="#">Sweatshirts</a></li>
+                                                        <li><a href="#">Coats</a></li>
+                                                    </ul>
+                                                    <ul class="mega-menu__content--list">
+                                                        <li><a href="#">Trousers</a></li>
+                                                        <li><a href="#">Jeans</a></li>
+                                                        <li><a href="#">Skirts</a></li>
+                                                        <li><a href="#">Shorts</a></li>
+                                                        <li><a href="#">Bikinis and swimsuits</a></li>
+                                                        <li><a href="#">Sportswear</a></li>
+                                                        <li><a href="#">Underwear and lingerie</a></li>
+                                                        <li><a href="#">Pyjamas</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mt-auto">
+                                                    <ul class="mega-menu__info">
+                                                        <li><a href="#">info@exmple.com</a></li>
+                                                        <li><a href="#">(626)997-4298</a></li>
+                                                    </ul>
+                                                    <div class="mega-menu__social">
+                                                        <div class="mega-menu__social--lable">Connect with us</div>
+                                                        <ul class="mega-menu__social--social">
+                                                            <li>
+                                                                <a href="#" aria-label="facebook">
+                                                                    <i class="lastudioicon-b-facebook"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" aria-label="twitter">
+                                                                    <i class="lastudioicon-b-twitter"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" aria-label="instagram">
+                                                                    <i class="lastudioicon-b-instagram"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
-                                        <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="Cart">
-                                            <i class="lastudioicon-bag-20"></i>
-                                            <span class="badge">03</span>
-                                        </button>
+                                        <a href="#">Blog <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                                            <li><a href="blog.html">Blog No Sidebar</a></li>
+                                            <li><a href="blog-single.html">Single Post</a></li>
+                                        </ul>
                                     </li>
-                                </ul>
-                            </div>
-                            <!-- Header Middle Meta End -->
 
-                            <!-- Header Middle Toggle Start -->
-                            <div class="header-mid-toggle text-end d-lg-none">
-                                <button class="header__main--toggle header__main--toggle-dark" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Menu">
-                                    <i class="lastudioicon-menu-4-2"></i>
-                                </button>
-                            </div>
-                            <!-- Header Middle Toggle End -->
+                                </ul>
+                                <!-- Menu Item List End -->
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-3">
+                        <div class="header__main--meta header__main--dark d-flex justify-content-end align-items-center">
+                            <!-- Meta Item List Start -->
+                            <ul class="meta-items-list meta-items-list--dark d-flex justify-content-end align-items-center">
+                                <li class="search d-none d-lg-block">
+                                    <form action="#">
+                                        <div class="meta-search meta-search--dark">
+                                            <input type="text" placeholder="Search products…" />
+                                            <button aria-label="search">
+                                                <i class="lastudioicon-zoom-1"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="wishlist">
+                                    <a href="wishlist.html" aria-label="Wishlist">
+                                        <i class="lastudioicon lastudioicon-heart-1"></i>
+                                        <span class="badge">03</span>
+                                    </a>
+                                </li>
+                                <li class="cart">
+                                    <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="Cart">
+                                        <i class="lastudioicon-shopping-cart-1"></i><span class="badge">03</span>
+                                    </button>
+                                </li>
+                            </ul>
+                            <button class="toggle-icon d-none d-xl-block" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="menu">
+                                <span class="bar-icon"><i class="lastudioicon-menu-8-1"></i></span>
+                            </button>
+                            <!-- Meta Item List Start -->
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Header Middle End -->
-
-        <!-- Header Main Start -->
-        <div class="header__main-3 d-none d-lg-flex">
-            <div class="container-fluid custom-container">
-                <!-- Header Main Menu Start -->
-                <div class="header__main-2-menu">
-                    <!-- Menu Item List Start -->
-                    <ul class="menu-items-list menu-items-list--3 menu-items-list--dark justify-content-center d-flex">
-                        <li>
-                            <!-- <a class="active" href="#">
-                                Demos <i class="lastudioicon-down-arrow" aria-hidden="true"></i>
-                            </a> -->
-                                <li><a href="index.php">Home</a></li>
-                        </li>
-                        <li>
-                            <a href="#">Pages <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="about.php">About us</a></li>
-                                <li><a href="coming-soon.php">Coming Soon</a></li>
-                                <li><a href="our-team.php">Our Team</a></li>
-                                <li><a href="contact-us.php">Contact Us</a></li>
-                                <li><a href="faqs.php">FAQ's</a></li>
-                                <li><a href="term-of-use.php">term of use</a></li>
-                                <li><a href="404.php">404 Page</a></li>
-                                <li><a href="login-register.php">Login & Register</a></li>
-                            </ul>
-                        </li>
-                        <li class="position-static">
-                            <a href="#">Shop <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
-                            <div class="mega-menu mega-menu-width d-flex flex-wrap">
-                                <div class="mega-menu-col">
-                                    <h5 class="mega-menu-title">Shop Layout</h5>
-                                    <ul class="">
-                                        <li><a href="shop-fullwidth.php">Shop Fullwidth</a></li>
-                                        <li><a href="shop-sidebar.php">Shop Sidebar</a></li>
-                                        <li><a href="shop-masonry.php">Shop Masonry</a></li>
-                                        <li><a href="shop-3-columns.php">Shop 03 Columns</a></li>
-                                        <li><a href="shop-4-columns.php">Shop 04 Columns</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu-col">
-                                    <ul class="">
-                                        <li><a href="#">Featured Banner</a></li>
-                                        <li class="mega-menu-title">Hover Style</li>
-                                        <li><a href="#">Hover Style 01</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu-col">
-                                    <h5 class="mega-menu-title">Shop Pages</h5>
-                                    <ul class="">
-                                        <li><a href="my-account.php">My Account</a></li>
-                                        <li><a href="cart.php">Cart</a></li>
-                                        <li><a href="order-tracking.php">Order Tracking</a></li>
-                                        <li><a href="wishlist.php">Wishlist</a></li>
-                                        <li><a href="compare.php">Compare</a></li>
-                                        <li><a href="empty-cart.php">Cart Empty</a></li>
-                                        <li><a href="checkout.php">Checkout</a></li>
-                                        <li><a href="thank-you.php">Thank You</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu-col">
-                                    <h5 class="mega-menu-title">Product Pages</h5>
-                                    <ul class="">
-                                        <li><a href="product-single.php">Product Simple</a></li>
-                                        <li>
-                                            <a href="product-single-variable.php">Product Variable</a>
-                                        </li>
-                                        <li>
-                                            <a href="product-single-carousel.php">Product Carousel</a>
-                                        </li>
-                                        <li>
-                                            <a href="product-single-affiliate.php">
-                                                Product Affiliate
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="product-single-countdown.php">
-                                                Product CountDown
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="position-static">
-                            <a href="#">Collections <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
-                            <div class="mega-menu mega-menu--wrapper d-flex flex-wrap">
-                                <div class="mega-menu__banner">
-                                    <a href="#">
-                                        <div class="mega-menu__banner--image">
-                                            <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner" width="470" height="475" />
-                                        </div>
-                                        <div class="mega-menu__banner--caption">
-                                            <h4 class="caption-title">New Arrival</h4>
-                                            <p class="caption-desc">Non curabitur gravida</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="mega-menu__content">
-                                    <h4 class="mega-menu__content--title">Summer Collection 2023</h4>
-                                    <div class="d-flex flex-wrap">
-                                        <ul class="mega-menu__content--list">
-                                            <li><a href="#">Dresses and jumpsuits</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">T-shirts and tops</a></li>
-                                            <li><a href="#">Jackets and Suit Jackets</a></li>
-                                            <li><a href="#">Cardigans and sweaters</a></li>
-                                            <li><a href="#">Sweatshirts</a></li>
-                                            <li><a href="#">Coats</a></li>
-                                        </ul>
-                                        <ul class="mega-menu__content--list">
-                                            <li><a href="#">Trousers</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Skirts</a></li>
-                                            <li><a href="#">Shorts</a></li>
-                                            <li><a href="#">Bikinis and swimsuits</a></li>
-                                            <li><a href="#">Sportswear</a></li>
-                                            <li><a href="#">Underwear and lingerie</a></li>
-                                            <li><a href="#">Pyjamas</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mt-auto">
-                                        <ul class="mega-menu__info">
-                                            <li><a href="#">info@exmple.com</a></li>
-                                            <li><a href="#">(626)997-4298</a></li>
-                                        </ul>
-                                        <div class="mega-menu__social">
-                                            <div class="mega-menu__social--lable">Connect with us</div>
-                                            <ul class="mega-menu__social--social">
-                                                <li>
-                                                    <a href="#" aria-label="facebook">
-                                                        <i class="lastudioicon-b-facebook"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" aria-label="twitter">
-                                                        <i class="lastudioicon-b-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" aria-label="instagram">
-                                                        <i class="lastudioicon-b-instagram"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#">Blog <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="blog-right-sidebar.php">Blog Right Sidebar</a></li>
-                                <li><a href="blog-left-sidebar.php">Blog Left Sidebar</a></li>
-                                <li><a href="blog.php">Blog No Sidebar</a></li>
-                                <li><a href="blog-single.php">Single Post</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                    <!-- Menu Item List End -->
-                </div>
-                <!-- Header Main Menu Start -->
             </div>
         </div>
         <!-- Header Main End -->
     </header>
 
     <!-- Header End -->
-        <!-- Search Start -->
-        <div class="search-modal modal fade" id="SearchModal">
+
+
+    <!-- Cart Sidebar Start -->
+    <!-- Cart Offcanvas Start -->
+    
+    <div class="offcanvas offcanvas-end cart-offcanvas" id="cartSidebar">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">My Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="remove">
+            <i class="lastudioicon-e-remove"></i>
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="offcanvas-cart-list">
+            <li>
+                <!-- Offcanvas Cart Item Start -->
+                <div class="offcanvas-cart-item">
+                    <div class="offcanvas-cart-item__thumbnail">
+                        <a href="#">
+                            <img src="assets/images/products/product-02.png" width="70" height="84" alt="product" />
+                        </a>
+                    </div>
+                    <div class="offcanvas-cart-item__content">
+                        <h4 class="offcanvas-cart-item__title">
+                            <a href="#">Princess set</a>
+                        </h4>
+                        <span class="offcanvas-cart-item__quantity">
+                        1 × $69.99
+                    </span>
+                    </div>
+                    <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
+                        <i class="lastudioicon-e-remove"></i>
+                    </a>
+                </div>
+                <!-- Offcanvas Cart Item End -->
+            </li>
+            <li>
+                <!-- Offcanvas Cart Item Start -->
+                <div class="offcanvas-cart-item">
+                    <div class="offcanvas-cart-item__thumbnail">
+                        <a href="#">
+                            <img src="assets/images/products/product-04.png" width="70" height="84" alt="product" />
+                        </a>
+                    </div>
+                    <div class="offcanvas-cart-item__content">
+                        <h4 class="offcanvas-cart-item__title">
+                            <a href="#">Senecio stapeliiformis </a>
+                        </h4>
+                        <span class="offcanvas-cart-item__quantity">
+                        1 × $89.99
+                    </span>
+                    </div>
+                    <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
+                        <i class="lastudioicon-e-remove"></i>
+                    </a>
+                </div>
+                <!-- Offcanvas Cart Item End -->
+            </li>
+            <li>
+                <!-- Offcanvas Cart Item Start -->
+                <div class="offcanvas-cart-item">
+                    <div class="offcanvas-cart-item__thumbnail">
+                        <a href="#">
+                            <img src="assets/images/products/product-05.png" width="70" height="84" alt="product" />
+                        </a>
+                    </div>
+                    <div class="offcanvas-cart-item__content">
+                        <h4 class="offcanvas-cart-item__title">
+                            <a href="#">Hoya burtoniae </a>
+                        </h4>
+                        <span class="offcanvas-cart-item__quantity">
+                        1 × $35.99
+                    </span>
+                    </div>
+                    <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
+                        <i class="lastudioicon-e-remove"></i>
+                    </a>
+                </div>
+                <!-- Offcanvas Cart Item End -->
+            </li>
+        </ul>
+    </div>
+    <div class="offcanvas-footer">
+        <!-- Free Shipping Goal Start-->
+        <div class="free-shipping-goal">
+            <div class="free-shipping-goal__label text-center">
+                Buy $3.03 more to enjoy
+                <strong>FREE Shipping</strong>
+            </div>
+            <div class="free-shipping-goal__loading-bar">
+                <div class="load-percent" style="width: 98.49%"></div>
+            </div>
+        </div>
+        <!-- Free Shipping Goal End-->
+
+        <!-- Cart Meta Start-->
+        <ul class="cart-meta">
+            <li>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+                            <path d="m9.5 2.5 3 3M1.5 10.5l3 3M11.5.5l3 3-10 10-4 1 1-4Z"></path>
+                        </g>
+                    </svg>
+                    <span>Note</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15.313" height="16" viewBox="0 0 15.313 16">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m.656 3.5 7 3 7-3M7.656 15.5v-9"></path>
+                            <path d="m.656 12.5 7 3 7-3v-9l-7-3-7 3Z"></path>
+                        </g>
+                    </svg>
+                    <span>Shipping</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+                            <path d="M5.5 4.5h5M5.5 9.5h5M13.5 7.5a2 2 0 0 1 2-2v-4a1 1 0 0 0-1-1h-13a1 1 0 0 0-1 1V5a2 2 0 0 1 0 4v3.5a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-3a2 2 0 0 1-2-2Z"></path>
+                        </g>
+                    </svg>
+                    <span>Coupon</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Cart Meta End-->
+
+        <!-- Cart Totals Table Start-->
+        <div class="cart-totals-table">
+            <table class="table">
+                <tbody>
+                    <tr class="cart-subtotal">
+                        <th>Subtotal</th>
+                        <td>
+                            <span>$195.97</span>
+                        </td>
+                    </tr>
+
+                    <tr class="cart-shipping-totals">
+                        <th>Shipping</th>
+                        <td>
+                            <ul class="shipping-methods">
+                                <li class="single-form">
+                                    <input type="radio" name="shipping" id="flat-rate" />
+                                    <label for="flat-rate" class="single-form__label radio-label">
+                                        <span></span>
+                                        Flat rate:
+                                        <strong class="price">$20.00</strong>
+                                    </label>
+                                </li>
+                                <li class="single-form">
+                                    <input type="radio" name="shipping" id="local-pickup" />
+                                    <label for="local-pickup" class="single-form__label radio-label">
+                                        <span></span>
+                                        Local pickup</label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr class="order-total">
+                        <th>Total</th>
+                        <td data-title="Total">
+                            <strong><span>$215.97</span></strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Cart Totals Table End-->
+
+        <!-- Cart Buttons End-->
+        <div class="cart-buttons">
+            <a href="#" class="cart-buttons__btn-1 btn">Checkout</a>
+            <a href="#" class="cart-buttons__btn-2 btn">View Cart</a>
+        </div>
+        <!-- Cart Buttons End-->
+    </div>
+</div>
+    
+    <!-- Cart Offcanvas End -->
+
+    <!-- Cart Sidebar End -->
+
+    <!-- Search Start -->
+    <div class="search-modal modal fade" id="SearchModal">
         <!-- Search Close Start -->
         <button class="search-modal__close" data-bs-dismiss="modal" aria-label="remove">
             <i class="lastudioicon-e-remove"></i>
@@ -351,8 +560,8 @@ include("./php/query.php");
                     <li><a href="mailto:info@exmple.com">info@exmple.com</a></li>
                     <li>
                         <span>
-                        PO Box 1622 Colins Street West Victoria 8077 Australia
-                    </span>
+                            PO Box 1622 Colins Street West Victoria 8077 Australia
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -413,8 +622,8 @@ include("./php/query.php");
                         <a href="index.php">
                             Home
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="index.html">Plant 01</a></li>
@@ -425,19 +634,19 @@ include("./php/query.php");
                         <a href="#">
                             Pages
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <ul class="sub-menu">
-                            <li><a href="about.php">About us</a></li>
-                            <li><a href="coming-soon.php">Coming Soon</a></li>
-                            <li><a href="our-team.php">Our Team</a></li>
-                            <li><a href="contact-us.php">Contact Us</a></li>
-                            <li><a href="faqs.php">FAQ's</a></li>
-                            <li><a href="term-of-use.php">term of use</a></li>
-                            <li><a href="404.php">404 Page</a></li>
+                            <li><a href="about.html">About us</a></li>
+                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                            <li><a href="our-team.html">Our Team</a></li>
+                            <li><a href="contact-us.html">Contact Us</a></li>
+                            <li><a href="faqs.html">FAQ's</a></li>
+                            <li><a href="term-of-use.html">term of use</a></li>
+                            <li><a href="404.html">404 Page</a></li>
                             <li>
-                                <a href="login-register.php">Login & Register</a>
+                                <a href="login-register.html">Login & Register</a>
                             </li>
                         </ul>
                     </li>
@@ -445,8 +654,8 @@ include("./php/query.php");
                         <a href="#">
                             Shop
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <div class="mega-menu">
                             <div class="mega-menu-col">
@@ -531,8 +740,8 @@ include("./php/query.php");
                         <a href="#">
                             Collections
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <div class="mega-menu">
                             <div class="mega-menu__banner">
@@ -595,23 +804,17 @@ include("./php/query.php");
                                         <ul class="mega-menu__social--social">
                                             <li>
                                                 <a href="#" aria-label="facebook">
-                                                    <i
-                                                    class="lastudioicon-b-facebook"
-                                                ></i>
+                                                    <i class="lastudioicon-b-facebook"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#" aria-label="twitter">
-                                                    <i
-                                                    class="lastudioicon-b-twitter"
-                                                ></i>
+                                                    <i class="lastudioicon-b-twitter"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#" aria-label="instagram">
-                                                    <i
-                                                    class="lastudioicon-b-instagram"
-                                                ></i>
+                                                    <i class="lastudioicon-b-instagram"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -624,8 +827,8 @@ include("./php/query.php");
                         <a href="#">
                             Blog
                             <span class="menu-expand" aria-label="down-arrow">
-                            <i class="lastudioicon-down-arrow"></i>
-                        </span>
+                                <i class="lastudioicon-down-arrow"></i>
+                            </span>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -680,3 +883,9 @@ include("./php/query.php");
     </div>
 
     <!-- Mobile Meta End -->
+
+    <main>
+        <!-- Breadcrumb Start -->
+       
+        <!-- Bre
+        
