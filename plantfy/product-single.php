@@ -87,6 +87,7 @@ include_once('components/addtocart.php')
                                     <input type="hidden" name="productName" id="" value='<?php echo $singleItem['productName'] ?>'>
                                     <input type="hidden" name="productPrice" id="" value='<?php echo $singleItem['productPrice'] ?>'>
                                     <input type="hidden" name="productDescription" id="" value='<?php echo $singleItem['productDescription'] ?>'>
+                                    <input type="hidden" name="productImage" id="" value='<?php echo $singleItem['productImage'] ?>'>
                                     <div class="product-single-content__add-to-cart-wrapper">
                                         <div class="product-single-content__quantity-add-to-cart">
                                             <div class="product-single-content__quantity product-quantity">
