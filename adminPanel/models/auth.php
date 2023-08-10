@@ -48,6 +48,31 @@ function insertProducts($product_name, $product_description,$product_price,$prod
         $query -> bindParam('product_category', $product_category);
         $query -> execute();
     }
+//function for update products;
+function updateProducts( $product_id,$product_name,$product_description,$product_price,$product_stock,$product_category, $product_image, $pdo)
+    {
+        $query = $pdo->prepare('update products set productName = :product_name,productDescription =:product_description,productPrice=:product_price,productImage=:product_image,productStock=:product_stock,categoryID=:product_category where productID = :product_id"');
+        $query -> bindParam('product_id', $product_id);
+        $query -> bindParam('product_name', $product_name);
+        $query -> bindParam('product_desc', $product_description);
+        $query -> bindParam('product_price', $product_price);
+        $query -> bindParam('product_stock', $product_stock);
+        $query -> bindParam('product_category', $product_category);
+        $query -> bindParam('product_image', $product_image);
+        $query -> execute();
+    }
+//function for update products;
+function updateProductsInelse( $product_id,$product_name,$product_description,$product_price,$product_stock,$product_category,  $pdo)
+    {
+        $query = $pdo->prepare('update products set productName = :product_name,productDescription =:product_description,productPrice=:product_price,productStock=:product_stock,categoryID=:product_category where productID = :product_id"');
+        $query -> bindParam('product_id', $product_id);
+        $query -> bindParam('product_name', $product_name);
+        $query -> bindParam('product_desc', $product_description);
+        $query -> bindParam('product_price', $product_price);
+        $query -> bindParam('product_stock', $product_stock);
+        $query -> bindParam('product_category', $product_category);
+        $query -> execute();
+    }
     function findUserWithEmailParent($email, $pdo)
     {
         $query = $pdo->prepare('select * from parent_login where parentEmail = :email');

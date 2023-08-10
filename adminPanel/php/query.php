@@ -154,16 +154,16 @@ if(isset($_POST['insertProduct'])){
     if($product_image_ext == 'jpg' || $product_image_ext == "png" || $product_image_ext== 'jpeg' || $product_image_ext== 'webp'){
         if(move_uploaded_file($product_image_tmp_name,$destination)){
            
-            $authModel->insertproduct($product_name, $product_description,$product_price,$product_stock, $product_category, $product_image, $pdo);
+            $authModel->insertProducts($product_name, $product_description,$product_price,$product_stock, $product_category, $product_image, $pdo);
             echo "<script>alert('product added succesfully')
-            location.assign('product.php')
+            location.assign('products.php')
             </script>";
             exit;
         }
         
     }else{
         echo "<script>alert('not valid extension')
-        location.assign('product.php')
+        location.assign('products.php')
         </script>";
     }
     
@@ -177,6 +177,63 @@ if(isset($_POST['insertProduct'])){
 }
 // ---------------------------------------------------------------------------|
 // query for insert products                                                  |
+//               [end]                                                        |     
+// ---------------------------------------------------------------------------|
+
+// ---------------------------------------------------------------------------|
+// query for update products                                                  |
+//               [start]                                                      |     
+// ---------------------------------------------------------------------------|
+if(isset($_POST['update_product_info'])){
+    $product_id= $_POST['update-product-id'];
+    $product_name = $_POST['update-product-name'];
+    $product_description = $_POST['update-product-description'];
+    $product_price = $_POST['update-product-price'];
+    $product_stock = $_POST['update-product-stock'];
+    $product_category = $_POST['update-product-category'];
+    $product_image = $_FILES['update-product-image']['name'];
+    $product_image_size = $_FILES['update-product-image']['size'];
+    $product_image_tmp_name = $_FILES['update-product-image']['tmp_name'];
+    $product_image_ext = pathinfo($product_image, PATHINFO_EXTENSION);
+    $destinationproduct = "adminImages/".$product_image;
+    if($product_image_size <= 48000000){
+        if($product_image_ext === 'jpg' || $product_image_ext === "png" || $product_image_ext === 'jpeg'|| $product_image_ext === "webp"  || $product_image_ext === "" || $product_image === ""){
+            if(move_uploaded_file($product_image_tmp_name,$destinationproduct)){
+    $product_price = $_POST['update-product-price'];
+                $authModel->updateProducts( $product_id,$product_name,$product_description,$product_price,$product_stock,$product_category, $product_image, $pdo);                
+                echo "<script>alert('Updated succesfully')
+                location.assign('products.php')</script>";
+                
+            }
+            
+        }else{
+            echo "<script>alert('Invalid extension of Image')
+            location.assign('products.php')
+            </script>";
+        }
+        
+    }else{
+        echo "<script>alert('file size is greater')
+        </script>";
+    }if($product_image_size == 0){
+        if($product_image_ext === '' || $product_image === ""   ){
+            
+            $authModel->updateProductsInelse($product_id,$product_name,$product_description,$product_price,$product_stock,$product_category, $pdo);                
+            
+            echo "<script>alert('Updated succesfully')
+            location.assign('products.php')
+            </script>";
+            
+            
+       }
+       
+       }
+       
+   
+       
+    }
+// ---------------------------------------------------------------------------|
+// query for update products                                                  |
 //               [end]                                                        |     
 // ---------------------------------------------------------------------------|
 ?>
