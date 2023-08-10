@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 06:33 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Aug 10, 2023 at 06:47 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `admins` (
   `adminEmail` varchar(225) DEFAULT NULL,
   `password` varchar(225) DEFAULT NULL,
   `adminImage` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admins`
@@ -51,16 +51,16 @@ INSERT INTO `admins` (`adminID`, `adminName`, `adminEmail`, `password`, `adminIm
 CREATE TABLE `categories` (
   `categoryID` int(11) NOT NULL,
   `categoryName` varchar(225) DEFAULT NULL,
-  `categoryImage` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `categoryImage` varchar(225) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`categoryID`, `categoryName`, `categoryImage`) VALUES
-(1, 'category1', 0),
-(2, 'category2', 0);
+(1, 'Indoor plants', 'quick-shop-1.png'),
+(2, 'Outdoor plants', 'quick-shop-2.png');
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,7 @@ CREATE TABLE `orders` (
   `orderDate` timestamp NULL DEFAULT current_timestamp(),
   `totalAmount` varchar(225) DEFAULT NULL,
   `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
@@ -100,15 +100,15 @@ CREATE TABLE `products` (
   `productImage` varchar(225) DEFAULT NULL,
   `productStock` varchar(255) NOT NULL,
   `cateoryID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`productID`, `productName`, `productDescription`, `productPrice`, `productImage`, `productStock`, `cateoryID`) VALUES
-(1, 'sunflower', 'jkkkkkkkkkkkkkkkk', '00', 'ioyi', '', 2),
-(2, 'sunflower2', 'jkkkkkkkkkkkkkkkk', '00', 'ioyi', '', 2);
+(1, 'Bambino dwarf', 'Ficus lyrata Bambino has an extremely compact, upright, branching nature; slightly smaller and thicker leaves compared to Ficus lyrata', '39.99', 'product-01.png', '24', 1),
+(2, 'Golden pothos', 'Epipremnum aureum commonly called golden pothos or devil\'s ivy, is native to the Solomon Islands.', '39.99', 'product-02.png', '20', 1);
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,7 @@ CREATE TABLE `users` (
   `lastName` varchar(225) DEFAULT NULL,
   `userEmail` varchar(225) NOT NULL,
   `userPassword` varchar(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
