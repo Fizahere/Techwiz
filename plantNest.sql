@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2023 at 09:39 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Aug 10, 2023 at 12:09 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -89,6 +89,20 @@ INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `orde
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `productreviews`
+--
+
+CREATE TABLE `productreviews` (
+  `reviewID` int(11) NOT NULL,
+  `reviews` varchar(255) NOT NULL,
+  `productID` int(11) DEFAULT NULL,
+  `userID` int(11) DEFAULT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -165,6 +179,14 @@ ALTER TABLE `orders`
   ADD KEY `u_fk` (`userID`);
 
 --
+-- Indexes for table `productreviews`
+--
+ALTER TABLE `productreviews`
+  ADD PRIMARY KEY (`reviewID`),
+  ADD KEY `pr_id` (`productID`),
+  ADD KEY `user_id` (`userID`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -201,6 +223,12 @@ ALTER TABLE `orders`
   MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `productreviews`
+--
+ALTER TABLE `productreviews`
+  MODIFY `reviewID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -222,6 +250,13 @@ ALTER TABLE `users`
 ALTER TABLE `orders`
   ADD CONSTRAINT `p_fk` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `u_fk` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
+-- Constraints for table `productreviews`
+--
+ALTER TABLE `productreviews`
+  ADD CONSTRAINT `pr_id` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE SET NULL,
+  ADD CONSTRAINT `user_id` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `products`
