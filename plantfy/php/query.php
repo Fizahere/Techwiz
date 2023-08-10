@@ -35,7 +35,7 @@ if (isset($_POST['signup'])) {
         redirectWindow("signup.php?error=Email already exists");
     }
 
-    $authModel->signup($username,$fullname, $email, $password, $pdo);
+    $authModel->signup($username, $fullname, $email, $password, $pdo);
     $user = $authModel->findUserWithEmail($email, $pdo);
 
     if ($user) {
@@ -70,13 +70,13 @@ if (isset($_POST['login'])) {
 }
 ;
 
-if(isset($_POST['edit'])){
+if (isset($_POST['edit'])) {
     $userID = $_POST['userID'];
     $userName = $_POST['username'];
     $fullName = $_POST['fullname'];
     $emailAddress = $_POST['email'];
- 
-    $authModel->update($userName,$fullName,$emailAddress,$userID,$pdo);
+
+    $authModel->update($userName, $fullName, $emailAddress, $userID, $pdo);
     redirectWindow('my-account.php');
     // $query = $pdo->prepare('update users set ')
 }

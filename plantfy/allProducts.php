@@ -10,7 +10,9 @@ include_once('components/addtocart.php')
     <!-- Cart Offcanvas End -->
 
     <!-- Cart Sidebar End -->
-    
+
+
+
     <main>
         <!-- Slider Start -->
         <div class="slider-section home-2-slider-navigation slider-active">
@@ -221,7 +223,7 @@ include_once('components/addtocart.php')
 
                 <!-- Product btn End -->
                 <div class="text-center js-scroll ShortFadeInUp">
-                    <form action="allProducts.php" method="post">
+                    <form action="shop-fullwidth.php" method="post">
                     <button name="viewAllProducts" class="btn product-view-btn">
                         View More Items
                     </button>
