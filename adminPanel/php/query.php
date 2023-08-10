@@ -2,25 +2,134 @@
 session_start();
 include_once('models/config.php');
 include_once("models/auth.php");
-?>
-<!------------------------------------------------------------------------------------------------
-|   php tag start for queries to add , update , delete                                           |
-|   categories  by admin                                                                         |
-|   [start]                                                                                      |  
-------------------------------------------------------------------------------------------------->
-<?php
-
-
-
-?>
-<!------------------------------------------------------------------------------------------------
-|   php tag end for queries to add , update , delete                                             |
-|   categories  by admin                                                                         |
-|   [end]                                                                                        |  
-------------------------------------------------------------------------------------------------->
-
-<?php
 $authModel  =  new Auth();
+?>
+<!-----------------------------------------------------------------------------
+|   php tag start for queries to add , update , delete                        |
+|   categories  by admin                                                      |
+|   [start]                                                                   |  
+------------------------------------------------------------------------------>
+<?php
+//----------------------------------------------------------------------------|                 
+// query for insert category                                                  |
+//               [start]                                                      |     
+// ---------------------------------------------------------------------------|
+if(isset($_POST['insertCategory'])){
+    $category_name = $_POST['insert-category-name'];
+    $category_image = $_FILES['insert-category-image']['name'];
+    $category_image_size = $_FILES['insert-category-image']['size'];
+    $category_image_tmp_name = $_FILES['insert-category-image']['tmp_name'];
+    $category_image_ext = pathinfo($category_image, PATHINFO_EXTENSION);
+    $destination = "adminImages/".$category_image;
+    if($category_image_size <= 48000000){
+    if($category_image_ext == 'jpg' || $category_image_ext == "png" || $category_image_ext== 'jpeg' || $category_image_ext== 'webp'){
+        if(move_uploaded_file($category_image_tmp_name,$destination)){
+           
+            $authModel->insertCategory($category_name, $category_image, $pdo);
+            echo "<script>alert('category added succesfully')
+            location.assign('category.php')
+            </script>";
+            exit;
+        }
+        
+    }else{
+        echo "<script>alert('not valid extension')
+        location.assign('category.php')
+        </script>";
+    }
+    
+}else{
+    echo "<script>alert('file size is greater')
+    </script>";
+}
+
+
+
+}
+// ---------------------------------------------------------------------------|
+// query for insert category                                                  |
+//               [end]                                                        |     
+// ---------------------------------------------------------------------------|
+
+// ---------------------------------------------------------------------------|
+// query for update category                                                  |
+//               [start]                                                      |     
+// ---------------------------------------------------------------------------|
+if(isset($_POST['update_category_info'])){
+    $category_id= $_POST['update-category-id'];
+    $category_name = $_POST['update-category-name'];
+    $category_image = $_FILES['update-category-image']['name'];
+    $category_image_size = $_FILES['update-category-image']['size'];
+    $category_image_tmp_name = $_FILES['update-category-image']['tmp_name'];
+    $category_image_ext = pathinfo($category_image, PATHINFO_EXTENSION);
+    $destinationcategory = "adminImages/".$category_image;
+    if($category_image_size <= 48000000){
+        if($category_image_ext === 'jpg' || $category_image_ext === "png" || $category_image_ext === 'jpeg'|| $category_image_ext === "webp"  || $category_image_ext === "" || $category_image === ""){
+            if(move_uploaded_file($category_image_tmp_name,$destinationcategory)){
+                $authModel->updateCategory( $category_id,$category_name, $category_image, $pdo);                
+                echo "<script>alert('Updated succesfully')
+                location.assign('category.php')</script>";
+                
+            }
+            
+        }else{
+            echo "<script>alert('Invalid extension of Image')
+            location.assign('category.php')
+            </script>";
+        }
+        
+    }else{
+        echo "<script>alert('file size is greater')
+        </script>";
+    }if($category_image_size == 0){
+        if($category_image_ext === '' || $category_image === ""   ){
+            
+            $authModel->updateCategoryInelse( $category_id,$category_name, $pdo);                
+            
+            echo "<script>alert('Updated succesfully')
+            location.assign('category.php')
+            </script>";
+            
+            
+       }
+       
+       }
+       
+   
+       
+    }
+    // ---------------------------------------------------------------------------|
+    // query for update category                                                  |
+    //               [end]                                                        |     
+    // ---------------------------------------------------------------------------|
+    
+    // ---------------------------------------------------------------------------|
+    // query for delete category                                                  |
+    //               [start]                                                      |     
+    // ---------------------------------------------------------------------------|
+    if (isset($_POST['delete_category_info'])) {
+        $category_delete_id = $_POST['delete_category_id'];
+        $authModel->deleteCategory( $category_delete_id, $pdo);                
+    echo
+       "<script>
+       alert('Category deleted')
+       location.assign('category.php')
+       </script>";
+   
+}
+// ---------------------------------------------------------------------------|
+// query for delete category                                                  |
+//               [end]                                                        |     
+// ---------------------------------------------------------------------------|
+
+?>
+<!------------------------------------------------------------------------------
+|   php tag end for queries to add , update , delete                           |
+|   categories  by admin                                                       |
+|   [end]                                                                      |  
+------------------------------------------------------------------------------->
+
+<?php
 
 if (isset($_POST['update_admin_info'])) {
     $admin_ID = $_POST['model-admin-ID'];
@@ -94,7 +203,7 @@ if (isset($_POST['update_hospital_info'])) {
 //                                                                            |
 //                                                                            |
 // ---------------------------------------------------------------------------|
-if (isset($_POST['insert-hospital-btn'])) {
+if (isset($_POST['insert--btn'])) {
     $hospital_name = $_POST['insert-hospital-name'];
     $hospital_email = $_POST['insert-hospital-email'];
     $hospital_location = $_POST['insert-hospital-location'];

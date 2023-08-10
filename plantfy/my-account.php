@@ -469,13 +469,22 @@ include_once('components/addtocart.php')
                         <!-- My Account Dashboard Start -->
                         <?php
                         $user = $_SESSION['USER'];
+                        // print_r($user);
                         foreach ($user as $item) {
-                            $userName = $item['Username'];
-                            $lastName = $item['Fullname'];
-                            $emailAddress = $item['Email'];
-                            $userID = $item['User_ID'];
-                            // echo '<script>alert("'.$userName.'")</script>';
+                            $userID = $item['userID'];
+                            echo '<script>alert("'.$userID.'")</script>';
                         }
+                   
+                        $query = $pdo->prepare('select * from users where userID = :id');
+                        $query->bindParam('id',$userID);
+                        $query->execute();
+                        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+                        foreach($result as $value){
+                            
+                            $userName = $value['firstName'];
+                            $lastName = $value['lastName'];
+                            $emailAddress = $value['userEmail'];
+                    }
                         ?>
 
                         <div class="my-account-dashboard">
@@ -491,7 +500,7 @@ include_once('components/addtocart.php')
                                         <div class="col-md-6">
                                             <input type="hidden" name="userID" value="<?php echo $userID ?>">
                                             <div class="single-form">
-                                                <label class="single-form__label">Username *</label>
+                                                <label class="single-form__label">First Nname *</label>
                                                 <input class="single-form__input" type="text" name="username"
                                                     value="<?php echo $userName ?>" />
 
@@ -499,7 +508,7 @@ include_once('components/addtocart.php')
                                             </div>
                                             <!-- Single Form Start -->
                                             <div class="single-form">
-                                                <label class="single-form__label">Full Name *</label>
+                                                <label class="single-form__label">Last Name *</label>
                                                 <input class="single-form__input" type="text" name="fullname"
                                                     value="<?php echo $lastName ?>" />
                                             </div>
@@ -532,6 +541,8 @@ include_once('components/addtocart.php')
                             <div class="row">
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">
+                                <h5 class="h5 mb-3">Are you sure you want to sign out?</h5>
+
                                     <div class="single-form">
                                         <button class="single-form__btn btn" id='signout_btn'>
                                             <a href="logout.php"><h4 class='h6'>Sign Out ?</h4></a>

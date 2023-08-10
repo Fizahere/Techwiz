@@ -43,31 +43,30 @@ include_once('header_admin.php');
                                     <td>
                                         <?php echo $row['categoryName'] ?>
                                     </td>
-                                    <td>
-                                        <?php echo $row['categoryImage'] ?>
+                                    <td style="width: 50%;">
+                                        <img src="adminImages/<?php echo $row['categoryImage'] ?>" width="50%" alt="">
+
                                     </td>
 
 
                                     <td class="">
                                         <button class="btn btn-white edit-btn " data-bs-toggle="modal"
-                                            data-bs-target="#update-hospital-modal<?php echo $row['categoryID']  ?>">
+                                            data-bs-target="#update-category-modal<?php echo $row['categoryID']  ?>">
                                             <i class="fa fa-edit"></i>
                                         </button>
 
                                         <button class="btn btn-white" data-bs-toggle="modal"
-                                            data-bs-target="#delete-hospital-modal<?php echo $row['categoryID']  ?>">
+                                            data-bs-target="#delete-category-modal<?php echo $row['categoryID']  ?>">
                                             <i class="fa fa-trash"></i>
                                         </button>
 
                                     </td>
                                 </tr>
-                                <!-------------------------------------------------
-                                        |                                                 |
-                                        | modal for update hospital information           | 
-                                        | [start]                                         |
-                                        |                                                 |      
+                                        <!-------------------------------------------------                                         |                                                 |
+                                        | modal for update category information           | 
+                                        | [start]                                         |      
                                         -------------------------------------------------->
-                                <div class="modal" id="update-hospital-modal<?php echo $row['categoryID'] ?>">
+                                <div class="modal" id="update-category-modal<?php echo $row['categoryID'] ?>">
                                     <div class="modal-dialog modal-xl bg-light ">
                                         <div class="modal-content bg-light">
                                             <div class="modal-header">
@@ -84,43 +83,38 @@ include_once('header_admin.php');
                                                         <label for="inputPassword"
                                                             class="col-sm-2 col-form-label">ID</label>
                                                         <div class="col-sm-10">
-                                                            <input value="<?php echo $row['hospitalID'] ?>" readonly
-                                                                class="form-control bg-white" name="model-id">
+                                                            <input value="<?php echo $row['categoryID'] ?>" readonly
+                                                                class="form-control bg-white" name="update-category-id">
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3 row">
+                                                    <div class="mb-3 row form-group">
                                                         <label class="col-sm-2 col-form-label">Name</label>
                                                         <div class="col-sm-10">
-                                                            <input value="<?php echo $row['hospitalName'] ?>"
-                                                                id="modal-category-name" name="model-name"
+                                                            <input value="<?php echo $row['categoryName'] ?>"
+                                                                id="modal-category-name" name="update-category-name"
                                                                 class="form-control" type="text">
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3 row">
-                                                        <label class="col-sm-2 col-form-label">Email</label>
+                                                    <div class="mb-3  row form-group">
+                                                        <label for="" class="col-sm-2 col-form-label">Change
+                                                            Image</label>
                                                         <div class="col-sm-10">
-                                                            <input value="<?php echo $row['hospitalEmail'] ?>"
-                                                                id="modal-category-name" name="model-email"
-                                                                class="form-control" type="text">
+                                                            <input type="file" name="update-category-image" class="form-control">
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3 row">
-                                                        <label class="col-sm-2 col-form-label">Adress</label>
-                                                        <div class="col-sm-10">
-                                                            <input value="<?php echo $row['hospitalLocation'] ?>"
-                                                                id="modal-category-name" name="model-location"
-                                                                class="form-control" type="text">
+                                                    <div class="mb-3 row form-group">
+                                                        <label for="" class="col-sm-2 col-form-label">Category
+                                                            Image</label>
+                                                        <div class="col-sm-10"><img width="50%"
+                                                                src="adminImages/<?php echo $row['categoryImage']  ?>"
+                                                                alt="">
                                                         </div>
+
                                                     </div>
-
-
-
-
-
                                                     <!-- Modal footer -->
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-dark text-white"
-                                                            name="update_hospital_info">
+                                                            name="update_category_info">
                                                             Update</button>
                                                         <button type="button" class="btn btn-danger"
                                                             data-bs-dismiss="modal">Close</button>
@@ -131,19 +125,16 @@ include_once('header_admin.php');
 
                                     </div>
                                 </div>
-                                <!-------------------------------------------------
-                                        |                                                 |
-                                        | modal for update hospital information           | 
+                                        
+                                        <!-------------------------------------------------
+                                        | modal for update category information           | 
                                         | [end]                                           |
-                                        |                                                 |      
                                         -------------------------------------------------->
-                                <!-------------------------------------------------
-                                        |                                                 |
-                                        | modal for delete hospital information           | 
+                                        <!-------------------------------------------------
+                                        | modal for delete category information           | 
                                         | [start]                                         |
-                                        |                                                 |      
                                         -------------------------------------------------->
-                                <div class="modal " id="delete-hospital-modal<?php echo $row['categoryID'] ?>">
+                                <div class="modal " id="delete-category-modal<?php echo $row['categoryID'] ?>">
                                     <div class="modal-dialog modal-xl bg-light w-50">
                                         <div class="modal-content bg-light">
                                             <!-- <div class="modal-header">
@@ -156,21 +147,20 @@ include_once('header_admin.php');
                                                 <form method="post">
                                                     <div class="d-flex justify-centre">
                                                         <div>
-                                                            <input type="hidden" name="hospital_id_delete"
-                                                                value="<?php echo $row['hospitalID']; ?>">
+                                                            <input type="hidden" name="delete_category_id"
+                                                                value="<?php echo $row['categoryID']; ?>">
                                                             <span class="text-bold">'
-                                                                <?php echo $row['hospitalName'] ?>'
+                                                                <?php echo $row['categoryName'] ?>'
                                                             </span>
                                                             <span> will also delete from database. <span>
-                                                                    <p>Are you sure you want to permanently delete this
-                                                                        file?</p>
+                                                                    <p>Are you sure you want to permanently delete this?</p>
                                                         </div>
                                                     </div>
 
                                                     <!-- Modal footer -->
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-dark text-white"
-                                                            name="delete_hospital_info">
+                                                            name="delete_category_info">
                                                             Yes</button>
                                                         <button type="button" class="btn btn-danger"
                                                             data-bs-dismiss="modal">No</button>
@@ -183,7 +173,7 @@ include_once('header_admin.php');
                                 </div>
                                 <!-------------------------------------------------
                                         |                                                 |
-                                        | modal for delete hospital information           | 
+                                        | modal for delete category information           | 
                                         | [end]                                           |
                                         |                                                 |      
                                         -------------------------------------------------->
@@ -203,7 +193,7 @@ include_once('header_admin.php');
 
 <!-------------------------------------------------
                                         |                                                 |
-                                        | modal for insert hospital information           | 
+                                        | modal for insert category information           | 
                                         | [start]                                         |
                                         |                                                 |      
                                         -------------------------------------------------->
@@ -220,14 +210,14 @@ include_once('header_admin.php');
 
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10"> <input placeholder="Enter hospital name.." class="form-control bg-white"
-                                name="insert-hospital-name"></div>
+                        <div class="col-sm-10"> <input placeholder="Enter category name.." class="form-control bg-white"
+                                name="insert-category-name"></div>
                     </div>
 
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label"> Image</label>
                         <div class="col-sm-10">
-                            <input type="file" name="categoryImage" class="form-control bg-white">
+                            <input type="file" name="insert-category-image" class="form-control bg-white">
                         </div>
                     </div>
 
@@ -235,7 +225,7 @@ include_once('header_admin.php');
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="submit" name="insert-hospital-btn" class="btn btn-dark text-white">Add</button>
+                        <button type="submit" name="insertCategory" class="btn btn-dark text-white">Add</button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>
@@ -246,7 +236,7 @@ include_once('header_admin.php');
 
 <!-------------------------------------------------
                                         |                                                 |
-                                        | modal for insert hospital information           | 
+                                        | modal for insert category information           | 
                                         | [end]                                           |
                                         |                                                 |      
                                         -------------------------------------------------->
