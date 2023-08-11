@@ -11,9 +11,26 @@ include_once('header_admin.php');
 
                         <h4>Plant Products & Accessories</h4>
 
-                        <button type="button" class="btn text-dark  bg-white mb-2 insert" data-bs-toggle="modal" data-bs-target="#insert-product-modal">Add product
+<div class="d-flex">
+<button type="button" class="btn text-dark  bg-white mb-2 insert" data-bs-toggle="modal" data-bs-target="#insert-product-modal">Add product
                         </button>
+<form method="post">
 
+                        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+     SORT
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><button class="dropdown-item" href="#" name="sort-product-by-name">Sort by name</button></li>
+    <li><button class="dropdown-item" href="#" name="sort-product-by-price">Sort by price</button></li>
+    <li><button class="dropdown-item" href="#" ame="sort-product-by-category">Sort by category  </button></li>
+  </ul>
+</div>
+                        
+
+</form>    
+                        
+                        </div>
 
                     </div>
                     <div class="table-responsive bg- ">
@@ -32,10 +49,21 @@ include_once('header_admin.php');
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <?php
+     if(isset($_POST['sort-product-by-name'])){
+        $query = $pdo->query("SELECT * FROM products INNER JOIN categories ON products.categoryID = categories.categoryID ORDER BY products.productName ");
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+     }else if(isset($_POST['sort-product-by-price'])){
+        $query = $pdo->query("SELECT * FROM products INNER JOIN categories ON products.categoryID = categories.categoryID ORDER BY products.productPrice ");
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+     }else if(isset($_POST['sort-product-by-category'])){
+        $query = $pdo->query("SELECT * FROM products INNER JOIN categories ON products.categoryID = categories.categoryID ORDER BY categories.categoryName ");
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+     }else{                           
                                 $query = $pdo->query("SELECT * FROM `products` INNER JOIN categories ON products.categoryID = categories.categoryID");
                                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
-
+     }
                                 foreach ($result as $row) {
                                 ?>
                                     <tr class="tr-row">

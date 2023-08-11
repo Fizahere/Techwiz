@@ -25,7 +25,7 @@ include("./components/header.php");
                     // $product = $authModel->showSingleProduct($ctg_id, $pdo);
                     // print_r($product);
                     $query = $pdo->prepare("Select categoryName from categories where categoryID = :id");
-                    $query->bindParam("id",$ctg_id);
+                    $query->bindParam("id", $ctg_id);
                     $query->execute();
                     $categoryTitle = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($categoryTitle as $title) {
@@ -436,7 +436,7 @@ include("./components/header.php");
                 <div class="shop-wrapper">
                     <div class="row">
                         <?php
-                       $products = $authModel->showSingleProduct($ctg_id,$pdo);
+                        $products = $authModel->showSingleProduct($ctg_id, $pdo);
                         foreach ($products as $item) {
                             ?>
                             <div class="col-lg-3 col-md-4 col-sm-6">
@@ -444,27 +444,14 @@ include("./components/header.php");
                                 <div class="single-product js-scroll ShortFadeInUp">
                                     <a href="product-single.php?id=<?php echo $item['productID'] ?>">
                                         <div class="single-product__thumbnail">
-                                            <div class="single-product__thumbnail--meta-3">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top"
-                                                    data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
-                                                    aria-label="wishlist"><i class="lastudioicon-heart-2"></i></a>
+                                            <div>
+                                                <a href="#"></a>
                                             </div>
                                             <div class="single-product__thumbnail--holder">
                                                 <a href="product-single.php?id=<?php echo $item['productID'] ?>">
                                                     <img src="assets/images/products/<?php echo $item['productImage'] ?>"
                                                         alt="Product" width="344" height="370" />
                                                 </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--meta-2">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top"
-                                                    data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip"
-                                                    aria-label="cart"><i class="lastudioicon-shopping-cart-3"></i></a>
-
-                                                <button data-bs-tooltip="tooltip" data-bs-placement="top"
-                                                    data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip"
-                                                    data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                                    <i class="lastudioicon-search-zoom-in"></i>
-                                                </button>
                                             </div>
                                         </div>
                                         <div class="single-product__info text-center">
