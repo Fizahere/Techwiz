@@ -5,51 +5,14 @@ include("./components/header.php");
 ?>
 
 <main>
-    <?php
-    //add to cart
-    if (isset($_POST['addToCartBtn'])) {
-            
-            if (isset($_SESSION['cartTwo'])) {
-                
-                $productId = array_column($_SESSION['cartTwo'],'getId');
-                if (in_array($_POST['productID'],$productId)) {
-                    echo "<script>alert('Product already exists in the cart')</script>";
-                }else{
-                    $count = count($_SESSION['cartTwo']);
-                    $_SESSION['cartTwo'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
-                    echo "<script>alert('Product added into cart')
-                    location.assign('index.php');
-                    </script>";
-                }
-        }else {
-            
-            $_SESSION['cartTwo'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
-            echo "<script>alert('Product added into cart');
-            location.assign('index.php');
-            </script>";
-        }
 
-    }
-    ;
-    if (isset($_GET['removeFromCart'])) {
-        foreach($_SESSION['cartTwo'] as $key => $value){
-            if($_GET['removeFromCart'] == $value['getId']){
-                unset($_SESSION['cartTwo'][$key]);
-                $_SESSION['cartTwo'] = array_values($_SESSION['cartTwo']);
-                echo "<script>alert('Product successfully deleted from the cart')
-                location.assign('cart.php');
-                </script>";
-            }
-        }
-    }
-    ?>
     <!-- Breadcrumb Start -->
     <div class="breadcrumb-section">
         <div class="container-fluid custom-container">
             <div class="breadcrumb-wrapper text-center">
                 <h2 class="breadcrumb-wrapper__title">Cart</h2>
                 <ul class="breadcrumb-wrapper__items justify-content-center">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><span>Cart</span></li>
                 </ul>
             </div>
@@ -64,18 +27,6 @@ include("./components/header.php");
             <div class="cart-wrapper">
                 <!-- Cart Form Start-->
                 <div class="cart-form">
-                    <!-- Free Shipping Goal Start-->
-                    <div class="free-shipping-goal">
-                        <div class="free-shipping-goal__label text-center">
-                            Buy $3.03 more to enjoy
-                            <strong>FREE Shipping</strong>
-                        </div>
-                        <div class="free-shipping-goal__loading-bar">
-                            <div class="load-percent" style="width: 98.49%"></div>
-                        </div>
-                    </div>
-                    <!-- Free Shipping Goal Start-->
-
                     <!-- Cart Table Start-->
                     <div class="cart-table table-responsive">
                         <table class="table">
@@ -103,7 +54,10 @@ include("./components/header.php");
                             </thead>
                             <tbody>
                                 <?php
+                                $grandTotal = 0;
                                 foreach ($_SESSION['cartTwo'] as $item) {
+                                    $totalAmount =  $item['getPrice'] * $item['getQty'];
+                                    $grandTotal += $totalAmount;
                                     ?>
                                     <tr class="cart-item">
                                         <td class="cart-product-remove">
@@ -145,7 +99,10 @@ include("./components/header.php");
 
                                         <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
                                             <span class="price-amount">
-                                                $<?php echo $item['getPrice'] * $item['getQty'] ?>
+                                                $<?php echo $item['getPrice'] * $item['getQty'];
+                                                // echo $getUser;
+                                                
+                                                ?>
                                             </span>
                                         </td>
                                     </tr>
@@ -168,40 +125,10 @@ include("./components/header.php");
                         <div class="cart-totals__table table-responsive">
                             <table class="table">
                                 <tbody>
-                                    <tr>
-                                        <th>Subtotal</th>
+                                <tr class="order-total">
+                                        <th>Total Amount</th>
                                         <td>
-                                            <span>$ 196.97</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th>Shipping</th>
-                                        <td>
-                                            <ul class="shipping-methods">
-                                                <li class="single-form">
-                                                    <input type="radio" name="shipping" id="flat-rate" />
-                                                    <label for="flat-rate" class="single-form__label radio-label">
-                                                        <span></span>
-                                                        Flat rate:
-                                                        <strong class="price">$20.00</strong>
-                                                    </label>
-                                                </li>
-                                                <li class="single-form">
-                                                    <input type="radio" name="shipping" id="local-pickup" />
-                                                    <label for="local-pickup" class="single-form__label radio-label">
-                                                        <span></span>
-                                                        Local
-                                                        pickup</label>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="order-total">
-                                        <th>Total</th>
-                                        <td>
-                                            <strong>$216.97</strong>
+                                            <strong><?php echo $grandTotal ?></strong>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -209,7 +136,21 @@ include("./components/header.php");
                         </div>
 
                         <div class="cart-totals__checkout">
-                            <a href="#">Proceed to checkout</a>
+                            <?php
+                            // echo $_SESSION['name'];
+                            // if(isset($_SESSION['name'])){
+                                ?>
+                                <a href="?checkout">Proceed to checkout</a>
+                            <?php
+                            // }
+                            // else{
+                                ?>
+                                <a href="login.php">Proceed to checkout</a>
+                                <?php
+
+                            // }
+                            ?>
+                            
                         </div>
                     </div>
                     <!-- Cart Totals End-->

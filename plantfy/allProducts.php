@@ -19,6 +19,7 @@ include("./components/header.php");
                                 ?>
                                  <div class="col-lg-3 col-sm-6">
                                 <div class="single-product js-scroll ShortFadeInUp scrolled">
+                                <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
                                 <div class="single-product__thumbnail">
                                     <div class="single-product__thumbnail--meta-3">
                                         <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
@@ -31,7 +32,7 @@ include("./components/header.php");
                                         Sale
                                     </div> -->
                                     <div class="single-product__thumbnail--holder">
-                                        <a href="product-single.html">
+                                        <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
                                             
                                             <img src="assets/images/products/<?php echo $plants['productImage'] ?>" alt="Product" width="344" height="370" loading="lazy" />
                                             <!-- <img class="product-hover" src="assets/images/products/product-10.png" alt="Product" width="344" height="370" loading="lazy" /> -->
@@ -60,7 +61,7 @@ include("./components/header.php");
                                          <a href="#">Plant</a>
                                     </div>
                                     <h3 class="single-product__info--title">
-                                        <a href="product-single.html">
+                                        <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
                                             <?php echo $plants['productName'] ?>
                                         </a>
                                     </h3>
@@ -69,6 +70,7 @@ include("./components/header.php");
                                     </div>
                                 </div>
                             </div>
+                            </a>
                             </div>
                                 <?php
                             }

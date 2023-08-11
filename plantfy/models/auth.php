@@ -12,7 +12,7 @@ class Auth
         return $result;
     }
     //signup
-    function signup($username,$fullname, $email, $password, $pdo)
+    function signup($username, $fullname, $email, $password, $pdo)
     {
         //encrypt password in database
         $password = password_hash($password, PASSWORD_DEFAULT);
@@ -28,7 +28,7 @@ class Auth
     }
 
     //update 
-    function update($userName,$fullName,$emailAddress,$userID,$pdo)
+    function update($userName, $fullName, $emailAddress, $userID, $pdo)
     {
         $query = $pdo->prepare("update users set firstName = :name, lastName = :fullname, userEmail = :email where UserID = :id");
         $query->bindParam('name', $userName);
@@ -38,24 +38,12 @@ class Auth
         $query->execute();
     }
 
-    // //delete
-    // function delete($id, $pdo)
-    // {
-    //     $query = $pdo->prepare(" DELETE FROM tabelname WHERE ID = :id;");
-    //     $query->bindParam('id', $id);
-    //     $query->execute();
-    // }
-
-    function showSingleProduct($ctg_id,$pdo){
-        $query = $pdo->prepare("Select categoryName from categories where categoryID = :id");
-        $query->bindParam("id",$ctg_id);
+    function submitReview($review,$productID,$userID,$pdo){
+        $query = $pdo->prepare('insert into productreviews(reviews,productID,userID) values(:review,:p_ID,:u_ID)');
+        $query->bindParam('review',$review);
+        $query->bindParam('p_ID',$productID);
+        $query->bindParam('u_ID',$userID);
         $query->execute();
-        $categoryTitle = $query->fetchAll(PDO::FETCH_ASSOC);
-        return $categoryTitle;
     }
-
 }
 ;
-
-
-?>

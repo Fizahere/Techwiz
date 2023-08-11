@@ -22,9 +22,13 @@ include("./components/header.php");
                 if (isset($_GET['id'])) {
                     $ctg_id = $_GET['id'];
                     // echo $ctg_id;
-                    $product = $authModel->showSingleProduct($ctg_id, $pdo);
+                    // $product = $authModel->showSingleProduct($ctg_id, $pdo);
                     // print_r($product);
-                    foreach ($product as $title) {
+                    $query = $pdo->prepare("Select categoryName from categories where categoryID = :id");
+                    $query->bindParam("id",$ctg_id);
+                    $query->execute();
+                    $categoryTitle = $query->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($categoryTitle as $title) {
                         ?>
                         <h2 class="breadcrumb-wrapper__title">
                             <?php echo $title['categoryName'] ?>
@@ -432,10 +436,7 @@ include("./components/header.php");
                 <div class="shop-wrapper">
                     <div class="row">
                         <?php
-                        $query = $pdo->prepare("Select * from products where categoryID = :id");
-                        $query->bindParam("id", $ctg_id);
-                        $query->execute();
-                        $products = $query->fetchAll(PDO::FETCH_ASSOC);
+                       $products = $authModel->showSingleProduct($ctg_id,$pdo);
                         foreach ($products as $item) {
                             ?>
                             <div class="col-lg-3 col-md-4 col-sm-6">

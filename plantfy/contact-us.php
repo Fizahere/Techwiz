@@ -17,7 +17,7 @@ include("./components/header.php");
                 <div class="breadcrumb-wrapper text-center">
                     <h2 class="breadcrumb-wrapper__title">Contact Us</h2>
                     <ul class="breadcrumb-wrapper__items justify-content-center">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><span>Contact Us</span></li>
                     </ul>
                 </div>
