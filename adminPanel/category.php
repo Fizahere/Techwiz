@@ -10,12 +10,25 @@ include_once('header_admin.php');
                     <div class="d-flex bg-light justify-content-between">
 
                         <h4>Category</h4>
-
+<div class="d-flex">
                         <button type="button" class="btn text-dark  bg-white mb-2 insert" data-bs-toggle="modal"
                             data-bs-target="#insert-category-modal" >Add category
                         </button>
+                        <form method="post">
+
+<div class="dropdown">
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+SORT
+</button>
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+<li><button class="dropdown-item" href="#" name="sort-category-by-name">Sort by name</button></li>
+
+</ul>
+</div>
 
 
+</form>
+</div>
                     </div>
                     <div class="table-responsive bg- ">
                         <table class="table">
@@ -30,9 +43,13 @@ include_once('header_admin.php');
                             </thead>
                             <tbody>
                                 <?php
-                        $query = $pdo->query("SELECT * FROM categories");
+     if(isset($_POST['sort-category-by-name'])){
+        $query = $pdo->query("SELECT * FROM categories ORDER BY categoryName");
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        }else{
+                          $query = $pdo->query("SELECT * FROM categories");
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
-               
+     }
                         foreach($result as $row){
                         ?>
                                 <tr class="tr-row">
