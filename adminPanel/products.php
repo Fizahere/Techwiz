@@ -11,25 +11,31 @@ include_once('header_admin.php');
 
                         <h4>Plant Products & Accessories</h4>
 
-<div class="d-flex">
-<button type="button" class="btn text-dark  bg-white mb-2 insert" data-bs-toggle="modal" data-bs-target="#insert-product-modal">Add product
-                        </button>
-<form method="post">
+                        <div class="d-flex">
+                            
+                                  <div class="dropdown d-flex align-self-center ">
+                                    <form method="post">
+                                    <button class="btn bg-white text-dark dropdown-toggle p-2" type="button"
+                                        id="dropdownMenuButton1"  data-bs-toggle="dropdown" aria-expanded="false">
+                                        Sort
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><button class="dropdown-item" href="#" name="sort-product-by-name">Sort by
+                                                name</button></li>
+                                        <li><button class="dropdown-item" href="#" name="sort-product-by-price">Sort by
+                                                price</button></li>
+                                        <li><button class="dropdown-item" href="#" ame="sort-product-by-category">Sort
+                                                by category </button></li>
+                                    </ul>
+                                </form>
+                                </div>
+<div>
 
-                        <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-     SORT
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><button class="dropdown-item" href="#" name="sort-product-by-name">Sort by name</button></li>
-    <li><button class="dropdown-item" href="#" name="sort-product-by-price">Sort by price</button></li>
-    <li><button class="dropdown-item" href="#" ame="sort-product-by-category">Sort by category  </button></li>
-  </ul>
-</div>
-                        
 
-</form>    
-                        
+<button type="button" class="btn text-dark  bg-white  insert p-2" data-bs-toggle="modal"
+                                data-bs-target="#insert-product-modal">Add product
+                            </button>
+                            </div>
                         </div>
 
                     </div>
@@ -66,92 +72,105 @@ include_once('header_admin.php');
      }
                                 foreach ($result as $row) {
                                 ?>
-                                    <tr class="tr-row">
-                                        <th scope="row">
-                                            <?php echo $row['productID'] ?>
-                                        </th>
+                                <tr class="tr-row">
+                                    <th scope="row">
+                                        <?php echo $row['productID'] ?>
+                                    </th>
 
-                                        <td>
-                                            <?php echo $row['productName'] ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['productDescription'] ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['productPrice'] ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['productStock'] ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['categoryName'] ?>
-                                        </td>
-                                        <td>
-                                            <img src="productImages/<?php echo $row['productImage'] ?>" width="50%" alt="">
+                                    <td>
+                                        <?php echo $row['productName'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['productDescription'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['productPrice'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['productStock'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['categoryName'] ?>
+                                    </td>
+                                    <td>
+                                        <img src="productImages/<?php echo $row['productImage'] ?>" width="50%" alt="">
 
-                                        </td>
+                                    </td>
 
 
-                                        <td class="">
-                                            <button class="btn btn-white edit-btn " data-bs-toggle="modal" data-bs-target="#update-product-modal<?php echo $row['productID']  ?>">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
+                                    <td class="">
+                                        <button class="btn btn-white edit-btn " data-bs-toggle="modal"
+                                            data-bs-target="#update-product-modal<?php echo $row['productID']  ?>">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
 
-                                            <button class="btn btn-white" data-bs-toggle="modal" data-bs-target="#delete-product-modal<?php echo $row['productID']  ?>">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
+                                        <button class="btn btn-white" data-bs-toggle="modal"
+                                            data-bs-target="#delete-product-modal<?php echo $row['productID']  ?>">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
 
-                                        </td>
-                                    </tr>
-                                        <!-------------------------------------------------                                         |                                                 |
+                                    </td>
+                                </tr>
+                                <!-------------------------------------------------                                         |                                                 |
                                         | modal for update products information           | 
                                         | [start]                                         |      
                                         -------------------------------------------------->
-                                    <div class="modal" id="update-product-modal<?php echo $row['productID'] ?>">
-                                        <div class="modal-dialog modal-xl bg-light ">
-                                            <div class="modal-content bg-light">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Edit Information</h4>
-                                                    <button type="button" class="btn-close  bg-white" data-bs-dismiss="modal"></button>
-                                                </div>
-                                                <!-- Modal body -->
-                                                <div class="modal-body">
-                                                    <form method="post" action="" enctype="multipart/form-data">
+                                <div class="modal" id="update-product-modal<?php echo $row['productID'] ?>">
+                                    <div class="modal-dialog modal-xl bg-light ">
+                                        <div class="modal-content bg-light">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Edit Information</h4>
+                                                <button type="button" class="btn-close  bg-white"
+                                                    data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <form method="post" action="" enctype="multipart/form-data">
 
 
-                                                        <div class="mb-3 row">
-                                                            <label for="inputPassword" class="col-sm-2 col-form-label">ID</label>
-                                                            <div class="col-sm-10">
-                                                                <input value="<?php echo $row['productID'] ?>" readonly class="form-control bg-white" name="update-product-id">
-                                                            </div>
+                                                    <div class="mb-3 row">
+                                                        <label for="inputPassword"
+                                                            class="col-sm-2 col-form-label">ID</label>
+                                                        <div class="col-sm-10">
+                                                            <input value="<?php echo $row['productID'] ?>" readonly
+                                                                class="form-control bg-white" name="update-product-id">
                                                         </div>
-                                                        <div class="mb-3 row form-group">
-                                                            <label class="col-sm-2 col-form-label">Name</label>
-                                                            <div class="col-sm-10">
-                                                                <input value="<?php echo $row['productName'] ?>" name="update-product-name" class="form-control" type="text">
-                                                            </div>
+                                                    </div>
+                                                    <div class="mb-3 row form-group">
+                                                        <label class="col-sm-2 col-form-label">Name</label>
+                                                        <div class="col-sm-10">
+                                                            <input value="<?php echo $row['productName'] ?>"
+                                                                name="update-product-name" class="form-control"
+                                                                type="text">
                                                         </div>
-                                                        <div class="mb-3 row form-group">
-                                                            <label class="col-sm-2 col-form-label">Description</label>
-                                                            <div class="col-sm-10">
-                                                                <input value="<?php echo $row['productDescription'] ?>" name="update-product-description" class="form-control" type="text">
-                                                            </div>
+                                                    </div>
+                                                    <div class="mb-3 row form-group">
+                                                        <label class="col-sm-2 col-form-label">Description</label>
+                                                        <div class="col-sm-10">
+                                                            <input value="<?php echo $row['productDescription'] ?>"
+                                                                name="update-product-description" class="form-control"
+                                                                type="text">
                                                         </div>
-                                                        <div class="mb-3 row form-group">
-                                                            <label class="col-sm-2 col-form-label">Price</label>
-                                                            <div class="col-sm-10">
-                                                                <input value="<?php echo $row['productPrice'] ?>" name="update-product-price" class="form-control" type="text">
-                                                            </div>
+                                                    </div>
+                                                    <div class="mb-3 row form-group">
+                                                        <label class="col-sm-2 col-form-label">Price</label>
+                                                        <div class="col-sm-10">
+                                                            <input value="<?php echo $row['productPrice'] ?>"
+                                                                name="update-product-price" class="form-control"
+                                                                type="text">
                                                         </div>
-                                                        <div class="mb-3 row form-group">
-                                                            <label class="col-sm-2 col-form-label">Stock</label>
-                                                            <div class="col-sm-10">
-                                                                <input value="<?php echo $row['productStock'] ?>" name="update-product-stock" class="form-control" type="text">
-                                                            </div>
+                                                    </div>
+                                                    <div class="mb-3 row form-group">
+                                                        <label class="col-sm-2 col-form-label">Stock</label>
+                                                        <div class="col-sm-10">
+                                                            <input value="<?php echo $row['productStock'] ?>"
+                                                                name="update-product-stock" class="form-control"
+                                                                type="text">
                                                         </div>
-                                                        <div class="mb-3 row form-group">
-                                                            <label class="col-sm-2 col-form-label">Category</label>
-                                                            <div class="col-sm-10">
+                                                    </div>
+                                                    <div class="mb-3 row form-group">
+                                                        <label class="col-sm-2 col-form-label">Category</label>
+                                                        <div class="col-sm-10">
                                                             <?php
                                                             $sqlc = "SELECT * FROM categories";
                                                             $resultc = $pdo->query($sqlc);
@@ -160,84 +179,94 @@ include_once('header_admin.php');
 
                                                             <select name="update-product-category" class="form-control">
                                                                 <?php foreach ($categories as $category) { ?>
-                                                                    <?php $selected = ($row['categoryID'] == $category['categoryID']) ? "selected" :                                                          ""; ?>
-                                                                    <option <?php echo $selected; ?> value="<?php echo $category['categoryID']; ?>">
-                                                                        <?php echo $category['categoryName']; ?>
-                                                                    </option>
+                                                                <?php $selected = ($row['categoryID'] == $category['categoryID']) ? "selected" :                                                          ""; ?>
+                                                                <option <?php echo $selected; ?> value="
+                                                                    <?php echo $category['categoryID']; ?>">
+                                                                    <?php echo $category['categoryName']; ?>
+                                                                </option>
                                                                 <?php } ?>
                                                             </select>
                                                         </div>
+                                                    </div>
+                                                    <div class="mb-3  row form-group">
+                                                        <label for="" class="col-sm-2 col-form-label">Change
+                                                            Image</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="file" name="update-product-image"
+                                                                class="form-control">
                                                         </div>
-                                                        <div class="mb-3  row form-group">
-                                                            <label for="" class="col-sm-2 col-form-label">Change
-                                                                Image</label>
-                                                            <div class="col-sm-10">
-                                                                <input type="file" name="update-product-image" class="form-control">
-                                                            </div>
+                                                    </div>
+                                                    <div class="mb-3 row form-group">
+                                                        <label for="" class="col-sm-2 col-form-label">Product
+                                                            Image</label>
+                                                        <div class="col-sm-10"><img width="50%"
+                                                                src="productImages/<?php echo $row['productImage']  ?>"
+                                                                alt="">
                                                         </div>
-                                                        <div class="mb-3 row form-group">
-                                                            <label for="" class="col-sm-2 col-form-label">Product
-                                                                Image</label>
-                                                            <div class="col-sm-10"><img width="50%" src="productImages/<?php echo $row['productImage']  ?>" alt="">
-                                                            </div>
 
-                                                        </div>
-                                                        <!-- Modal footer -->
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-dark text-white" name="update_product_info">
-                                                                Update</button>
-                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                                    </div>
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-dark text-white"
+                                                            name="update_product_info">
+                                                            Update</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
                                             </div>
-
                                         </div>
-                                    </div>
 
-                                        <!-------------------------------------------------
+                                    </div>
+                                </div>
+
+                                <!-------------------------------------------------
                                         | modal for update products information           | 
                                         | [end]                                           |
                                         -------------------------------------------------->
-                                        <!-------------------------------------------------
+                                <!-------------------------------------------------
                                         | modal for delete category information           | 
                                         | [start]                                         |
                                         -------------------------------------------------->
-                                    <div class="modal " id="delete-product-modal<?php echo $row['productID'] ?>">
-                                        <div class="modal-dialog modal-xl bg-light w-50">
-                                            <div class="modal-content bg-light">
-                                                <!-- <div class="modal-header">
+                                <div class="modal " id="delete-product-modal<?php echo $row['productID'] ?>">
+                                    <div class="modal-dialog modal-xl bg-light w-50">
+                                        <div class="modal-content bg-light">
+                                            <!-- <div class="modal-header">
                 <h4 class="modal-title">Edit Information</h4>
                 <button type="button" class="btn-close  bg-white"
                     data-bs-dismiss="modal"></button>
             </div> -->
-                                                <!-- Modal body -->
-                                                <div class="modal-body ">
-                                                    <form method="post">
-                                                        <div class="d-flex justify-centre">
-                                                            <div>
-                                                                <input type="hidden" name="delete_product_id" value="<?php echo $row['productID']; ?>">
-                                                                <span class="text-bold">'
-                                                                    <?php echo $row['productName'] ?>'
-                                                                </span>
-                                                                <span> will also delete from database. <span>
-                                                                        <p>Are you sure you want to permanently delete this?</p>
-                                                            </div>
+                                            <!-- Modal body -->
+                                            <div class="modal-body ">
+                                                <form method="post">
+                                                    <div class="d-flex justify-centre">
+                                                        <div>
+                                                            <input type="hidden" name="delete_product_id"
+                                                                value="<?php echo $row['productID']; ?>">
+                                                            <span class="text-bold">'
+                                                                <?php echo $row['productName'] ?>'
+                                                            </span>
+                                                            <span> will also delete from database. <span>
+                                                                    <p>Are you sure you want to permanently delete this?
+                                                                    </p>
                                                         </div>
+                                                    </div>
 
-                                                        <!-- Modal footer -->
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-dark text-white" name="delete_product_info">
-                                                                Yes</button>
-                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-dark text-white"
+                                                            name="delete_product_info">
+                                                            Yes</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-bs-dismiss="modal">No</button>
+                                                    </div>
+                                                </form>
                                             </div>
-
                                         </div>
+
                                     </div>
-                                        <!-------------------------------------------------
+                                </div>
+                                <!-------------------------------------------------
                                         |                                                 |
                                         | modal for delete category information           | 
                                         | [end]                                           |
@@ -257,7 +286,7 @@ include_once('header_admin.php');
     </div>
 </div>
 
-                                        <!-------------------------------------------------                                                              |                                                 |
+<!-------------------------------------------------                                                              |                                                 |
                                         | modal for insert category information           | 
                                         | [start]                                         |
                                         |                                                 |      
@@ -275,19 +304,23 @@ include_once('header_admin.php');
 
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10"> <input placeholder="Insert product name.." class="form-control bg-white" name="insert-product-name"></div>
+                        <div class="col-sm-10"> <input placeholder="Insert product name.." class="form-control bg-white"
+                                name="insert-product-name"></div>
                     </div>
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Description</label>
-                        <div class="col-sm-10"> <input placeholder="Add description" class="form-control bg-white" name="insert-product-description"></div>
+                        <div class="col-sm-10"> <input placeholder="Add description" class="form-control bg-white"
+                                name="insert-product-description"></div>
                     </div>
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Price</label>
-                        <div class="col-sm-10"> <input placeholder="Enter price" class="form-control bg-white" name="insert-product-price"></div>
+                        <div class="col-sm-10"> <input placeholder="Enter price" class="form-control bg-white"
+                                name="insert-product-price"></div>
                     </div>
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Stock</label>
-                        <div class="col-sm-10"> <input placeholder="Add number of stock" class="form-control bg-white" name="insert-product-stock"></div>
+                        <div class="col-sm-10"> <input placeholder="Add number of stock" class="form-control bg-white"
+                                name="insert-product-stock"></div>
                     </div>
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Category</label>
@@ -301,9 +334,9 @@ include_once('header_admin.php');
                             <select name="insert-product-category" class="form-control ">
                                 <?php foreach ($classes as $rowc) { ?>
 
-                                    <option value="<?php echo $rowc['categoryID']; ?>">
-                                        <?php echo $rowc['categoryName']; ?>
-                                    </option>
+                                <option value="<?php echo $rowc['categoryID']; ?>">
+                                    <?php echo $rowc['categoryName']; ?>
+                                </option>
                                 <?php
                                 };
                                 ?>
@@ -332,7 +365,7 @@ include_once('header_admin.php');
     </div>
 </div>
 
-                                        <!-------------------------------------------------
+<!-------------------------------------------------
                                         |                                                 |
                                         | modal for insert category information           | 
                                         | [end]                                           |

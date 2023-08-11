@@ -89,7 +89,7 @@ function selectOrderByDefault($pdo){
 
 function findUserWithEmail($email, $pdo)
 {
-    $query = $pdo->prepare('select * from users where userEmail = :email');
+    $query = $pdo->prepare('select * from admins where adminEmail = :email');
     $query->bindParam(':email', $email);
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
