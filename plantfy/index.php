@@ -46,7 +46,7 @@ include("./components/header.php");
                                 </h2>
                                 <ul class="home-1-slider-content-style-1__btns">
                                     <li class="button-01">
-                                        <a class="home-2-slider-content-style-1__btn" href="shop-fullwidth.html">
+                                        <a class="home-2-slider-content-style-1__btn" href="allProducts.php">
                                             Shop now
                                         </a>
                                     </li>
@@ -149,39 +149,14 @@ include("./components/header.php");
                                 <div class="single-product js-scroll ShortFadeInUp scrolled">
                                     <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
                                 <div class="single-product__thumbnail">
-                                    <div class="single-product__thumbnail--meta-3">
-                                        <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
-                                            <!-- <i
-                                                    class="lastudioicon-heart-2"
-                                                ></i> -->
+                                    <div >
+                                        <a href="#">
                                         </a>
                                     </div>
-                                    <!-- <div class="single-product__thumbnail--badge onsale">
-                                        Sale
-                                    </div> -->
                                     <div class="single-product__thumbnail--holder">
                                         <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
-                                            
                                             <img src="assets/images/products/<?php echo $plants['productImage'] ?>" alt="Product" width="344" height="370" loading="lazy" />
-                                            <!-- <img class="product-hover" src="assets/images/products/product-10.png" alt="Product" width="344" height="370" loading="lazy" /> -->
                                         </a>
-                                    </div>
-                                    <div class="single-product__thumbnail--meta-2">
-                                        <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
-                                            <i
-                                                    class="lastudioicon-shopping-cart-3"
-                                                ></i>
-                                        </a>
-                                        <!-- <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
-                                            <i
-                                                    class="lastudioicon-ic_compare_arrows_24px"
-                                                ></i>
-                                        </a> -->
-                                        <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                            <i
-                                                    class="lastudioicon-search-zoom-in"
-                                               ></i>
-                                        </button>
                                     </div>
                                 </div>
                                 <div class="single-product__info">

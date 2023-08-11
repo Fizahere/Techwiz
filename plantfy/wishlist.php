@@ -2,7 +2,8 @@
 include("./components/header.php");
 ?>
 
-
+<?php echo $plants['productImage'] ?>
+<?php echo $plants['productID'] ?>
     <!-- Cart Sidebar Start -->
     <!-- Cart Offcanvas Start -->
    

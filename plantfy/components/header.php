@@ -480,22 +480,22 @@ include_once('php/query.php')
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="product-single-variable.html">
+                                        <a href="product-single-variable.php">
                                             Product Variable
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="product-single-carousel.html">
+                                        <a href="product-single-carousel.php">
                                             Product Carousel
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="product-single-affiliate.html">
+                                        <a href="product-single-affiliate.php">
                                             Product Affiliate
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="product-single-countdown.html">
+                                        <a href="product-single-countdown.php">
                                             Product CountDown
                                         </a>
                                     </li>
