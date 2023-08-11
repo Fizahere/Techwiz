@@ -1,9 +1,5 @@
 <?php
 include_once('header_admin.php');
-// if (!isset($_SESSION['Admin'])) {
-//     redirectWindow('signin.php');
-// }
-// ;
 ?>
 
 <div class="container pt-4">
@@ -20,25 +16,32 @@ include_once('header_admin.php');
                            
                             <tbody>
                                 <?php
-                                 $user = $_SESSION['Admin'];
+                                 $admin = $_SESSION['Admin'];
 
-               
-                        foreach($user as $row){
+                                 foreach($admin as  $value){
+                                    $U_ID =   $value['adminID'];
+                                  $query = $pdo->prepare("SELECT * FROM admins WHERE adminID = :iD ");
+                                  $query->bindParam(':iD',  $U_ID);
+                                  $query->execute();
+                                  $result = $query->fetchAll(PDO::FETCH_ASSOC);
+                                 }
+                                  foreach ($result as $row) {
+                                 
 
                         ?>
                         
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
-    <input type="text" class="form-control" readonly value="<?php echo $value['adminName'] ?>" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" class="form-control" readonly value="<?php echo $row['adminName'] ?>" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
 
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" readonly value="<?php echo $value['adminEmail'] ?>" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" class="form-control" readonly value="<?php echo $row['adminEmail'] ?>" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" readonly class="form-control" value="<?php echo $value['adminPassword'] ?>" id="exampleInputPassword1">
+    <input type="password" readonly class="form-control"  value="<?php echo $row['password'] ?>" id="exampleInputPassword1">
   </div>
   
   <button class="btn btn-light edit-btn " data-bs-toggle="modal"
@@ -48,7 +51,7 @@ include_once('header_admin.php');
                            
                                         <!-------------------------------------------------
                                         |                                                 |
-                                        | modal for update hospital information           | 
+                                        | modal for update admin information              | 
                                         | [start]                                         |
                                         |                                                 |      
                                         -------------------------------------------------->
@@ -87,9 +90,12 @@ include_once('header_admin.php');
                                                     <div class="mb-3 row">
                                                         <label class="col-sm-2 col-form-label">Password</label>
                                                         <div class="col-sm-10">
-                                                            <input value="<?php echo $row['adminPassword'] ?>"
+                                                            <input value="<?php echo $row['password'] ?>"
                                                               name="modal-admin-password"
-                                                                class="form-control" type="text">
+                                                                class="form-control password-input" type="password">
+                                                                <span class="toggle-password" onclick="togglePasswordVisibility()">
+            <i class="fa fa-eye" ></i>
+        </span>
                                                         </div>
                                                     </div>
 
@@ -112,7 +118,7 @@ include_once('header_admin.php');
                                 </div>
                                         <!-------------------------------------------------
                                         |                                                 |
-                                        | modal for update hospital information           | 
+                                        | modal for update admin information              | 
                                         | [end]                                           |
                                         |                                                 |      
                                         -------------------------------------------------->
@@ -130,7 +136,21 @@ include_once('header_admin.php');
         </div>
     </div>
 </div>
+<script>
+     function togglePasswordVisibility() {
+        const passwordInput = document.querySelector('.password-input');
+        const eyeIcon = document.querySelector('.toggle-password i');
 
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.add('visible');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('visible');
+        }
+        // alert('hello');
+    }
+</script>
 <?php
 include('footer.php')
 ?>

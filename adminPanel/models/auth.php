@@ -80,12 +80,15 @@ function deleteProducts( $product_delete_id, $pdo)
       $query->bindParam('id', $product_delete_id);
       $query->execute();
     }
-//function for select orders data from order table;
-function selectOrderByDefault($pdo){
-    $query = $pdo->query("SELECT * FROM orders INNER JOIN users ON orders.userID = users.userID INNER JOIN  products ON orders.productID =products.productID ;");
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}    
+//function for update admin profile;
+function updateAdminProfile($admin_ID,$admin_name,$admin_email,$admin_password,$pdo){
+    $query= $pdo -> prepare("update admins set adminName = :name,adminEmail = :email, password = :password where adminID = :_id");
+    $query -> bindParam('name', $admin_name);
+    $query -> bindParam('email', $admin_email);
+    $query -> bindParam('password', $admin_password);
+    $query -> bindParam('_id', $admin_ID);
+    $query -> execute();
+}
 
 function findUserWithEmail($email, $pdo)
 {
@@ -101,14 +104,6 @@ function findUserWithEmail($email, $pdo)
 
    
 
-    // function abc($admin_ID,$admin_name,$admin_email,$admin_password,$pdo){
-    //       $query= $pdo -> prepare("update admins set adminName = :name,adminEmail = :email, adminPassword = :password where adminID = :_id");
-    //         $query -> bindParam('name', $admin_name);
-    //         $query -> bindParam('email', $admin_email);
-    //         $query -> bindParam('password', $admin_password);
-    //         $query -> bindParam('_id', $admin_ID);
-    //         $query -> execute();
-    // }
 }
 
 ?>
