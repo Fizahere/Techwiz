@@ -7,6 +7,7 @@ include_once("models/auth.php");
 <?php
 //php code start
 $authModel = new Auth();
+// $getUser = ;
 ?>
 
 <?php

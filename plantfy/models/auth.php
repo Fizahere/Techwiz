@@ -12,7 +12,7 @@ class Auth
         return $result;
     }
     //signup
-    function signup($username,$fullname, $email, $password, $pdo)
+    function signup($username, $fullname, $email, $password, $pdo)
     {
         //encrypt password in database
         $password = password_hash($password, PASSWORD_DEFAULT);
@@ -28,7 +28,7 @@ class Auth
     }
 
     //update 
-    function update($userName,$fullName,$emailAddress,$userID,$pdo)
+    function update($userName, $fullName, $emailAddress, $userID, $pdo)
     {
         $query = $pdo->prepare("update users set firstName = :name, lastName = :fullname, userEmail = :email where UserID = :id");
         $query->bindParam('name', $userName);

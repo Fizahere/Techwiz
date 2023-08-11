@@ -142,13 +142,7 @@ include_once('php/query.php')
                                     </li>
 
                                     <li>
-                                        <a href="#">Shop <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                            <li><a href="blog.html">Blog No Sidebar</a></li>
-                                            <li><a href="blog-single.html">Single Post</a></li>
-                                        </ul>
+                                        <a href="#">Shop</a>
                                     </li>
 
                                 </ul>

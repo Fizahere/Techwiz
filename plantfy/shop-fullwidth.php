@@ -3,35 +3,39 @@ include("./components/header.php");
 ?>
 
 
-    <!-- Cart Sidebar Start -->
-    <!-- Cart Offcanvas Start -->
-   
-    <!-- Cart Offcanvas End -->
 
-    <!-- Cart Sidebar End -->
 
-  
-    <main>
-        <!-- Breadcrumb Start -->
-        <div class="breadcrumb-section">
-            <div class="container-fluid custom-container">
-                <div class="breadcrumb-wrapper text-center">
+<!-- Cart Sidebar Start -->
+<!-- Cart Offcanvas Start -->
+
+<!-- Cart Offcanvas End -->
+
+<!-- Cart Sidebar End -->
+
+
+<main>
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-section">
+        <div class="container-fluid custom-container">
+            <div class="breadcrumb-wrapper text-center">
                 <?php
-                if(isset($_GET['id'])){
+                if (isset($_GET['id'])) {
                     $ctg_id = $_GET['id'];
                     // echo $ctg_id;
-                        $query = $pdo->prepare("Select categoryName from categories where categoryID = :id");
-                        $query->bindParam("id",$ctg_id);
-                        $query->execute();
-                        $categoryTitle = $query->fetchAll(PDO::FETCH_ASSOC);
-                        foreach($categoryTitle as $title){
-                            ?>
-                             <h2 class="breadcrumb-wrapper__title">
-                                <?php echo $title['categoryName'] ?>
-                       </h2>
-                            <?php
-                        } 
+                    // $product = $authModel->showSingleProduct($ctg_id, $pdo);
+                    // print_r($product);
+                    $query = $pdo->prepare("Select categoryName from categories where categoryID = :id");
+                    $query->bindParam("id",$ctg_id);
+                    $query->execute();
+                    $categoryTitle = $query->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($categoryTitle as $title) {
                         ?>
+                        <h2 class="breadcrumb-wrapper__title">
+                            <?php echo $title['categoryName'] ?>
+                        </h2>
+                        <?php
+                    }
+                    ?>
                     <ul class="breadcrumb-wrapper__items justify-content-center">
                         <li><a href="index.html">Home</a></li>
                         <li><span>Shop</span></li>
@@ -79,9 +83,7 @@ include("./components/header.php");
                                 </li>
                                 <li>
                                     <a href="#">Sort by Price:
-                                        <i
-                                                class="lastudioicon-arrow-down"
-                                            ></i></a>
+                                        <i class="lastudioicon-arrow-down"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -119,10 +121,9 @@ include("./components/header.php");
                                                 <label for="category-2">
                                                     <span></span>Baby</label>
 
-                                                <button class="narrow collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Baby">
-                                                    <i
-                                                            class="lastudioicon-down-arrow"
-                                                        ></i>
+                                                <button class="narrow collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#Baby">
+                                                    <i class="lastudioicon-down-arrow"></i>
                                                 </button>
 
                                                 <div id="Baby" class="collapse" data-bs-parent="#accordionCategory">
@@ -166,10 +167,9 @@ include("./components/header.php");
                                                     <span></span>Big
                                                     Size</label>
 
-                                                <button class="narrow collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#BigSize">
-                                                    <i
-                                                            class="lastudioicon-down-arrow"
-                                                        ></i>
+                                                <button class="narrow collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#BigSize">
+                                                    <i class="lastudioicon-down-arrow"></i>
                                                 </button>
 
                                                 <div id="BigSize" class="collapse" data-bs-parent="#accordionCategory">
@@ -311,37 +311,27 @@ include("./components/header.php");
                                             <li>
                                                 <input type="checkbox" id="blue" />
                                                 <label for="blue">
-                                                    <span
-                                                            class="blue"
-                                                        ></span>Blue</label>
+                                                    <span class="blue"></span>Blue</label>
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="bronze" />
                                                 <label for="bronze">
-                                                    <span
-                                                            class="bronze"
-                                                        ></span>Bronze</label>
+                                                    <span class="bronze"></span>Bronze</label>
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="green" />
                                                 <label for="green">
-                                                    <span
-                                                            class="green"
-                                                        ></span>Green</label>
+                                                    <span class="green"></span>Green</label>
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="pink" />
                                                 <label for="pink">
-                                                    <span
-                                                            class="pink"
-                                                        ></span>Pink</label>
+                                                    <span class="pink"></span>Pink</label>
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="polar-blue" />
                                                 <label for="polar-blue">
-                                                    <span
-                                                            class="polar-blue"
-                                                        ></span>Polar Blue</label>
+                                                    <span class="polar-blue"></span>Polar Blue</label>
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="red" />
@@ -351,16 +341,12 @@ include("./components/header.php");
                                             <li>
                                                 <input type="checkbox" id="white" />
                                                 <label for="white">
-                                                    <span
-                                                            class="white"
-                                                        ></span>White</label>
+                                                    <span class="white"></span>White</label>
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="yellow" />
                                                 <label for="yellow">
-                                                    <span
-                                                            class="yellow"
-                                                        ></span>Yellow</label>
+                                                    <span class="yellow"></span>Yellow</label>
                                             </li>
                                         </ul>
                                     </div>
@@ -450,150 +436,152 @@ include("./components/header.php");
                 <div class="shop-wrapper">
                     <div class="row">
                         <?php
-                         $query = $pdo->prepare("Select * from products where categoryID = :id");
-                         $query->bindParam("id",$ctg_id);
-                         $query->execute();
-                            $products = $query->fetchAll(PDO::FETCH_ASSOC);
-                            foreach($products as $item){
-                                ?>
-                                 <div class="col-lg-3 col-md-4 col-sm-6">
-                            <!-- Single product Start -->
-                            <div class="single-product js-scroll ShortFadeInUp">
-                                <a href="product-single.php?id=<?php echo $item['productID'] ?>">
-                                <div class="single-product__thumbnail">
-                                    <div class="single-product__thumbnail--meta-3">
-                                        <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist"><i
-                                                    class="lastudioicon-heart-2"
-                                                ></i></a>
-                                    </div>
-                                    <div class="single-product__thumbnail--holder">
-                                        <a href="product-single.php?id=<?php echo $item['productID'] ?>">
-                                            <img src="assets/images/products/<?php echo $item['productImage'] ?>" alt="Product" width="344" height="370" />
-                                        </a>
-                                    </div>
-                                    <div class="single-product__thumbnail--meta-2">
-                                        <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart"><i
-                                                    class="lastudioicon-shopping-cart-3"
-                                                ></i></a>
-                                       
-                                        <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                            <i
-                                                    class="lastudioicon-search-zoom-in"
-                                                ></i>
-                                        </button>
-                                    </div>
+                       $products = $authModel->showSingleProduct($ctg_id,$pdo);
+                        foreach ($products as $item) {
+                            ?>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <!-- Single product Start -->
+                                <div class="single-product js-scroll ShortFadeInUp">
+                                    <a href="product-single.php?id=<?php echo $item['productID'] ?>">
+                                        <div class="single-product__thumbnail">
+                                            <div class="single-product__thumbnail--meta-3">
+                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top"
+                                                    data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
+                                                    aria-label="wishlist"><i class="lastudioicon-heart-2"></i></a>
+                                            </div>
+                                            <div class="single-product__thumbnail--holder">
+                                                <a href="product-single.php?id=<?php echo $item['productID'] ?>">
+                                                    <img src="assets/images/products/<?php echo $item['productImage'] ?>"
+                                                        alt="Product" width="344" height="370" />
+                                                </a>
+                                            </div>
+                                            <div class="single-product__thumbnail--meta-2">
+                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top"
+                                                    data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip"
+                                                    aria-label="cart"><i class="lastudioicon-shopping-cart-3"></i></a>
+
+                                                <button data-bs-tooltip="tooltip" data-bs-placement="top"
+                                                    data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip"
+                                                    data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
+                                                    <i class="lastudioicon-search-zoom-in"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="single-product__info text-center">
+                                            <div class="single-product__info--tags">
+                                                <a href="#">Plant</a>
+                                            </div>
+                                            <h3 class="single-product__info--title">
+                                                <a href="product-single.php?id=<?php echo $item['productID'] ?>">
+                                                    <?php echo $item['productName'] ?>
+                                                </a>
+                                            </h3>
+                                            <div class="single-product__info--price">
+                                                <ins>
+                                                    <?php echo $item['productPrice'] ?>
+                                                </ins>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    <?php echo $item['productDescription'] ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="single-product__info text-center">
-                                    <div class="single-product__info--tags">
-                                        <a href="#">Plant</a>
-                                    </div>
-                                    <h3 class="single-product__info--title">
-                                        <a href="product-single.php?id=<?php echo $item['productID'] ?>">
-                                            <?php echo $item['productName'] ?>
-                                        </a>
-                                    </h3>
-                                    <div class="single-product__info--price">
-                                        <ins><?php echo $item['productPrice'] ?></ins>
-                                    </div>
-                                    <div>
-                                        <p><?php echo $item['productDescription'] ?></p>
-                                    </div>
-                                </div>
-                                </a>
+                                <!-- Single product End -->
                             </div>
-                            <!-- Single product End -->
-                        </div>
 
-                                <?php
-                            }
+                            <?php
                         }
-                        ?>
-                                              
-                    </div>
-                </div>
-                <!-- Shop Wrapper End -->
+                }
+                ?>
 
-                <!-- Pagination Start -->
-                <div class="paginations">
-                    <ul class="paginations-list">
-                        <li>
-                            <a href="#"><i class="lastudioicon-arrow-left"></i></a>
-                        </li>
-                        <li>
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a class="active" href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#">4</a>
-                        </li>
-                        <li>
-                            <a href="#">...</a>
-                        </li>
-                        <li>
-                            <a href="#">10</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="lastudioicon-arrow-right"></i></a>
-                        </li>
-                    </ul>
                 </div>
-                <!-- Pagination End -->
             </div>
-        </div>
-        <!-- Shop End -->
+            <!-- Shop Wrapper End -->
 
-        <!-- Newsletter Start -->
-        <div class="newsletter-section">
-            <div class="newsletter-left" style="
+            <!-- Pagination Start -->
+            <div class="paginations">
+                <ul class="paginations-list">
+                    <li>
+                        <a href="#"><i class="lastudioicon-arrow-left"></i></a>
+                    </li>
+                    <li>
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a class="active" href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">...</a>
+                    </li>
+                    <li>
+                        <a href="#">10</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="lastudioicon-arrow-right"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Pagination End -->
+        </div>
+    </div>
+    <!-- Shop End -->
+
+    <!-- Newsletter Start -->
+    <div class="newsletter-section">
+        <div class="newsletter-left" style="
                         background-image: url(assets/images/newsletter-bg-1.jpg);
                     ">
-                <div class="newsletter-social">
-                    <h4 class="newsletter-social__label">Follow us on</h4>
-                    <ul class="newsletter-social__list">
-                        <li>
-                            <a href="#" aria-label="facebook"><i class="lastudioicon-b-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="twitter"><i class="lastudioicon-b-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="instagram"><i class="lastudioicon-b-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="vimeo"><i class="lastudioicon-b-vimeo"></i></a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="envato"><i class="lastudioicon-envato"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="newsletter-right" style="
-                        background-image: url(assets/images/newsletter-bg-2.jpg);
-                    ">
-                <!-- Newsletter Wrapper Start -->
-                <div class="newsletter-wrapper text-center">
-                    <h4 class="newsletter-wrapper__title-2">
-                        10% off when you sign up
-                    </h4>
-                    <form action="#">
-                        <div class="newsletter-form-style-1">
-                            <input type="text" placeholder="Enter your email address..." />
-                            <button>Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- Newsletter Wrapper End -->
+            <div class="newsletter-social">
+                <h4 class="newsletter-social__label">Follow us on</h4>
+                <ul class="newsletter-social__list">
+                    <li>
+                        <a href="#" aria-label="facebook"><i class="lastudioicon-b-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="twitter"><i class="lastudioicon-b-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="instagram"><i class="lastudioicon-b-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="vimeo"><i class="lastudioicon-b-vimeo"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="envato"><i class="lastudioicon-envato"></i></a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- Newsletter End -->
-    </main>
+        <div class="newsletter-right" style="
+                        background-image: url(assets/images/newsletter-bg-2.jpg);
+                    ">
+            <!-- Newsletter Wrapper Start -->
+            <div class="newsletter-wrapper text-center">
+                <h4 class="newsletter-wrapper__title-2">
+                    10% off when you sign up
+                </h4>
+                <form action="#">
+                    <div class="newsletter-form-style-1">
+                        <input type="text" placeholder="Enter your email address..." />
+                        <button>Subscribe</button>
+                    </div>
+                </form>
+            </div>
+            <!-- Newsletter Wrapper End -->
+        </div>
+    </div>
+    <!-- Newsletter End -->
+</main>
 
-    <?php
-   include("./components/footer.php");
-   ?>
+<?php
+include("./components/footer.php");
+?>
