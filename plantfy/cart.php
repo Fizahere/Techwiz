@@ -103,7 +103,10 @@ include("./components/header.php");
                             </thead>
                             <tbody>
                                 <?php
+                                $grandTotal = 0;
                                 foreach ($_SESSION['cartTwo'] as $item) {
+                                    $totalAmount =  $item['getPrice'] * $item['getQty'];
+                                    $grandTotal += $totalAmount;
                                     ?>
                                     <tr class="cart-item">
                                         <td class="cart-product-remove">
@@ -145,7 +148,10 @@ include("./components/header.php");
 
                                         <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
                                             <span class="price-amount">
-                                                $<?php echo $item['getPrice'] * $item['getQty'] ?>
+                                                $<?php echo $item['getPrice'] * $item['getQty'];
+                                                // echo $getUser;
+                                                
+                                                ?>
                                             </span>
                                         </td>
                                     </tr>
@@ -168,40 +174,10 @@ include("./components/header.php");
                         <div class="cart-totals__table table-responsive">
                             <table class="table">
                                 <tbody>
-                                    <tr>
-                                        <th>Subtotal</th>
+                                <tr class="order-total">
+                                        <th>Total Amount</th>
                                         <td>
-                                            <span>$ 196.97</span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th>Shipping</th>
-                                        <td>
-                                            <ul class="shipping-methods">
-                                                <li class="single-form">
-                                                    <input type="radio" name="shipping" id="flat-rate" />
-                                                    <label for="flat-rate" class="single-form__label radio-label">
-                                                        <span></span>
-                                                        Flat rate:
-                                                        <strong class="price">$20.00</strong>
-                                                    </label>
-                                                </li>
-                                                <li class="single-form">
-                                                    <input type="radio" name="shipping" id="local-pickup" />
-                                                    <label for="local-pickup" class="single-form__label radio-label">
-                                                        <span></span>
-                                                        Local
-                                                        pickup</label>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="order-total">
-                                        <th>Total</th>
-                                        <td>
-                                            <strong>$216.97</strong>
+                                            <strong><?php echo $grandTotal ?></strong>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -209,7 +185,21 @@ include("./components/header.php");
                         </div>
 
                         <div class="cart-totals__checkout">
-                            <a href="#">Proceed to checkout</a>
+                            <?php
+                            // echo $_SESSION['name'];
+                            // if(isset($_SESSION['name'])){
+                                ?>
+                                <a href="?checkout">Proceed to checkout</a>
+                            <?php
+                            // }
+                            // else{
+                                ?>
+                                <a href="login.php">Proceed to checkout</a>
+                                <?php
+
+                            // }
+                            ?>
+                            
                         </div>
                     </div>
                     <!-- Cart Totals End-->

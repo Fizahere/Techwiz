@@ -135,13 +135,7 @@ include_once('php/query.php')
                                     </li>
 
                                     <li>
-                                        <a href="#">Shop <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                            <li><a href="blog.html">Blog No Sidebar</a></li>
-                                            <li><a href="blog-single.html">Single Post</a></li>
-                                        </ul>
+                                        <a href="allProducts.php">Shop</a>
                                     </li>
 
                                 </ul>
@@ -739,13 +733,13 @@ include_once('php/query.php')
                 </button>
             </li>
             <li>
-                <a href="wishlist.html" aria-label="wishlist">
+                <a href="wishlist.php" aria-label="wishlist">
                     <i class="lastudioicon-heart-1"></i>
                     <span class="badge">03</span>
                 </a>
             </li>
             <li>
-                <a href="compare.html" aria-label="compare">
+                <a href="compare.php" aria-label="compare">
                     <i class="lastudioicon-ic_compare_arrows_24px"> </i>
                     <span class="badge">03</span>
                 </a>
