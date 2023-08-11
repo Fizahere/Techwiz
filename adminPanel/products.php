@@ -56,7 +56,7 @@ include_once('header_admin.php');
                                             <?php echo $row['productStock'] ?>
                                         </td>
                                         <td>
-                                            <?php echo $row['categoryID'] ?>
+                                            <?php echo $row['categoryName'] ?>
                                         </td>
                                         <td>
                                             <img src="productImages/<?php echo $row['productImage'] ?>" width="50%" alt="">
