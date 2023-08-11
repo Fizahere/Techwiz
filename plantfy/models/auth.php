@@ -53,5 +53,13 @@ class Auth
         $products = $query->fetchAll(PDO::FETCH_ASSOC);
         return $products;
 }
+function showSingleProductByPriceSort($ctg_id, $pdo)
+{
+    $query = $pdo->prepare("Select * from products where categoryID = :id ORDER BY productPrice");
+    $query->bindParam("id", $ctg_id);
+    $query->execute();
+    $productsByPrice = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $productsByPrice;
+}
 }
 ;
