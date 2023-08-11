@@ -149,13 +149,6 @@ include("./components/header.php");
                                 <div class="single-product js-scroll ShortFadeInUp scrolled">
                                     <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
                                 <div class="single-product__thumbnail">
-                                    <div class="single-product__thumbnail--meta-3">
-                                        <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
-                                            <i
-                                                    class="lastudioicon-heart-2"
-                                                ></i>
-                                        </a>
-                                    </div>
                                     <!-- <div class="single-product__thumbnail--badge onsale">
                                         Sale
                                     </div> -->

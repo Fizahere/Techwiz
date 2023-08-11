@@ -1,6 +1,6 @@
 <?php
 include_once('php/query.php')
-?>
+    ?>
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -25,7 +25,8 @@ include_once('php/query.php')
     <!-- Font CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
 
     <!-- Vendor CSS (Bootstrap & Icon Font) -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
@@ -40,7 +41,7 @@ include_once('php/query.php')
     <link rel="stylesheet" href="assets/css/style.min.css" />
 </head>
 <style>
-    #navItems{
+    #navItems {
         margin-right: 5rem;
     }
 </style>
@@ -100,7 +101,8 @@ include_once('php/query.php')
             <div class="container-fluid custom-container">
                 <div class="row align-items-center position-relative">
                     <div class="col-md-4 col-3 d-xl-none">
-                        <button class="header__main--toggle header__main--toggle-dark" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="menu">
+                        <button class="header__main--toggle header__main--toggle-dark" data-bs-toggle="offcanvas"
+                            data-bs-target="#mobileMenu" aria-label="menu">
                             <i class="lastudioicon-menu-8-1"></i>
                         </button>
                     </div>
@@ -144,9 +146,11 @@ include_once('php/query.php')
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-4 col-3">
-                        <div class="header__main--meta header__main--dark d-flex justify-content-end align-items-center">
+                        <div
+                            class="header__main--meta header__main--dark d-flex justify-content-end align-items-center">
                             <!-- Meta Item List Start -->
-                            <ul class="meta-items-list meta-items-list--dark d-flex justify-content-end align-items-center">
+                            <ul
+                                class="meta-items-list meta-items-list--dark d-flex justify-content-end align-items-center">
                                 <li class="search d-none d-lg-block">
                                     <form action="#">
                                         <div class="meta-search meta-search--dark">
@@ -157,19 +161,20 @@ include_once('php/query.php')
                                         </div>
                                     </form>
                                 </li>
-                                <li class="wishlist">
+                                <!-- <li class="wishlist">
                                     <a href="wishlist.html" aria-label="Wishlist">
                                         <i class="lastudioicon lastudioicon-heart-1"></i>
                                         <span class="badge">03</span>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="cart">
                                     <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="Cart">
                                         <i class="lastudioicon-shopping-cart-1"></i><span class="badge">03</span>
                                     </button>
                                 </li>
                             </ul>
-                            <button class="toggle-icon d-none d-xl-block" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="menu">
+                            <button class="toggle-icon d-none d-xl-block" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasSidebar" aria-label="menu">
                                 <span class="bar-icon"><i class="lastudioicon-menu-8-1"></i></span>
                             </button>
                             <!-- Meta Item List Start -->
@@ -196,160 +201,51 @@ include_once('php/query.php')
         </div>
         <div class="offcanvas-body">
             <ul class="offcanvas-cart-list">
-                <li>
-                    <!-- Offcanvas Cart Item Start -->
-                    <div class="offcanvas-cart-item">
-                        <div class="offcanvas-cart-item__thumbnail">
-                            <a href="#">
-                                <img src="assets/images/products/product-02.png" width="70" height="84" alt="product" />
+                <!-- Offcanvas Cart Item Start -->
+                <?php
+                $grandTotal = 0;
+                foreach ($_SESSION['cartTwo'] as $item) {
+                    $totalAmount = $item['getPrice'] * $item['getQty'];
+                    $grandTotal += $totalAmount;
+                    ?>
+                    <li>
+                        <div class="offcanvas-cart-item">
+                            <div class="offcanvas-cart-item__thumbnail">
+                                <a href="#">
+                                    <img src="assets/images/products/product-05.png" width="70" height="84" alt="product" />
+                                </a>
+                            </div>
+                            <div class="offcanvas-cart-item__content">
+                                <h4 class="offcanvas-cart-item__title">
+                                    <a href="#">
+                                        <?php echo $item['getName'] ?>
+                                    </a>
+                                </h4>
+                                <span class="offcanvas-cart-item__quantity">
+                                    <?php echo $item['getQty'] ?> × $
+                                    <?php echo $item['getPrice'] ?>
+                                </span>
+                            </div>
+                            <a class="offcanvas-cart-item__remove" href="?removeFromCart=<?php echo $item['getId'] ?>" aria-label="remove">
+                                <i class="lastudioicon-e-remove"></i>
                             </a>
                         </div>
-                        <div class="offcanvas-cart-item__content">
-                            <h4 class="offcanvas-cart-item__title">
-                                <a href="#">Princess set</a>
-                            </h4>
-                            <span class="offcanvas-cart-item__quantity">
-                                1 × $69.99
-                            </span>
-                        </div>
-                        <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
-                            <i class="lastudioicon-e-remove"></i>
-                        </a>
-                    </div>
-                    <!-- Offcanvas Cart Item End -->
-                </li>
-                <li>
-                    <!-- Offcanvas Cart Item Start -->
-                    <div class="offcanvas-cart-item">
-                        <div class="offcanvas-cart-item__thumbnail">
-                            <a href="#">
-                                <img src="assets/images/products/product-04.png" width="70" height="84" alt="product" />
-                            </a>
-                        </div>
-                        <div class="offcanvas-cart-item__content">
-                            <h4 class="offcanvas-cart-item__title">
-                                <a href="#">Senecio stapeliiformis </a>
-                            </h4>
-                            <span class="offcanvas-cart-item__quantity">
-                                1 × $89.99
-                            </span>
-                        </div>
-                        <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
-                            <i class="lastudioicon-e-remove"></i>
-                        </a>
-                    </div>
-                    <!-- Offcanvas Cart Item End -->
-                </li>
-                <li>
-                    <!-- Offcanvas Cart Item Start -->
-                    <div class="offcanvas-cart-item">
-                        <div class="offcanvas-cart-item__thumbnail">
-                            <a href="#">
-                                <img src="assets/images/products/product-05.png" width="70" height="84" alt="product" />
-                            </a>
-                        </div>
-                        <div class="offcanvas-cart-item__content">
-                            <h4 class="offcanvas-cart-item__title">
-                                <a href="#">Hoya burtoniae </a>
-                            </h4>
-                            <span class="offcanvas-cart-item__quantity">
-                                1 × $35.99
-                            </span>
-                        </div>
-                        <a class="offcanvas-cart-item__remove" href="#" aria-label="remove">
-                            <i class="lastudioicon-e-remove"></i>
-                        </a>
-                    </div>
+                        <?php
+                }
+                ?>
                     <!-- Offcanvas Cart Item End -->
                 </li>
             </ul>
         </div>
         <div class="offcanvas-footer">
-            <!-- Free Shipping Goal Start-->
-            <div class="free-shipping-goal">
-                <div class="free-shipping-goal__label text-center">
-                    Buy $3.03 more to enjoy
-                    <strong>FREE Shipping</strong>
-                </div>
-                <div class="free-shipping-goal__loading-bar">
-                    <div class="load-percent" style="width: 98.49%"></div>
-                </div>
-            </div>
-            <!-- Free Shipping Goal End-->
-
-            <!-- Cart Meta Start-->
-            <ul class="cart-meta">
-                <li>
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
-                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
-                                <path d="m9.5 2.5 3 3M1.5 10.5l3 3M11.5.5l3 3-10 10-4 1 1-4Z"></path>
-                            </g>
-                        </svg>
-                        <span>Note</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15.313" height="16" viewBox="0 0 15.313 16">
-                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="m.656 3.5 7 3 7-3M7.656 15.5v-9"></path>
-                                <path d="m.656 12.5 7 3 7-3v-9l-7-3-7 3Z"></path>
-                            </g>
-                        </svg>
-                        <span>Shipping</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14">
-                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
-                                <path d="M5.5 4.5h5M5.5 9.5h5M13.5 7.5a2 2 0 0 1 2-2v-4a1 1 0 0 0-1-1h-13a1 1 0 0 0-1 1V5a2 2 0 0 1 0 4v3.5a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-3a2 2 0 0 1-2-2Z"></path>
-                            </g>
-                        </svg>
-                        <span>Coupon</span>
-                    </a>
-                </li>
-            </ul>
-            <!-- Cart Meta End-->
-
             <!-- Cart Totals Table Start-->
             <div class="cart-totals-table">
                 <table class="table">
                     <tbody>
-                        <tr class="cart-subtotal">
-                            <th>Subtotal</th>
-                            <td>
-                                <span>$195.97</span>
-                            </td>
-                        </tr>
-
-                        <tr class="cart-shipping-totals">
-                            <th>Shipping</th>
-                            <td>
-                                <ul class="shipping-methods">
-                                    <li class="single-form">
-                                        <input type="radio" name="shipping" id="flat-rate" />
-                                        <label for="flat-rate" class="single-form__label radio-label">
-                                            <span></span>
-                                            Flat rate:
-                                            <strong class="price">$20.00</strong>
-                                        </label>
-                                    </li>
-                                    <li class="single-form">
-                                        <input type="radio" name="shipping" id="local-pickup" />
-                                        <label for="local-pickup" class="single-form__label radio-label">
-                                            <span></span>
-                                            Local pickup</label>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-
                         <tr class="order-total">
                             <th>Total</th>
                             <td data-title="Total">
-                                <strong><span>$215.97</span></strong>
+                                <strong><span>$<?php echo $grandTotal ?></span></strong>
                             </td>
                         </tr>
                     </tbody>
@@ -618,7 +514,8 @@ include_once('php/query.php')
                             <div class="mega-menu__banner">
                                 <a href="#">
                                     <div class="mega-menu__banner--image">
-                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner" width="269" height="271" />
+                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner"
+                                            width="269" height="271" />
                                     </div>
                                     <div class="mega-menu__banner--caption">
                                         <h4 class="caption-title">New Arrival</h4>
@@ -754,7 +651,3 @@ include_once('php/query.php')
     </div>
 
     <!-- Mobile Meta End -->
-
-  
-    
-        

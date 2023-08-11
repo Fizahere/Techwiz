@@ -5,51 +5,14 @@ include("./components/header.php");
 ?>
 
 <main>
-    <?php
-    //add to cart
-    if (isset($_POST['addToCartBtn'])) {
-            
-            if (isset($_SESSION['cartTwo'])) {
-                
-                $productId = array_column($_SESSION['cartTwo'],'getId');
-                if (in_array($_POST['productID'],$productId)) {
-                    echo "<script>alert('Product already exists in the cart')</script>";
-                }else{
-                    $count = count($_SESSION['cartTwo']);
-                    $_SESSION['cartTwo'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
-                    echo "<script>alert('Product added into cart')
-                    location.assign('index.php');
-                    </script>";
-                }
-        }else {
-            
-            $_SESSION['cartTwo'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
-            echo "<script>alert('Product added into cart');
-            location.assign('index.php');
-            </script>";
-        }
 
-    }
-    ;
-    if (isset($_GET['removeFromCart'])) {
-        foreach($_SESSION['cartTwo'] as $key => $value){
-            if($_GET['removeFromCart'] == $value['getId']){
-                unset($_SESSION['cartTwo'][$key]);
-                $_SESSION['cartTwo'] = array_values($_SESSION['cartTwo']);
-                echo "<script>alert('Product successfully deleted from the cart')
-                location.assign('cart.php');
-                </script>";
-            }
-        }
-    }
-    ?>
     <!-- Breadcrumb Start -->
     <div class="breadcrumb-section">
         <div class="container-fluid custom-container">
             <div class="breadcrumb-wrapper text-center">
                 <h2 class="breadcrumb-wrapper__title">Cart</h2>
                 <ul class="breadcrumb-wrapper__items justify-content-center">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><span>Cart</span></li>
                 </ul>
             </div>
@@ -64,18 +27,6 @@ include("./components/header.php");
             <div class="cart-wrapper">
                 <!-- Cart Form Start-->
                 <div class="cart-form">
-                    <!-- Free Shipping Goal Start-->
-                    <div class="free-shipping-goal">
-                        <div class="free-shipping-goal__label text-center">
-                            Buy $3.03 more to enjoy
-                            <strong>FREE Shipping</strong>
-                        </div>
-                        <div class="free-shipping-goal__loading-bar">
-                            <div class="load-percent" style="width: 98.49%"></div>
-                        </div>
-                    </div>
-                    <!-- Free Shipping Goal Start-->
-
                     <!-- Cart Table Start-->
                     <div class="cart-table table-responsive">
                         <table class="table">
