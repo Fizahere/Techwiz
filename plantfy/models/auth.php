@@ -45,5 +45,13 @@ class Auth
         $query->bindParam('u_ID',$userID);
         $query->execute();
     }
+    function showSingleProduct($ctg_id, $pdo)
+    {
+        $query = $pdo->prepare("Select * from products where categoryID = :id");
+        $query->bindParam("id", $ctg_id);
+        $query->execute();
+        $products = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $products;
+}
 }
 ;
