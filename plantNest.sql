@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2023 at 11:42 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Aug 10, 2023 at 12:09 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `admins` (
   `adminName` varchar(225) DEFAULT NULL,
   `adminEmail` varchar(225) DEFAULT NULL,
   `password` varchar(225) DEFAULT NULL,
-  `adminImage` varchar(11) NOT NULL
+  `adminImage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -40,8 +40,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`adminID`, `adminName`, `adminEmail`, `password`, `adminImage`) VALUES
-(1, 'Fiza', 'fiza@gmail.com', '1234', 'img3.jpg'),
-(2, 'Iman', 'iman@gmail.com', '123', 'img3.jpg');
+(1, 'Fiza', 'fiza@gmail.com', '1234', 0);
 
 -- --------------------------------------------------------
 
@@ -74,7 +73,7 @@ CREATE TABLE `orders` (
   `userID` int(11) DEFAULT NULL,
   `productID` int(11) DEFAULT NULL,
   `productQuantity` varchar(225) DEFAULT NULL,
-  `orderDate` date DEFAULT current_timestamp(),
+  `orderDate` timestamp NULL DEFAULT current_timestamp(),
   `totalAmount` varchar(225) DEFAULT NULL,
   `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -84,8 +83,22 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `orderDate`, `totalAmount`, `orderStatus`) VALUES
-(1, 5, 2, '2', '2023-08-09', '5677', 'pending'),
-(2, 5, 1, '2', '2023-08-09', '5677', 'pending');
+(1, 5, 2, '2', '2023-08-09 09:44:02', '5677', 'pending'),
+(2, 5, 1, '2', '2023-08-09 09:44:04', '5677', 'pending');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productreviews`
+--
+
+CREATE TABLE `productreviews` (
+  `reviewID` int(11) NOT NULL,
+  `reviews` varchar(255) NOT NULL,
+  `productID` int(11) DEFAULT NULL,
+  `userID` int(11) DEFAULT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -113,7 +126,7 @@ INSERT INTO `products` (`productID`, `productName`, `productDescription`, `produ
 (3, 'Ninja jewel alocasia', 'Alocasia \'Ninja\' is a compact Jewel Alocasia with deep green to black, rounded shield leaves and striking white veining. ', '35.99', 'product-03.png', '36', 1),
 (4, 'Croton', 'Croton is a small shrub used as a landscape plant in tropical climates. In its native habitat, croton is a branching, bushy shrub.', '25.99', 'product-04.png', '15', 2),
 (5, 'Pentas', 'Colorful pentas, also known as Egyptian starcluster or star flower, are one of the best choices to attract pollinators like butterflies.', '26.99', 'product-05.png', '17', 2),
-(6, 'Lantana', 'Lantana is an annual or perennial, small, broadleaf evergreen shrub in the Verbenaceae (verbena) family that has woody stems but a sprawling habit.', '23.99', 'product-06.png', '34', 2);
+(6, 'Lantana', 'Lantana is an annual or perennial, small, broadleaf evergreen shrub in the Verbenaceae (verbena) family that has woody stems but a sprawling habit.', '23.99', 'product-05.png', '34', 2);
 
 -- --------------------------------------------------------
 
@@ -138,9 +151,7 @@ INSERT INTO `users` (`userID`, `firstName`, `lastName`, `userEmail`, `userPasswo
 (2, 'fatima', 'fatima', 'fatima@gmail.com', '12345678\r\n'),
 (3, 'zainab', 'zainab', 'zainab@gmail.com', '7444'),
 (4, 'usman', 'usman', 'usman@gmail.com', '9877'),
-(5, 'umar', 'umar', 'umar@gmail.com', '9977'),
-(6, 'Iman', 'Mustafa', 'iman1@gmail.com', '$2y$10$srkSBZ1rCfz.jXy.mVjqu.T7SULvNXageCsPs8IYqiEdqNgat56Aa'),
-(7, 'iqra', 'iqra', 'iqra@gmail.com', '$2y$10$jqowsmFNshsDyHl4xHKz.OQxZ0kLG5ZZmhlyL8w.mwx65VjsRLvii');
+(5, 'umar', 'umar', 'umar@gmail.com', '9977');
 
 --
 -- Indexes for dumped tables
@@ -168,6 +179,14 @@ ALTER TABLE `orders`
   ADD KEY `u_fk` (`userID`);
 
 --
+-- Indexes for table `productreviews`
+--
+ALTER TABLE `productreviews`
+  ADD PRIMARY KEY (`reviewID`),
+  ADD KEY `pr_id` (`productID`),
+  ADD KEY `user_id` (`userID`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -189,7 +208,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -204,6 +223,12 @@ ALTER TABLE `orders`
   MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `productreviews`
+--
+ALTER TABLE `productreviews`
+  MODIFY `reviewID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -213,7 +238,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -225,6 +250,13 @@ ALTER TABLE `users`
 ALTER TABLE `orders`
   ADD CONSTRAINT `p_fk` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `u_fk` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
+-- Constraints for table `productreviews`
+--
+ALTER TABLE `productreviews`
+  ADD CONSTRAINT `pr_id` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE SET NULL,
+  ADD CONSTRAINT `user_id` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `products`
