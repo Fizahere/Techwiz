@@ -1,7 +1,11 @@
 <?php
 include("./components/header.php");
 ?>
-
+<style>
+    #comment {
+        margin-top: 0.5rem;
+    }
+</style>
 <main>
     <?php
     if (isset($_GET['id'])) {
@@ -172,6 +176,7 @@ include("./components/header.php");
                                 Additional information
                             </button>
                         </li> -->
+
                                 <li>
                                     <button data-bs-toggle="pill" data-bs-target="#reviews" type="button">
                                         Reviews (03)
@@ -181,83 +186,12 @@ include("./components/header.php");
 
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="description">
-                                    <!-- <div class="row justify-content-between align-items-center"> -->
-                                    <!-- <div class="col-lg-6"> -->
-                                    <!-- Product Single Tab Description Start -->
-                                    <!-- <div class="product-single-tab-description"> -->
-                                    <!-- Product Single Tab Description Item Start -->
-                                    <!-- <div class="product-single-tab-description-item">
-                                            <h4 class="product-single-tab-description-item__title">
-                                                + USEFUL INFORMATION
-                                            </h4>
-                                            <p>
-                                                Cotton-blend fabric.
-                                                Textured fabric. Long
-                                                design. Evasé design. Wrap
-                                                collar. Puffed short sleeve.
-                                                Front slit. Knot detail. Bow
-                                                closing on the back. Button
-                                                fastening at back.
-                                            </p>
-                                        </div> -->
-                                    <!-- Product Single Tab Description Item End -->
-
-                                    <!-- Product Single Tab Description Item Start -->
-                                    <!-- <div class="product-single-tab-description-item">
-                                            <h4 class="product-single-tab-description-item__title">
-                                                + MATERIAL AND WASHING
-                                                INSTRUCTIONS
-                                            </h4>
-                                            <p>
-                                                Composition: 70% viscose,30%
-                                                cotton
-                                            </p>
-                                            <p>
-                                                <img src="assets/images/content-single-product-image-2.png" alt="Product Icon" width="150" height="33" />
-                                            </p>
-                                        </div> -->
-                                    <!-- Product Single Tab Description Item End -->
-                                    <!-- </div> -->
-                                    <!-- Product Single Tab Description End -->
-                                    <!-- </div> -->
-                                    <!-- <div class="col-lg-5"> -->
-                                    <!-- Product Single Tab Image Start -->
-                                    <!-- <div class="product-single-tab-image">
-                                        <h5 class="product-single-tab-image__title">
-                                            Video review product
-                                        </h5>
-                                        <div class="product-single-tab-image__image">
-                                            <a class="glightbox" href="https://www.youtube.com/watch?v=I2P22HzEVjs&amp;ab_channel=LAStudio"></a>
-                                            <img src="assets/images/content-single-product-image-1.jpg" alt="product-image" width="320" height="218" />
-                                        </div>
-                                    </div> -->
-                                    <!-- Product Single Tab Image End -->
-                                    <!-- </div> -->
-                                    <!-- </div> -->
-                                    <!-- </div> -->
-                                    <!-- <div class="tab-pane fade" id="additionalInformation"> -->
-                                    <!-- Product Single Table Start -->
-                                    <!-- <div class="product-single-table">
-                                <div class="table-responsive">
-                                    <table class="table align-middle">
-                                        <tbody>
-                                            <tr>
-                                                <th>Color</th>
-                                                <td>
-                                                    <p>Blue, Green, Red</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div> -->
-                                    <!-- Product Single Table End -->
-                                    <!-- </div> -->
                                     <div class="tab-pane fade" id="reviews">
                                         <!-- Product Single Review Start -->
                                         <div class="product-single-review">
                                             <!-- Product Comment Start -->
                                             <div class="product-comment">
+
                                                 <h3 class="comment-title">
                                                     3 review for Product Simple
                                                 </h3>
@@ -265,7 +199,14 @@ include("./components/header.php");
                                                 <!-- Comment Items Start -->
                                                 <ul class="comment-items">
                                                     <?php
-                                                    $query = $pdo->query('select * from productreviews');
+                                                    $user = $_SESSION['USER'];
+                                                    foreach ($user as $user) {
+                                                        $userID = $user['userID'];
+                                                        $productID = $_SESSION['productReviewID'];
+                                                        //   echo '<script>alert("'.$productID.'")</script>';
+                                                    }
+                                                    $query = $pdo->prepare('select * from productreviews where productID = :p_ID');
+                                                    $query->bindParam('p_ID',$productID);
                                                     $query->execute();
                                                     $result = $query->fetchAll(PDO::FETCH_ASSOC);
                                                     foreach ($result as $reviews) {
@@ -277,20 +218,27 @@ include("./components/header.php");
                                                         foreach ($result as $user) {
                                                             $firstName = $user['firstName'];
                                                             $lastName = $user['lastName'];
-                                                            echo '<script>
-                         let string = "' . $firstName . '"
-                       let firstCharacter = string.slice(0,1)
-                        console.log(firstCharacter) 
-                        </script>';
+                                                            //                                         echo '<script>
+                                                            //      var string = "' . $firstName . '"
+                                                            //    var firstCharacter = string.slice(0,1)
+                                                            //     console.log(firstCharacter) 
+                                                            //     var image = document.getElementById("imageDiv")
+                                                            //     image.innerText=firstCharacter
+                                                            //     </script>';
                                                         }
+
+
                                                         ?>
+
                                                         <li class="comment-item">
+                                                            <div id="imageDiv"></div>
                                                             <div class="comment-item__author">
-                                                                <img src="assets/images/user/user-1.jpg" alt="Author" width="90"
-                                                                    height="90" />
+                                                                <!-- <img src="assets/images/user/user-1.jpg" alt="Author" width="90"
+                                                                    height="90" /> -->
+                                                                <div width="90" height="90" class="rounded-circle"></div>
                                                             </div>
                                                             <div class="comment-item__content">
-                                                                <p class="comment-item__description">
+                                                                <p class="comment-item__description" id='comment'>
                                                                     <?php echo $reviews['reviews'] ?>
                                                                 </p>
                                                                 <p class="comment-item__meta">
@@ -301,24 +249,19 @@ include("./components/header.php");
                                                                 </p>
                                                             </div>
                                                         </li>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                    <!-- Comment Item Start -->
 
+                                                        <!-- Comment Item Start -->
+                                                        <?php
+
+                                                    }
+
+                                                    ?>
                                                 </ul>
                                                 <!-- Comment Items End -->
                                             </div>
                                             <?php
 
                                             if (isset($_SESSION['USER'])) {
-                                                $user = $_SESSION['USER'];
-                                                foreach ($user as $user) {
-                                                    $userID = $user['userID'];
-                                                    $productID = $_SESSION['productReviewID'];
-                                                    //   echo '<script>alert("'.$productID.'")</script>';
-                                                }
-
 
                                                 ?>
                                                 <div class="product-comment-form">
