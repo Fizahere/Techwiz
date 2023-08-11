@@ -11,16 +11,25 @@ include("./components/header.php");
         ?>
 
         <!-- Breadcrumbs Start -->
-        <div class="single-breadcrumbs">
+        <?php
+         $query = $pdo->prepare("Select * from products where productID = :id");
+         $query->bindParam("id", $getProductId);
+         $query->execute();
+         $singleProduct = $query->fetchAll(PDO::FETCH_ASSOC);
+         foreach($singleProduct as $title){
+            ?>
+             <div class="single-breadcrumbs">
             <div class="container-fluid custom-container">
                 <ul class="single-breadcrumbs-list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">Fashion </a></li>
-                    <li><span>Product Simple</span></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="allProducts.php">Shop</a></li>
+                    <li><span><?php echo $title['productName'] ?></span></li>
                 </ul>
             </div>
         </div>
+            <?php
+         }
+        ?>
         <!-- Breadcrumbs End -->
 
         <!-- Product Single Start -->
@@ -98,9 +107,9 @@ include("./components/header.php");
                                                 Add to cart
                                             </button>
                                         </div>
-                                        <a href="#" class="product-add-wishlist">
+                                        <!-- <a href="#" class="product-add-wishlist">
                                             Add to Wishlist
-                                        </a>
+                                        </a> -->
                                     </div>
                                 </form>
                                 <div class="product-single-content__meta">
@@ -278,10 +287,10 @@ include("./components/header.php");
                                                             $firstName = $user['firstName'];
                                                             $lastName = $user['lastName'];
                                                             echo '<script>
-                         let string = "' . $firstName . '"
-                       let firstCharacter = string.slice(0,1)
-                        console.log(firstCharacter) 
-                        </script>';
+                                        let string = "' . $firstName . '"
+                                             let firstCharacter = string.slice(0,1)
+                                          console.log(firstCharacter) 
+                                                  </script>';
                                                         }
                                                         ?>
                                                         <li class="comment-item">
@@ -385,36 +394,15 @@ include("./components/header.php");
                                 foreach ($relatedProducts as $singleRelatedItem) {
                                     ?>
                                     <div class="col-md-3">
-                                        <!-- <div class="swiper-slide"> -->
-                                        <!-- Single product Start -->
                                         <div class="single-product js-scroll ShortFadeInUp">
                                             <div class="single-product__thumbnail">
-                                                <div class="single-product__thumbnail--meta-3">
-                                                    <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
-                                                        aria-label="heart"><i class="lastudioicon-heart-2"></i></a>
-                                                </div>
-                                                <!-- <div class="single-product__thumbnail--badge onsale">
-                                            Sale
-                                        </div> -->
                                                 <div class="single-product__thumbnail--holder">
-                                                    <a href="product-single.html">
+                                                    <a href="product-single.php">
                                                         <img src="assets/images/products/<?php echo $singleRelatedItem['productImage'] ?>"
                                                             alt="Product" />
                                                     </a>
                                                 </div>
-                                                <div class="single-product__thumbnail--meta-2">
-                                                    <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip"
-                                                        aria-label="cart"><i class="lastudioicon-shopping-cart-3"></i></a>
-                                                    <!-- <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare"><i
-                                            class="lastudioicon-ic_compare_arrows_24px"
-                                        ></i></a> -->
-                                                    <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview"
-                                                        data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal"
-                                                        data-bs-target="#quickView" aria-label="zoom-in">
-                                                        <i class="lastudioicon-search-zoom-in"></i>
-                                                    </button>
+                                                <div>
                                                 </div>
                                             </div>
                                             <div class="single-product__info text-center">
