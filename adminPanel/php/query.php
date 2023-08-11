@@ -313,9 +313,27 @@ if (isset($_POST['update_admin_info'])) {
 ------------------------------------------------------------------------------------------------->
 
 
+<!-- //signin start -->
 
+<?php
+if (isset($_POST['signin'])) {
+    if (empty($_POST['email'])) {
+        redirectWindow('signin.php?error=email is required');
+    }
+    if (empty($_POST['password'])) {
+        redirectWindow('signin.php?error=password is required');
+    }
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-
+    $user = $authModel->findUserWithEmail($email, $pdo);
+    if($_SESSION['Admin'] = $user) {
+        redirectWindow('index.php');
+    } else {
+        redirectWindow('signin.php?error=invalid credentials');
+    }
+}
+?>
 |  
 
 

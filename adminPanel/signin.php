@@ -68,15 +68,7 @@ include('php/query.php')
                         <p class="text-danger">
                                 <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
                             </p>
-                            <div class="col-md-6">
-                <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" name="role">
-                        <option selected>signin as :</option>
-                            <option value="Admin">Admin</option>
-                    </select>
-                    <label for="floatingSelect">signin as</label>
-                </div>
-            </div>
+                            <!-- <div class="col-md-6"> -->
                         <button type="submit" name="signin" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
                         </form>
                         <p class="text-center mb-0">Don't have an Account? <a href="signup.php">Sign Up</a></p>
