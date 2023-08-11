@@ -227,7 +227,6 @@ include("./components/header.php");
                                                         foreach ($result as $user) {
                                                             $firstName = $user['firstName'];
                                                             $lastName = $user['lastName'];
-<<<<<<< HEAD
                                                             //                                         echo '<script>
                                                             //      var string = "' . $firstName . '"
                                                             //    var firstCharacter = string.slice(0,1)
@@ -235,13 +234,6 @@ include("./components/header.php");
                                                             //     var image = document.getElementById("imageDiv")
                                                             //     image.innerText=firstCharacter
                                                             //     </script>';
-=======
-                                                            echo '<script>
-                                        let string = "' . $firstName . '"
-                                             let firstCharacter = string.slice(0,1)
-                                          console.log(firstCharacter) 
-                                                  </script>';
->>>>>>> 64d71753da569be2377421ac9a00c17a6aa6668d
                                                         }
 
 
