@@ -260,6 +260,29 @@ echo
 |   products  by admin    side                                                 |
 |   [end]                                                                      |  
 ------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------
+|   php tag start for queries to approve and  reject user order                |
+|   [start]                                                                    |  
+------------------------------------------------------------------------------->
+<?php
+if (isset($_POST['order-approve-btn'])) {
+    $id = $_POST['notification-order-id'];
+    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'approved' WHERE orderID = :_id");
+    $query->bindParam('_id', $id);
+    $query->execute();
+}
+if (isset($_POST['order-reject-btn'])) {
+    $id = $_POST['notification-order-id'];
+    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'rejected' WHERE orderID = :_id");
+    $query->bindParam('_id', $id);
+    $query->execute();
+}
+?>
+
+<!------------------------------------------------------------------------------
+|   php tag end for queries to approve and  reject user order                |
+|   [end]                                                                    |  
+------------------------------------------------------------------------------->
 
 <?php
 
@@ -436,25 +459,11 @@ if (isset($_POST['parentReject'])) {
 ------------------------------------------------------------------------------------------------->
 
 <?php
-// set hospital status = approve in database table when it is approved by admin  [start]//
 
-if (isset($_POST['hospitalApprove'])) {
-    $id = $_POST['statusID'];
-    $query = $pdo->prepare("UPDATE hospital_login SET hospitalStatus = 'approved' WHERE hospitalID = :_id");
-    $query->bindParam('_id', $id);
-    $query->execute();
-}
-
-//     [end]     //
 
 // set hospital status = reject in database table when it is rejected by admin  [start]//
 
-if (isset($_POST['hospitalReject'])) {
-    $id = $_POST['statusID'];
-    $query = $pdo->prepare("UPDATE hospital_login SET hospitalStatus = 'rejected' WHERE hospitalID = :_id");
-    $query->bindParam('_id', $id);
-    $query->execute();
-}
+
 //     [end]     //
 
 ?>

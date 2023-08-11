@@ -93,7 +93,8 @@ include("php/query.php");
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-cubes me-2"></i>Categories</a>
                     <a href="products.php" class="nav-item nav-link"><i class="fa fa-leaf me-2"></i>Products</a>
                     <a href="orders.php" class="nav-item nav-link"><i class="fa fa-shopping-basket me-2"></i>Orders</a>
-                    <a href="requestPage.php" class="nav-item nav-link"><i class="fa fa-bell me-2"></i>Notifications</a>
+                    <a href="notifications.php" class="nav-item nav-link"><i class="fa fa-bell me-2"></i>Notifications</a>
+                    <a href="reviews.php" class="nav-item nav-link"><i class="fa fa-star me-2"></i>Reviews</a>
 
                 </div>
             </nav>
@@ -118,7 +119,7 @@ include("php/query.php");
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <?php
-                            $query = $pdo->query("SELECT * from orders where orderStatus	 = 'pending'  LIMIT 1");
+                            $query = $pdo->query("SELECT * from orders where orderStatus	 = 'pending'  LIMIT 2");
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
                         if (empty($result)) {
                             ?>

@@ -81,11 +81,11 @@ function deleteProducts( $product_delete_id, $pdo)
       $query->execute();
     }
 //function for select orders data from order table;
-// function selectOrderByDefault($pdo){
-//     $query = $pdo->query("SELECT * FROM orders INNER JOIN users ON orders.userID = users.userID INNER JOIN  products ON orders.productID =products.productID ;");
-//     $result = $query->fetchAll(PDO::FETCH_ASSOC);
-//     return $result;
-// }    
+function selectOrderByDefault($pdo){
+    $query = $pdo->query("SELECT * FROM orders INNER JOIN users ON orders.userID = users.userID INNER JOIN  products ON orders.productID =products.productID ;");
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}    
 
     function findUserWithEmailParent($email, $pdo)
     {

@@ -38,25 +38,12 @@ class Auth
         $query->execute();
     }
 
-    // //delete
-    // function delete($id, $pdo)
-    // {
-    //     $query = $pdo->prepare(" DELETE FROM tabelname WHERE ID = :id;");
-    //     $query->bindParam('id', $id);
-    //     $query->execute();
-    // }
-
-    function showSingleProduct($ctg_id, $pdo)
-    {
-        $query = $pdo->prepare("Select * from products where categoryID = :id");
-        $query->bindParam("id", $ctg_id);
+    function submitReview($review,$productID,$userID,$pdo){
+        $query = $pdo->prepare('insert into productreviews(reviews,productID,userID) values(:review,:p_ID,:u_ID)');
+        $query->bindParam('review',$review);
+        $query->bindParam('p_ID',$productID);
+        $query->bindParam('u_ID',$userID);
         $query->execute();
-        $products = $query->fetchAll(PDO::FETCH_ASSOC);
-        return $products;
     }
-
 }
 ;
-
-
-?>

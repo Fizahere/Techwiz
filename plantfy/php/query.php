@@ -59,7 +59,7 @@ if (isset($_POST['login'])) {
     }
     $email = $_POST['email'];
     $password = $_POST['password'];
-    // if ($_POST['role'] == 'user') {
+
     $user = $authModel->findUserWithEmail($email, $pdo);
     if (password_verify($password, $user[0]['userPassword'])) {
         $_SESSION['USER'] = $user;
@@ -67,57 +67,24 @@ if (isset($_POST['login'])) {
     } else {
         redirectWindow('login.php?error=invalid credentials');
     }
-
 }
-;
 
 if (isset($_POST['edit'])) {
     $userID = $_POST['userID'];
     $userName = $_POST['username'];
     $fullName = $_POST['fullname'];
     $emailAddress = $_POST['email'];
-
     $authModel->update($userName, $fullName, $emailAddress, $userID, $pdo);
     redirectWindow('my-account.php');
-    // $query = $pdo->prepare('update users set ')
-}
-;
+};
 
-//add to cart
-if (isset($_POST['addToCartBtn'])) {
-
-    if (isset($_SESSION['cartTwo'])) {
-
-        $productId = array_column($_SESSION['cartTwo'], 'getId');
-        if (in_array($_POST['productID'], $productId)) {
-            echo "<script>alert('Product already exists in the cart')</script>";
-        } else {
-            $count = count($_SESSION['cartTwo']);
-            $_SESSION['cartTwo'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' => $_POST['getQty']);
-            echo "<script>alert('Product added into cart')
-            location.assign('index.php');
-            </script>";
-        }
-    } else {
-
-        $_SESSION['cartTwo'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' => $_POST['getQty']);
-        echo "<script>alert('Product added into cart');
-    location.assign('index.php');
-    </script>";
-    }
-
-}
-;
-if (isset($_GET['removeFromCart'])) {
-    foreach ($_SESSION['cartTwo'] as $key => $value) {
-        if ($_GET['removeFromCart'] == $value['getId']) {
-            unset($_SESSION['cartTwo'][$key]);
-            $_SESSION['cartTwo'] = array_values($_SESSION['cartTwo']);
-            echo "<script>alert('Product successfully deleted from the cart')
-        location.assign('cart.php');
-        </script>";
-        }
-    }
+if (isset($_POST['submit-review'])) {
+    $userID = $_POST['userID'];
+    $productID = $_POST['productID'];
+    $review = $_POST['review'];
+    // echo '<script>alert("' . $productID .$userID.$review. '")</script>';
+    $authModel->submitReview($review, $productID, $userID, $pdo);
+    // redirectWindow('product-single.php');
 }
 
 ?>
