@@ -46,6 +46,14 @@ class Auth
     //     $query->execute();
     // }
 
+    function showSingleProduct($ctg_id,$pdo){
+        $query = $pdo->prepare("Select categoryName from categories where categoryID = :id");
+        $query->bindParam("id",$ctg_id);
+        $query->execute();
+        $categoryTitle = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $categoryTitle;
+    }
+
 }
 ;
 

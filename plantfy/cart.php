@@ -1,5 +1,5 @@
 <?php
-// session_start();
+//  session_start();
 include("./components/header.php");
 
 ?>
@@ -8,25 +8,26 @@ include("./components/header.php");
     <?php
     //add to cart
     if (isset($_POST['addToCartBtn'])) {
-        $productId = array_column($_SESSION['cartTwo'], 'getId');
-        if (in_array($_POST['productID'], $productId)) {
-            echo "<script>alert('Product already exists in the cart')</script>";
-        } else {
+            
             if (isset($_SESSION['cartTwo'])) {
-                $count = count($_SESSION['cartTwo']);
-                $_SESSION['cartTwo'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
-                echo "<script>alert('Product added into cart')
-                location.assign('index.php');
-                </script>";
-            } else {
-                $_SESSION['cartTwo'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
-                echo "<script>alert('Product added into cart');
-                location.assign('index.php');
-                </script>";
-            }
-            ;
+                
+                $productId = array_column($_SESSION['cartTwo'],'getId');
+                if (in_array($_POST['productID'],$productId)) {
+                    echo "<script>alert('Product already exists in the cart')</script>";
+                }else{
+                    $count = count($_SESSION['cartTwo']);
+                    $_SESSION['cartTwo'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
+                    echo "<script>alert('Product added into cart')
+                    location.assign('index.php');
+                    </script>";
+                }
+        }else {
+            
+            $_SESSION['cartTwo'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' =>$_POST['getQty']);
+            echo "<script>alert('Product added into cart');
+            location.assign('index.php');
+            </script>";
         }
-        ;
 
     }
     ;
