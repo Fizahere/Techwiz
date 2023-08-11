@@ -125,4 +125,5 @@ if (isset($_GET['removeFromCart'])) {
     }
 };
 
+
 ?>
