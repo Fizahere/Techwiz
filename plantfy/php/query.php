@@ -58,7 +58,7 @@ if (isset($_POST['login'])) {
     }
     $email = $_POST['email'];
     $password = $_POST['password'];
-    // if ($_POST['role'] == 'user') {
+
     $user = $authModel->findUserWithEmail($email, $pdo);
     if (password_verify($password, $user[0]['userPassword'])) {
         $_SESSION['USER'] = $user;
@@ -66,19 +66,24 @@ if (isset($_POST['login'])) {
     } else {
         redirectWindow('login.php?error=invalid credentials');
     }
-
 }
-;
 
 if (isset($_POST['edit'])) {
     $userID = $_POST['userID'];
     $userName = $_POST['username'];
     $fullName = $_POST['fullname'];
     $emailAddress = $_POST['email'];
-
     $authModel->update($userName, $fullName, $emailAddress, $userID, $pdo);
     redirectWindow('my-account.php');
-    // $query = $pdo->prepare('update users set ')
 };
+
+if (isset($_POST['submit-review'])) {
+    $userID = $_POST['userID'];
+    $productID = $_POST['productID'];
+    $review = $_POST['review'];
+    // echo '<script>alert("' . $productID .$userID.$review. '")</script>';
+    $authModel->submitReview($review, $productID, $userID, $pdo);
+    // redirectWindow('product-single.php');
+}
 
 ?>
