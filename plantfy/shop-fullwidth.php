@@ -25,7 +25,7 @@ include("./components/header.php");
                     // $product = $authModel->showSingleProduct($ctg_id, $pdo);
                     // print_r($product);
                     $query = $pdo->prepare("Select categoryName from categories where categoryID = :id");
-                    $query->bindParam("id", $ctg_id);
+                    $query->bindParam("id",$ctg_id);
                     $query->execute();
                     $categoryTitle = $query->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($categoryTitle as $title) {
@@ -61,10 +61,12 @@ include("./components/header.php");
                         <!-- Shop Filter Sort By Start -->
                         <div class="shop-filter-sort-by">
                             <div class="shop-filter-sort-by__label">
-                                <span>Sort by Default</span>
-                                <i class="lastudioicon-down-arrow"></i>
+                                <form action="" method='post'>
+                                <button name='sortByPrice'>Sort by Default</button>
+                                </form>
+                                <!-- <i class="lastudioicon-down-arrow"></i> -->
                             </div>
-                            <ul class="shop-filter-sort-by__dropdown">
+                            <!-- <ul class="shop-filter-sort-by__dropdown">
                                 <li class="active">
                                     <a href="#">Sort by Default</a>
                                 </li>
@@ -85,20 +87,13 @@ include("./components/header.php");
                                     <a href="#">Sort by Price:
                                         <i class="lastudioicon-arrow-down"></i></a>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </div>
                         <!-- Shop Filter Sort By End -->
                     </div>
                     <!-- Shop Filter Default End -->
 
-                    <!-- Shop Filter Button Start -->
-                    <div class="shop-filter-button">
-                        <button class="shop-filter-button__btn shop-filter-toggle">
-                            <span>Filter</span>
-                            <i class="lastudioicon-menu-4-2"></i>
-                        </button>
-                    </div>
-                    <!-- Shop Filter Button End -->
+                    
 
                     <!-- Shop Filter widget Start -->
                     <div class="shop-filter-widget">
@@ -436,8 +431,14 @@ include("./components/header.php");
                 <div class="shop-wrapper">
                     <div class="row">
                         <?php
-                        $products = $authModel->showSingleProduct($ctg_id, $pdo);
-                        foreach ($products as $item) {
+                        if(isset($_POST['sortByPrice'])){
+                            $products = $authModel->showSingleProductByPriceSort($ctg_id,$pdo);
+                        }
+                        else{
+                            $products = $authModel->showSingleProduct($ctg_id,$pdo);
+
+                        }
+                                              foreach ($products as $item) {
                             ?>
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <!-- Single product Start -->
@@ -445,14 +446,14 @@ include("./components/header.php");
                                     <a href="product-single.php?id=<?php echo $item['productID'] ?>">
                                         <div class="single-product__thumbnail">
                                             <div>
-                                                <a href="#"></a>
+                                                <a href="#" ></a>
                                             </div>
                                             <div class="single-product__thumbnail--holder">
                                                 <a href="product-single.php?id=<?php echo $item['productID'] ?>">
                                                     <img src="assets/images/products/<?php echo $item['productImage'] ?>"
                                                         alt="Product" width="344" height="370" />
                                                 </a>
-                                            </div>
+                        </div>
                                         </div>
                                         <div class="single-product__info text-center">
                                             <div class="single-product__info--tags">
