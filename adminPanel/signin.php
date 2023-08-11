@@ -72,8 +72,6 @@ include('php/query.php')
                 <div class="form-floating mb-3">
                     <select class="form-select" id="floatingSelect" name="role">
                         <option selected>signin as :</option>
-                            <option value="Parent">Parent</option>
-                            <option value="Hospital">Hospital</option>
                             <option value="Admin">Admin</option>
                     </select>
                     <label for="floatingSelect">signin as</label>

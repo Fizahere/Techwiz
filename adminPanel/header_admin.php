@@ -1,9 +1,8 @@
 <?php
 include("php/query.php");
-// if (!isset($_SESSION['Admin'])) {
-//     redirectWindow('signin.php');
-// }
-// ;
+ if (!isset($_SESSION['Admin'])) {
+     redirectWindow('signin.php');
+ };
 ?>
 
 <!DOCTYPE html>
