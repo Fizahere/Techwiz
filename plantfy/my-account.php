@@ -163,9 +163,11 @@ if (!isset($_SESSION['USER'])) {
                                             // echo '<script>alert("'.$userID.'")</script>';
                                             ?>
                                             <input type="hidden" name="deleteID" value="<?php echo $userID ?>" id="">
+                             
                                             <button class="single-form__btn btn" type="submit" name="delete-account" id='delete_btn'>
                                                 <h4 class='h6'>Delete Account ?</h4>
                                             </button>
+                                    
                                         </form>
                                     </div>
                                 </div>

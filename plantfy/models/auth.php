@@ -55,9 +55,7 @@ class Auth
     function deleteAccount($deleteAccountID,$pdo){
         $query = $pdo->prepare('DELETE from users where userID = :u_ID');
         $query->bindParam('u_ID',$deleteAccountID);
-        // if(echo '<script>confirm("Are you sure you want to delete your account ?")</script>'){
         $query->execute();
-        // }
     }
     function showSingleProduct($ctg_id, $pdo)
     {
