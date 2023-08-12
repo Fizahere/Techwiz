@@ -49,12 +49,12 @@ include_once('header_admin.php');
                                         value="<?php echo $row['password'] ?>" id="exampleInputPassword1">
                                 </div>
 
-                                <button class="btn btn-light edit-btn " data-bs-toggle="modal"
+                                <button class="btn btn-dark edit-btn " data-bs-toggle="modal"
                                     data-bs-target="#update-admin-modal<?php echo $row['adminID']  ?>">
-                                    Update
+                                    Update Account
                                 </button>
-                                <button class="btn btn-light edit-btn mr-5 " data-bs-toggle="modal"
-                                    data-bs-target="#delete-admin-modal<?php echo $row['adminID']  ?>">Delete
+                                <button class="btn btn-danger edit-btn mr-5 " data-bs-toggle="modal"
+                                    data-bs-target="#delete-admin-modal<?php echo $row['adminID']  ?>">Delete account
                                     
                                 </button>
 
@@ -66,7 +66,7 @@ include_once('header_admin.php');
                                     <div class="modal-dialog modal-xl bg-light ">
                                         <div class="modal-content bg-light">
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Edit Information</h4>
+                                                <h4 class="modal-title">Update Account</h4>
                                                 <button type="button" class="btn-close  bg-white"
                                                     data-bs-dismiss="modal"></button>
                                             </div>
@@ -203,7 +203,7 @@ include_once('header_admin.php');
                                                             <span class="text-bold">
                                                                 <?php echo $row['adminName'] ?>
                                                             </span>
-                                                            <span>Are you sure you want to delete your account?</span>
+                                                            <span>are you sure you want to delete your account?</span>
                                                         </div>
                                                     </div>
 
