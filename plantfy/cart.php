@@ -55,9 +55,8 @@ include("./components/sessionHeader.php");
                             <tbody>
                                 <?php
                                 $grandTotal = 0;
-                                // $cartCount = 0;
                                 foreach ($_SESSION['cartTwo'] as $item) {
-                                    $totalAmount = $item['getPrice'] * $item['getQty'];
+                                    $totalAmount =  $item['getPrice'] * $item['getQty'];
                                     $grandTotal += $totalAmount;
                                     ?>
                                     <tr class="cart-item">
@@ -67,7 +66,7 @@ include("./components/sessionHeader.php");
 
                                         <td class="cart-product-thumbnail">
                                             <a href="product-single.html">
-                                                <img src="../adminPanel/images/products/<?php echo $item['getImage'] ?>"
+                                                <img src="assets/images/products/<?php echo $item['getImage'] ?>"
                                                     alt="Product" width="70" height="89" />
                                             </a>
                                         </td>
@@ -81,8 +80,7 @@ include("./components/sessionHeader.php");
                                         <td class="cart-product-price text-md-center" data-title="Price">
                                             <span class="price-amount">
                                                 <ins>
-                                                    $
-                                                    <?php echo $item['getPrice'] ?>
+                                                    $<?php echo $item['getPrice'] ?>
                                                 </ins>
                                             </span>
                                         </td>
@@ -92,8 +90,7 @@ include("./components/sessionHeader.php");
                                                 <!-- <button type="button" class="decrease">
                                                     <i class="lastudioicon-i-delete-2"></i>
                                                 </button> -->
-                                                <input class="quantity-input" type="text"
-                                                    value="<?php echo $item['getQty'] ?>" />
+                                                <input class="quantity-input" type="text" value="<?php echo $item['getQty'] ?>" />
                                                 <!-- <button type="button" class="increase">
                                                     <i class="lastudioicon-i-add-2"></i>
                                                 </button> -->
@@ -102,17 +99,14 @@ include("./components/sessionHeader.php");
 
                                         <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
                                             <span class="price-amount">
-                                                $
-                                                <?php echo $item['getPrice'] * $item['getQty'];
+                                                $<?php echo $item['getPrice'] * $item['getQty'];
                                                 // echo $getUser;
-                                            
+                                                
                                                 ?>
                                             </span>
                                         </td>
                                     </tr>
                                     <?php
-                                    // $cartCount++;
-                                    // echo $cartCount;
                                 }
                                 ?>
                             </tbody>
@@ -131,12 +125,10 @@ include("./components/sessionHeader.php");
                         <div class="cart-totals__table table-responsive">
                             <table class="table">
                                 <tbody>
-                                    <tr class="order-total">
+                                <tr class="order-total">
                                         <th>Total Amount</th>
                                         <td>
-                                            <strong>
-                                                <?php echo $grandTotal ?>
-                                            </strong>
+                                            <strong><?php echo $grandTotal ?></strong>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -145,26 +137,20 @@ include("./components/sessionHeader.php");
 
                         <div class="cart-totals__checkout">
                             <?php
-                            if (isset($_SESSION['USER'])) {
-                                $user = $_SESSION['USER'];
-                                foreach ($user as $user) {
-                                    // echo '<script>alert("'.$user['userID'].'")</script>';
-                                    $userID = $user['userID'];
-                                }
+                            // echo $_SESSION['name'];
+                            // if(isset($_SESSION['name'])){
                                 ?>
-                                <a href="?checkout=<?php echo $userID ?>">Proceed to checkout</a>
-                                <?php
-                                // }
-                            }
+                                <a href="?checkout">Proceed to checkout</a>
+                            <?php
                             // }
-                            else {
+                            // else{
                                 ?>
                                 <a href="login.php">Proceed to checkout</a>
                                 <?php
 
-                            }
+                            // }
                             ?>
-
+                            
                         </div>
                     </div>
                     <!-- Cart Totals End-->
