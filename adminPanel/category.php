@@ -67,7 +67,7 @@ include_once('header_admin.php');
                                         <?php echo $row['categoryName'] ?>
                                     </td>
                                     <td style="width: 50%;">
-                                        <img src="categoryImages/<?php echo $row['categoryImage'] ?>" width="50%"
+                                        <img src="images/category/<?php echo $row['categoryImage'] ?>" width="50%"
                                             alt="">
 
                                     </td>
@@ -131,7 +131,7 @@ include_once('header_admin.php');
                                                         <label for="" class="col-sm-2 col-form-label">Category
                                                             Image</label>
                                                         <div class="col-sm-10"><img width="50%"
-                                                                src="adminImages/<?php echo $row['categoryImage']  ?>"
+                                                                src="images/category/<?php echo $row['categoryImage']  ?>"
                                                                 alt="">
                                                         </div>
 
@@ -252,7 +252,7 @@ include_once('header_admin.php');
     </div>
 </div>
 
-<!-------------------------------------------------
+                                        <!-------------------------------------------------
                                         |                                                 |
                                         | modal for insert category information           | 
                                         | [end]                                           |

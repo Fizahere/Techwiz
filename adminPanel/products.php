@@ -91,7 +91,7 @@ include_once('header_admin.php');
                                         <?php echo $row['categoryName'] ?>
                                     </td>
                                     <td>
-                                        <img src="productImages/<?php echo $row['productImage'] ?>" width="50%" alt="">
+                                        <img src="images/products/<?php echo $row['productImage'] ?>" width="50%" alt="">
 
                                     </td>
 
@@ -198,7 +198,7 @@ include_once('header_admin.php');
                                                         <label for="" class="col-sm-2 col-form-label">Product
                                                             Image</label>
                                                         <div class="col-sm-10"><img width="50%"
-                                                                src="productImages/<?php echo $row['productImage']  ?>"
+                                                                src="images/products/<?php echo $row['productImage']  ?>"
                                                                 alt="">
                                                         </div>
 
@@ -218,11 +218,11 @@ include_once('header_admin.php');
                                     </div>
                                 </div>
 
-                                <!-------------------------------------------------
+                                        <!-------------------------------------------------
                                         | modal for update products information           | 
                                         | [end]                                           |
                                         -------------------------------------------------->
-                                <!-------------------------------------------------
+                                        <!-------------------------------------------------
                                         | modal for delete category information           | 
                                         | [start]                                         |
                                         -------------------------------------------------->
@@ -363,7 +363,7 @@ include_once('header_admin.php');
     </div>
 </div>
 
-<!-------------------------------------------------
+                                        <!-------------------------------------------------
                                         |                                                 |
                                         | modal for insert category information           | 
                                         | [end]                                           |

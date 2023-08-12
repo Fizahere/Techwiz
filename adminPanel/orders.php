@@ -11,10 +11,25 @@ include_once('header_admin.php');
 
                         <h4>Orders</h4>
 
-                        <form method="post">
-                            <button class="btn bg-white text-black mb-2" name="sort-by-vaccination-date">Sort by
-                                vaccination date</button>
-                        </form>
+                       <div class="d-flex">
+                            
+                                  <div class="dropdown d-flex align-self-center ">
+                                    <form method="post">
+                                    <button class="btn bg-white text-dark dropdown-toggle p-2" type="button"
+                                        id="dropdownMenuButton1"  data-bs-toggle="dropdown" aria-expanded="false">
+                                        Sort Orders
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><button class="dropdown-item" href="#" name="sort-order-by-name">Sort by
+                                                name</button></li>
+                                        <li><button class="dropdown-item" href="#" name="sort-order-by-date">Sort by
+                                                date</button></li>
+                                       
+                                    </ul>
+                                </form>
+                                </div>
+                                 
+                        </div>
                     </div>
                     <div class="table-responsive bg- ">
                         <table class="table">
@@ -34,20 +49,16 @@ include_once('header_admin.php');
                             </thead>
                             <tbody>
                                 <?php
-                     function getSortedData($pdo)
-{
-    $query = $pdo->query("SELECT * FROM children_details 
-                          INNER JOIN parent_login ON children_details.parentID = parent_login.parentID 
-                          INNER JOIN vaccine_details ON children_details.vaccineID = vaccine_details.vaccineID 
-                          INNER JOIN hospital_login ON children_details.hospitalID = hospital_login.hospitalID 
-                          ORDER BY vaccinationDate ASC");
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
+       
 
-// Check if the "Sort by vaccination date" button is clicked
-if (isset($_POST['sort-by-vaccination-date'])) {
-    $result = getSortedData($pdo);
+// Check if the "Sort by  user name" button is clicked
+if (isset($_POST['sort-order-by-name'])) {
+    $query = $pdo->query("SELECT * FROM orders INNER JOIN users ON orders.userID = users.userID INNER JOIN  products ON orders.productID =products.productID ORDER BY users.firstName ;");
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+}else if (isset($_POST['sort-order-by-date'])) {
+// Check if the "Sort by  user name" button is clicked
+    $query = $pdo->query("SELECT * FROM orders INNER JOIN users ON orders.userID = users.userID INNER JOIN  products ON orders.productID =products.productID  ORDER BY orders.orderDate;");
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
 } else {
     // By default, get data without sorting
     $query = $pdo->query("SELECT * FROM orders INNER JOIN users ON orders.userID = users.userID INNER JOIN  products ON orders.productID =products.productID ;");
