@@ -55,6 +55,7 @@ include("./components/sessionHeader.php");
                             <tbody>
                                 <?php
                                 $grandTotal = 0;
+                                // $cartCount = 0;
                                 foreach ($_SESSION['cartTwo'] as $item) {
                                     $totalAmount = $item['getPrice'] * $item['getQty'];
                                     $grandTotal += $totalAmount;
@@ -110,6 +111,8 @@ include("./components/sessionHeader.php");
                                         </td>
                                     </tr>
                                     <?php
+                                    // $cartCount++;
+                                    // echo $cartCount;
                                 }
                                 ?>
                             </tbody>

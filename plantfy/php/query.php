@@ -91,10 +91,9 @@ if (isset($_POST['submit-review'])) {
 
 //add to cart
 if (isset($_POST['addToCartBtn'])) {
-    if (!isset($_SESSION['cartTwo'])) {
-        echo "<script>location.assign('empty-cart.php')</script>";
-    } else {
         if (isset($_SESSION['cartTwo'])) {
+            $count = count($_SESSION['cartTwo']);
+            echo "<script>alert($count)</script>";
 
             $productId = array_column($_SESSION['cartTwo'], 'getId');
             if (in_array($_POST['productID'], $productId)) {
@@ -114,7 +113,6 @@ if (isset($_POST['addToCartBtn'])) {
         </script>";
         }
     }
-}
 ;
 //remove from cart
 if (isset($_GET['removeFromCart'])) {

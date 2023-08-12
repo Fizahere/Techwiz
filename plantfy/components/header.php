@@ -164,12 +164,13 @@ include_once('php/query.php')
                                 <li class="wishlist">
                                     <a href="wishlist.php" aria-label="Wishlist">
                                         <i class="lastudioicon lastudioicon-heart-1"></i>
-                                        <span class="badge">03</span>
+                                        <!-- <span class="badge">03</span> -->
                                     </a>
                                 </li>
                                 <li class="cart">
                                     <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="Cart">
-                                        <i class="lastudioicon-shopping-cart-1"></i><span class="badge">03</span>
+                                        <i class="lastudioicon-shopping-cart-1"></i>
+                                        <!-- <span class="badge">03</span> -->
                                     </button>
                                 </li>
                             </ul>
@@ -258,7 +259,7 @@ include_once('php/query.php')
 
             <!-- Cart Buttons End-->
             <div class="cart-buttons">
-                <a href="#" class="cart-buttons__btn-1 btn">Checkout</a>
+                <a href="cart.php" class="cart-buttons__btn-1 btn">Checkout</a>
                 <a href="cart.php" class="cart-buttons__btn-2 btn">View Cart</a>
             </div>
             <!-- Cart Buttons End-->
@@ -319,7 +320,7 @@ include_once('php/query.php')
             ">
                 <h3 class="banner-title">NEW NOW</h3>
                 <h4 class="banner-sub-title">WARM WOOL PREMIUM COAT</h4>
-                <a href="#" class="banner-btn">Discover</a>
+                <a href="allProducts.php" class="banner-btn">Discover</a>
             </div>
             <!-- Off Canvas Sidebar Banner End -->
 
