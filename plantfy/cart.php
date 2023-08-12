@@ -1,6 +1,6 @@
 <?php
 //  session_start();
-include("./components/header.php");
+include("./components/sessionHeader.php");
 
 ?>
 
@@ -56,7 +56,7 @@ include("./components/header.php");
                                 <?php
                                 $grandTotal = 0;
                                 foreach ($_SESSION['cartTwo'] as $item) {
-                                    $totalAmount =  $item['getPrice'] * $item['getQty'];
+                                    $totalAmount = $item['getPrice'] * $item['getQty'];
                                     $grandTotal += $totalAmount;
                                     ?>
                                     <tr class="cart-item">
@@ -80,7 +80,8 @@ include("./components/header.php");
                                         <td class="cart-product-price text-md-center" data-title="Price">
                                             <span class="price-amount">
                                                 <ins>
-                                                    $<?php echo $item['getPrice'] ?>
+                                                    $
+                                                    <?php echo $item['getPrice'] ?>
                                                 </ins>
                                             </span>
                                         </td>
@@ -90,7 +91,8 @@ include("./components/header.php");
                                                 <!-- <button type="button" class="decrease">
                                                     <i class="lastudioicon-i-delete-2"></i>
                                                 </button> -->
-                                                <input class="quantity-input" type="text" value="<?php echo $item['getQty'] ?>" />
+                                                <input class="quantity-input" type="text"
+                                                    value="<?php echo $item['getQty'] ?>" />
                                                 <!-- <button type="button" class="increase">
                                                     <i class="lastudioicon-i-add-2"></i>
                                                 </button> -->
@@ -99,9 +101,10 @@ include("./components/header.php");
 
                                         <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
                                             <span class="price-amount">
-                                                $<?php echo $item['getPrice'] * $item['getQty'];
+                                                $
+                                                <?php echo $item['getPrice'] * $item['getQty'];
                                                 // echo $getUser;
-                                                
+                                            
                                                 ?>
                                             </span>
                                         </td>
@@ -125,10 +128,12 @@ include("./components/header.php");
                         <div class="cart-totals__table table-responsive">
                             <table class="table">
                                 <tbody>
-                                <tr class="order-total">
+                                    <tr class="order-total">
                                         <th>Total Amount</th>
                                         <td>
-                                            <strong><?php echo $grandTotal ?></strong>
+                                            <strong>
+                                                <?php echo $grandTotal ?>
+                                            </strong>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -137,20 +142,26 @@ include("./components/header.php");
 
                         <div class="cart-totals__checkout">
                             <?php
-                            // echo $_SESSION['name'];
-                            // if(isset($_SESSION['name'])){
+                            if (isset($_SESSION['USER'])) {
+                                $user = $_SESSION['USER'];
+                                foreach ($user as $user) {
+                                    // echo '<script>alert("'.$user['userID'].'")</script>';
+                                    $userID = $user['userID'];
+                                }
                                 ?>
-                                <a href="?checkout">Proceed to checkout</a>
-                            <?php
+                                <a href="?checkout=<?php echo $userID ?>">Proceed to checkout</a>
+                                <?php
+                                // }
+                            }
                             // }
-                            // else{
+                            else {
                                 ?>
                                 <a href="login.php">Proceed to checkout</a>
                                 <?php
 
-                            // }
+                            }
                             ?>
-                            
+
                         </div>
                     </div>
                     <!-- Cart Totals End-->

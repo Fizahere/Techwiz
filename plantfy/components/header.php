@@ -58,7 +58,7 @@ include_once('php/query.php')
                             <li>
                                 <a href="mailto:info.expmale@mail.com" aria-label="mail">
                                     <i class="lastudioicon-mail-2"></i>
-                                    <span>info.expmale@mail.com</span>
+                                    <span>plantnest@gmail.com</span>
                                 </a>
                             </li>
                             <li>
@@ -78,7 +78,7 @@ include_once('php/query.php')
                     <div class="header__top--right">
                         <ul class="header__top--items">
                             <li>
-                                <a href="login-register.html" aria-label="login">
+                                <a href="login.php" aria-label="login">
                                     <i class="lastudioicon-single-01-1"></i>
                                     <span>Login</span>
                                 </a>
@@ -161,12 +161,12 @@ include_once('php/query.php')
                                         </div>
                                     </form>
                                 </li>
-                                <!-- <li class="wishlist">
-                                    <a href="wishlist.html" aria-label="Wishlist">
+                                <li class="wishlist">
+                                    <a href="wishlist.php" aria-label="Wishlist">
                                         <i class="lastudioicon lastudioicon-heart-1"></i>
                                         <span class="badge">03</span>
                                     </a>
-                                </li> -->
+                                </li>
                                 <li class="cart">
                                     <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="Cart">
                                         <i class="lastudioicon-shopping-cart-1"></i><span class="badge">03</span>
@@ -304,11 +304,11 @@ include_once('php/query.php')
             <!-- Off Canvas Sidebar Menu Start -->
             <div class="offcanvas-sidebar__menu">
                 <ul class="offcanvas-menu-list">
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
                     <li><a href="#">Careers</a></li>
-                    <li><a href="blog.html">News & Events</a></li>
-                    <li><a href="faqs.html">FAQs</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="blog.php">News & Events</a></li>
+                    <li><a href="faqs.php">FAQs</a></li>
+                    <li><a href="contact-us.php">Contact Us</a></li>
                 </ul>
             </div>
             <!-- Off Canvas Sidebar Menu End -->
@@ -327,7 +327,7 @@ include_once('php/query.php')
             <div class="offcanvas-sidebar__info">
                 <ul class="offcanvas-info-list">
                     <li><a href="tel:+61225315600">(+612) 2531 5600</a></li>
-                    <li><a href="mailto:info@exmple.com">info@exmple.com</a></li>
+                    <li><a href="mailto:info@exmple.com">plantnest@gmail.com</a></li>
                     <li>
                         <span>
                             PO Box 1622 Colins Street West Victoria 8077 Australia
@@ -360,14 +360,14 @@ include_once('php/query.php')
             <!-- Off Canvas Sidebar Social End -->
 
             <!-- Off Canvas Sidebar Social End -->
-            <div class="offcanvas-sidebar__copyright">
+            <!-- <div class="offcanvas-sidebar__copyright">
                 <p>
                     &copy;
                     <span class="current-year">2023</span>
                     <span> Plantfy </span> Made with by
                     <a href="https://hasthemes.com/">HasThemes</a>
                 </p>
-            </div>
+            </div> -->
             <!-- Off Canvas Sidebar Social End -->
         </div>
     </div>
