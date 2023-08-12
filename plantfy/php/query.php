@@ -124,6 +124,10 @@ if (isset($_GET['removeFromCart'])) {
         }
     }
 };
+//add to wishlist
+if(isset($_POST[''])){
+
+};
 
 
 ?>

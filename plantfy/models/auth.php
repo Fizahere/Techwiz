@@ -61,5 +61,11 @@ function showSingleProductByPriceSort($ctg_id, $pdo)
     $productsByPrice = $query->fetchAll(PDO::FETCH_ASSOC);
     return $productsByPrice;
 }
+function addWishList($pdo){
+    $query = $pdo->prepare('insert into wishlist(wishlistProductID,customerID) values(:wishlistProductID,:customerID)');
+    $query->bindParam('wishlistProductID',$productID);
+    $query->bindParam('customerID',$userID);
+    $query->execute();
+}
 }
 ;
