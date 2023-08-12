@@ -76,7 +76,8 @@ if (isset($_POST['edit'])) {
     $emailAddress = $_POST['email'];
     $authModel->update($userName, $fullName, $emailAddress, $userID, $pdo);
     redirectWindow('my-account.php');
-};
+}
+;
 
 if (isset($_POST['submit-review'])) {
     $userID = $_POST['userID'];
@@ -85,32 +86,33 @@ if (isset($_POST['submit-review'])) {
     // echo '<script>alert("' . $productID .$userID.$review. '")</script>';
     $authModel->submitReview($review, $productID, $userID, $pdo);
     // redirectWindow('product-single.php');
-};
+}
+;
 
 //add to cart
 if (isset($_POST['addToCartBtn'])) {
-
-    if (isset($_SESSION['cartTwo'])) {
-
-        $productId = array_column($_SESSION['cartTwo'], 'getId');
-        if (in_array($_POST['productID'], $productId)) {
-            echo "<script>alert('Product already exists in the cart')</script>";
-        } else {
+        if (isset($_SESSION['cartTwo'])) {
             $count = count($_SESSION['cartTwo']);
-            $_SESSION['cartTwo'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' => $_POST['getQty']);
-            echo "<script>alert('Product added into cart')
-            location.assign('index.php');
-            </script>";
+            echo "<script>alert($count)</script>";
+
+            $productId = array_column($_SESSION['cartTwo'], 'getId');
+            if (in_array($_POST['productID'], $productId)) {
+                echo "<script>alert('Product already exists in the cart')</script>";
+            } else {
+                $count = count($_SESSION['cartTwo']);
+                $_SESSION['cartTwo'][$count] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' => $_POST['getQty']);
+                echo "<script>alert('Product added into cart')
+                location.assign('index.php');
+                </script>";
+            }
+        } else {
+
+            $_SESSION['cartTwo'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' => $_POST['getQty']);
+            echo "<script>alert('Product added into cart');
+        location.assign('index.php');
+        </script>";
         }
-    } else {
-
-        $_SESSION['cartTwo'][0] = array('getId' => $_POST['productID'], 'getName' => $_POST['productName'], 'getPrice' => $_POST['productPrice'], 'getDescription' => $_POST['productDescription'], 'getImage' => $_POST['productImage'], 'getQty' => $_POST['getQty']);
-        echo "<script>alert('Product added into cart');
-    location.assign('index.php');
-    </script>";
     }
-
-}
 ;
 //remove from cart
 if (isset($_GET['removeFromCart'])) {
@@ -123,30 +125,59 @@ if (isset($_GET['removeFromCart'])) {
         </script>";
         }
     }
-};
+}
+;
 //add to wishlist
-if(isset($_GET['wishlist'])){
+if (isset($_GET['wishlist'])) {
     $getWishlistId = $_GET['wishlist'];
-     $getUserIdForWishlist = $_GET['userId'];
-     $query = $pdo->prepare("Select wishlistProductID from wishlist");
-     $query->execute();
-     $getWishListData = $query->fetchAll(PDO::FETCH_ASSOC);
+    $getUserIdForWishlist = $_GET['userId'];
+    //  $query = $pdo->prepare("Select wishlistProductID from wishlist");
+    //  $query->execute();
+    //  $getWishListData = $query->fetchAll(PDO::FETCH_ASSOC);
     //  echo "<script>alert($getWishListData)</script>";
     //  if(isset($getWishListData)){
     //     $productId = array_column($getWishListData['wishlistProductID'],$getWishlistId);
     //     echo "<script>alert('product already exists')</script>";
     //  }
     //  else{
-    //     $authModel->addWishList($pdo,$getWishlistId,$getUserIdForWishlist);
+    $authModel->addWishList($pdo, $getWishlistId, $getUserIdForWishlist);
+    header('location:wishlist.php');
+    // echo "<script>alert('Item added to wishlist')</script>";
+
 
     //  }
     // echo "<script>alert('working')</script>";
-};
-if(isset($_GET['removeFromWishlist'])){
+}
+;
+if (isset($_GET['removeFromWishlist'])) {
     $deleteWishlistProduct = $_GET['removeFromWishlist'];
     // echo "<script>alert($deleteWishlistProduct)</script>";
-    $query = $pdo->prepare("delete * from wishlist where wishlistProductID = :removeProductFromWishlist");
-    $query->bindParam("removeProductFromWishlist",$deleteWishlistProduct);
+    $query = $pdo->prepare("delete from wishlist where wishlistProductID = :removeProductFromWishlist");
+    $query->bindParam("removeProductFromWishlist", $deleteWishlistProduct);
     $query->execute();
+    echo "<script>alert('Item removed from wishlist')</script>";
 }
+//checkout
+if (isset($_GET['checkout'])) {
+    $getUserId = $_GET['checkout'];
+    foreach ($_SESSION['cartTwo'] as $key => $value) {
+        $id = $value['getId'];
+        // $name = $value['getName'];
+        // $price = $value['getPrice'];
+        $qty = $value['getQty'];
+        $totalAmount = $value['getQty'] * $value['getPrice'];
+        $query = $pdo->prepare('insert into orders(userID,productID,productQuantity,totalAmount) values(:userID,:productID, :productQuantity, :totalAmount)');
+        $query->bindParam("userID", $getUserId);
+        $query->bindParam("productID", $id);
+        $query->bindParam("productQuantity", $qty);
+        $query->bindParam("totalAmount", $totalAmount);
+        $query->execute();
+
+        echo "<script>alert('order added successfully');
+    location.assign('index.php');
+    </script>";
+        unset($_SESSION['cartTwo']);
+    }
+}
+;
 ;

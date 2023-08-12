@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2023 at 07:10 AM
+-- Generation Time: Aug 12, 2023 at 01:21 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -60,7 +60,22 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`categoryID`, `categoryName`, `categoryImage`) VALUES
 (1, 'Indoor plants', 'quick-shop-1.png'),
-(2, 'Outdoor plants', 'quick-shop-2.png');
+(2, 'Outdoor plants', 'quick-shop-2.png'),
+(3, 'Flowering plants', 'quick-shop-4.png'),
+(4, 'Non-flowering plants', 'quick-shop-3.png'),
+(5, 'Succulents', 'quick-shop-5.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `feedbackID` int(11) NOT NULL,
+  `feedbackUserID` int(11) DEFAULT NULL,
+  `feedback` varchar(325) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -84,7 +99,12 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `orderDate`, `totalAmount`, `orderStatus`) VALUES
 (1, 5, 2, '2', '2023-08-09', '5677', 'pending'),
-(2, 5, 1, '2', '2023-08-09', '5677', 'pending');
+(2, 5, 1, '2', '2023-08-09', '5677', 'pending'),
+(3, 6, 4, '1', '2023-08-12', '25.99', 'pending'),
+(4, 6, 5, '1', '2023-08-12', '26.99', 'pending'),
+(5, 6, 2, '1', '2023-08-12', '39.99', 'pending'),
+(6, 6, 3, '1', '2023-08-12', '35.99', 'approved'),
+(7, 6, 2, '1', '2023-08-12', '39.99', 'pending');
 
 -- --------------------------------------------------------
 
@@ -99,6 +119,13 @@ CREATE TABLE `productreviews` (
   `userID` int(11) DEFAULT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `productreviews`
+--
+
+INSERT INTO `productreviews` (`reviewID`, `reviews`, `productID`, `userID`, `date`) VALUES
+(1, 'loved this product', 2, 6, '2023-08-12');
 
 -- --------------------------------------------------------
 
@@ -126,7 +153,16 @@ INSERT INTO `products` (`productID`, `productName`, `productDescription`, `produ
 (3, 'Ninja jewel alocasia', 'Alocasia \'Ninja\' is a compact Jewel Alocasia with deep green to black, rounded shield leaves and striking white veining. ', '35.99', 'product-03.png', '36', 1),
 (4, 'Croton', 'Croton is a small shrub used as a landscape plant in tropical climates. In its native habitat, croton is a branching, bushy shrub.', '25.99', 'product-04.png', '15', 2),
 (5, 'Pentas', 'Colorful pentas, also known as Egyptian starcluster or star flower, are one of the best choices to attract pollinators like butterflies.', '26.99', 'product-05.png', '17', 2),
-(6, 'Lantana', 'Lantana is an annual or perennial, small, broadleaf evergreen shrub in the Verbenaceae (verbena) family that has woody stems but a sprawling habit.', '23.99', 'product-05.png', '34', 2);
+(6, 'Lantana', 'Lantana is an annual or perennial, small, broadleaf evergreen shrub in the Verbenaceae (verbena) family that has woody stems but a sprawling habit.', '23.99', 'product-06.png', '34', 2),
+(7, 'Coleus', 'The coleus is a brightly colored shrub with square stems and leaves ranging from heart-shaped to deeply fringed.', '25.99', 'product-07.png', '24', 2),
+(8, 'Bromeliad', 'Bromeliads typically have bright red, orange, purple, or blue flowers, and can grow in a number of different ways.', '34.99', 'product-08.png', '23', 3),
+(9, 'Caladium', 'Caladiums are tropical perennials with colorful, heart-shaped leaves native to tropical forests in South and Central America.', '23.99', 'product-09.png', '24', 3),
+(10, 'New Guinea Impatiens', 'New Guinea impatiens form compact, succulent subshrubs with branches growing 1 to 2 feet tall by summer\'s end.', '23.99', 'product-10.png', '30', 3),
+(11, 'Heliotrope', 'It has fragrant, purple to white, flat-clustered, five-lobed flowers in coiled sprays.', '25.99', 'product-11.png', '23', 4),
+(12, 'Million Bells', 'These are compact, mounded plants which grow 3-9” tall on mostly trailing stems.', '35.99', 'product-17.jpg', '34', 4),
+(13, 'Burro’s Tail', 'Also known as the donkey tail plant, this succulent is one of the easiest plants to propagate and care for, which makes it a popular houseplant.', '24.99', 'product-14.jpg', '24', 5),
+(14, 'Crown of Thorns', 'The crown of thorns is a great houseplant because it adjusts well to dry indoor environments and room temperatures.', '26.99', 'product-15.jpg', '23', 5),
+(15, 'Flaming Katy', 'The flaming katy is a common houseplant that is native to Madagascar. It prefers temperatures from 60 to 85 degrees.', '27.99', 'product-16.jpg', '12', 5);
 
 -- --------------------------------------------------------
 
@@ -167,6 +203,16 @@ CREATE TABLE `wishlist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`wishlistID`, `customerID`, `wishlistProductID`) VALUES
+(28, 6, 2),
+(29, 6, 2),
+(30, 6, 1),
+(31, 6, 2);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -182,6 +228,13 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`categoryID`);
+
+--
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`feedbackID`),
+  ADD KEY `feedbackKey` (`feedbackUserID`);
 
 --
 -- Indexes for table `orders`
@@ -217,6 +270,7 @@ ALTER TABLE `users`
 -- Indexes for table `wishlist`
 --
 ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`wishlistID`),
   ADD KEY `customerIdKey` (`customerID`),
   ADD KEY `productIdKey` (`wishlistProductID`);
 
@@ -234,25 +288,31 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `feedbackID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `productreviews`
 --
 ALTER TABLE `productreviews`
-  MODIFY `reviewID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `reviewID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -261,8 +321,20 @@ ALTER TABLE `users`
   MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `wishlistID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `feedbackKey` FOREIGN KEY (`feedbackUserID`) REFERENCES `users` (`userID`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `orders`

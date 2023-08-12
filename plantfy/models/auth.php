@@ -68,7 +68,7 @@ class Auth
         $query->bindParam('wishlistProductID', $getWishlistId);
         $query->bindParam('customerID', $getUserIdForWishlist);
         $query->execute();
-        echo "<script>alert('Item added to wishlist')</script>";
+    
     }
 }
 ;

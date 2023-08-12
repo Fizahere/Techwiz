@@ -340,6 +340,24 @@ include("./components/header.php");
                                         <div class="single-product js-scroll ShortFadeInUp">
                                            
                                             <div class="single-product__thumbnail">
+                                            <div class="single-product__thumbnail--meta-3">
+                                        <?php
+                                        if (isset($_SESSION['USER'])) {
+                                            $user = $_SESSION['USER'];
+                                            foreach ($user as $user) {
+                                                // echo '<script>alert("'.$user['userID'].'")</script>';
+                                                $userID = $user['userID'];
+                                            }
+                                        }
+                                        ?>
+                                        <a href="?wishlist=<?php echo $singleRelatedItem['productID'] ?>&userId=<?php echo $userID ?>"
+                                            data-bs-tooltip="tooltip" data-bs-placement="top"
+                                            data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
+                                            aria-label="wishlist">
+                                            <i class="lastudioicon-heart-2"></i>
+                                        </a>
+
+                                    </div>
                                             
                                                 <div class="single-product__thumbnail--holder">
                                                     <a href="product-single.php?id=<?php echo $singleRelatedItem['productID'] ?>">
