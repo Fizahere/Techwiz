@@ -338,9 +338,11 @@ include("./components/header.php");
                                     ?>
                                     <div class="col-md-3">
                                         <div class="single-product js-scroll ShortFadeInUp">
+                                           
                                             <div class="single-product__thumbnail">
+                                            
                                                 <div class="single-product__thumbnail--holder">
-                                                    <a href="product-single.php">
+                                                    <a href="product-single.php?id=<?php echo $singleRelatedItem['productID'] ?>">
                                                         <img src="assets/images/products/<?php echo $singleRelatedItem['productImage'] ?>"
                                                             alt="Product" />
                                                     </a>
@@ -353,7 +355,7 @@ include("./components/header.php");
                                                     <a href="#">Plant</a>
                                                 </div>
                                                 <h3 class="single-product__info--title">
-                                                    <a href="product-single.html">
+                                                    <a href="product-single.php?id=<?php echo $singleRelatedItem['productID'] ?>">
                                                         <?php echo $singleRelatedItem['productName'] ?>
                                                     </a>
                                                 </h3>
@@ -362,7 +364,9 @@ include("./components/header.php");
                                                         <?php echo $singleRelatedItem['productPrice'] ?>
                                                     </ins>
                                                 </div>
+                                            
                                             </div>
+                                      
                                         </div>
                                         <!-- Single product End -->
                                         <!-- </div> -->

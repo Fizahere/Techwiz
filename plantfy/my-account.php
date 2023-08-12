@@ -29,29 +29,6 @@ if (!isset($_SESSION['USER'])) {
  
 </style>
 
-<!-- <div class="search-modal modal fade" id="SearchModal"> -->
-    <!-- Search Close Start -->
-    <!-- <button class="search-modal__close" data-bs-dismiss="modal" aria-label="remove">
-        <i class="lastudioicon-e-remove"></i>
-    </button> -->
-    <!-- Search Close End  -->
-
-    <!-- <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            Search Form Start  -->
-            <!-- <div class="search-modal__form">
-                <form action="#">
-                    <input type="text" placeholder="Search product…" />
-                    <button class="" aria-label="search">
-                        <i class="lastudioicon-zoom-1"></i>
-                    </button>
-                </form>
-            </div> -->
-            <!-- Search Form End  -->
-        <!-- </div> -->
-    <!-- </div>
-</div> -->
-
 <main>
     <!-- Breadcrumb Start -->
     <div class="breadcrumb-section">
@@ -171,9 +148,11 @@ if (!isset($_SESSION['USER'])) {
                                 <h5 class="h5 mb-3">Are you sure you want to sign out?</h5>
 
                                     <div class="single-form">
+                                    <a href="logout.php"><h4 class='h6'>
                                         <button class="single-form__btn btn" id='signout_btn'>
-                                            <a href="logout.php"><h4 class='h6'>Sign Out ?</h4></a>
+                                            Sign Out ?</h4>
                                         </button>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-md-4"></div>

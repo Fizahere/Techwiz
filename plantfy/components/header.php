@@ -204,34 +204,37 @@ include_once('php/query.php')
                 <!-- Offcanvas Cart Item Start -->
                 <?php
                 $grandTotal = 0;
-                foreach ($_SESSION['cartTwo'] as $item) {
-                    $totalAmount = $item['getPrice'] * $item['getQty'];
-                    $grandTotal += $totalAmount;
-                    ?>
-                    <li>
-                        <div class="offcanvas-cart-item">
-                            <div class="offcanvas-cart-item__thumbnail">
-                                <a href="#">
-                                    <img src="assets/images/products/product-05.png" width="70" height="84" alt="product" />
+                if(isset($_SESSION['cartTwo'])){
+                    foreach ($_SESSION['cartTwo'] as $item) {
+                        $totalAmount = $item['getPrice'] * $item['getQty'];
+                        $grandTotal += $totalAmount;
+                        ?>
+                        <li>
+                            <div class="offcanvas-cart-item">
+                                <div class="offcanvas-cart-item__thumbnail">
+                                    <a href="#">
+                                        <img src="assets/images/products/product-05.png" width="70" height="84" alt="product" />
+                                    </a>
+                                </div>
+                                <div class="offcanvas-cart-item__content">
+                                    <h4 class="offcanvas-cart-item__title">
+                                        <a href="#">
+                                            <?php echo $item['getName'] ?>
+                                        </a>
+                                    </h4>
+                                    <span class="offcanvas-cart-item__quantity">
+                                        <?php echo $item['getQty'] ?> × $
+                                        <?php echo $item['getPrice'] ?>
+                                    </span>
+                                </div>
+                                <a class="offcanvas-cart-item__remove" href="?removeFromCart=<?php echo $item['getId'] ?>" aria-label="remove">
+                                    <i class="lastudioicon-e-remove"></i>
                                 </a>
                             </div>
-                            <div class="offcanvas-cart-item__content">
-                                <h4 class="offcanvas-cart-item__title">
-                                    <a href="#">
-                                        <?php echo $item['getName'] ?>
-                                    </a>
-                                </h4>
-                                <span class="offcanvas-cart-item__quantity">
-                                    <?php echo $item['getQty'] ?> × $
-                                    <?php echo $item['getPrice'] ?>
-                                </span>
-                            </div>
-                            <a class="offcanvas-cart-item__remove" href="?removeFromCart=<?php echo $item['getId'] ?>" aria-label="remove">
-                                <i class="lastudioicon-e-remove"></i>
-                            </a>
-                        </div>
-                        <?php
+                            <?php
+                    }
                 }
+                
                 ?>
                     <!-- Offcanvas Cart Item End -->
                 </li>
