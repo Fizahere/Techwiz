@@ -10,7 +10,7 @@ include("php/query.php");
 
 <head>
     <meta charset="utf-8">
-    <title> Vaccination Booking System</title>
+    <title>Admin Panel</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -67,7 +67,9 @@ include("php/query.php");
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h6 class="text-primary"><i class="fa fa-hashtag me-2"></i>VaccinationBookingSystem</h6>
+                    <div>
+                    <h6 class="text-primary"><i class="fa fa-hashtag me-2"></i>Admin Panel PlantNest</h6>
+                    </div>
                 </a>
                
                 <div class="d-flex align-items-center ms-4 mb-4">
@@ -92,10 +94,10 @@ include("php/query.php");
                          <h6 class="mb-0">
                              
                                
+                             
+                             
+                             <span><?php echo ucfirst($result['adminName'])?></span>
                             </h6>
-                    
-
-                        <span><?php echo ucfirst($result['adminName'])?>
 </span>    <?php
                       };  
                        
