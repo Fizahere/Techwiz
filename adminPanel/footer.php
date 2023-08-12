@@ -3,7 +3,7 @@
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">VaccinationBookingSystem</a>, All Right Reserved. 
+                            &copy; <a href="#">PlantNest,AdminPanel</a>, All Right Reserved. 
                         </div>
                        
                     </div>
