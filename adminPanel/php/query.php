@@ -261,28 +261,60 @@ echo
 |   [end]                                                                      |  
 ------------------------------------------------------------------------------->
 <!------------------------------------------------------------------------------
-|   php tag start for queries to approve and  reject user order                |
+|   php tag start for queries to approve and  reject user order on notifictaion|
+|   page                                                                       |
 |   [start]                                                                    |  
 ------------------------------------------------------------------------------->
 <?php
+// on approve
 if (isset($_POST['order-approve-btn'])) {
     $id = $_POST['notification-order-id'];
-    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'approved' WHERE orderID = :_id");
-    $query->bindParam('_id', $id);
-    $query->execute();
+    $authModel->approveOrderNotificatio( $id, $pdo);                
+   
 }
+// On reject
 if (isset($_POST['order-reject-btn'])) {
     $id = $_POST['notification-order-id'];
-    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'rejected' WHERE orderID = :_id");
-    $query->bindParam('_id', $id);
-    $query->execute();
+    $authModel->rejectOrderNotification( $id, $pdo); 
 }
 ?>
 
 <!------------------------------------------------------------------------------
-|   php tag end for queries to approve and  reject user order                |
-|   [end]                                                                    |  
+|   php tag end for queries to approve and  reject user order on notifictaion  |
+|   page                                                                       |
+|   [end]                                                                      |  
 ------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------
+|   php tag start for queries to approve and  reject user order on order       |
+|   page                                                                       |
+|   [start]                                                                    |  
+------------------------------------------------------------------------------->
+<?php
+// on order approve
+if (isset($_POST['OrderApprove'])) {
+    $id = $_POST['orderIDStatus'];
+    $authModel->approveOrder( $id, $pdo); 
+
+    
+}
+// on order reject
+if (isset($_POST['OrdertReject'])) {
+    $id = $_POST['orderIDStatus'];
+    $authModel->rejectOrder( $id, $pdo); 
+
+    
+}
+?>
+
+<!------------------------------------------------------------------------------
+|   php tag end for queries to approve and  reject user order on order         |
+|   page                                                                       |
+|   [end]                                                                      |  
+------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------
+|   php tag start for queries to update  admin  Information                    |
+|   [start]                                                                    |  
+-------------------------------------------------------------------------------->
 
 <?php
 
@@ -291,15 +323,61 @@ if (isset($_POST['update_admin_info'])) {
     $admin_name = $_POST['model-admin-name'];
     $admin_email= $_POST['modal-admin-email'];
     $admin_password= $_POST['modal-admin-password'];
+    $admin_image = $_FILES['modal-admin-image']['name'];
+    $admin_image_size = $_FILES['modal-admin-image']['size'];
+    $admin_image_tmp_name = $_FILES['modal-admin-image']['tmp_name'];
+    $admin_image_ext = pathinfo($admin_image, PATHINFO_EXTENSION);
+    $destinationadmin = "img/".$admin_image;
+    if($admin_image_size <= 48000000){
+        if($admin_image_ext === 'jpg' || $admin_image_ext === "png" || $admin_image_ext === 'jpeg'|| $admin_image_ext === "webp"  || $admin_image_ext === "" || $admin_image === ""){
+            if(move_uploaded_file($admin_image_tmp_name,$destinationadmin)){
            
 
-            $authModel->updateAdminProfile($admin_ID,$admin_name,$admin_email,$admin_password,$pdo);
+            $authModel->updateAdminProfile($admin_ID,$admin_name,$admin_email,$admin_password,$admin_image,$pdo);
             echo "<script>
         location.assign('adminProfile.php')
         </script>";
-        };
+        }; }else{
+            echo "<script>alert('Invalid extension of Image')
+            location.assign('adminProfile.php')
+            </script>";
+        }
+        
+    }else{
+        echo "<script>alert('file size is greater')
+        </script>";
+    }if($admin_image_size == 0){
+        if($admin_image_ext === '' || $admin_image === ""   ){
+            
+            $authModel->updateAdminProfileWithoutImage($admin_ID,$admin_name,$admin_email,$admin_password,$pdo);                
+            
+            echo "<script>
+            location.assign('adminProfile.php')
+            </script>";
+            
+            
+       }
+       
+       }
+       
+   
+       
+    }
      
+// ---------------------------------------------------------------------------|
+// query for delete admin profile                                             |
+//               [start]                                                      |     
+// ---------------------------------------------------------------------------|
+if (isset($_POST['delete_admin_info'])) {
+    $admin_delete_id = $_POST['delete_admin_account'];
+    $authModel->deleteAdmin( $admin_delete_id, $pdo);                
 
+
+}
+// ---------------------------------------------------------------------------|
+// query for delete admin profile                                             |
+//               [end]                                                        |     
+// ---------------------------------------------------------------------------|
 
 ?>
 <!-----------------------------------------------------------------------------------------------

@@ -81,7 +81,17 @@ function deleteProducts( $product_delete_id, $pdo)
       $query->execute();
     }
 //function for update admin profile;
-function updateAdminProfile($admin_ID,$admin_name,$admin_email,$admin_password,$pdo){
+function updateAdminProfile($admin_ID,$admin_name,$admin_email,$admin_password,$admin_image,$pdo){
+    $query= $pdo -> prepare("update admins set adminName = :name,adminEmail = :email, password = :password,adminImage = :image where adminID = :_id");
+    $query -> bindParam('name', $admin_name);
+    $query -> bindParam('email', $admin_email);
+    $query -> bindParam('password', $admin_password);
+    $query -> bindParam('image', $admin_image);
+    $query -> bindParam('_id', $admin_ID);
+    $query -> execute();
+}
+//function for update admin profile without image;
+function updateAdminProfileWithoutImage($admin_ID,$admin_name,$admin_email,$admin_password,$pdo){
     $query= $pdo -> prepare("update admins set adminName = :name,adminEmail = :email, password = :password where adminID = :_id");
     $query -> bindParam('name', $admin_name);
     $query -> bindParam('email', $admin_email);
@@ -89,6 +99,39 @@ function updateAdminProfile($admin_ID,$admin_name,$admin_email,$admin_password,$
     $query -> bindParam('_id', $admin_ID);
     $query -> execute();
 }
+//function for approve order on notification page;
+function approveOrderNotificatio( $id,$pdo){
+    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'approved' WHERE orderID = :_id");
+    $query->bindParam('_id', $id);
+    $query->execute();
+}
+//function for reject order on notification page;
+function rejectOrderNotification($id,$pdo){
+    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'rejected' WHERE orderID = :_id");
+    $query->bindParam('_id', $id);
+    $query->execute();
+
+}
+// functions for approve order on order
+function   approveOrder($id,$pdo){
+    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'approved' WHERE orderID = :_id");
+    $query->bindParam('_id', $id);
+    $query->execute();
+}
+// functions for reject order on order
+function   rejectOrder($id,$pdo){
+    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'rejected' WHERE orderID = :_id");
+    $query->bindParam('_id', $id);
+    $query->execute();
+}
+//function for delete products;    
+function deleteAdmin(  $admin_delete_id, $pdo)
+    {    
+      $query = $pdo->prepare(" DELETE FROM admins WHERE adminID = :id");
+      $query->bindParam('id', $admin_delete_id);
+      $query->execute();
+      redirectWindow('signIn.php');
+    }
 
 function findUserWithEmail($email, $pdo)
 {
@@ -101,7 +144,13 @@ function findUserWithEmail($email, $pdo)
     
 
    
-
+// //function for delete admin profile picture;    
+// function deleteAdminProfile($admin_delete_id, $pdo)
+//     {    
+//       $query = $pdo->prepare("update admins set adminImage =' ' where adminID = :_id");
+//       $query->bindParam('_id', $admin_delete_id);
+//       $query->execute();
+//     }
    
 
 }

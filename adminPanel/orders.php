@@ -86,9 +86,9 @@ if (isset($_POST['sort-by-vaccination-date'])) {
         <i class="fa fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false"></i>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <form action="" method="post">
-            <input type="hidden" name="childID" value="<?php echo $row['childID'] ?>">
-            <button class="dropdown-item" name="childAppointmentApprove">Approve</button>
-            <button class="dropdown-item" name="childAppointmentReject" >Reject</button>
+            <input type="hidden" name="orderIDStatus" value="<?php echo $row['orderID'] ?>">
+            <button class="dropdown-item" name="OrderApprove">Approve</button>
+            <button class="dropdown-item" name="OrdertReject" >Reject</button>
           </form>
         </div>
       </div>
