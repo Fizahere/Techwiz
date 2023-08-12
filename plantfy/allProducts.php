@@ -41,7 +41,7 @@ include("./components/header.php");
 
                                     </div>
                                 <div class="single-product__thumbnail--holder">
-                                    <img src="assets/images/products/<?php echo $plants['productImage'] ?>" alt="Product"
+                                    <img src="../adminPanel/images/products/<?php echo $plants['productImage'] ?>" alt="Product"
                                         width="344" height="370" loading="lazy" />
                                 </div>
                             </div>

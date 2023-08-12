@@ -91,7 +91,7 @@ include("./components/header.php");
                                 <div class="quick-shop-item swiper-slide js-scroll ShortFadeInUp">
                                     <div class="quick-shop-item__image">
                                         <a href="shop-fullwidth.php?id=<?php echo $categories['categoryID'] ?>">
-                                            <img src="assets/images/quick-shop/<?php echo $categories['categoryImage'] ?>"
+                                            <img src="../adminPanel/images/category/<?php echo $categories['categoryImage'] ?>"
                                                 alt="Quick Shop" width="203" height="226" loading="lazy" />
                                         </a>
                                     </div>
@@ -174,7 +174,7 @@ include("./components/header.php");
                                     </div>
                                     <div class="single-product__thumbnail--holder">
                                         <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
-                                            <img src="assets/images/products/<?php echo $plants['productImage'] ?>"
+                                            <img src="../adminPanel/images/products/<?php echo $plants['productImage'] ?>"
                                                 alt="Product" width="344" height="370" loading="lazy" />
                                         </a>
                                     </div>
