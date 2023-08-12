@@ -38,7 +38,7 @@ include_once('components/header.php')
                                 <div class="login-register__form">
                                     <!-- Single Form Start -->
                                     <div class="single-form">
-                                        <input class="single-form__input" id="loginEmail" name="email" type="email" placeholder="Email address *" required/>
+                                        <input class="single-form__input" placeholder="example@gmail.com" id="loginEmail" name="email" type="email" placeholder="Email address *" required/>
                                         <span id="errorEmailLogin"></span>
                                     </div>
 

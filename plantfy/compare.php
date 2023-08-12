@@ -1,270 +1,6 @@
 <?php
-include_once('php/query.php')
-    ?>
-
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-
-
-<!-- Mirrored from htmldemo.net/plantfy/plantfy/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:55 GMT -->
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Plantfy - Plants Store Website Template</title>
-
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="Plantfy - Plants Store Website Template" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
-
-    <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
-
-    <!-- Font CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-
-    <!-- Vendor CSS (Bootstrap & Icon Font) -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/lastudioicon.css" />
-
-    <!-- Plugins CSS (All Plugins Files) -->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="assets/css/nice-select2.css" />
-
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.min.css" />
-</head>
-<style>
-    #navItems {
-        margin-right: 5rem;
-    }
-</style>
-
-<body>
-    <!-- Header Start -->
-    <header class="header bg-white header-height">
-        <!-- Header Top Start -->
-        <div class="header__top">
-            <div class="container-fluid custom-container">
-                <div class="header__top--wrapper justify-content-between">
-                    <div class="header__top--left d-none d-md-block">
-                        <ul class="header__top--items">
-                            <li>
-                                <a href="mailto:info.expmale@mail.com" aria-label="mail">
-                                    <i class="lastudioicon-mail-2"></i>
-                                    <span>info.expmale@mail.com</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tel:+(867)195-6696" aria-label="Phone">
-                                    <i class="lastudioicon-phone-call"></i>
-                                    <span>(867)195-6696</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="Map">
-                                    <i class="lastudioicon-pin-3-1"></i>
-                                    <span>Los Angeles</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="header__top--right">
-                        <ul class="header__top--items">
-                            <li>
-                                <a href="login-register.html" aria-label="login">
-                                    <i class="lastudioicon-single-01-1"></i>
-                                    <span>Login</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="term-of-use.html" aria-label="help">
-                                    <i class="lastudioicon-b-meeting-2"></i>
-                                    <span>Help Center</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Header Top End -->
-
-        <!-- Header Main Start -->
-        <div class="header__main header-shadow d-flex align-items-center">
-            <div class="container-fluid custom-container">
-                <div class="row align-items-center position-relative">
-                    <div class="col-md-4 col-3 d-xl-none">
-                        <button class="header__main--toggle header__main--toggle-dark" data-bs-toggle="offcanvas"
-                            data-bs-target="#mobileMenu" aria-label="menu">
-                            <i class="lastudioicon-menu-8-1"></i>
-                        </button>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-6">
-                        <div class="header__main--logo text-center text-xl-start">
-                            <a href="index.html">
-                                <img src="assets/images/logo.png" alt="Logo" />
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 d-none d-xl-block">
-                        <div class="header__main--menu">
-                            <nav class="navbar-menu" id='navItems'>
-                                <!-- Menu Item List Start -->
-                                <ul class="menu-items-list menu-items-list--dark d-flex justify-content-center">
-                                    <li>
-                                        <a class="active" href="index.php">
-                                            Home
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="about.php">About Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="contact-us.php">Contact Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="faqs.php">FAQs</a>
-                                    </li>
-                                    <li>
-                                        <a href="my-account.php">Profile</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="allProducts.php">Shop</a>
-                                    </li>
-
-                                </ul>
-                                <!-- Menu Item List End -->
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-3">
-                        <div
-                            class="header__main--meta header__main--dark d-flex justify-content-end align-items-center">
-                            <!-- Meta Item List Start -->
-                            <ul
-                                class="meta-items-list meta-items-list--dark d-flex justify-content-end align-items-center">
-                                <li class="search d-none d-lg-block">
-                                    <form action="#">
-                                        <div class="meta-search meta-search--dark">
-                                            <input type="text" placeholder="Search products…" />
-                                            <button aria-label="search">
-                                                <i class="lastudioicon-zoom-1"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </li>
-                                <!-- <li class="wishlist">
-                                    <a href="wishlist.html" aria-label="Wishlist">
-                                        <i class="lastudioicon lastudioicon-heart-1"></i>
-                                        <span class="badge">03</span>
-                                    </a>
-                                </li> -->
-                                <li class="cart">
-                                    <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="Cart">
-                                        <i class="lastudioicon-shopping-cart-1"></i><span class="badge">03</span>
-                                    </button>
-                                </li>
-                            </ul>
-                            <button class="toggle-icon d-none d-xl-block" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasSidebar" aria-label="menu">
-                                <span class="bar-icon"><i class="lastudioicon-menu-8-1"></i></span>
-                            </button>
-                            <!-- Meta Item List Start -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Header Main End -->
-    </header>
-
-    <!-- Header End -->
-
-
-    <!-- Cart Sidebar Start -->
-    <!-- Cart Offcanvas Start -->
-
-    <div class="offcanvas offcanvas-end cart-offcanvas" id="cartSidebar">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">My Cart</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="remove">
-                <i class="lastudioicon-e-remove"></i>
-            </button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="offcanvas-cart-list">
-                <!-- Offcanvas Cart Item Start -->
-                <?php
-                $grandTotal = 0;
-                foreach ($_SESSION['cartTwo'] as $item) {
-                    $totalAmount = $item['getPrice'] * $item['getQty'];
-                    $grandTotal += $totalAmount;
-                    ?>
-                    <li>
-                        <div class="offcanvas-cart-item">
-                            <div class="offcanvas-cart-item__thumbnail">
-                                <a href="#">
-                                    <img src="assets/images/products/product-05.png" width="70" height="84" alt="product" />
-                                </a>
-                            </div>
-                            <div class="offcanvas-cart-item__content">
-                                <h4 class="offcanvas-cart-item__title">
-                                    <a href="#">
-                                        <?php echo $item['getName'] ?>
-                                    </a>
-                                </h4>
-                                <span class="offcanvas-cart-item__quantity">
-                                    <?php echo $item['getQty'] ?> × $
-                                    <?php echo $item['getPrice'] ?>
-                                </span>
-                            </div>
-                            <a class="offcanvas-cart-item__remove" href="?removeFromCart=<?php echo $item['getId'] ?>" aria-label="remove">
-                                <i class="lastudioicon-e-remove"></i>
-                            </a>
-                        </div>
-                        <?php
-                }
-                ?>
-                    <!-- Offcanvas Cart Item End -->
-                </li>
-            </ul>
-        </div>
-        <div class="offcanvas-footer">
-            <!-- Cart Totals Table Start-->
-            <div class="cart-totals-table">
-                <table class="table">
-                    <tbody>
-                        <tr class="order-total">
-                            <th>Total</th>
-                            <td data-title="Total">
-                                <strong><span>$<?php echo $grandTotal ?></span></strong>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- Cart Totals Table End-->
-
-            <!-- Cart Buttons End-->
-            <div class="cart-buttons">
-                <a href="#" class="cart-buttons__btn-1 btn">Checkout</a>
-                <a href="cart.php" class="cart-buttons__btn-2 btn">View Cart</a>
-            </div>
-            <!-- Cart Buttons End-->
-        </div>
-    </div>
-
-    <!-- Cart Offcanvas End -->
-
-    <!-- Cart Sidebar End -->
+include("./components/header.php");
+?>
 
     <!-- Search Start -->
     <div class="search-modal modal fade" id="SearchModal">
@@ -327,8 +63,8 @@ include_once('php/query.php')
                     <li><a href="mailto:info@exmple.com">info@exmple.com</a></li>
                     <li>
                         <span>
-                            PO Box 1622 Colins Street West Victoria 8077 Australia
-                        </span>
+                        PO Box 1622 Colins Street West Victoria 8077 Australia
+                    </span>
                     </li>
                 </ul>
             </div>
@@ -389,8 +125,8 @@ include_once('php/query.php')
                         <a href="#">
                             Demos
                             <span class="menu-expand" aria-label="down-arrow">
-                                <i class="lastudioicon-down-arrow"></i>
-                            </span>
+                            <i class="lastudioicon-down-arrow"></i>
+                        </span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="index.html">Plant 01</a></li>
@@ -401,8 +137,8 @@ include_once('php/query.php')
                         <a href="#">
                             Pages
                             <span class="menu-expand" aria-label="down-arrow">
-                                <i class="lastudioicon-down-arrow"></i>
-                            </span>
+                            <i class="lastudioicon-down-arrow"></i>
+                        </span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="about.html">About us</a></li>
@@ -421,8 +157,8 @@ include_once('php/query.php')
                         <a href="#">
                             Shop
                             <span class="menu-expand" aria-label="down-arrow">
-                                <i class="lastudioicon-down-arrow"></i>
-                            </span>
+                            <i class="lastudioicon-down-arrow"></i>
+                        </span>
                         </a>
                         <div class="mega-menu">
                             <div class="mega-menu-col">
@@ -480,22 +216,22 @@ include_once('php/query.php')
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="product-single-variable.php">
+                                        <a href="product-single-variable.html">
                                             Product Variable
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="product-single-carousel.php">
+                                        <a href="product-single-carousel.html">
                                             Product Carousel
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="product-single-affiliate.php">
+                                        <a href="product-single-affiliate.html">
                                             Product Affiliate
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="product-single-countdown.php">
+                                        <a href="product-single-countdown.html">
                                             Product CountDown
                                         </a>
                                     </li>
@@ -507,15 +243,14 @@ include_once('php/query.php')
                         <a href="#">
                             Collections
                             <span class="menu-expand" aria-label="down-arrow">
-                                <i class="lastudioicon-down-arrow"></i>
-                            </span>
+                            <i class="lastudioicon-down-arrow"></i>
+                        </span>
                         </a>
                         <div class="mega-menu">
                             <div class="mega-menu__banner">
                                 <a href="#">
                                     <div class="mega-menu__banner--image">
-                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner"
-                                            width="269" height="271" />
+                                        <img src="assets/images/megamenu-fashion-01.jpg" alt="Fashion Banner" width="269" height="271" />
                                     </div>
                                     <div class="mega-menu__banner--caption">
                                         <h4 class="caption-title">New Arrival</h4>
@@ -572,17 +307,23 @@ include_once('php/query.php')
                                         <ul class="mega-menu__social--social">
                                             <li>
                                                 <a href="#" aria-label="facebook">
-                                                    <i class="lastudioicon-b-facebook"></i>
+                                                    <i
+                                                    class="lastudioicon-b-facebook"
+                                                ></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#" aria-label="twitter">
-                                                    <i class="lastudioicon-b-twitter"></i>
+                                                    <i
+                                                    class="lastudioicon-b-twitter"
+                                                ></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#" aria-label="instagram">
-                                                    <i class="lastudioicon-b-instagram"></i>
+                                                    <i
+                                                    class="lastudioicon-b-instagram"
+                                                ></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -595,8 +336,8 @@ include_once('php/query.php')
                         <a href="#">
                             Blog
                             <span class="menu-expand" aria-label="down-arrow">
-                                <i class="lastudioicon-down-arrow"></i>
-                            </span>
+                            <i class="lastudioicon-down-arrow"></i>
+                        </span>
                         </a>
                         <ul class="sub-menu">
                             <li>
@@ -630,13 +371,13 @@ include_once('php/query.php')
                 </button>
             </li>
             <li>
-                <a href="wishlist.php" aria-label="wishlist">
+                <a href="wishlist.html" aria-label="wishlist">
                     <i class="lastudioicon-heart-1"></i>
                     <span class="badge">03</span>
                 </a>
             </li>
             <li>
-                <a href="compare.php" aria-label="compare">
+                <a href="compare.html" aria-label="compare">
                     <i class="lastudioicon-ic_compare_arrows_24px"> </i>
                     <span class="badge">03</span>
                 </a>
@@ -651,3 +392,227 @@ include_once('php/query.php')
     </div>
 
     <!-- Mobile Meta End -->
+
+    <main>
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-section">
+            <div class="container-fluid custom-container">
+                <div class="breadcrumb-wrapper text-center">
+                    <h2 class="breadcrumb-wrapper__title">Compare</h2>
+                    <ul class="breadcrumb-wrapper__items justify-content-center">
+                        <li><a href="index.html">Home</a></li>
+                        <li><span>Compare</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+
+        <!-- Compare Start -->
+        <div class="compare-section section-padding-2">
+            <div class="container-fluid custom-container">
+                <!-- Compare Table Start -->
+                <div class="compare-table">
+                    <table class="table">
+                        <tbody>
+                            <tr class="compare-tr-info">
+                                <th>Product Info</th>
+                                <td>
+                                    <div class="remove">
+                                        <a href="#">
+                                            <i
+                                                    class="lastudioicon-e-remove"
+                                                >
+                                                </i>
+                                        </a>
+                                    </div>
+                                    <div class="product-name">
+                                        <a href="product-single.html">
+                                            <img src="assets/images/products/product-02.png" alt="Product" width="120" height="152" />
+                                        </a>
+                                        <h4 class="name">
+                                            <a href="product-single.html">
+                                                Princess set
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div class="product-action">
+                                        <a class="btn" href="#">
+                                            Add to cart
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="remove">
+                                        <a href="#">
+                                            <i
+                                                    class="lastudioicon-e-remove"
+                                                ></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-name">
+                                        <a href="product-single.html">
+                                            <img src="assets/images/products/product-04.png" alt="Product" width="120" height="152" />
+                                        </a>
+                                        <h4 class="name">
+                                            <a href="product-single.html">
+                                                Senecio stapeliiformis
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div class="product-action">
+                                        <a class="btn" href="#">
+                                            Add to cart
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                            </tr>
+                            <tr class="compare-tr-price">
+                                <th>Price</th>
+                                <td>
+                                    <span>
+                                            <del>$89.99</del> <ins>$69.99</ins>
+                                        </span>
+                                </td>
+                                <td>
+                                    <span>
+                                            <del>$89.99</del> <ins>$69.99</ins>
+                                        </span>
+                                </td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                            </tr>
+                            <tr class="compare-tr-sku">
+                                <th>Sku</th>
+                                <td>REF. LA-942</td>
+                                <td>REF. LA-344</td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                            </tr>
+                            <tr class="compare-tr-description">
+                                <th>Description</th>
+                                <td>
+                                    Proin volutpat vitae libero at
+                                    tincidunt. Maecenas sapien lectus,
+                                    vehicula…
+                                </td>
+                                <td>
+                                    Proin volutpat vitae libero at
+                                    tincidunt. Maecenas sapien lectus,
+                                    vehicula…
+                                </td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                            </tr>
+                            <tr class="compare-tr-stock">
+                                <th>Availability</th>
+                                <td>
+                                    <p class="stock in-stock">In stock</p>
+                                </td>
+                                <td>
+                                    <p class="stock in-stock">In stock</p>
+                                </td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                            </tr>
+                            <tr class="compare-tr-weight">
+                                <th>Weight</th>
+                                <td>N/A</td>
+                                <td>N/A</td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                            </tr>
+                            <tr class="compare-tr-dimensions">
+                                <th>Dimensions</th>
+                                <td>N/A</td>
+                                <td>N/A</td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                                <td class="td-placeholder"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Compare Table End -->
+            </div>
+        </div>
+        <!-- Compare End -->
+
+        <!-- Newsletter Start -->
+        <!-- Newsletter Start -->
+        <div class="newsletter-section">
+            <div class="newsletter-left" style="background-image: url(assets/images/newsletter-bg-1.jpg)">
+                <!-- Newsletter Wrapper Start -->
+                <div class="newsletter-wrapper text-center">
+                    <h4 class="newsletter-wrapper__title">Follow us on</h4>
+                    <p>
+                        Proin volutpat vitae libero at tincidunt. Maecenas sapien
+                        lectus, vehicula vel euismod sed, vulputate
+                    </p>
+
+                    <div class="newsletter-social">
+                        <ul class="newsletter-social__list">
+                            <li>
+                                <a href="#" aria-label="facebook">
+                                    <i class="lastudioicon-b-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="twitter">
+                                    <i class="lastudioicon-b-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="instagram">
+                                    <i class="lastudioicon-b-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="vimeo">
+                                    <i class="lastudioicon-b-vimeo"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="envato">
+                                    <i class="lastudioicon-envato"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Newsletter Wrapper End -->
+            </div>
+            <div class="newsletter-right" style="background-image: url(assets/images/newsletter-bg-2.jpg)">
+                <!-- Newsletter Wrapper Start -->
+                <div class="newsletter-wrapper text-center">
+                    <h4 class="newsletter-wrapper__title">10% off when you sign up</h4>
+                    <p>
+                        Proin volutpat vitae libero at tincidunt. Maecenas sapien
+                        lectus, vehicula vel euismod sed, vulputate
+                    </p>
+                    <form action="#">
+                        <div class="newsletter-form-style-1">
+                            <input type="text" placeholder="Enter your email address..." />
+                            <button>Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Newsletter Wrapper End -->
+            </div>
+        </div>
+        <!-- Newsletter End -->
+
+        <!-- Newsletter End -->
+    </main>
+
+    <?php
+  include("./components/footer.php");
+  ?>

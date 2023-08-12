@@ -22,26 +22,8 @@ include("./components/header.php");
                     <div class="single-product js-scroll ShortFadeInUp scrolled">
                         <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
                             <div class="single-product__thumbnail">
-                            <div class="single-product__thumbnail--meta-3">
-                                        <?php
-                                        if (isset($_SESSION['USER'])) {
-                                            $user = $_SESSION['USER'];
-                                            foreach ($user as $user) {
-                                                // echo '<script>alert("'.$user['userID'].'")</script>';
-                                                $userID = $user['userID'];
-                                            }
-                                        }
-                                        ?>
-                                        <a href="?wishlist=<?php echo $plants['productID'] ?>&userId=<?php echo $userID ?>"
-                                            data-bs-tooltip="tooltip" data-bs-placement="top"
-                                            data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
-                                            aria-label="wishlist">
-                                            <i class="lastudioicon-heart-2"></i>
-                                        </a>
-
-                                    </div>
                                 <div class="single-product__thumbnail--holder">
-                                    <img src="../adminPanel/images/products/<?php echo $plants['productImage'] ?>" alt="Product"
+                                    <img src="assets/images/products/<?php echo $plants['productImage'] ?>" alt="Product"
                                         width="344" height="370" loading="lazy" />
                                 </div>
                             </div>
