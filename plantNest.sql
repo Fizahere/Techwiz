@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2023 at 12:09 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Aug 12, 2023 at 07:10 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `admins` (
   `adminName` varchar(225) DEFAULT NULL,
   `adminEmail` varchar(225) DEFAULT NULL,
   `password` varchar(225) DEFAULT NULL,
-  `adminImage` int(11) NOT NULL
+  `adminImage` varchar(325) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`adminID`, `adminName`, `adminEmail`, `password`, `adminImage`) VALUES
-(1, 'Fiza', 'fiza@gmail.com', '1234', 0);
+(1, 'Fiza', 'fiza@gmail.com', '1234', '0');
 
 -- --------------------------------------------------------
 
@@ -73,7 +73,7 @@ CREATE TABLE `orders` (
   `userID` int(11) DEFAULT NULL,
   `productID` int(11) DEFAULT NULL,
   `productQuantity` varchar(225) DEFAULT NULL,
-  `orderDate` timestamp NULL DEFAULT current_timestamp(),
+  `orderDate` date DEFAULT current_timestamp(),
   `totalAmount` varchar(225) DEFAULT NULL,
   `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -83,8 +83,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `orderDate`, `totalAmount`, `orderStatus`) VALUES
-(1, 5, 2, '2', '2023-08-09 09:44:02', '5677', 'pending'),
-(2, 5, 1, '2', '2023-08-09 09:44:04', '5677', 'pending');
+(1, 5, 2, '2', '2023-08-09', '5677', 'pending'),
+(2, 5, 1, '2', '2023-08-09', '5677', 'pending');
 
 -- --------------------------------------------------------
 
@@ -151,7 +151,20 @@ INSERT INTO `users` (`userID`, `firstName`, `lastName`, `userEmail`, `userPasswo
 (2, 'fatima', 'fatima', 'fatima@gmail.com', '12345678\r\n'),
 (3, 'zainab', 'zainab', 'zainab@gmail.com', '7444'),
 (4, 'usman', 'usman', 'usman@gmail.com', '9877'),
-(5, 'umar', 'umar', 'umar@gmail.com', '9977');
+(5, 'umar', 'umar', 'umar@gmail.com', '9977'),
+(6, 'iman', 'Iman', 'iman@gmail.com', '$2y$10$kKffEgWCHe5M9H3H4oWlTOZg2Mu9cjJ7e.Lk50ZxF8pkQJsXmP/Fi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `wishlistID` int(11) NOT NULL,
+  `customerID` int(11) DEFAULT NULL,
+  `wishlistProductID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -201,6 +214,13 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `userEmail` (`userEmail`);
 
 --
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD KEY `customerIdKey` (`customerID`),
+  ADD KEY `productIdKey` (`wishlistProductID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -238,7 +258,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -263,6 +283,12 @@ ALTER TABLE `productreviews`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `c_fk` FOREIGN KEY (`categoryID`) REFERENCES `categories` (`categoryID`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
+-- Constraints for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD CONSTRAINT `productIdKey` FOREIGN KEY (`wishlistProductID`) REFERENCES `products` (`productID`) ON DELETE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
