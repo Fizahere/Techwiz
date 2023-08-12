@@ -147,21 +147,28 @@ include("./components/header.php");
                 $query = $pdo->query("Select * from products limit 4");
                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($result as $plants) {
+                    // $wishlistProductId = $plants['productID'];
+                    // echo "<script>alert($wishlistProductId)</script>";
                     ?>
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-product js-scroll ShortFadeInUp scrolled">
                             <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
                                 <div class="single-product__thumbnail">
                                     <div class="single-product__thumbnail--meta-3">
-
-                                        <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top"
+                                        <?php
+                                        if (isset($_SESSION['USER'])) {
+                                            $user = $_SESSION['USER'];
+                                            foreach ($user as $user) {
+                                                // echo '<script>alert("'.$user['userID'].'")</script>';
+                                                $userID = $user['userID'];
+                                            }
+                                        }
+                                        ?>
+                                        <a href="?wishlist=<?php echo $plants['productID'] ?>&userId=<?php echo $userID ?>"
+                                            data-bs-tooltip="tooltip" data-bs-placement="top"
                                             data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
                                             aria-label="wishlist">
-                                            <form action="" method="post">
-                                            <button name='addWishListBtn'>
-                                                <i class="lastudioicon-heart-2"></i>
-                                            </button>
-                                            </form>
+                                            <i class="lastudioicon-heart-2"></i>
                                         </a>
 
                                     </div>

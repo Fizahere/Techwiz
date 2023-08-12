@@ -125,9 +125,28 @@ if (isset($_GET['removeFromCart'])) {
     }
 };
 //add to wishlist
-if(isset($_POST[''])){
+if(isset($_GET['wishlist'])){
+    $getWishlistId = $_GET['wishlist'];
+     $getUserIdForWishlist = $_GET['userId'];
+     $query = $pdo->prepare("Select wishlistProductID from wishlist");
+     $query->execute();
+     $getWishListData = $query->fetchAll(PDO::FETCH_ASSOC);
+    //  echo "<script>alert($getWishListData)</script>";
+    //  if(isset($getWishListData)){
+    //     $productId = array_column($getWishListData['wishlistProductID'],$getWishlistId);
+    //     echo "<script>alert('product already exists')</script>";
+    //  }
+    //  else{
+    //     $authModel->addWishList($pdo,$getWishlistId,$getUserIdForWishlist);
 
+    //  }
+    // echo "<script>alert('working')</script>";
 };
-
-
-?>
+if(isset($_GET['removeFromWishlist'])){
+    $deleteWishlistProduct = $_GET['removeFromWishlist'];
+    // echo "<script>alert($deleteWishlistProduct)</script>";
+    $query = $pdo->prepare("delete * from wishlist where wishlistProductID = :removeProductFromWishlist");
+    $query->bindParam("removeProductFromWishlist",$deleteWishlistProduct);
+    $query->execute();
+}
+;

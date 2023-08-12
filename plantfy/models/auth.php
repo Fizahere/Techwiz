@@ -38,11 +38,12 @@ class Auth
         $query->execute();
     }
 
-    function submitReview($review,$productID,$userID,$pdo){
+    function submitReview($review, $productID, $userID, $pdo)
+    {
         $query = $pdo->prepare('insert into productreviews(reviews,productID,userID) values(:review,:p_ID,:u_ID)');
-        $query->bindParam('review',$review);
-        $query->bindParam('p_ID',$productID);
-        $query->bindParam('u_ID',$userID);
+        $query->bindParam('review', $review);
+        $query->bindParam('p_ID', $productID);
+        $query->bindParam('u_ID', $userID);
         $query->execute();
     }
     function showSingleProduct($ctg_id, $pdo)
@@ -52,20 +53,22 @@ class Auth
         $query->execute();
         $products = $query->fetchAll(PDO::FETCH_ASSOC);
         return $products;
-}
-function showSingleProductByPriceSort($ctg_id, $pdo)
-{
-    $query = $pdo->prepare("Select * from products where categoryID = :id ORDER BY productPrice");
-    $query->bindParam("id", $ctg_id);
-    $query->execute();
-    $productsByPrice = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $productsByPrice;
-}
-function addWishList($pdo){
-    $query = $pdo->prepare('insert into wishlist(wishlistProductID,customerID) values(:wishlistProductID,:customerID)');
-    $query->bindParam('wishlistProductID',$productID);
-    $query->bindParam('customerID',$userID);
-    $query->execute();
-}
+    }
+    function showSingleProductByPriceSort($ctg_id, $pdo)
+    {
+        $query = $pdo->prepare("Select * from products where categoryID = :id ORDER BY productPrice");
+        $query->bindParam("id", $ctg_id);
+        $query->execute();
+        $productsByPrice = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $productsByPrice;
+    }
+    function addWishList($pdo, $getWishlistId, $getUserIdForWishlist)
+    {
+        $query = $pdo->prepare('insert into wishlist(wishlistProductID,customerID) values(:wishlistProductID,:customerID)');
+        $query->bindParam('wishlistProductID', $getWishlistId);
+        $query->bindParam('customerID', $getUserIdForWishlist);
+        $query->execute();
+        echo "<script>alert('Item added to wishlist')</script>";
+    }
 }
 ;
