@@ -29,10 +29,8 @@ include_once('header_admin.php');
                                     </ul>
                                 </form>
                                 </div>
-<div>
-
-
-<button type="button" class="btn text-dark  bg-white  insert p-2" data-bs-toggle="modal"
+                                 <div>
+                                    <button type="button" class="btn text-dark  bg-white  insert p-2" data-bs-toggle="modal"
                                 data-bs-target="#insert-product-modal">Add product
                             </button>
                             </div>

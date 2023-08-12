@@ -10,25 +10,31 @@ include_once('header_admin.php');
                     <div class="d-flex bg-light justify-content-between">
 
                         <h4>Category</h4>
-<div class="d-flex">
-                        <button type="button" class="btn text-dark  bg-white mb-2 insert" data-bs-toggle="modal"
-                            data-bs-target="#insert-category-modal" >Add category
-                        </button>
-                        <form method="post">
+                        <div class="d-flex">
 
-<div class="dropdown">
-<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-SORT
-</button>
-<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-<li><button class="dropdown-item" href="#" name="sort-category-by-name">Sort by name</button></li>
+                            <form method="post">
 
-</ul>
-</div>
+                                <div class="dropdown d-flex align-self-center">
+                                    <button class="btn text-dark  bg-white mb-2 dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        SORT
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><button class="dropdown-item" href="#" name="sort-category-by-name">Sort by
+                                                name</button></li>
+
+                                    </ul>
+                                </div>
 
 
-</form>
-</div>
+                            </form>
+                        
+                        <div>
+                            <button type="button" class="btn text-dark  bg-white mb-2 insert" data-bs-toggle="modal"
+                                data-bs-target="#insert-category-modal">Add category
+                            </button>
+                        </div>
+                        </div>
                     </div>
                     <div class="table-responsive bg- ">
                         <table class="table">
@@ -61,7 +67,8 @@ SORT
                                         <?php echo $row['categoryName'] ?>
                                     </td>
                                     <td style="width: 50%;">
-                                        <img src="categoryImages/<?php echo $row['categoryImage'] ?>" width="50%" alt="">
+                                        <img src="categoryImages/<?php echo $row['categoryImage'] ?>" width="50%"
+                                            alt="">
 
                                     </td>
 
@@ -116,7 +123,8 @@ SORT
                                                         <label for="" class="col-sm-2 col-form-label">Change
                                                             Image</label>
                                                         <div class="col-sm-10">
-                                                            <input type="file" name="update-category-image" class="form-control">
+                                                            <input type="file" name="update-category-image"
+                                                                class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row form-group">
@@ -142,7 +150,7 @@ SORT
 
                                     </div>
                                 </div>
-                                        
+
                                         <!-------------------------------------------------
                                         | modal for update category information           | 
                                         | [end]                                           |
@@ -154,11 +162,7 @@ SORT
                                 <div class="modal " id="delete-category-modal<?php echo $row['categoryID'] ?>">
                                     <div class="modal-dialog modal-xl bg-light w-50">
                                         <div class="modal-content bg-light">
-                                            <!-- <div class="modal-header">
-                <h4 class="modal-title">Edit Information</h4>
-                <button type="button" class="btn-close  bg-white"
-                    data-bs-dismiss="modal"></button>
-            </div> -->
+                          
                                             <!-- Modal body -->
                                             <div class="modal-body ">
                                                 <form method="post">
@@ -170,7 +174,8 @@ SORT
                                                                 <?php echo $row['categoryName'] ?>'
                                                             </span>
                                                             <span> will also delete from database. <span>
-                                                                    <p>Are you sure you want to permanently delete this?</p>
+                                                                    <p>Are you sure you want to permanently delete this?
+                                                                    </p>
                                                         </div>
                                                     </div>
 
@@ -188,11 +193,9 @@ SORT
 
                                     </div>
                                 </div>
-                                <!-------------------------------------------------
-                                        |                                                 |
+                                        <!-------------------------------------------------
                                         | modal for delete category information           | 
-                                        | [end]                                           |
-                                        |                                                 |      
+                                        | [end]                                           |     
                                         -------------------------------------------------->
                                 <?php
                         };
@@ -208,11 +211,9 @@ SORT
     </div>
 </div>
 
-<!-------------------------------------------------
-                                        |                                                 |
+                                        <!-------------------------------------------------
                                         | modal for insert category information           | 
-                                        | [start]                                         |
-                                        |                                                 |      
+                                        | [start]                                         |     
                                         -------------------------------------------------->
 <div class="modal" id="insert-category-modal">
     <div class="modal-dialog modal-xl bg-white">

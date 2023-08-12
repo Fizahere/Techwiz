@@ -29,7 +29,7 @@ include('header_admin.php')
 
                                     <td class="d-flex justify-content-around">
                                         <span class="flex-grow-1">
-                                            <a href="hospitalData.php" class="link-secondary">
+                                            <a href="orders.php" class="link-secondary">
                                                 <?php echo ucfirst($row['firstName'])?> 
                                                 placed an order 
                                             </a>

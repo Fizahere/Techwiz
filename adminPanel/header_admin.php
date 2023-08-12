@@ -41,12 +41,14 @@ include("php/query.php");
     h4 {
         color: #6C7293;
     }
-
+ .password-div{
+    position: relative;
+ }
     /* Replace "fa-eye" with the actual class name for the eye icon you are using (e.g., Font Awesome) */
     .fa-eye {
         cursor: pointer;
         position: absolute;
-        top: 57%;
+        top: 47%;
         right: 25px;
         transform: translateY(-50%);
         z-index: 2;
@@ -71,18 +73,35 @@ include("php/query.php");
                 <div class="d-flex align-items-center ms-4 mb-4">
               
                     <div class="ms-3">
-                        <!-- <hp
-                        $user = $_SESSION['Admin'];
-                        foreach ($user as $value) {
-                            ?> -->
-                            <h6 class="mb-0">
-                                <!-- <hp echo ucfirst($value['adminName'] )?> -->
-                                    Admin
+                    <?php
+                                 
+                                 if(isset($_SESSION['Admin'])){
+                                    $admin = $_SESSION['Admin'];
+                               
+                                 foreach($admin as $value){
+                                    $U_ID =   $value['adminID'];
+                                  $query = $pdo->prepare("SELECT * FROM admins WHERE adminID = :iD ");
+                                  $query->bindParam(':iD',  $U_ID);
+                                  $query->execute();
+                                  $result = $query->fetch(PDO::FETCH_ASSOC);
+                                 
+                              
+                                 
+
+                        ?>
+                         <h6 class="mb-0">
+                             
+                               
                             </h6>
-                            <!-- <hp
-                        }
-                        ?> -->
-                        <span>Admin</span>
+                    
+
+                        <span><?php echo ucfirst($result['adminName'])?>
+</span>    <?php
+                      };  
+                       
+                    }
+
+                        ?>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -152,7 +171,7 @@ include("php/query.php");
 
                             foreach ($result as $row) {
                                 ?>
-                                <a href="childDetails.php" class="dropdown-item link-secondary">
+                                <a href="orders.php" class="dropdown-item link-secondary">
 
                                     <h6 class="fw-normal mb-0">
                                         Appointment request for '
@@ -183,18 +202,43 @@ include("php/query.php");
 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <?php
+                                 
+                                 if(isset($_SESSION['Admin'])){
+                                    $admin = $_SESSION['Admin'];
+                               
+                                 foreach($admin as $value){
+                                    $U_ID =   $value['adminID'];
+                                  $query = $pdo->prepare("SELECT * FROM admins WHERE adminID = :iD ");
+                                  $query->bindParam(':iD',  $U_ID);
+                                  $query->execute();
+                                  $result = $query->fetch(PDO::FETCH_ASSOC);
+                                 
+                              if($result['adminImage']){
+
+                              
+                                 
+                        ?>
+                        
+                        <img class="rounded-circle me-lg-2" src="img/<?php echo $result['adminImage'] ?>" alt="" style="width: 40px; height: 40px;">
+                            <?php
+                              }else if(empty($result['adminImage'])){
+
+                                ?>
+                                
                         <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <!-- <p
-                            $user = $_SESSION['Admin'];
-                            foreach ($user as $value) {
-                                ?> -->
+
+                                <?php
+                              }
+                            ?>
                                 <span class="d-none d-lg-inline-flex">
-                                    <!-- <p echo ucfirst($value['adminName']) ?> -->
-                                        Admin
+                                    <?php echo ucfirst($result['adminName']) ?>
+                                        
                                 </span>
-                                <!-- <hp
+                                <?php
                             }
-                            ?> -->
+                        }
+                            ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="adminProfile.php" class="dropdown-item">My Profile</a>
