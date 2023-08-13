@@ -32,8 +32,9 @@ include("./components/header.php");
             foreach ($result as $plants) {
                 ?>
                 <div class="col-lg-3 col-sm-6">
+                <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
                     <div class="single-product js-scroll ShortFadeInUp scrolled">
-                        <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
+                      
                             <div class="single-product__thumbnail">
                             <div class="single-product__thumbnail--meta-3">
                                         <?php
@@ -74,8 +75,9 @@ include("./components/header.php");
                                 </div>
                             </div>
                     </div>
-                    </a>
                 </div>
+                </a>
+
                 <?php
             }
             ?>
