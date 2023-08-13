@@ -91,7 +91,7 @@ if (isset($_POST['submit-review'])) {
 if (isset($_POST['addToCartBtn'])) {
         if (isset($_SESSION['cartTwo'])) {
             $count = count($_SESSION['cartTwo']);
-            echo "<script>alert($count)</script>";
+            // echo "<script>alert($count)</script>";
 
             $productId = array_column($_SESSION['cartTwo'], 'getId');
             if (in_array($_POST['productID'], $productId)) {
