@@ -8,7 +8,7 @@ include('header_admin.php')
                 <div class="bg-white rounded h-100 ">
                     <div class="d-flex bg-light justify-content-between">
 
-                        <h4>Reviews</h4>
+                        <h4>Feedback</h4>
 
 
 
