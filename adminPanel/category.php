@@ -162,7 +162,11 @@ include_once('header_admin.php');
                                 <div class="modal " id="delete-category-modal<?php echo $row['categoryID'] ?>">
                                     <div class="modal-dialog modal-xl bg-light w-50">
                                         <div class="modal-content bg-light">
-                          
+                                        <div class="modal-header">
+                <h4 class="modal-title">Delete Category</h4>
+                <button type="button" class="btn-close  bg-white"
+                    data-bs-dismiss="modal"></button>
+            </div>
                                             <!-- Modal body -->
                                             <div class="modal-body ">
                                                 <form method="post">

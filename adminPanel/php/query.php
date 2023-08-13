@@ -20,7 +20,7 @@ if(isset($_POST['insertCategory'])){
     $category_image_size = $_FILES['insert-category-image']['size'];
     $category_image_tmp_name = $_FILES['insert-category-image']['tmp_name'];
     $category_image_ext = pathinfo($category_image, PATHINFO_EXTENSION);
-    $destination = "images/category".$category_image;
+    $destination = "images/category/".$category_image;
     if($category_image_size <= 48000000){
     if($category_image_ext == 'jpg' || $category_image_ext == "png" || $category_image_ext== 'jpeg' || $category_image_ext== 'webp'){
         if(move_uploaded_file($category_image_tmp_name,$destination)){
@@ -33,7 +33,7 @@ if(isset($_POST['insertCategory'])){
         }
         
     }else{
-        echo "<script>alert('not valid extension')
+        echo "<script>alert('Invlid extension of image')
         location.assign('category.php')
         </script>";
     }
@@ -62,7 +62,7 @@ if(isset($_POST['update_category_info'])){
     $category_image_size = $_FILES['update-category-image']['size'];
     $category_image_tmp_name = $_FILES['update-category-image']['tmp_name'];
     $category_image_ext = pathinfo($category_image, PATHINFO_EXTENSION);
-    $destinationcategory = "images/category".$category_image;
+    $destinationcategory = "images/category/".$category_image;
     if($category_image_size <= 48000000){
         if($category_image_ext === 'jpg' || $category_image_ext === "png" || $category_image_ext === 'jpeg'|| $category_image_ext === "webp"  || $category_image_ext === "" || $category_image === ""){
             if(move_uploaded_file($category_image_tmp_name,$destinationcategory)){
@@ -86,7 +86,7 @@ if(isset($_POST['update_category_info'])){
             
             $authModel->updateCategoryInelse( $category_id,$category_name, $pdo);                
             
-            echo "<script>alert('Updated succesfully')
+            echo "<script>
             location.assign('category.php')
             </script>";
             
@@ -162,7 +162,7 @@ if(isset($_POST['insertProduct'])){
         }
         
     }else{
-        echo "<script>alert('not valid extension')
+        echo "<script>alert('Invalid extension of image')
         location.assign('products.php')
         </script>";
     }
@@ -195,13 +195,13 @@ if(isset($_POST['update_product_info'])){
     $product_image_size = $_FILES['update-product-image']['size'];
     $product_image_tmp_name = $_FILES['update-product-image']['tmp_name'];
     $product_image_ext = pathinfo($product_image, PATHINFO_EXTENSION);
-    $destinationproduct = "images/products".$product_image;
+    $destinationproduct = "images/products/".$product_image;
     if($product_image_size <= 48000000){
         if($product_image_ext === 'jpg' || $product_image_ext === "png" || $product_image_ext === 'jpeg'|| $product_image_ext === "webp"  || $product_image_ext === "" || $product_image === ""){
             if(move_uploaded_file($product_image_tmp_name,$destinationproduct)){
     $product_price = $_POST['update-product-price'];
                 $authModel->updateProducts( $product_id,$product_name,$product_description,$product_price, $product_image,$product_stock,$product_category, $pdo);                
-                echo "<script>alert('Updated succesfully')
+                echo "<script>
                 location.assign('products.php')</script>";
                 
             }
@@ -220,7 +220,7 @@ if(isset($_POST['update_product_info'])){
             
             $authModel->updateProductsInelse($product_id,$product_name,$product_description,$product_price,$product_stock,$product_category, $pdo);                
             
-            echo "<script>alert('Updated text succesfully')
+            echo "<script>
             location.assign('products.php')
             </script>";
             
