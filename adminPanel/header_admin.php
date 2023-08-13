@@ -115,7 +115,7 @@ include("php/query.php");
                     <a href="orders.php" class="nav-item nav-link"><i class="fa fa-shopping-basket me-2"></i>Orders</a>
                     <a href="notifications.php" class="nav-item nav-link"><i class="fa fa-bell me-2"></i>Notifications</a>
                     <a href="reviews.php" class="nav-item nav-link"><i class="fa fa-star me-2"></i>Reviews</a>
-                    <a href="reviews.php" class="nav-item nav-link"><i class="fa fa-comment me-2"></i>User's Feedback</a>
+                    <a href="feedback.php" class="nav-item nav-link"><i class="fa fa-comment me-2"></i>User's Feedback</a>
 
                 </div>
             </nav>

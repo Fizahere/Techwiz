@@ -78,6 +78,8 @@ include('header_admin.php')
         </div>
     </div>
 </div>
+<script src="js/script.js"></script>
+
 <?php
 include('footer.php')
 ?>
