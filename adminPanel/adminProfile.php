@@ -201,7 +201,7 @@ include_once('header_admin.php');
                                                             <input type="hidden" name="delete_admin_account"
                                                                 value="<?php echo $row['adminID']; ?>">
                                                             <span class="text-bold">
-                                                                <?php echo $row['adminName'] ?>
+                                                                <?php echo ucfirst($row['adminName']) ?>
                                                             </span>
                                                             <span>are you sure you want to delete your account?</span>
                                                         </div>
