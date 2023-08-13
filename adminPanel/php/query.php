@@ -195,13 +195,13 @@ if(isset($_POST['update_product_info'])){
     $product_image_size = $_FILES['update-product-image']['size'];
     $product_image_tmp_name = $_FILES['update-product-image']['tmp_name'];
     $product_image_ext = pathinfo($product_image, PATHINFO_EXTENSION);
-    $destinationproduct = "images/products".$product_image;
+    $destinationproduct = "images/products/".$product_image;
     if($product_image_size <= 48000000){
         if($product_image_ext === 'jpg' || $product_image_ext === "png" || $product_image_ext === 'jpeg'|| $product_image_ext === "webp"  || $product_image_ext === "" || $product_image === ""){
             if(move_uploaded_file($product_image_tmp_name,$destinationproduct)){
     $product_price = $_POST['update-product-price'];
                 $authModel->updateProducts( $product_id,$product_name,$product_description,$product_price, $product_image,$product_stock,$product_category, $pdo);                
-                echo "<script>alert('Updated succesfully')
+                echo "<script>
                 location.assign('products.php')</script>";
                 
             }
