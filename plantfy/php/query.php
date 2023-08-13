@@ -181,6 +181,11 @@ if (isset($_GET['checkout'])) {
 if (isset($_POST['delete-review'])) {
     $reviewID = $_POST['reviewID'];
     $authModel->deleteReview($reviewID, $pdo);
-}
-;
-;
+};
+
+if (isset($_POST['delete-account'])) {
+    $deleteAccountID = $_POST['deleteID'];
+    $authModel->deleteAccount($deleteAccountID,$pdo);
+echo '<script>alert("Your has been deleted.")</script>';
+    redirectWindow('logout.php');
+    }

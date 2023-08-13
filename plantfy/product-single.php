@@ -23,6 +23,7 @@ include("./components/header.php");
 
     #delete-btn {
         border: none;
+        background-color: white;
     }
 </style>
 <main>
@@ -249,7 +250,7 @@ include("./components/header.php");
                                                     <?php
                                                     // $loggedInUser = $_SESSION['USER'][0]; // Use a more meaningful variable name
                                                     // $userID = $loggedInUser['userID'];
-
+                                        
                                                     $query = $pdo->prepare('SELECT * FROM productreviews WHERE productID = :p_ID');
                                                     $query->bindParam(':p_ID', $productID);
                                                     // echo '<sccript>alert("'.$productID.'")</script>';
@@ -294,22 +295,23 @@ include("./components/header.php");
                                                                         <input type="hidden" name="userReviewID"
                                                                             value="<?php echo $reviews['userID'] ?>" id="">
                                                                         <?php
-                                                                     if (isset($_SESSION['USER'])) {
-                                                                        $users = $_SESSION['USER'];
-                                                                        foreach ($users as $user) {
-                                                                            $userID = $user['userID'];
+                                                                        if (isset($_SESSION['USER'])) {
+                                                                            $users = $_SESSION['USER'];
+                                                                            foreach ($users as $user) {
+                                                                                $userID = $user['userID'];
+                                                                            }
+                                                                            if ($userID == $reviews['userID']) {
+                                                                                ?>
+                                                                                <input type="hidden" name="reviewID"
+                                                                                    value="<?php echo $reviews['reviewID'] ?>" id="">
+                                                                                <input type="hidden" name="reviewID"
+                                                                                    value="<?php echo $reviews['reviewID'] ?>" id="">
+                                                                                <button id="delete-btn" name='delete-review'
+                                                                                    type="submit"><i><img src="assets/images/icon/trash.svg"
+                                                                                            title="Delete you review" alt="trash"></i></button>
+                                                                                <?php
+                                                                            }
                                                                         }
-                                                                        if ($userID == $reviews['userID']) {
-                                                                            ?>
-                                                                            <input type="hidden" name="reviewID"
-                                                                                value="<?php echo $reviews['reviewID'] ?>" id="">
-                                                                            <input type="hidden" name="reviewID"
-                                                                                value="<?php echo $reviews['reviewID'] ?>" id="">
-                                                                            <button id="delete-btn" name='delete-review'
-                                                                                type="submit"><i><img src="assets/images/trash.svg"
-                                                                                        title="Delete you review" alt="trash"></i></button>
-                                                                            <?php
-                                                                        }}
                                                                         ?>
                                                                     </form>
                                                                 </div>
