@@ -20,7 +20,7 @@ include('header_admin.php')
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Feedback</th>
-                                    <th scope="col">user</th>
+                                    <th scope="col">User Name</th>
                                    
                                     <th scope="col"> </th>
 
@@ -43,7 +43,8 @@ include('header_admin.php')
 
                                     </td>
                                     <td>
-                                    <?php echo $row['firstName'] ?>
+                                    <?php echo ucfirst($row['firstName'] )?>
+                                    <?php echo ucfirst($row['lastName'] )?>
                                        
 
                                     </td>
@@ -68,6 +69,8 @@ include('header_admin.php')
         </div>
     </div>
 </div>
+<script src="js/script.js"></script>
+
 <?php
 include('footer.php')
 ?>

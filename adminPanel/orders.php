@@ -72,7 +72,7 @@ if (isset($_POST['sort-order-by-name'])) {
                                     </th>
 
                                     <td>
-                                        <?php echo ucfirst($row['firstName']) ?>
+                                        <?php echo ucfirst($row['firstName']) ?> <?php echo ucfirst($row['lastName']) ?>
                                     </td>
                                     <td>
                                         <?php echo $row['productName'] ?>
