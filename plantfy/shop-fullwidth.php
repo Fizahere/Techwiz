@@ -141,7 +141,7 @@ include("./components/header.php");
                                     </div>
                                             <div class="single-product__thumbnail--holder">
                                                 <a href="product-single.php?id=<?php echo $item['productID'] ?>">
-                                                    <img src="assets/images/products/<?php echo $item['productImage'] ?>"
+                                                    <img src="../adminPanel/images/products/<?php echo $item['productImage'] ?>"
                                                         alt="Product" width="344" height="370" />
                                                 </a>
                                             </div>

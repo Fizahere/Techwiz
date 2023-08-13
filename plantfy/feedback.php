@@ -40,18 +40,14 @@ include_once('components/header.php')
                         <form action="#" method='post'>
                             <div class="login-register__form">
                                 <!-- Single Form Start -->
+
                                 <div class="single-form">
-                                    <input class="single-form__input" placeholder="example@gmail.com" id="feedbackEmail" name="emailFeedback" type="email" placeholder="Email address *" required />
-                                    <span id="errorEmailLogin"></span>
+                                    <textarea class="single-form__input" placeholder="Type your feedback here..." name="msgFeedback" required id="feedback" cols="30" rows="10"></textarea>
+                                     <!-- <span id="errorPasswordLogin"></span> -->
                                 </div>
 
                                 <div class="single-form">
-                                    <textarea class="single-form__input" placeholder="your message.." name="msgFeedback" required id="feedback" cols="30" rows="10"></textarea>
-                                     <span id="errorPasswordLogin"></span>
-                                </div>
-
-                                <div class="single-form">
-                                    <button class="single-form__btn btn" type='submit' id="" name='submit'>
+                                    <button class="single-form__btn btn" type='submit' id="" name='submitFeedback'>
                                         Submit
                                     </button>
                                 </div>

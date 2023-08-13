@@ -67,7 +67,7 @@ include("./components/header.php");
                                     </td>
                                     <td class="product-thumbnail">
                                         <a href="product-single.html">
-                                            <img src="assets/images/products/product-02.png" alt="Product" width="90"
+                                            <img src="../adminPanel/images/products/product-02.png" alt="Product" width="90"
                                                 height="114" />
                                         </a>
                                     </td>
