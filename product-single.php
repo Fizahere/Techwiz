@@ -75,7 +75,7 @@ include("./components/header.php");
                             <!-- Product Single image Start -->
                             <div class="product-single-image">
                                 <div class="product-single-slide-item swiper-slide">
-                                    <img src="../adminPanel/images/products/<?php echo $singleItem['productImage'] ?>"
+                                    <img src="./adminPanel/images/products/<?php echo $singleItem['productImage'] ?>"
                                         width="694" height="728" />
                                 </div>
                             </div>
@@ -426,7 +426,7 @@ include("./components/header.php");
 
                                                 <div class="single-product__thumbnail--holder">
                                                     <a href="product-single.php?id=<?php echo $singleRelatedItem['productID'] ?>">
-                                                        <img src="../adminPanel/images/products/<?php echo $singleRelatedItem['productImage'] ?>"
+                                                        <img src="./adminPanel/images/products/<?php echo $singleRelatedItem['productImage'] ?>"
                                                             alt="Product" />
                                                     </a>
                                                 </div>

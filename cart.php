@@ -67,7 +67,7 @@ include("./components/sessionHeader.php");
 
                                         <td class="cart-product-thumbnail">
                                             <a href="product-single.html">
-                                                <img src="../adminPanel/images/products/<?php echo $item['getImage'] ?>"
+                                                <img src="./adminPanel/images/products/<?php echo $item['getImage'] ?>"
                                                     alt="Product" width="70" height="89" />
                                             </a>
                                         </td>
