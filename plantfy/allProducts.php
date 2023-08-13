@@ -5,7 +5,20 @@ include("./components/header.php");
 <main>
 
     <div class="container-fluid custom-container mt-5 section-padding-1">
-
+                 <!--Search products start-->
+                 <ul class="mb-5">
+                 <li class="search d-none d-lg-block">
+                                    
+                                    <div class="meta-search meta-search--dark">
+                                        <input type="text" id="taskFilter"  placeholder="Search function" />
+                                        <button aria-label="search">
+                                            <i class="lastudioicon-zoom-1"></i>
+                                        </button>
+                                    </div>
+                                
+                            </li>
+</ul>
+                    <!-- Search products  end-->
         <div class="section-title text-center js-scroll ShortFadeInUp">
             <h3 class="section-title__title">Plants</h3>
         </div>
@@ -49,7 +62,7 @@ include("./components/header.php");
                                 <div class="single-product__info--tags">
                                     <a href="#">Plant</a>
                                 </div>
-                                <h3 class="single-product__info--title">
+                                <h3 class="single-product__info--title tr-row">
                                     <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
                                         <?php echo $plants['productName'] ?>
                                     </a>
@@ -306,7 +319,39 @@ include_once('components/footer.php')
 
 </body>
 
+<script>
+    // search items start
 
+const taskFilter =document.querySelector('#taskFilter');
+taskFilter.addEventListener("input",filterInput);
+function filterInput(event){
+   
+    // console.log('clicked');
+event.preventDefault();
+const currentValue = event.target.value;
+// console.log(currentValue);
+const filterValue = currentValue.toLowerCase();
+// console.log(filterValue);
+const listItem = document.querySelectorAll('.tr-row');
+
+listItem.forEach(function (singleLi){
+    // console.log(singleLi)
+    const singleLiText = singleLi.innerText.toLowerCase();
+// console.log(singleLiText);
+if(singleLiText.indexOf(filterValue) === -1){
+       singleLi.parentElement.parentElement.parentElement.style.display = "none";
+}else{
+    singleLi.parentElement.parentElement.parentElement.style.display  = "";
+}
+   
+});
+
+};
+
+
+// search items end
+
+</script>
 <!-- Mirrored from htmldemo.net/plantfy/plantfy/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Aug 2023 21:00:32 GMT -->
 
 </html>
