@@ -5,6 +5,7 @@ include("./components/header.php");
     #comment {
         margin-top: 0.5rem;
     }
+
     #name-letter {
         height: 3.5rem !important;
         width: 3.5rem !important;
@@ -22,6 +23,7 @@ include("./components/header.php");
 
     #delete-btn {
         border: none;
+        background-color: white;
     }
 </style>
 <main>
@@ -34,23 +36,25 @@ include("./components/header.php");
 
         <!-- Breadcrumbs Start -->
         <?php
-         $query = $pdo->prepare("Select * from products where productID = :id");
-         $query->bindParam("id", $getProductId);
-         $query->execute();
-         $singleProduct = $query->fetchAll(PDO::FETCH_ASSOC);
-         foreach($singleProduct as $title){
+        $query = $pdo->prepare("Select * from products where productID = :id");
+        $query->bindParam("id", $getProductId);
+        $query->execute();
+        $singleProduct = $query->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($singleProduct as $title) {
             ?>
-             <div class="single-breadcrumbs">
-            <div class="container-fluid custom-container">
-                <ul class="single-breadcrumbs-list">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="allProducts.php">Shop</a></li>
-                    <li><span><?php echo $title['productName'] ?></span></li>
-                </ul>
+            <div class="single-breadcrumbs">
+                <div class="container-fluid custom-container">
+                    <ul class="single-breadcrumbs-list">
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="allProducts.php">Shop</a></li>
+                        <li><span>
+                                <?php echo $title['productName'] ?>
+                            </span></li>
+                    </ul>
+                </div>
             </div>
-        </div>
             <?php
-         }
+        }
         ?>
         <!-- Breadcrumbs End -->
 
@@ -71,8 +75,8 @@ include("./components/header.php");
                             <!-- Product Single image Start -->
                             <div class="product-single-image">
                                 <div class="product-single-slide-item swiper-slide">
-                                    <img src="../adminPanel/images/products/<?php echo $singleItem['productImage'] ?>" width="694"
-                                        height="728" />
+                                    <img src="../adminPanel/images/products/<?php echo $singleItem['productImage'] ?>"
+                                        width="694" height="728" />
                                 </div>
                             </div>
                             <!-- Product Single image End -->
@@ -204,155 +208,167 @@ include("./components/header.php");
                             </button>
                         </li> -->
 
-                        <?php
-                                                // Assuming you have a valid session_start() before accessing session variables
-                                                $productID = $_SESSION['productReviewID'];
+                                <?php
+                                // Assuming you have a valid session_start() before accessing session variables
+                                $productID = $_SESSION['productReviewID'];
 
-                                                $query = $pdo->prepare('SELECT COUNT(*) AS reviewCount FROM productreviews WHERE productID = :p_ID');
-                                                $query->bindParam(':p_ID', $productID, PDO::PARAM_INT);
-                                                $query->execute();
-                                                $result = $query->fetch(PDO::FETCH_ASSOC);
+                                $query = $pdo->prepare('SELECT COUNT(*) AS reviewCount FROM productreviews WHERE productID = :p_ID');
+                                $query->bindParam(':p_ID', $productID, PDO::PARAM_INT);
+                                $query->execute();
+                                $result = $query->fetch(PDO::FETCH_ASSOC);
 
-                                                $reviewCount = $result['reviewCount']; // Extracting the review count from the result
+                                $reviewCount = $result['reviewCount']; // Extracting the review count from the result
+                    
+                                ?>
 
-                        ?>
+                                <li>
+                                    <button data-bs-toggle="pill" data-bs-target="#reviews" type="button">
+                                        Reviews (
+                                        <?php echo $reviewCount; ?>)
+                                    </button>
+                                </li>
 
-                        <li>
-                            <button data-bs-toggle="pill" data-bs-target="#reviews" type="button">
-                                Reviews (<?php echo $reviewCount; ?>)
-                            </button>
-                        </li>
+                            </ul>
 
-                    </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="description">
+                                    <div class="tab-pane fade" id="reviews">
+                                        <!-- Product Single Review Start -->
+                                        <div class="product-single-review">
+                                            <!-- Product Comment Start -->
+                                            <div class="product-comment">
 
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="description">
-                            <div class="tab-pane fade" id="reviews">
-                                <!-- Product Single Review Start -->
-                                <div class="product-single-review">
-                                    <!-- Product Comment Start -->
-                                    <div class="product-comment">
+                                                <h3 class="comment-title">
+                                                    <?php echo $reviewCount; ?>
+                                                    review for Product
+                                                    <?php echo $singleItem['productName'] ?>
 
-                                        <h3 class="comment-title">
-                                            <?php echo $reviewCount; ?>
-                                            review for Product <?php echo $singleItem['productName'] ?>
+                                                </h3>
 
-                                        </h3>
-
-                                        <!-- Comment Items Start -->
-                                        <ul class="comment-items">
-                                            <?php
-                                                $loggedInUser = $_SESSION['USER'][0]; // Use a more meaningful variable name
-                                                $userID = $loggedInUser['userID'];
-
-                                                $query = $pdo->prepare('SELECT * FROM productreviews WHERE productID = :p_ID');
-                                                $query->bindParam(':p_ID', $productID);
-                                                $query->execute();
-                                                $result = $query->fetchAll(PDO::FETCH_ASSOC);
-
-                                                foreach ($result as $reviews) {
-                                                    $userID = $reviews['userID'];
-
-                                                    $userQuery = $pdo->prepare('SELECT * FROM users WHERE userID = :id');
-                                                    $userQuery->bindParam(':id', $userID);
-                                                    $userQuery->execute();
-                                                    $userResult = $userQuery->fetch(PDO::FETCH_ASSOC);
-
-                                                    $firstName = $userResult['firstName'];
-                                                    $lastName = $userResult['lastName'];
-                                                    $reviewText = htmlspecialchars($reviews['reviews']); // Sanitize user input
-
-                                            ?>
-
-                                                <li class="comment-item">
-                                                    <!-- <div class="comment-item__author"> -->
-                                                    <div class="initial-avatar rounded-circle bg-dark text-light" id='name-letter'>
-                                                        <?php echo substr($firstName, 0, 1) . substr($lastName, 0, 1); ?>
-                                                        <!-- </div> -->
-                                                    </div>
-                                                    <div class="comment-item__content" id="single-li">
-                                                        <div>
-                                                            <p class="comment-item__description" id="comment">
-                                                                <?php echo $reviewText; ?>
-                                                            </p>
-                                                            <p class="comment-item__meta">
-                                                                <strong>
-                                                                    <?php echo $firstName . ' ' . $lastName; ?>
-                                                                </strong>
-                                                                <?php echo $reviews['date']; ?>
-                                                            </p>
-                                                        </div>
-                                                        <div>
-                                                            <form action="" method="post">
-                                                                <input type="hidden" name="userReviewID" value="<?php echo $reviews['userID'] ?>" id="">
-                                                                <?php
-                                                                $users = $_SESSION['USER'];
-                                                                foreach ($users as $user) {
-                                                                    $userID = $user['userID'];
-                                                                }
-                                                                if ($userID == $reviews['userID']) {
-                                                                ?>
-                                                                    <input type="hidden" name="reviewID" value="<?php echo $reviews['reviewID'] ?>" id="">
-                                                                    <input type="hidden" name="reviewID" value="<?php echo $reviews['reviewID'] ?>" id="">
-                                                                    <button id="delete-btn" name='delete-review' type="submit"><i><img src="assets/images/trash.svg" title="Delete you review" alt="trash"></i></button>
-                                                                <?php
-                                                                }
-                                                                ?>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                            <?php
-                                                }
-                                            ?>
-                                        </ul>
-                                        <!-- Comment Items End -->
-
-                                        <!-- Comment Items End -->
-                                    </div>
-                                    <?php
-
-                                                if (isset($_SESSION['USER'])) {
-                                                    $users = $_SESSION['USER'];
-                                                    foreach ($users as $user) {
-                                                        $userID = $user['userID'];
-                                                    }                                             ?>
-                                        <div class="product-comment-form">
-                                            <h3 class="comment-title">
-                                                Add a review
-                                            </h3>
-                                            <form action="#" method='post'>
-                                                <!-- comment Form Start -->
-                                                <div class="comment-form">
-                                                    <input type="hidden" value="<?php echo $userID ?>" name="userID" id="">
-                                                    <input type="hidden" value="<?php echo $productID ?>" name="productID" id="">
-                                                    <!-- Single Form Start -->
-                                                    <div class="single-form">
-                                                        <label class="single-form__label">Your review *</label>
-                                                        <textarea class="single-form__input" name="review"></textarea>
-                                                    </div>
-                                                    <!-- Single Form Start -->
-
-                                                    <div class="single-form">
-                                                        <button class="single-form__btn btn" type="submit" name="submit-review">
-                                                            Submit
-                                                        </button>
-                                                    </div>
-                                                    <!-- Single Form Start -->
-                                                </div>
-                                                <!-- comment Form End -->
-                                            </form>
-                                        </div>
-                                    <?php
-                                                }
-                                               if(!isset($_SESSION['USER'])){
-                                                    ?>
-<a href="login.php">write your review.</a>
+                                                <!-- Comment Items Start -->
+                                                <ul class="comment-items">
                                                     <?php
-                                                }
-                                    ?>
-                                    <!-- Product Comment Form End -->
+                                                    // $loggedInUser = $_SESSION['USER'][0]; // Use a more meaningful variable name
+                                                    // $userID = $loggedInUser['userID'];
+                                        
+                                                    $query = $pdo->prepare('SELECT * FROM productreviews WHERE productID = :p_ID');
+                                                    $query->bindParam(':p_ID', $productID);
+                                                    // echo '<sccript>alert("'.$productID.'")</script>';
+                                                    $query->execute();
+                                                    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                                                    foreach ($result as $reviews) {
+                                                        $userID = $reviews['userID'];
+
+                                                        $userQuery = $pdo->prepare('SELECT * FROM users WHERE userID = :id');
+                                                        $userQuery->bindParam(':id', $userID);
+                                                        $userQuery->execute();
+                                                        $userResult = $userQuery->fetch(PDO::FETCH_ASSOC);
+
+                                                        $firstName = $userResult['firstName'];
+                                                        $lastName = $userResult['lastName'];
+                                                        $reviewText = htmlspecialchars($reviews['reviews']); // Sanitize user input
+                                        
+                                                        ?>
+
+                                                        <li class="comment-item">
+                                                            <!-- <div class="comment-item__author"> -->
+                                                            <div class="initial-avatar rounded-circle bg-dark text-light"
+                                                                id='name-letter'>
+                                                                <?php echo substr($firstName, 0, 1) . substr($lastName, 0, 1); ?>
+                                                                <!-- </div> -->
+                                                            </div>
+                                                            <div class="comment-item__content" id="single-li">
+                                                                <div>
+                                                                    <p class="comment-item__description" id="comment">
+                                                                        <?php echo $reviewText; ?>
+                                                                    </p>
+                                                                    <p class="comment-item__meta">
+                                                                        <strong>
+                                                                            <?php echo $firstName . ' ' . $lastName; ?>
+                                                                        </strong>
+                                                                        <?php echo $reviews['date']; ?>
+                                                                    </p>
+                                                                </div>
+                                                                <div>
+                                                                    <form action="" method="post">
+                                                                        <input type="hidden" name="userReviewID"
+                                                                            value="<?php echo $reviews['userID'] ?>" id="">
+                                                                        <?php
+                                                                        if (isset($_SESSION['USER'])) {
+                                                                            $users = $_SESSION['USER'];
+                                                                            foreach ($users as $user) {
+                                                                                $userID = $user['userID'];
+                                                                            }
+                                                                            if ($userID == $reviews['userID']) {
+                                                                                ?>
+                                                                                <input type="hidden" name="reviewID"
+                                                                                    value="<?php echo $reviews['reviewID'] ?>" id="">
+                                                                                <input type="hidden" name="reviewID"
+                                                                                    value="<?php echo $reviews['reviewID'] ?>" id="">
+                                                                                <button id="delete-btn" name='delete-review'
+                                                                                    type="submit"><i><img src="assets/images/icon/trash.svg"
+                                                                                            title="Delete you review" alt="trash"></i></button>
+                                                                                <?php
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </ul>
+                                                <!-- Comment Items End -->
+
+                                                <!-- Comment Items End -->
+                                            </div>
+                                            <?php
+
+                                            if (isset($_SESSION['USER'])) {
+                                                $users = $_SESSION['USER'];
+                                                foreach ($users as $user) {
+                                                    $userID = $user['userID'];
+                                                } ?>
+                                                <div class="product-comment-form">
+                                                    <h3 class="comment-title">
+                                                        Add a review
+                                                    </h3>
+                                                    <form action="#" method='post'>
+                                                        <!-- comment Form Start -->
+                                                        <div class="comment-form">
+                                                            <input type="hidden" value="<?php echo $userID ?>" name="userID" id="">
+                                                            <input type="hidden" value="<?php echo $productID ?>" name="productID"
+                                                                id="">
+                                                            <!-- Single Form Start -->
+                                                            <div class="single-form">
+                                                                <label class="single-form__label">Your review *</label>
+                                                                <textarea class="single-form__input" name="review"></textarea>
+                                                            </div>
+                                                            <!-- Single Form Start -->
+
+                                                            <div class="single-form">
+                                                                <button class="single-form__btn btn" type="submit" name="submit-review">
+                                                                    Submit
+                                                                </button>
+                                                            </div>
+                                                            <!-- Single Form Start -->
+                                                        </div>
+                                                        <!-- comment Form End -->
+                                                    </form>
+                                                </div>
+                                                <?php
+                                            }
+                                            if (!isset($_SESSION['USER'])) {
+                                                ?>
+                                                <a href="login.php">write your review.</a>
+                                                <?php
+                                            }
+                                            ?>
+                                            <!-- Product Comment Form End -->
                                         </div>
                                         <!-- Product Single Review End -->
                                     </div>
@@ -387,27 +403,27 @@ include("./components/header.php");
                                     ?>
                                     <div class="col-md-3">
                                         <div class="single-product js-scroll ShortFadeInUp">
-                                           
-                                            <div class="single-product__thumbnail">
-                                            <div class="single-product__thumbnail--meta-3">
-                                        <?php
-                                        if (isset($_SESSION['USER'])) {
-                                            $user = $_SESSION['USER'];
-                                            foreach ($user as $user) {
-                                                // echo '<script>alert("'.$user['userID'].'")</script>';
-                                                $userID = $user['userID'];
-                                            }
-                                        }
-                                        ?>
-                                        <a href="?wishlist=<?php echo $singleRelatedItem['productID'] ?>&userId=<?php echo $userID ?>"
-                                            data-bs-tooltip="tooltip" data-bs-placement="top"
-                                            data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
-                                            aria-label="wishlist">
-                                            <i class="lastudioicon-heart-2"></i>
-                                        </a>
 
-                                    </div>
-                                            
+                                            <div class="single-product__thumbnail">
+                                                <div class="single-product__thumbnail--meta-3">
+                                                    <?php
+                                                    if (isset($_SESSION['USER'])) {
+                                                        $user = $_SESSION['USER'];
+                                                        foreach ($user as $user) {
+                                                            // echo '<script>alert("'.$user['userID'].'")</script>';
+                                                            $userID = $user['userID'];
+                                                        }
+                                                    }
+                                                    ?>
+                                                    <a href="?wishlist=<?php echo $singleRelatedItem['productID'] ?>&userId=<?php echo $userID ?>"
+                                                        data-bs-tooltip="tooltip" data-bs-placement="top"
+                                                        data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
+                                                        aria-label="wishlist">
+                                                        <i class="lastudioicon-heart-2"></i>
+                                                    </a>
+
+                                                </div>
+
                                                 <div class="single-product__thumbnail--holder">
                                                     <a href="product-single.php?id=<?php echo $singleRelatedItem['productID'] ?>">
                                                         <img src="../adminPanel/images/products/<?php echo $singleRelatedItem['productImage'] ?>"
@@ -431,9 +447,9 @@ include("./components/header.php");
                                                         <?php echo $singleRelatedItem['productPrice'] ?>
                                                     </ins>
                                                 </div>
-                                            
+
                                             </div>
-                                      
+
                                         </div>
                                         <!-- Single product End -->
                                         <!-- </div> -->

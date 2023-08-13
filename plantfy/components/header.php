@@ -151,7 +151,7 @@ include_once('php/query.php')
                             <!-- Meta Item List Start -->
                             <ul
                                 class="meta-items-list meta-items-list--dark d-flex justify-content-end align-items-center">
-                                <li class="search d-none d-lg-block">
+                                <!-- <li class="search d-none d-lg-block">
                                     <form action="#">
                                         <div class="meta-search meta-search--dark">
                                             <input type="text" placeholder="Search products…" />
@@ -160,7 +160,7 @@ include_once('php/query.php')
                                             </button>
                                         </div>
                                     </form>
-                                </li>
+                                </li> -->
                                 <li class="wishlist">
                                     <a href="wishlist.php" aria-label="Wishlist">
                                         <i class="lastudioicon lastudioicon-heart-1"></i>

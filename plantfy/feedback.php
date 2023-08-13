@@ -1,9 +1,27 @@
 <?php
 include_once('components/sessionHeader.php')
 ?>
-<?php
-include_once('components/header.php')
-?>
+ <?php
+                                     if (isset($_SESSION['USER'])) {
+                                         $user = $_SESSION['USER'];
+                                         foreach ($user as $user) {
+                                            //  echo '<script>alert("'.$user['userID'].'")</script>';
+                                             $userID = $user['userID'];
+                                        
+                                         if(isset($_POST['submitFeedback'])){
+                                            $feedbackMsg = $_POST['msgFeedback'];
+                                            // echo '<script>alert("'.$user['userID'].'")</script>';
+                                            // echo '<script>alert("'.$feedbackMsg.'")</script>';
+                                            $query = $pdo->prepare('insert into feedback(feedbackUserID,feedback) values(:userID, :feedback)');
+                                            $query->bindParam("userID",$userID);
+                                            $query->bindParam("feedback",$feedbackMsg);
+                                            $query->execute();
+                                            // echo "<div class='alert'>Thanks for your feedback</div>";
+                                            echo '<script>alert("Thanks for your feedback")</script>';
+                                        } 
+                                        }
+                                     }
+                                    ?>
 <!-- Mobile Meta End -->
 <style>
     #mainLogin {
@@ -37,7 +55,7 @@ include_once('components/header.php')
                     <div class="login-register">
                         <h3 class="login-register__title">FeedBack</h3>
 
-                        <form action="#" method='post'>
+                        <form action="" method='post'>
                             <div class="login-register__form">
                                 <!-- Single Form Start -->
 
@@ -47,9 +65,11 @@ include_once('components/header.php')
                                 </div>
 
                                 <div class="single-form">
-                                    <button class="single-form__btn btn" type='submit' id="" name='submitFeedback'>
-                                        Submit
+                                      <button class="single-form__btn btn" type='submit' id="" name='submitFeedback'>
+                                        submit
                                     </button>
+                                   
+                                   
                                 </div>
 
                             </div>
@@ -135,58 +155,3 @@ include_once('components/header.php')
 <?php
 include_once('components/footer.php')
 ?>
-
-<script>
-    let loginEmail = document.getElementById('loginEmail');
-    let loginPassword = document.getElementById('loginPassword');
-    let loginBtn = document.getElementById('login');
-
-    loginBtn.addEventListener('submit', function(event) {
-        event.preventDefault
-        if (!loginEmail) {
-            document.getElementById("loginEmail").style = "border:1px solid red"
-            document.getElementById("errorEmailLogin").style = "color:red"
-            document.getElementById("errorEmailLogin").innerHTML = "Please fill out this field!"
-        } else if (!loginPassword) {
-            document.getElementById("loginPassword").style = "border:1px solid red"
-            document.getElementById("errorPasswordLogin").style = "color:red"
-            document.getElementById("errorPasswordLogin").innerHTML = "Please fill out this field!"
-        }
-    })
-
-    loginEmail.addEventListener('input', function(event) {
-        event.preventDefault();
-        let loginEmailValue = loginEmail.value; // Changed variable name to avoid confusion
-        let emailRegexLogin = /^[\w]+@[A-Za-z]{4,5}[.][A-Za-z]{2,}$/;
-        if (!loginEmailValue) {
-            loginEmail.style = "border:1px solid red";
-            document.getElementById("errorEmailLogin").style.color = "red";
-            document.getElementById("errorEmailLogin").innerHTML = "Please fill out this field!";
-        } else if (!emailRegexLogin.test(loginEmailValue)) {
-            loginEmail.style = "border:1px solid red";
-            document.getElementById("errorEmailLogin").style.color = "red";
-            document.getElementById("errorEmailLogin").innerHTML = "Please enter a valid email!";
-        } else {
-            loginEmail.style = "";
-            document.getElementById("errorEmailLogin").innerHTML = "";
-        }
-    });
-
-    loginPassword.addEventListener('input', function(event) {
-        event.preventDefault();
-        let loginPasswordValue = loginPassword.value; // Changed variable name to avoid confusion
-
-        if (!loginPasswordValue) {
-            loginPassword.style = "border:1px solid red";
-            document.getElementById("errorPasswordLogin").style.color = "red";
-            document.getElementById("errorPasswordLogin").innerHTML = "Please fill out this field!";
-        } else {
-            loginPassword.style = "";
-            document.getElementById("errorPasswordLogin").innerHTML = "";
-        }
-    });
-</script>
-
-</body>
-
-</html>
