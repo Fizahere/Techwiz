@@ -33,7 +33,7 @@ if(isset($_POST['insertCategory'])){
         }
         
     }else{
-        echo "<script>alert('not valid extension')
+        echo "<script>alert('Invlid extension of image')
         location.assign('category.php')
         </script>";
     }
@@ -162,7 +162,7 @@ if(isset($_POST['insertProduct'])){
         }
         
     }else{
-        echo "<script>alert('not valid extension')
+        echo "<script>alert('Invalid extension of image')
         location.assign('products.php')
         </script>";
     }
