@@ -68,7 +68,7 @@ include("php/query.php");
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
                     <div>
-                    <h6 class="text-primary"><i class="fa fa-hashtag me-2"></i>Admin Panel PlantNest</h6>
+                    <h4 class="text-primary"><i class="fa fa-hashtag me-2"></i>PlantNest Panel</h4>
                     </div>
                 </a>
                
@@ -140,7 +140,8 @@ include("php/query.php");
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <?php
-                            $query = $pdo->query("SELECT * from orders where orderStatus	 = 'pending'  LIMIT 2");
+                            $query = $pdo->query("SELECT * from orders  INNER JOIN  users on 
+                            orders.userID = users.userID    where orderStatus	 = 'pending'  LIMIT 2");
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
                         if (empty($result)) {
                             ?>
@@ -177,8 +178,8 @@ include("php/query.php");
                                 <a href="orders.php" class="dropdown-item link-secondary">
 
                                     <h6 class="fw-normal mb-0">
-                                        Appointment request for '
-                                        <?php echo ucfirst($row['orderStatus']) ?>'
+                                      
+                                        <?php echo ucfirst($row['firstName']) ?> placed an order
                                     </h6>
                                 </a>
                                 <hr class="dropdown-divider">

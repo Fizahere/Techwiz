@@ -76,8 +76,7 @@ if (isset($_POST['edit'])) {
     $emailAddress = $_POST['email'];
     $authModel->update($userName, $fullName, $emailAddress, $userID, $pdo);
     redirectWindow('my-account.php');
-}
-;
+};
 
 if (isset($_POST['submit-review'])) {
     $userID = $_POST['userID'];
@@ -85,9 +84,8 @@ if (isset($_POST['submit-review'])) {
     $review = $_POST['review'];
     // echo '<script>alert("' . $productID .$userID.$review. '")</script>';
     $authModel->submitReview($review, $productID, $userID, $pdo);
-    // redirectWindow('product-single.php');
-}
-;
+    redirectWindow('index.php');
+};
 
 //add to cart
 if (isset($_POST['addToCartBtn'])) {
@@ -178,11 +176,14 @@ if (isset($_GET['checkout'])) {
     </script>";
         unset($_SESSION['cartTwo']);
     }
+};
+
+if (isset($_POST['delete-review'])) {
+    $reviewID = $_POST['reviewID'];
+    $authModel->deleteReview($reviewID, $pdo);
 }
 ;
-if(isset($_POST['submitFeedback'])){
-    $feedbackMsg = $_POST['msgFeedback'];
-    $userID = $_GET['getUSerID'];
-    echo "<script>alert('working')</script>";
+if(isset($_GET['submitFeedback'])){
+    $feedbackMsg = $_GET[''];
 }
 ;

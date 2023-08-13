@@ -8,7 +8,7 @@ include('header_admin.php')
                 <div class="bg-white rounded h-100 ">
                     <div class="d-flex bg-light justify-content-between">
 
-                        <h4>Registeration Requests</h4>
+                        <h4>Orders notifications</h4>
 
 
 
@@ -59,7 +59,7 @@ include('header_admin.php')
                                     <td class="d-flex justify-content-center p-5">
                                         
                                             <p>
-                                                No registeration requests
+                                                No Orders
 
                                             </p>
                                         

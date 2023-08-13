@@ -44,12 +44,13 @@ include('header_admin.php')
 
                                     </td>
                                     <td>
-                                    <?php echo $row['productName'] ?>
+                                    <?php echo ucfirst($row['productName'])?>
                                        
 
                                     </td>
                                     <td>
-                                    <?php echo $row['firstName'] ?>
+                                    <?php echo ucfirst($row['firstName'] )?>
+                                    <?php echo ucfirst($row['lastName'] )?>
                                        
 
                                     </td>
@@ -77,6 +78,8 @@ include('header_admin.php')
         </div>
     </div>
 </div>
+<script src="js/script.js"></script>
+
 <?php
 include('footer.php')
 ?>

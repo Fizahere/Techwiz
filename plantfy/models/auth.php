@@ -46,6 +46,19 @@ class Auth
         $query->bindParam('u_ID', $userID);
         $query->execute();
     }
+    function deleteReview($reviewID, $pdo)
+    {
+        $query = $pdo->prepare('DELETE from productreviews where reviewID = :r_id');
+        $query->bindParam('r_id', $reviewID);
+        $query->execute();
+    }
+    function deleteAccount($deleteAccountID,$pdo){
+        $query = $pdo->prepare('DELETE from users where userID = :u_ID');
+        $query->bindParam('u_ID',$deleteAccountID);
+        // if(echo '<script>confirm("Are you sure you want to delete your account ?")</script>'){
+        $query->execute();
+        // }
+    }
     function showSingleProduct($ctg_id, $pdo)
     {
         $query = $pdo->prepare("Select * from products where categoryID = :id");
