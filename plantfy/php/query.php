@@ -180,4 +180,7 @@ if (isset($_GET['checkout'])) {
     }
 }
 ;
+if(isset($_GET['submitFeedback'])){
+    $feedbackMsg = $_GET['']
+}
 ;
