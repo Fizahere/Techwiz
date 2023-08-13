@@ -14,4 +14,8 @@ http://localhost/techwiz/plantfy/login.php
 ----
 
 user@gmail.com
-123456
+1234
+
+online webhost link
+Link:
+Password: plantFy_123

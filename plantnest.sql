@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2023 at 10:38 AM
+-- Generation Time: Aug 13, 2023 at 11:11 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -32,7 +32,7 @@ CREATE TABLE `admins` (
   `adminName` varchar(225) DEFAULT NULL,
   `adminEmail` varchar(225) DEFAULT NULL,
   `password` varchar(225) DEFAULT NULL,
-  `adminImage` varchar(325) NOT NULL
+  `adminImage` varchar(325) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`adminID`, `adminName`, `adminEmail`, `password`, `adminImage`) VALUES
-(1, 'Fiza', 'fiza@gmail.com', '1234', '0');
+(1, 'Admin', 'admin@gmail.com', '1234', '');
 
 -- --------------------------------------------------------
 
@@ -106,15 +106,17 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `orderDate`, `totalAmount`, `orderStatus`) VALUES
-(1, 5, 2, '2', '2023-08-08 19:00:00', '5677', 'pending'),
-(2, 5, 1, '2', '2023-08-08 19:00:00', '5677', 'pending'),
+(1, NULL, 2, '2', '2023-08-08 19:00:00', '5677', 'pending'),
+(2, NULL, 1, '2', '2023-08-08 19:00:00', '5677', 'pending'),
 (3, 6, 4, '1', '2023-08-11 19:00:00', '25.99', 'pending'),
 (4, 6, 5, '1', '2023-08-11 19:00:00', '26.99', 'pending'),
 (5, 6, 2, '1', '2023-08-11 19:00:00', '39.99', 'pending'),
 (6, 6, 3, '1', '2023-08-11 19:00:00', '35.99', 'approved'),
 (7, 6, 2, '1', '2023-08-11 19:00:00', '39.99', 'pending'),
 (8, 6, 2, '1', '2023-08-12 19:00:00', '39.99', 'pending'),
-(9, 6, 2, '1', '2023-08-12 19:00:00', '39.99', 'pending');
+(9, 6, 2, '1', '2023-08-12 19:00:00', '39.99', 'pending'),
+(10, 6, 2, '1', '2023-08-13 08:51:52', '39.99', 'pending'),
+(11, 6, 3, '1', '2023-08-13 08:51:52', '35.99', 'pending');
 
 -- --------------------------------------------------------
 
@@ -205,12 +207,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `firstName`, `lastName`, `userEmail`, `userPassword`) VALUES
-(1, 'ali', 'ali', 'ali@gmail.com', '123456'),
-(2, 'fatima', 'fatima', 'fatima@gmail.com', '12345678\r\n'),
-(3, 'zainab', 'zainab', 'zainab@gmail.com', '7444'),
-(4, 'usman', 'usman', 'usman@gmail.com', '9877'),
-(5, 'umar', 'umar', 'umar@gmail.com', '9977'),
-(6, 'iman', 'Iman', 'iman@gmail.com', '$2y$10$kKffEgWCHe5M9H3H4oWlTOZg2Mu9cjJ7e.Lk50ZxF8pkQJsXmP/Fi');
+(6, 'user', 'user', 'user@gmail.com', '$2y$10$kKffEgWCHe5M9H3H4oWlTOZg2Mu9cjJ7e.Lk50ZxF8pkQJsXmP/Fi');
 
 -- --------------------------------------------------------
 
@@ -321,7 +318,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `productreviews`
