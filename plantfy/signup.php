@@ -40,11 +40,11 @@ include_once('components/header.php')
                             <form action="#" method='post'>
                                 <div class="login-register__form">
                                     <div class="single-form">
-                                        <input class="single-form__input" id="username" name="username" type="text" placeholder="Username *" required/>
+                                        <input class="single-form__input" id="username" name="username" type="text" placeholder="First name *" required/>
                                     <span id="errorFirstName"></span>
                                     </div>
                                     <div class="single-form">
-                                        <input class="single-form__input" id="lastname" name="fullname" type="text" placeholder="Fullname *" required/>
+                                        <input class="single-form__input" id="lastname" name="fullname" type="text" placeholder="Last name *" required/>
                                         <span id="errorLastName"></span>
                                     </div>
                                     <div class="single-form">
