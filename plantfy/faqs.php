@@ -51,13 +51,7 @@ include("./components/header.php");
 
                                 <div id="faqOne" class="accordion-collapse collapse">
                                     <p>
-                                        A placerat ac vestibulum integer
-                                        vehicula suspendisse nostra aptent
-                                        fermentum tempor a magna erat ligula
-                                        parturient curae sem conubia
-                                        vestibulum ac inceptos sodales
-                                        condimentum cursus nunc mi
-                                        consectetur condimentum
+                                    Delivery fees are the charges received by plantfy to ship items to a buyer. For every order that is delivered, plantfy charges a certain amount from the customer as delivery fee. However if the actual Delivery fee is different than the estimated delivery fee due to incorrect weight or dimensions,
                                     </p>
                                 </div>
                             </div>
@@ -74,38 +68,11 @@ include("./components/header.php");
 
                                 <div id="faqTwo" class="accordion-collapse collapse">
                                     <p>
-                                        A placerat ac vestibulum integer
-                                        vehicula suspendisse nostra aptent
-                                        fermentum tempor a magna erat ligula
-                                        parturient curae sem conubia
-                                        vestibulum ac inceptos sodales
-                                        condimentum cursus nunc mi
-                                        consectetur condimentum
+                                    Generally the delivery date is 2-4 days from the day of booking. 
                                     </p>
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree">
-                                    <span class="text"
-                                            >What exactly happens after
-                                            ordering?</span>
-                                    <span class="icon"
-                                            ><i
-                                                class="lastudioicon-down-arrow"
-                                            ></i
-                                        ></span>
-                                </button>
-                                <div id="faqThree" class="accordion-collapse collapse">
-                                    <p>
-                                        A placerat ac vestibulum integer
-                                        vehicula suspendisse nostra aptent
-                                        fermentum tempor a magna erat ligula
-                                        parturient curae sem conubia
-                                        vestibulum ac inceptos sodales
-                                        condimentum cursus nunc mi
-                                        consectetur condimentum
-                                    </p>
-                                </div>
+                            
                             </div>
                             <div class="accordion-item">
                                 <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour">
@@ -120,21 +87,14 @@ include("./components/header.php");
                                 </button>
                                 <div id="faqFour" class="accordion-collapse collapse">
                                     <p>
-                                        A placerat ac vestibulum integer
-                                        vehicula suspendisse nostra aptent
-                                        fermentum tempor a magna erat ligula
-                                        parturient curae sem conubia
-                                        vestibulum ac inceptos sodales
-                                        condimentum cursus nunc mi
-                                        consectetur condimentum
+                                    You receive an invoice at delivery of the ordered goods.
                                     </p>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFive">
                                     <span class="text"
-                                            >Tellus ridicdiam eleifend id
-                                            ullamcorper?</span>
+                                            >I already paid for my order, why have I received an invoice?</span>
                                     <span class="icon"
                                             ><i
                                                 class="lastudioicon-down-arrow"
@@ -143,13 +103,7 @@ include("./components/header.php");
                                 </button>
                                 <div id="faqFive" class="accordion-collapse collapse">
                                     <p>
-                                        A placerat ac vestibulum integer
-                                        vehicula suspendisse nostra aptent
-                                        fermentum tempor a magna erat ligula
-                                        parturient curae sem conubia
-                                        vestibulum ac inceptos sodales
-                                        condimentum cursus nunc mi
-                                        consectetur condimentum
+                                        This means the invoice is just a confirmation reference for your order, which can be kept for your records. You do not need to pay anything further
                                     </p>
                                 </div>
                             </div>
@@ -159,16 +113,13 @@ include("./components/header.php");
 
                     <!-- FAQ’s Start -->
                     <div class="faq-accordion">
-                        <h2 class="faq-accordion__title">
-                            Shopping Information
-                        </h2>
+                       
 
                         <div class="accordion">
                             <div class="accordion-item">
                                 <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSix">
                                     <span class="text"
-                                            >When the order payment is taken of
-                                            my bank account?</span>
+                                            >Is there a minimum order? </span>
                                     <span class="icon"
                                             ><i
                                                 class="lastudioicon-down-arrow"
@@ -178,20 +129,15 @@ include("./components/header.php");
 
                                 <div id="faqSix" class="accordion-collapse collapse">
                                     <p>
-                                        A placerat ac vestibulum integer
-                                        vehicula suspendisse nostra aptent
-                                        fermentum tempor a magna erat ligula
-                                        parturient curae sem conubia
-                                        vestibulum ac inceptos sodales
-                                        condimentum cursus nunc mi
-                                        consectetur condimentum
+                                        No you will find more and high quality products
+
                                     </p>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSeven">
                                     <span class="text"
-                                            >What is wishlist?</span>
+                                            >Do you give a discount for large orders?</span>
                                     <span class="icon"
                                             ><i
                                                 class="lastudioicon-down-arrow"
@@ -201,85 +147,12 @@ include("./components/header.php");
 
                                 <div id="faqSeven" class="accordion-collapse collapse">
                                     <p>
-                                        A placerat ac vestibulum integer
-                                        vehicula suspendisse nostra aptent
-                                        fermentum tempor a magna erat ligula
-                                        parturient curae sem conubia
-                                        vestibulum ac inceptos sodales
-                                        condimentum cursus nunc mi
-                                        consectetur condimentum
+                                    In addition to our bundles, we also have a standing 20/50 Deal - 20% off the menu price of orders of $50.00 or more -
                                     </p>
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEight">
-                                    <span class="text"
-                                            >What should I do if I receive a
-                                            damaged or wrong product?</span>
-                                    <span class="icon"
-                                            ><i
-                                                class="lastudioicon-down-arrow"
-                                            ></i
-                                        ></span>
-                                </button>
-                                <div id="faqEight" class="accordion-collapse collapse">
-                                    <p>
-                                        A placerat ac vestibulum integer
-                                        vehicula suspendisse nostra aptent
-                                        fermentum tempor a magna erat ligula
-                                        parturient curae sem conubia
-                                        vestibulum ac inceptos sodales
-                                        condimentum cursus nunc mi
-                                        consectetur condimentum
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqNine">
-                                    <span class="text"
-                                            >Can I change or cancel my
-                                            order?</span>
-                                    <span class="icon"
-                                            ><i
-                                                class="lastudioicon-down-arrow"
-                                            ></i
-                                        ></span>
-                                </button>
-                                <div id="faqNine" class="accordion-collapse collapse">
-                                    <p>
-                                        A placerat ac vestibulum integer
-                                        vehicula suspendisse nostra aptent
-                                        fermentum tempor a magna erat ligula
-                                        parturient curae sem conubia
-                                        vestibulum ac inceptos sodales
-                                        condimentum cursus nunc mi
-                                        consectetur condimentum
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTen">
-                                    <span class="text"
-                                            >What is “package tracking” in my
-                                            orders?</span>
-                                    <span class="icon"
-                                            ><i
-                                                class="lastudioicon-down-arrow"
-                                            ></i
-                                        ></span>
-                                </button>
-                                <div id="faqTen" class="accordion-collapse collapse">
-                                    <p>
-                                        A placerat ac vestibulum integer
-                                        vehicula suspendisse nostra aptent
-                                        fermentum tempor a magna erat ligula
-                                        parturient curae sem conubia
-                                        vestibulum ac inceptos sodales
-                                        condimentum cursus nunc mi
-                                        consectetur condimentum
-                                    </p>
-                                </div>
-                            </div>
+                           
+                           
                         </div>
                     </div>
                     <!-- FAQ’s End -->
