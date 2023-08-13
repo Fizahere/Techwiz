@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2023 at 01:21 PM
+-- Generation Time: Aug 13, 2023 at 10:38 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -63,7 +63,8 @@ INSERT INTO `categories` (`categoryID`, `categoryName`, `categoryImage`) VALUES
 (2, 'Outdoor plants', 'quick-shop-2.png'),
 (3, 'Flowering plants', 'quick-shop-4.png'),
 (4, 'Non-flowering plants', 'quick-shop-3.png'),
-(5, 'Succulents', 'quick-shop-5.png');
+(5, 'Succulents', 'quick-shop-5.png'),
+(8, 'Accessories', 'quick-shop-8.jfif');
 
 -- --------------------------------------------------------
 
@@ -77,6 +78,13 @@ CREATE TABLE `feedback` (
   `feedback` varchar(325) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`feedbackID`, `feedbackUserID`, `feedback`) VALUES
+(1, 6, 'Satisfied');
+
 -- --------------------------------------------------------
 
 --
@@ -88,7 +96,7 @@ CREATE TABLE `orders` (
   `userID` int(11) DEFAULT NULL,
   `productID` int(11) DEFAULT NULL,
   `productQuantity` varchar(225) DEFAULT NULL,
-  `orderDate` date DEFAULT current_timestamp(),
+  `orderDate` timestamp NULL DEFAULT current_timestamp(),
   `totalAmount` varchar(225) DEFAULT NULL,
   `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -98,13 +106,15 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `orderDate`, `totalAmount`, `orderStatus`) VALUES
-(1, 5, 2, '2', '2023-08-09', '5677', 'pending'),
-(2, 5, 1, '2', '2023-08-09', '5677', 'pending'),
-(3, 6, 4, '1', '2023-08-12', '25.99', 'pending'),
-(4, 6, 5, '1', '2023-08-12', '26.99', 'pending'),
-(5, 6, 2, '1', '2023-08-12', '39.99', 'pending'),
-(6, 6, 3, '1', '2023-08-12', '35.99', 'approved'),
-(7, 6, 2, '1', '2023-08-12', '39.99', 'pending');
+(1, 5, 2, '2', '2023-08-08 19:00:00', '5677', 'pending'),
+(2, 5, 1, '2', '2023-08-08 19:00:00', '5677', 'pending'),
+(3, 6, 4, '1', '2023-08-11 19:00:00', '25.99', 'pending'),
+(4, 6, 5, '1', '2023-08-11 19:00:00', '26.99', 'pending'),
+(5, 6, 2, '1', '2023-08-11 19:00:00', '39.99', 'pending'),
+(6, 6, 3, '1', '2023-08-11 19:00:00', '35.99', 'approved'),
+(7, 6, 2, '1', '2023-08-11 19:00:00', '39.99', 'pending'),
+(8, 6, 2, '1', '2023-08-12 19:00:00', '39.99', 'pending'),
+(9, 6, 2, '1', '2023-08-12 19:00:00', '39.99', 'pending');
 
 -- --------------------------------------------------------
 
@@ -162,7 +172,19 @@ INSERT INTO `products` (`productID`, `productName`, `productDescription`, `produ
 (12, 'Million Bells', 'These are compact, mounded plants which grow 3-9” tall on mostly trailing stems.', '35.99', 'product-17.jpg', '34', 4),
 (13, 'Burro’s Tail', 'Also known as the donkey tail plant, this succulent is one of the easiest plants to propagate and care for, which makes it a popular houseplant.', '24.99', 'product-14.jpg', '24', 5),
 (14, 'Crown of Thorns', 'The crown of thorns is a great houseplant because it adjusts well to dry indoor environments and room temperatures.', '26.99', 'product-15.jpg', '23', 5),
-(15, 'Flaming Katy', 'The flaming katy is a common houseplant that is native to Madagascar. It prefers temperatures from 60 to 85 degrees.', '27.99', 'product-16.jpg', '12', 5);
+(15, 'Flaming Katy', 'The flaming katy is a common houseplant that is native to Madagascar. It prefers temperatures from 60 to 85 degrees.', '27.99', 'product-16.jpg', '12', 5),
+(16, 'Faithful Springs Watercane', 'It is a portable container, usually with a handle and a funnel, used to water plants by hand.', '26.99', 'accessories-7.jfif', '34', 8),
+(17, 'Aqua Dreams watercane', 'It is consists of plastic and metal options, as they are the most durable and withstood our drop tests best.', '25.99', 'accessories-8.jfif', '13', 8),
+(18, 'Clear Blue Ocean', 'It can be used for the administration of some pesticides, herbicides.', '34.99', 'accessories-9.jfif', '14', 8),
+(19, 'The Boundary Waters', 'It is used to apply liquid fertilizer, wetting of cement blocks with water during construction of farm structures', '26.99', 'accessories-10.jfif', '24', 8),
+(20, 'Pura Vida', 'It can be used for the administration of some pesticides, herbicides, fungicides, etc', '34.99', 'accessories-11.png', '15', 8),
+(21, 'Sandy soil', 'Sandy Soil is light, warm, dry and tends to be acidic and low in nutrients.', '24.99', 'accessories-13.jfif', '16', 8),
+(22, 'Silt Soil', 'Silty soil is slippery when wet, not grainy or rocky.', '34.99', 'accessories-14.jfif', '14', 8),
+(23, 'Clay Soil', 'Clay Soil is a heavy soil type that benefits from high nutrients. Clay soils remain wet and cold in winter and dry out in summer.', '34.99', 'accessories-15.jfif', '15', 8),
+(24, 'U-M Plastic Empty', 'Spray Bottle, Leak-Proof Fine Mist Trigger Sprayer, Refillable Spray Container.', '24.99', 'accessories-16.jfif', '15', 8),
+(26, 'T4U Glass Plant Mister 200ML', 'Vintage Spray Bottle with Top Pump Fine Mist Flower Garden Sprayer.', '34.99', 'accessories-18.jfif', '15', 8),
+(27, 'Imirootree 200m', 'Black Continuous Spray Bottle Fine Mist Sprayer Bottle for Hairstyling, Cleaning.', '23.99', 'accessories-19.jfif', '13', 8),
+(28, 'Daylogic Spray Bottles', 'Travel-Sized, Clear, Empty Bottles, For Hair Product & Skincare On-The-Go, Mist ', '23.99', 'accessories-17.jfif', '15', 8);
 
 -- --------------------------------------------------------
 
@@ -207,10 +229,9 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`wishlistID`, `customerID`, `wishlistProductID`) VALUES
-(28, 6, 2),
-(29, 6, 2),
 (30, 6, 1),
-(31, 6, 2);
+(33, 6, 2),
+(34, 6, 2);
 
 --
 -- Indexes for dumped tables
@@ -288,19 +309,19 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `feedbackID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `feedbackID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `productreviews`
@@ -312,7 +333,7 @@ ALTER TABLE `productreviews`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -324,7 +345,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlistID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `wishlistID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables

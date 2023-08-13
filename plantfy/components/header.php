@@ -309,7 +309,7 @@ include_once('php/query.php')
                     <li><a href="contact-us.php">Contact Us</a></li>
                     <li><a href="faqs.php">FAQs</a></li>
                     <li><a href="my-account.php">Profile</a></li>
-                    <li><a href="contact-us.php">Shop</a></li>
+                    <li><a href="allProducts.php">Shop</a></li>
                 </ul>
             </div>
             <!-- Off Canvas Sidebar Menu End -->

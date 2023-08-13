@@ -157,16 +157,6 @@ include_once('php/query.php')
                             <!-- Meta Item List Start -->
                             <ul
                                 class="meta-items-list meta-items-list--dark d-flex justify-content-end align-items-center">
-                                <!-- <li class="search d-none d-lg-block">
-                                    <form action="#">
-                                        <div class="meta-search meta-search--dark">
-                                            <input type="text" placeholder="Search products…" />
-                                            <button aria-label="search">
-                                                <i class="lastudioicon-zoom-1"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </li> -->
                                 <li class="wishlist">
                                     <a href="wishlist.php" aria-label="Wishlist">
                                         <i class="lastudioicon lastudioicon-heart-1"></i>
@@ -315,7 +305,7 @@ include_once('php/query.php')
                     <li><a href="contact-us.php">Contact Us</a></li>
                     <li><a href="faqs.php">FAQs</a></li>
                     <li><a href="my-account.php">Profile</a></li>
-                    <li><a href="contact-us.php">Shop</a></li>
+                    <li><a href="allProducts.php">Shop</a></li>
                 </ul>
             </div>
             <!-- Off Canvas Sidebar Menu End -->
