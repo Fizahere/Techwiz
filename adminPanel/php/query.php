@@ -20,7 +20,7 @@ if(isset($_POST['insertCategory'])){
     $category_image_size = $_FILES['insert-category-image']['size'];
     $category_image_tmp_name = $_FILES['insert-category-image']['tmp_name'];
     $category_image_ext = pathinfo($category_image, PATHINFO_EXTENSION);
-    $destination = "images/category".$category_image;
+    $destination = "images/category/".$category_image;
     if($category_image_size <= 48000000){
     if($category_image_ext == 'jpg' || $category_image_ext == "png" || $category_image_ext== 'jpeg' || $category_image_ext== 'webp'){
         if(move_uploaded_file($category_image_tmp_name,$destination)){
@@ -62,7 +62,7 @@ if(isset($_POST['update_category_info'])){
     $category_image_size = $_FILES['update-category-image']['size'];
     $category_image_tmp_name = $_FILES['update-category-image']['tmp_name'];
     $category_image_ext = pathinfo($category_image, PATHINFO_EXTENSION);
-    $destinationcategory = "images/category".$category_image;
+    $destinationcategory = "images/category/".$category_image;
     if($category_image_size <= 48000000){
         if($category_image_ext === 'jpg' || $category_image_ext === "png" || $category_image_ext === 'jpeg'|| $category_image_ext === "webp"  || $category_image_ext === "" || $category_image === ""){
             if(move_uploaded_file($category_image_tmp_name,$destinationcategory)){

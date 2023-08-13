@@ -65,7 +65,7 @@ include_once('header_admin.php');
         $query = $pdo->query("SELECT * FROM products INNER JOIN categories ON products.categoryID = categories.categoryID ORDER BY categories.categoryName ");
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
      }else{                           
-                                $query = $pdo->query("SELECT * FROM `products` INNER JOIN categories ON products.categoryID = categories.categoryID");
+                                $query = $pdo->query("SELECT * FROM `products` INNER JOIN categories ON products.categoryID = categories.categoryID order BY products.productID");
                                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
      }
                                 foreach ($result as $row) {
