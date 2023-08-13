@@ -229,11 +229,11 @@ include_once('header_admin.php');
                                 <div class="modal " id="delete-product-modal<?php echo $row['productID'] ?>">
                                     <div class="modal-dialog modal-xl bg-light w-50">
                                         <div class="modal-content bg-light">
-                                            <!-- <div class="modal-header">
-                <h4 class="modal-title">Edit Information</h4>
+                                            <div class="modal-header">
+                <h4 class="modal-title">Delete products</h4>
                 <button type="button" class="btn-close  bg-white"
                     data-bs-dismiss="modal"></button>
-            </div> -->
+            </div>
                                             <!-- Modal body -->
                                             <div class="modal-body ">
                                                 <form method="post">
@@ -264,7 +264,7 @@ include_once('header_admin.php');
 
                                     </div>
                                 </div>
-                                <!-------------------------------------------------
+                                        <!-------------------------------------------------
                                         |                                                 |
                                         | modal for delete category information           | 
                                         | [end]                                           |
@@ -284,14 +284,14 @@ include_once('header_admin.php');
     </div>
 </div>
 
-<!-------------------------------------------------                                                              |                                                 |
+                                       <!-------------------------------------------------                                                              |                                                 |
                                         | modal for insert category information           | 
                                         | [start]                                         |
                                         |                                                 |      
                                         -------------------------------------------------->
 <div class="modal" id="insert-product-modal">
     <div class="modal-dialog modal-xl bg-white">
-        <div class="modal-content bg-white">
+        <div class= "modal-content bg-white">
             <div class="modal-header">
                 <h4 class="modal-title">Add Category</h4>
                 <button type="button" class="btn-close bg-white" data-bs-dismiss="modal"></button>

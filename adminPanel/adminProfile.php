@@ -49,11 +49,11 @@ include_once('header_admin.php');
                                         value="<?php echo $row['password'] ?>" id="exampleInputPassword1">
                                 </div>
 
-                                <button class="btn btn-dark edit-btn " data-bs-toggle="modal"
+                                <button class="btn  edit-btn " data-bs-toggle="modal"
                                     data-bs-target="#update-admin-modal<?php echo $row['adminID']  ?>">
                                     Update Account
                                 </button>
-                                <button class="btn btn-danger edit-btn mr-5 " data-bs-toggle="modal"
+                                <button class="btn  text-danger edit-btn mr-5 " data-bs-toggle="modal"
                                     data-bs-target="#delete-admin-modal<?php echo $row['adminID']  ?>">Delete account
                                     
                                 </button>

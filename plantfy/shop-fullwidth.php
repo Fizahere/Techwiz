@@ -57,18 +57,30 @@ include("./components/header.php");
                             <!-- Showing 1–12 of 90 results -->
                         </div>
                         <!-- Shop Filter Count End -->
-
+                        <!--Search products start-->
+                        <li class="search d-none d-lg-block">
+                                    
+                                        <div class="meta-search meta-search--dark">
+                                            <input type="text" id="taskFilter"  placeholder="Search function" />
+                                            <button aria-label="search">
+                                                <i class="lastudioicon-zoom-1"></i>
+                                            </button>
+                                        </div>
+                                    
+                                </li>
+                        <!-- Search products  end-->
                         <!-- Shop Filter Sort By Start -->
                         <div class="shop-filter-sort-by">
                             <div class="shop-filter-sort-by__label">
                                 <form action="" method='post'>
-                                    <button name='sortByPrice'>Sort by Default</button>
+                                    <button name='sortByPrice' class="btn btn-secondary text-light bg-dark">Sort by Price </button>
                                 </form>
                                 <!-- <i class="lastudioicon-down-arrow"></i> -->
                             </div>
                         </div>
                         <!-- Shop Filter Sort By End -->
                     </div>
+                    
                     <!-- Shop Filter Default End -->
 
 
@@ -150,9 +162,11 @@ include("./components/header.php");
                                             <div class="single-product__info--tags">
                                                 <a href="#">Plant</a>
                                             </div>
-                                            <h3 class="single-product__info--title">
+                                            <h3 class="single-product__info--title tr-row">
                                                 <a href="product-single.php?id=<?php echo $item['productID'] ?>">
-                                                    <?php echo $item['productName'] ?>
+                                                
+                                                <?php echo $item['productName'] ?>
+                                    
                                                 </a>
                                             </h3>
                                             <div class="single-product__info--price">
@@ -229,7 +243,40 @@ include("./components/header.php");
     </div>
     <!-- Newsletter End -->
 </main>
+<script src="assets/js/app.js"></script>
+<script>
+    // search items start
 
+const taskFilter =document.querySelector('#taskFilter');
+taskFilter.addEventListener("input",filterInput);
+function filterInput(event){
+   
+    // console.log('clicked');
+event.preventDefault();
+const currentValue = event.target.value;
+// console.log(currentValue);
+const filterValue = currentValue.toLowerCase();
+// console.log(filterValue);
+const listItem = document.querySelectorAll('.tr-row');
+
+listItem.forEach(function (singleLi){
+    // console.log(singleLi)
+    const singleLiText = singleLi.innerText.toLowerCase();
+// console.log(singleLiText);
+if(singleLiText.indexOf(filterValue) === -1){
+       singleLi.parentElement.parentElement.parentElement.style.display = "none";
+}else{
+    singleLi.parentElement.parentElement.parentElement.style.display  = "";
+}
+   
+});
+
+};
+
+
+// search items end
+
+</script>
 <?php
 include("./components/footer.php");
 ?>
