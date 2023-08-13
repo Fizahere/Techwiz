@@ -183,7 +183,4 @@ if (isset($_POST['delete-review'])) {
     $authModel->deleteReview($reviewID, $pdo);
 }
 ;
-if(isset($_GET['submitFeedback'])){
-    $feedbackMsg = $_GET[''];
-}
 ;

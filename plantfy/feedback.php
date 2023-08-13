@@ -1,6 +1,27 @@
 <?php
 include_once('components/sessionHeader.php')
 ?>
+ <?php
+                                     if (isset($_SESSION['USER'])) {
+                                         $user = $_SESSION['USER'];
+                                         foreach ($user as $user) {
+                                            //  echo '<script>alert("'.$user['userID'].'")</script>';
+                                             $userID = $user['userID'];
+                                        
+                                         if(isset($_POST['submitFeedback'])){
+                                            $feedbackMsg = $_POST['msgFeedback'];
+                                            // echo '<script>alert("'.$user['userID'].'")</script>';
+                                            // echo '<script>alert("'.$feedbackMsg.'")</script>';
+                                            $query = $pdo->prepare('insert into feedback(feedbackUserID,feedback) values(:userID, :feedback)');
+                                            $query->bindParam("userID",$userID);
+                                            $query->bindParam("feedback",$feedbackMsg);
+                                            $query->execute();
+                                            // echo "<div class='alert'>Thanks for your feedback</div>";
+                                            echo '<script>alert("Thanks for your feedback")</script>';
+                                        } 
+                                        }
+                                     }
+                                    ?>
 <!-- Mobile Meta End -->
 <style>
     #mainLogin {
@@ -34,7 +55,7 @@ include_once('components/sessionHeader.php')
                     <div class="login-register">
                         <h3 class="login-register__title">FeedBack</h3>
 
-                        <form action="#" method='get'>
+                        <form action="" method='post'>
                             <div class="login-register__form">
                                 <!-- Single Form Start -->
 
@@ -44,23 +65,11 @@ include_once('components/sessionHeader.php')
                                 </div>
 
                                 <div class="single-form">
-                                    <?php
-                                     if (isset($_SESSION['USER'])) {
-                                         $user = $_SESSION['USER'];
-                                         foreach ($user as $user) {
-                                            //  echo '<script>alert("'.$user['userID'].'")</script>';
-                                             $userID = $user['userID'];
-                                             ?>
-                                            
-                                    <a href="submitFeedBack?getUserID = <?php echo $userID ?>">
-                                    <button class="single-form__btn btn" type='submit' id="" name='submitFeedback'>
-                                        Submit
+                                      <button class="single-form__btn btn" type='submit' id="" name='submitFeedback'>
+                                        submit
                                     </button>
-                                    </a>
-                                    <?php
-                                         }
-                                     }
-                                    ?>
+                                   
+                                   
                                 </div>
 
                             </div>
