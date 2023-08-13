@@ -62,9 +62,9 @@ include_once('php/query.php')
                     <div class="header__top--left d-none d-md-block">
                         <ul class="header__top--items">
                             <li>
-                                <a href="mailto:info.expmale@mail.com" aria-label="mail">
+                                <a href="mailto:info.plantnest@mail.com" aria-label="mail">
                                     <i class="lastudioicon-mail-2"></i>
-                                    <span>plantnest@gmail.com</span>
+                                    <span>plantnest@mail.com</span>
                                 </a>
                             </li>
                             <li>
@@ -90,7 +90,7 @@ include_once('php/query.php')
                                 </a>
                             </li>
                             <li>
-                                <a href="term-of-use.html" aria-label="help">
+                                <a href="term-of-use.php" aria-label="help">
                                     <i class="lastudioicon-b-meeting-2"></i>
                                     <span>Help Center</span>
                                 </a>
@@ -220,7 +220,7 @@ include_once('php/query.php')
                             <div class="offcanvas-cart-item">
                                 <div class="offcanvas-cart-item__thumbnail">
                                     <a href="#">
-                                        <img src="assets/images/products/product-05.png" width="70" height="84" alt="product" />
+                                        <img src="../adminPanel/images/products/product-05.png" width="70" height="84" alt="product" />
                                     </a>
                                 </div>
                                 <div class="offcanvas-cart-item__content">
@@ -311,11 +311,11 @@ include_once('php/query.php')
             <!-- Off Canvas Sidebar Menu Start -->
             <div class="offcanvas-sidebar__menu">
                 <ul class="offcanvas-menu-list">
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="blog.php">News & Events</a></li>
-                    <li><a href="faqs.php">FAQs</a></li>
+                <li><a href="about.php">About Us</a></li>
                     <li><a href="contact-us.php">Contact Us</a></li>
+                    <li><a href="faqs.php">FAQs</a></li>
+                    <li><a href="my-account.php">Profile</a></li>
+                    <li><a href="contact-us.php">Shop</a></li>
                 </ul>
             </div>
             <!-- Off Canvas Sidebar Menu End -->
@@ -334,7 +334,7 @@ include_once('php/query.php')
             <div class="offcanvas-sidebar__info">
                 <ul class="offcanvas-info-list">
                     <li><a href="tel:+61225315600">(+612) 2531 5600</a></li>
-                    <li><a href="mailto:info@exmple.com">plantnest@gmail.com</a></li>
+                    <li><a href="mailto:info.plantnest@exmple.com">plantnest@mail.com</a></li>
                     <li>
                         <span>
                             PO Box 1622 Colins Street West Victoria 8077 Australia

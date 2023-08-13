@@ -146,7 +146,7 @@ if (isset($_GET['wishlist'])) {
 
 
     //  }
-    // echo "<script>alert('working')</script>";
+    echo "<script>alert('working')</script>";
 }
 ;
 if (isset($_GET['removeFromWishlist'])) {
