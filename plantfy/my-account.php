@@ -3,6 +3,9 @@ include("./components/sessionHeader.php");
 if (!isset($_SESSION['USER'])) {
     redirectWindow('login.php');
 }
+// if(isset($_POST['cancelOrder'])){
+//     $
+// }
 ?>
 <style>
     .profile img {
@@ -159,41 +162,48 @@ if (!isset($_SESSION['USER'])) {
 
                                     <div class="single-form">
                                     <div class="col-md-12 mt-4">
-
-                                    <h4 class="contact-info-item__title">
+                                    <?php
+                        // if (isset($_SESSION['USER'])) {
+                        //     $user = $_SESSION['USER'];
+                        //     foreach ($user as $user) {
+                                // echo '<script>alert("'.$user['userID'].'")</script>';
+                                // $userID = $user['userID'];
+                                // $query = $pdo->prepare("Select * from orders where orderDate =:orderDate AND customerID =:customerID");
+                                // $query->bindParam("orderDate",$orderDate);
+                                // $query->bindParam("customerID",$userID);
+                                // $query->execute();
+                                // $orderData = $query->fetchAll(PDO::FETCH_ASSOC);
+                                // foreach($orderData as $singleOrder){
+                                //     $orderProductID = $singleOrder['productID'];
+                                //     $query = $pdo->prepare("Select * from products where productID = :orderProductID");
+                                //     $query->bindParam("orderProductID",$orderProductID);
+                                //     $query->execute();
+                                //     $productData = $query->fecthAll(PDO::FETCH_ASSOC);
+                                //     foreach($productData as $singleProductData){
+                                        ?>
+                                        <?php
+                                    // }
+                                    ?>
+                                     <h4 class="contact-info-item__title">
                                      Order # :
                                     </h4>
                                     <p>
                                         We’re available from 10 am – 10
                                         pm EST, 7 days a week.
                                     </p>
+                                    <form action="" method='post'>
+                                    <button class="wishlist-table__btn btn" name='cancelOrder'>Cancel Order</button>
+                                    </form>
+                                    <?php
+                                // }
+                                ?>
 
                                     <div class="contact-info-item__service mt-4">
-                                <h4 class="contact-info-item__service--title">
-                            Phone
-                        </h4>
-                        <p>
-                            <a href="tel:323658-5994">(0343)-0333242</a>
-                            <a href="tel:928636-5472">(+92)343-0333242</a>
-                        </p>
                     </div>
-                    <div class="contact-info-item mt-4">
-                        <h4 class="contact-info-item__title">
-                            Email to Us
-                        </h4>
-                        <p>
-                            <a href="mailto:aaron.lynch@mail.com">plantnest@gmail.com</a>
-                        </p>
-                    </div>
-                    <div class="contact-info-item mt-4">
-                        <h4 class="contact-info-item__title">
-                            Find Us
-                        </h4>
-                        <p>
-                            121 King Street, Shahra-e-Faisal
-                            <br />
-                            Karachi, Pakistan
-                        </p>
+                                <?php
+                            // }
+                        // }
+                        ?>
                     </div>
                 </div>
                                     </div>
