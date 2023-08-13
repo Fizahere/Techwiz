@@ -86,7 +86,7 @@ if(isset($_POST['update_category_info'])){
             
             $authModel->updateCategoryInelse( $category_id,$category_name, $pdo);                
             
-            echo "<script>alert('Updated succesfully')
+            echo "<script>
             location.assign('category.php')
             </script>";
             
@@ -220,7 +220,7 @@ if(isset($_POST['update_product_info'])){
             
             $authModel->updateProductsInelse($product_id,$product_name,$product_description,$product_price,$product_stock,$product_category, $pdo);                
             
-            echo "<script>alert('Updated text succesfully')
+            echo "<script>
             location.assign('products.php')
             </script>";
             
