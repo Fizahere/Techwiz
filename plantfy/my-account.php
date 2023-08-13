@@ -67,6 +67,11 @@ if (!isset($_SESSION['USER'])) {
                             </button>
                         </li>
                         <li>
+                            <button class="account-btn" data-bs-toggle="tab" data-bs-target="#orders" type="button">
+                                Orders
+                            </button>
+                        </li>
+                        <li>
                             <button class="account-btn" data-bs-toggle="tab" data-bs-target="#delete-account" type="button">
                                 Delete Your Account
                             </button>
@@ -144,6 +149,60 @@ if (!isset($_SESSION['USER'])) {
                         </div>
                     </div>
                     <!--  update account section end -->
+                    <!-- orders section start -->
+                    <div class="tab-pane fade" id="orders">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <h4 class="h4 mb-3">Orders Details</h4>
+
+                                    <div class="single-form">
+                                    <div class="col-md-12 mt-4">
+
+                                    <h4 class="contact-info-item__title">
+                                     Order # :
+                                    </h4>
+                                    <p>
+                                        We’re available from 10 am – 10
+                                        pm EST, 7 days a week.
+                                    </p>
+
+                                    <div class="contact-info-item__service mt-4">
+                                <h4 class="contact-info-item__service--title">
+                            Phone
+                        </h4>
+                        <p>
+                            <a href="tel:323658-5994">(0343)-0333242</a>
+                            <a href="tel:928636-5472">(+92)343-0333242</a>
+                        </p>
+                    </div>
+                    <div class="contact-info-item mt-4">
+                        <h4 class="contact-info-item__title">
+                            Email to Us
+                        </h4>
+                        <p>
+                            <a href="mailto:aaron.lynch@mail.com">plantnest@gmail.com</a>
+                        </p>
+                    </div>
+                    <div class="contact-info-item mt-4">
+                        <h4 class="contact-info-item__title">
+                            Find Us
+                        </h4>
+                        <p>
+                            121 King Street, Shahra-e-Faisal
+                            <br />
+                            Karachi, Pakistan
+                        </p>
+                    </div>
+                </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                                        <!-- orders section end -->
 
                     <!-- account delete section start -->
                     <div class="tab-pane fade my-4" id="delete-account">
@@ -208,62 +267,7 @@ if (!isset($_SESSION['USER'])) {
     </div>
     <!-- My Account End -->
 
-    <!-- Newsletter Start -->
-    <!-- Newsletter Start -->
-    <div class="newsletter-section">
-        <div class="newsletter-left" style="background-image: url(assets/images/newsletter-bg-1.jpg)">
-            <!-- Newsletter Wrapper Start -->
-            <div class="newsletter-wrapper text-center">
-                <h4 class="newsletter-wrapper__title">Follow us on</h4>
-                <p>
-                    Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                    lectus, vehicula vel euismod sed, vulputate
-                </p>
-
-                <div class="newsletter-social">
-                    <ul class="newsletter-social__list">
-                        <li>
-                            <a href="https://www.facebook.com/" aria-label="facebook">
-                                <i class="lastudioicon-b-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/" aria-label="twitter">
-                                <i class="lastudioicon-b-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://instagram.com/" aria-label="instagram">
-                                <i class="lastudioicon-b-instagram"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://elements.envato.com/" aria-label="envato">
-                                <i class="lastudioicon-envato"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="newsletter-right" style="background-image: url(assets/images/newsletter-bg-2.jpg)">
-            <div class="newsletter-wrapper text-center">
-                <h4 class="newsletter-wrapper__title">10% off when you sign up</h4>
-                <p>
-                    Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                    lectus, vehicula vel euismod sed, vulputate
-                </p>
-                <form action="#">
-                    <div class="newsletter-form-style-1">
-                        <input type="text" placeholder="Enter your email address..." />
-                        <button>Subscribe</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
+    
 </main>
 
 <?php
