@@ -81,6 +81,11 @@ include("./components/header.php");
   
     </div>
     </div>
+<!-- newsletter start -->
+   
+    <!-- Newsletter End -->
+
+    <!-- Newsletter End -->
 </main>
 
 <?php

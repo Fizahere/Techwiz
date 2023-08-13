@@ -1,4 +1,5 @@
 <!-- Footer Start -->
+
 <footer class="footer-section-2 footer-dark">
         <div class="container-fluid custom-container">
             <!-- Footer Main Start -->
@@ -9,18 +10,18 @@
                             <img src="assets/images/logo-white.png" alt="Logo" loading="lazy" />
                         </a>
                         <p>
-                            Proin volutpat vitae libero at tincidunt. Maecenas sapie
+                        Buy plants, pots, seeds and gardening services has never been easier but at PlantNest we provide you the best gardening services online 
                         </p>
                     </div>
                 </div>
                 <div class="footer-right">
                     <div class="footer-link">
                         <div class="footer-link__wrapper">
-                            <h4 class="footer-title text-white">Company links</h4>
+                            <h4 class="footer-title text-white">links</h4>
 
                             <ul class="footer-link__list">
                                 <li><a href="about.php">About us</a></li>
-                                <li><a href="shop-fullwidth.php">Shop</a></li>
+                                <li><a href="allProducts.php">Shop</a></li>
                                 <li><a href="term-of-use.php">Help Center</a></li>
                                 <li>
                                     <a href="term-of-use.php">Policy & Privacy</a>
@@ -31,11 +32,11 @@
                             <h4 class="footer-title text-white">Category</h4>
 
                             <ul class="footer-link__list">
-                                <li><a href="shop-fullwidth.php">Man</a></li>
-                                <li><a href="shop-fullwidth.php">Woman</a></li>
-                                <li><a href="shop-fullwidth.php">Kids</a></li>
+                                <li><a href="index.php">Indoor plants</a></li>
+                                <li><a href="index.php">Outdoor plants</a></li>
+                                <li><a href="index.php">Flowering plants</a></li>
                                 <li>
-                                    <a href="shop-fullwidth.php">Accessories</a>
+                                    <a href="index.php">Non-Flowering plants</a>
                                 </li>
                             </ul>
                         </div>
@@ -45,17 +46,17 @@
                             <ul class="footer-link__list">
                                 <li>
                                     <span>
-                                    4517 Washington Ave. Manchester, Kentucky
-                                    39495
+                                    121 King Street, Shahra-e-Faisal
+Karachi, Pakistan
                                 </span>
                                 </li>
                                 <li>
                                     <a href="mailto:info@example.com">
-                                        info@example.com
+                                    plantnest@gmail.com
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="tel:626997-4298">(626)997-4298</a>
+                                    <a href="tel:626997-4298"> (+92)343-0333242</a>
                                 </li>
                             </ul>
                         </div>
@@ -72,20 +73,12 @@
                             <p>
                                 &copy;
                                 <span class="current-year">2023</span>
-                                <span> Plantfy </span> Made with
-                                <i class="lastudioicon-heart-1"></i>
-                                by
-                                <a href="https://hasthemes.com/">HasThemes</a>
+                                <span> Plantfy </span> 
+                              
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <ul class="d-flex justify-content-center justify-content-md-end">
-                            <li><a href="term-of-use.php">Term of user</a></li>
-                            <li><a href="#">Payment refund</a></li>
-                            <li><a href="#">Accessibility</a></li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
             <!-- Footer CopyRight End -->
