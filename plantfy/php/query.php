@@ -180,7 +180,9 @@ if (isset($_GET['checkout'])) {
     }
 }
 ;
-if(isset($_GET['submitFeedback'])){
-    $feedbackMsg = $_GET['']
+if(isset($_POST['submitFeedback'])){
+    $feedbackMsg = $_POST['msgFeedback'];
+    $userID = $_GET['getUSerID'];
+    echo "<script>alert('working')</script>";
 }
 ;
