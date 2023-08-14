@@ -6,6 +6,9 @@ include_once('components/header.php')
     #mainLogin{
         margin-top: -2rem;
     }
+    #admin{
+        margin-top:3rem!important
+    }
 </style>
     <main id="mainLogin">
         <!-- Breadcrumb Start -->
@@ -53,6 +56,14 @@ include_once('components/header.php')
                                         <p class="lost-password">
                                             <span>Dont've an account?
                                                 <a href="signup.php" class='text-primary'>Sign Up</a>
+                                            </span>
+                                        </p>
+                                    </div>
+
+                                    <div class="single-form" id='admin'>
+                                        <p class="lost-password">
+                                            <span>Sign In As Admin?
+                                                <a href="adminPanel/signin.php" class='text-primary'>Sign In</a>
                                             </span>
                                         </p>
                                     </div>
