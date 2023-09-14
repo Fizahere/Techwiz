@@ -380,8 +380,7 @@ include("./components/header.php");
                             Our location
                         </h3>
                         <p class="our-info-item__info">
-                            4517 Washington Ave. Manchester, Kentucky
-                            39495
+                            Pakistan,Karachi
                         </p>
                     </div>
                     <!-- our Info Item End -->
@@ -390,7 +389,7 @@ include("./components/header.php");
                     <!-- our Info Item Start -->
                     <div class="our-info-item text-center js-scroll ShortFadeInUp">
                         <h3 class="our-info-item__title">Hotline</h3>
-                        <p class="our-info-item__info">(626)997-4298</p>
+                        <p class="our-info-item__info">(0334)997-4298</p>
                     </div>
                     <!-- our Info Item End -->
                 </div>

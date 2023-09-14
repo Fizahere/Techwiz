@@ -5,7 +5,7 @@ include_once('php/functions.php');
 
 function getRoot()
 {
-    return '/Techwiz/plantfy/';
+    return '/Techwiz/plantnest/';
 }
 
 ?>

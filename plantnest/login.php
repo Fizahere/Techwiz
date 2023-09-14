@@ -1,5 +1,8 @@
 <?php
-include_once('components/header.php')
+include_once('components/header.php');
+if(isset($_SESSION['USER'])){
+    redirectWindow('index.php');
+    }
 ?>
     <!-- Mobile Meta End -->
 <style>

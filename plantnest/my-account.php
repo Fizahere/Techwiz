@@ -26,7 +26,7 @@ if (!isset($_SESSION['USER'])) {
         margin-left: 3rem !important;
     }
 
-    #signout_btn {
+    #logoutButton {
         width: 20rem !important;
         height: 4rem;
     }
@@ -36,6 +36,9 @@ if (!isset($_SESSION['USER'])) {
         height: 4rem;
         background-color: rgb(208, 60, 78) !important;
         border: none;
+    }
+    #logoutButton{
+        cursor: pointer;
     }
 </style>
 
@@ -257,7 +260,7 @@ if (!isset($_SESSION['USER'])) {
 
                                     <div class="single-form">
                                         <a href="logout.php">
-                                            <button class="single-form__btn btn" id='signout_btn'>
+                                            <button class="single-form__btn btn" id='logoutButton'>
                                                 <h4 class='h6'>Sign Out ?</h4>
                                             </button>
                                         </a>
@@ -279,7 +282,25 @@ if (!isset($_SESSION['USER'])) {
 
     
 </main>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Get a reference to the logout button
+    const logoutButton = document.getElementById('logoutButton');
 
+    // Attach a click event listener to the logout button
+    logoutButton.addEventListener('click', function () {
+        // Display a confirmation dialog
+        const confirmed = window.confirm('Are you sure you want to Sign out?');
+
+        // If the user confirms, log them out
+        if (confirmed) {
+            // Perform the logout action here, for example, redirect to 'logout.php'
+            window.location.href = 'logout.php';
+        }
+    });
+});
+
+</script>
 <?php
 include_once('components/footer.php')
 ?>

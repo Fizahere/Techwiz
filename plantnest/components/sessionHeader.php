@@ -50,6 +50,9 @@ include_once('php/query.php')
     #navItems{
         margin-right: 5rem;
     }
+    #logoutButton{
+        cursor: pointer;
+    }
 </style>
 
 <body>
@@ -70,13 +73,13 @@ include_once('php/query.php')
                             <li>
                                 <a href="tel:+(867)195-6696" aria-label="Phone">
                                     <i class="lastudioicon-phone-call"></i>
-                                    <span>(867)195-6696</span>
+                                    <span>(0334)195-6696</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" aria-label="Map">
                                     <i class="lastudioicon-pin-3-1"></i>
-                                    <span>Los Angeles</span>
+                                    <span>Pakistan</span>
                                 </a>
                             </li>
                         </ul>
@@ -84,16 +87,20 @@ include_once('php/query.php')
                     <div class="header__top--right">
                         <ul class="header__top--items">
                             <li>
-                                <a href="login.php" aria-label="login">
-                                    <i class="lastudioicon-single-01-1"></i>
-                                    <span>Login</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="term-of-use.php" aria-label="help">
-                                    <i class="lastudioicon-b-meeting-2"></i>
-                                    <span>Help Center</span>
-                                </a>
+
+                                <i class="lastudioicon-single-01-1"></i>
+                                <?php
+                                if (isset($_SESSION['USER'])) {
+                                    ?>
+                                    <span id="logoutButton">Logout</span>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <span> <a href="login.php" aria-label="login">Login </a></span>
+                                    <?php
+                                }
+                                ?>
+
                             </li>
                         </ul>
                     </div>
@@ -114,8 +121,9 @@ include_once('php/query.php')
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
                         <div class="header__main--logo text-center text-xl-start">
-                            <a href="index.html">
-                                <img src="assets/images/logo.png" alt="Logo" />
+                            <a href="index.php">
+                                <!-- <img src="assets/images/logo.png" alt="Logo" /> -->
+                                <h1>PlantNest</h1>
                             </a>
                         </div>
                     </div>
@@ -649,7 +657,25 @@ include_once('php/query.php')
             </li>
         </ul>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get a reference to the logout button
+            const logoutButton = document.getElementById('logoutButton');
 
+            // Attach a click event listener to the logout button
+            logoutButton.addEventListener('click', function () {
+                // Display a confirmation dialog
+                const confirmed = window.confirm('Are you sure you want to log out?');
+
+                // If the user confirms, log them out
+                if (confirmed) {
+                    // Perform the logout action here, for example, redirect to 'logout.php'
+                    window.location.href = 'logout.php';
+                }
+            });
+        });
+
+    </script>
     <!-- Mobile Meta End -->
 
   
