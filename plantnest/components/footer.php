@@ -1,6 +1,6 @@
 <!-- Footer Start -->
 <style>
-    #logo{
+    #logo {
         color: white;
     }
 </style>
@@ -11,7 +11,7 @@
             <div class="footer-left">
                 <div class="footer-about text-lg-start text-center">
                     <a class="footer-about__logo" href="index.php">
-                  <h1 id="logo">PlantNest</h1>
+                        <h1 id="logo">PlantNest</h1>
                     </a>
                     <p>
                         Buy plants, pots, seeds and gardening services has never been easier but at PlantNest we provide
@@ -32,15 +32,21 @@
                         </ul>
                     </div>
                     <div class="footer-link__wrapper">
-                        <h4 class="footer-title text-white">Category</h4>
+                        <h4 class="footer-title text-white">Categories</h4>
 
                         <ul class="footer-link__list">
-                            <li><a href="index.php">Indoor plants</a></li>
-                            <li><a href="index.php">Outdoor plants</a></li>
-                            <li><a href="index.php">Flowering plants</a></li>
-                            <li>
-                                <a href="index.php">Non-Flowering plants</a>
-                            </li>
+                            <?php
+                            $query = $pdo->prepare("select * from categories");
+                            $query->execute();
+                            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+                            foreach ($result as $singleRow) {
+                                ?>
+                                <li><a href="shop-fullwidth.php?id=<?php echo $singleRow['categoryID'] ?>">
+                                        <?php echo $singleRow['categoryName'] ?>
+                                    </a></li>
+                                <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                     <div class="footer-link__wrapper">

@@ -59,60 +59,30 @@ include("./components/header.php");
                         <!-- Shop Filter Count End -->
                         <!--Search products start-->
                         <li class="search d-none d-lg-block">
-                                    
-                                        <div class="meta-search meta-search--dark">
-                                            <input type="text" id="taskFilter"  placeholder="Search function" />
-                                            <button aria-label="search">
-                                                <i class="lastudioicon-zoom-1"></i>
-                                            </button>
-                                        </div>
-                                    
-                                </li>
+
+                            <div class="meta-search meta-search--dark">
+                                <input type="text" id="taskFilter" placeholder="Search function" />
+                                <button aria-label="search">
+                                    <i class="lastudioicon-zoom-1"></i>
+                                </button>
+                            </div>
+
+                        </li>
                         <!-- Search products  end-->
                         <!-- Shop Filter Sort By Start -->
                         <div class="shop-filter-sort-by">
                             <div class="shop-filter-sort-by__label">
                                 <form action="" method='post'>
-                                    <button name='sortByPrice' class="btn btn-secondary text-light bg-dark">Sort by Price </button>
+                                    <button name='sortByPrice' class="btn btn-secondary text-light bg-dark">Sort by Price
+                                    </button>
                                 </form>
                                 <!-- <i class="lastudioicon-down-arrow"></i> -->
                             </div>
                         </div>
                         <!-- Shop Filter Sort By End -->
                     </div>
-                    
+
                     <!-- Shop Filter Default End -->
-
-
-
-                    <!-- Shop Filter widget Start -->
-                    <div class="shop-filter-widget">
-                        <div class="filter-widget-row">
-                            <div class="filter-widget-col">
-                                <!-- widget Item Start -->
-
-                                <!-- widget Item End -->
-                            </div>
-                            <div class="filter-widget-col">
-                                <!-- widget Item Start -->
-                                <!-- widget Item End -->
-                            </div>
-                            <div class="filter-widget-col">
-                                <!-- widget Item Start -->
-                                <!-- widget Item End -->
-                            </div>
-                            <div class="filter-widget-col">
-                                <!-- widget Item Start -->
-                                <!-- widget Item End -->
-                            </div>
-                            <div class="filter-widget-col">
-                                <!-- widget Item Start -->
-
-                                <!-- widget Item End -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Shop Filter widget End -->
                 </div>
                 <!-- Shop Filter End -->
 
@@ -133,24 +103,33 @@ include("./components/header.php");
                                 <div class="single-product js-scroll ShortFadeInUp">
                                     <a href="product-single.php?id=<?php echo $item['productID'] ?>">
                                         <div class="single-product__thumbnail">
-                                        <div class="single-product__thumbnail--meta-3">
-                                        <?php
-                                        if (isset($_SESSION['USER'])) {
-                                            $user = $_SESSION['USER'];
-                                            foreach ($user as $user) {
-                                                // echo '<script>alert("'.$user['userID'].'")</script>';
-                                                $userID = $user['userID'];
-                                            }
-                                        }
-                                        ?>
-                                        <a href="?wishlist=<?php echo $item['productID'] ?>&userId=<?php echo $userID ?>"
-                                            data-bs-tooltip="tooltip" data-bs-placement="top"
-                                            data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
-                                            aria-label="wishlist">
-                                            <i class="lastudioicon-heart-2"></i>
-                                        </a>
-
-                                    </div>
+                                            <div class="single-product__thumbnail--meta-3">
+                                                <?php
+                                                if (isset($_SESSION['USER'])) {
+                                                    $user = $_SESSION['USER'];
+                                                    foreach ($user as $user) {
+                                                        // echo '<script>alert("'.$user['userID'].'")</script>';
+                                                        $userID = $user['userID'];
+                                                    }
+                                                    ?>
+                                                    <a href="?wishlist=<?php echo $item['productID'] ?>&userId=<?php echo $userID ?>"
+                                                        data-bs-tooltip="tooltip" data-bs-placement="top"
+                                                        data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
+                                                        aria-label="wishlist">
+                                                        <i class="lastudioicon-heart-2"></i>
+                                                    </a>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <a href="login.php" data-bs-tooltip="tooltip" data-bs-placement="top"
+                                                        data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
+                                                        aria-label="wishlist">
+                                                        <i class="lastudioicon-heart-2"></i>
+                                                    </a>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </div>
                                             <div class="single-product__thumbnail--holder">
                                                 <a href="product-single.php?id=<?php echo $item['productID'] ?>">
                                                     <img src="./adminPanel/images/products/<?php echo $item['productImage'] ?>"
@@ -164,9 +143,9 @@ include("./components/header.php");
                                             </div>
                                             <h3 class="single-product__info--title tr-row">
                                                 <a href="product-single.php?id=<?php echo $item['productID'] ?>">
-                                                
-                                                <?php echo $item['productName'] ?>
-                                    
+
+                                                    <?php echo $item['productName'] ?>
+
                                                 </a>
                                             </h3>
                                             <div class="single-product__info--price">
@@ -247,34 +226,34 @@ include("./components/header.php");
 <script>
     // search items start
 
-const taskFilter =document.querySelector('#taskFilter');
-taskFilter.addEventListener("input",filterInput);
-function filterInput(event){
-   
-    // console.log('clicked');
-event.preventDefault();
-const currentValue = event.target.value;
-// console.log(currentValue);
-const filterValue = currentValue.toLowerCase();
-// console.log(filterValue);
-const listItem = document.querySelectorAll('.tr-row');
+    const taskFilter = document.querySelector('#taskFilter');
+    taskFilter.addEventListener("input", filterInput);
+    function filterInput(event) {
 
-listItem.forEach(function (singleLi){
-    // console.log(singleLi)
-    const singleLiText = singleLi.innerText.toLowerCase();
-// console.log(singleLiText);
-if(singleLiText.indexOf(filterValue) === -1){
-       singleLi.parentElement.parentElement.parentElement.style.display = "none";
-}else{
-    singleLi.parentElement.parentElement.parentElement.style.display  = "";
-}
-   
-});
+        // console.log('clicked');
+        event.preventDefault();
+        const currentValue = event.target.value;
+        // console.log(currentValue);
+        const filterValue = currentValue.toLowerCase();
+        // console.log(filterValue);
+        const listItem = document.querySelectorAll('.tr-row');
 
-};
+        listItem.forEach(function (singleLi) {
+            // console.log(singleLi)
+            const singleLiText = singleLi.innerText.toLowerCase();
+            // console.log(singleLiText);
+            if (singleLiText.indexOf(filterValue) === -1) {
+                singleLi.parentElement.parentElement.parentElement.style.display = "none";
+            } else {
+                singleLi.parentElement.parentElement.parentElement.style.display = "";
+            }
+
+        });
+
+    };
 
 
-// search items end
+    // search items end
 
 </script>
 <?php

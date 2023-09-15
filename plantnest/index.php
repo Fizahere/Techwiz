@@ -2,7 +2,7 @@
 include("./components/header.php");
 ?>
 <style>
-    #blog-margin{
+    #blog-margin {
         margin-top: -4rem;
     }
 </style>
@@ -166,15 +166,24 @@ include("./components/header.php");
                                                 // echo '<script>alert("'.$user['userID'].'")</script>';
                                                 $userID = $user['userID'];
                                             }
+                                            ?>
+                                            <a href="?wishlist=<?php echo $plants['productID'] ?>&userId=<?php echo $userID ?>"
+                                                data-bs-tooltip="tooltip" data-bs-placement="top"
+                                                data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
+                                                aria-label="wishlist">
+                                                <i class="lastudioicon-heart-2"></i>
+                                            </a>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <a href="login.php" data-bs-tooltip="tooltip" data-bs-placement="top"
+                                                data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
+                                                aria-label="wishlist">
+                                                <i class="lastudioicon-heart-2"></i>
+                                            </a>
+                                            <?php
                                         }
                                         ?>
-                                        <a href="?wishlist=<?php echo $plants['productID'] ?>&userId=<?php echo $userID ?>"
-                                            data-bs-tooltip="tooltip" data-bs-placement="top"
-                                            data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip"
-                                            aria-label="wishlist">
-                                            <i class="lastudioicon-heart-2"></i>
-                                        </a>
-
                                     </div>
                                     <div class="single-product__thumbnail--holder">
                                         <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
@@ -399,59 +408,59 @@ include("./components/header.php");
     <!-- our info End -->
 </main>
 <footer class="footer-section-2 footer-dark">
-        <div class="container-fluid custom-container">
-            <!-- Footer Main Start -->
-            <div class="footer-margin">
-                <div class="footer-right">
-                    
-                </div>
-                <div class="footer-right">
-                    <div class="footer-link">
-                        <div class="">
-                           
+    <div class="container-fluid custom-container">
+        <!-- Footer Main Start -->
+        <div class="footer-margin">
+            <div class="footer-right">
 
-                            
-                            <ul class="footer-link__list">
+            </div>
+            <div class="footer-right">
+                <div class="footer-link">
+                    <div class="">
+
+
+
+                        <ul class="footer-link__list">
                             <h4 class="footer-title text-white">Site Map</h4>
 
-                                <li><a href="index.php">Home</a></li>
-                                <li><a href="allProducts.php">Shop</a></li>
-                                <li><a href="faqs.php">Faq</a></li>
-                                <li>
-                                    <a href="feedback.php">Feedback</a>
-                                </li>
-                            </ul>
-                            
-                        </div>
-                        <div class="footer-link__wrapper">
-                            <ul class="footer-link__list">
-                                <li><a href="about.php">About</a></li>
-                                <li><a href="contact-us.php">contact-us</a></li>
-                                <li><a href="term-of-use.php">terms & uses</a></li>
-                                <li>
-                                    <a href="my-account.php">My Account</a>
-                                </li>
-                            </ul>
-                        </div>
-                     
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Main End -->
-  <!-- Footer CopyRight Start -->
-  <div class="footer-copyright">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                       
-                    </div>
-                    
-                </div>
-            </div>
-            <!-- Footer CopyRight End -->
-        </div>
-    </footer>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="allProducts.php">Shop</a></li>
+                            <li><a href="faqs.php">Faq</a></li>
+                            <li>
+                                <a href="feedback.php">Feedback</a>
+                            </li>
+                        </ul>
 
-    <!-- Footer End -->
+                    </div>
+                    <div class="footer-link__wrapper">
+                        <ul class="footer-link__list">
+                            <li><a href="about.php">About</a></li>
+                            <li><a href="contact-us.php">contact-us</a></li>
+                            <li><a href="term-of-use.php">terms & uses</a></li>
+                            <li>
+                                <a href="my-account.php">My Account</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer Main End -->
+        <!-- Footer CopyRight Start -->
+        <div class="footer-copyright">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+
+                </div>
+
+            </div>
+        </div>
+        <!-- Footer CopyRight End -->
+    </div>
+</footer>
+
+<!-- Footer End -->
 <!-- Footer Start -->
 <?php
 include_once('components/footer.php')
