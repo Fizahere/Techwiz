@@ -218,7 +218,7 @@ include_once('php/query.php')
                             <div class="offcanvas-cart-item">
                                 <div class="offcanvas-cart-item__thumbnail">
                                     <a href="#">
-                                        <img src="../adminPanel/images/products/product-05.png" width="70" height="84" alt="product" />
+                                        <img src="./adminPanel/images/products/<?php echo $item['getImage'] ?>" width="70" height="84" alt="product" />
                                     </a>
                                 </div>
                                 <div class="offcanvas-cart-item__content">

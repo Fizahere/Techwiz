@@ -66,15 +66,11 @@ include("./components/header.php");
                                             class="remove">×</a>
                                     </td>
                                     <td class="product-thumbnail">
-                                        <a href="product-single.html">
-                                            <img src="./adminPanel/images/products/product-02.png" alt="Product" width="90"
-                                                height="114" />
-                                        </a>
+                                        <img src="./adminPanel/images/products/<?php echo $data['productImage'] ?>"
+                                            alt="<?php echo $data['productName'] ?>" width="90" height="114" />
                                     </td>
                                     <td class="product-name">
-                                        <a href="product-single.html">
-                                            <?php echo $data['productName'] ?>
-                                        </a>
+                                        <?php echo $data['productName'] ?>
                                     </td>
                                     <td class="product-price text-md-center" data-title="Price">
                                         <span>
@@ -89,7 +85,8 @@ include("./components/header.php");
                                         </span>
                                     </td> -->
                                     <td class="product-action text-md-end">
-                                        <a href="product-single.php?id=<?php echo $data['productID'] ?>" class="wishlist-table__btn btn">
+                                        <a href="product-single.php?id=<?php echo $data['productID'] ?>"
+                                            class="wishlist-table__btn btn">
                                             See Details
                                         </a>
                                     </td>

@@ -223,7 +223,7 @@ include_once('php/query.php')
                             <div class="offcanvas-cart-item">
                                 <div class="offcanvas-cart-item__thumbnail">
                                     <a href="#">
-                                        <img src="../adminPanel/images/products/product-05.png" width="70" height="84"
+                                        <img src="./adminPanel/images/products/<?php echo $item['getImage'] ?>" width="70" height="84"
                                             alt="product" />
                                     </a>
                                 </div>
@@ -402,7 +402,7 @@ include_once('php/query.php')
         <div class="offcanvas-body">
             <nav class="navbar-mobile-menu">
                 <ul class="mobile-menu-items">
-                    <li>
+                    <!-- <li>
                         <a href="#">
                             Demos
                             <span class="menu-expand" aria-label="down-arrow">
@@ -413,14 +413,14 @@ include_once('php/query.php')
                             <li><a href="index.html">Plant 01</a></li>
                             <li><a href="index-2.html">Plant 02</a></li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="#">
+                    </li> -->
+                    <!-- <li> -->
+                        <!-- <a href="#">
                             Pages
                             <span class="menu-expand" aria-label="down-arrow">
                                 <i class="lastudioicon-down-arrow"></i>
                             </span>
-                        </a>
+                        </a> -->
                         <ul class="sub-menu">
                             <li><a href="about.php">About us</a></li>
                             <li><a href="contact-us.php">Contact Us</a></li>
