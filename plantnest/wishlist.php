@@ -110,35 +110,32 @@ include("./components/header.php");
             <!-- Newsletter Wrapper Start -->
             <div class="newsletter-wrapper text-center">
                 <h4 class="newsletter-wrapper__title">Follow us on</h4>
-                <p>
-                    Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                    lectus, vehicula vel euismod sed, vulputate
-                </p>
+              
 
                 <div class="newsletter-social">
                     <ul class="newsletter-social__list">
                         <li>
-                            <a href="#" aria-label="facebook">
+                            <a href="https://facebook.com" target="_blank"  aria-label="facebook">
                                 <i class="lastudioicon-b-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-label="twitter">
+                            <a href="https://twitter.com" target="_blank"  aria-label="twitter">
                                 <i class="lastudioicon-b-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-label="instagram">
+                            <a href="https://instagram.com" target="_blank"  aria-label="instagram">
                                 <i class="lastudioicon-b-instagram"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-label="vimeo">
+                            <a href="https://vimeo.com" target="_blank"  aria-label="vimeo">
                                 <i class="lastudioicon-b-vimeo"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-label="envato">
+                            <a href="https://envato.com" target="_blank"  aria-label="envato">
                                 <i class="lastudioicon-envato"></i>
                             </a>
                         </li>
@@ -152,15 +149,11 @@ include("./components/header.php");
             <div class="newsletter-wrapper text-center">
                 <h4 class="newsletter-wrapper__title">10% off when you sign up</h4>
                 <p>
-                    Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                    lectus, vehicula vel euismod sed, vulputate
+                    Our online nursery is accessible 24/7, allowing
+                    you to
+                    shop whenever it's convenient for you. Whether you're an early bird or a night owl, we're always
+                    open.
                 </p>
-                <form action="#">
-                    <div class="newsletter-form-style-1">
-                        <input type="text" placeholder="Enter your email address..." />
-                        <button>Subscribe</button>
-                    </div>
-                </form>
             </div>
             <!-- Newsletter Wrapper End -->
         </div>

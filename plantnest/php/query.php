@@ -25,18 +25,27 @@ if (isset($_POST['signup'])) {
     if (empty($_POST['password'])) {
         redirectWindow('signup.php');
     }
+    if (empty($_POST['confirmpassword'])) {
+        redirectWindow('signup.php');
+    }
     $username = $_POST['username'];
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmpassword'];
 
-    //checking if user already exists
-    $user = $authModel->findUserWithEmail($email, $pdo);
-    if ($user) {
-        redirectWindow("signup.php?error=Email already exists");
+    if ($password == $confirmPassword) {
+        //checking if user already exists
+        $user = $authModel->findUserWithEmail($email, $pdo);
+        if ($user) {
+            redirectWindow("signup.php?error=Email already exists");
+        }
+
+        $authModel->signup($username, $fullname, $email, $password, $pdo);
+    } else {
+    //   return;
+    '<script>alert("not matched!")</script>';
     }
-
-    $authModel->signup($username, $fullname, $email, $password, $pdo);
     $user = $authModel->findUserWithEmail($email, $pdo);
 
     if ($user) {
@@ -190,12 +199,12 @@ if (isset($_POST['delete-review'])) {
 if (isset($_POST['delete-account'])) {
     $deleteAccountID = $_POST['deleteID'];
     $authModel->deleteAccount($deleteAccountID, $pdo);
-    echo '<script>alert("Your has been deleted.")</script>';
+    echo '<script>alert("Your account has been deleted.")</script>';
     redirectWindow('logout.php');
 }
 if (isset($_GET['id'])) {
-$getCategoryID = $_GET['id'];
-$query = $pdo->prepare("Select * from products where categoryID = :categoryID");
-$query->bindParam("categoryID", $getCategoryID);
-$query->execute();
+    $getCategoryID = $_GET['id'];
+    $query = $pdo->prepare("Select * from products where categoryID = :categoryID");
+    $query->bindParam("categoryID", $getCategoryID);
+    $query->execute();
 }

@@ -272,7 +272,7 @@ include_once('php/query.php')
 
             <!-- Cart Buttons End-->
             <div class="cart-buttons">
-                <a href="cart.php" class="cart-buttons__btn-1 btn">Checkout</a>
+                <a href="checkout.php" class="cart-buttons__btn-1 btn">Checkout</a>
                 <a href="cart.php" class="cart-buttons__btn-2 btn">View Cart</a>
             </div>
             <!-- Cart Buttons End-->
