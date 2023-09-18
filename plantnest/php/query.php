@@ -142,22 +142,10 @@ if (isset($_GET['removeFromCart'])) {
 if (isset($_GET['wishlist'])) {
     $getWishlistId = $_GET['wishlist'];
     $getUserIdForWishlist = $_GET['userId'];
-    //  $query = $pdo->prepare("Select wishlistProductID from wishlist");
-    //  $query->execute();
-    //  $getWishListData = $query->fetchAll(PDO::FETCH_ASSOC);
-    //  echo "<script>alert($getWishListData)</script>";
-    //  if(isset($getWishListData)){
-    //     $productId = array_column($getWishListData['wishlistProductID'],$getWishlistId);
-    //     echo "<script>alert('product already exists')</script>";
-    //  }
-    //  else{
     $authModel->addWishList($pdo, $getWishlistId, $getUserIdForWishlist);
     header('location:wishlist.php');
     // echo "<script>alert('Item added to wishlist')</script>";
-
-
-    //  }
-    echo "<script>alert('working')</script>";
+    // echo "<script>alert('working')</script>";
 }
 ;
 if (isset($_GET['removeFromWishlist'])) {
@@ -168,30 +156,16 @@ if (isset($_GET['removeFromWishlist'])) {
     $query->execute();
     echo "<script>alert('Item removed from wishlist')</script>";
 }
-//checkout
-// $order_id = $pdo->prepare("select * from orders");
-// $order_id->execute();
-// $getOrderID = $order_id->fetchAll(PDO::FETCH_ASSOC);
-// foreach ($getOrderID as $singleOrderID) {
-//     echo $singleOrderID['orderID'];
-// }
-
-
-
-
 if (isset($_GET['submitOrder'])) {
 
 
     $getUserId = $_GET['submitOrder'];
-    // Get Last Order_id
-    // $counter = 1;
-    // $fetch = mysqli_query($con, "SELECT * FROM orders");
-    // while ($data = mysqli_fetch_assoc($fetch)) {
-    //     $counter = count($data);
-    // }
-    // $counter;
     $total_qty = 0;
     $grandTotalPrice = 0;
+    // if (empty($_POST['fullname'] || $_POST['emailAddress'] || $_POST['phone'] || $_POST['location'])) {
+    // }
+    // if(empty($_POST['$emailAddress'])) 
+    // else {
     foreach ($_SESSION['cartTwo'] as $key => $value) {
         $id = $value['getId'];
         // $name = $value['getName'];
@@ -200,23 +174,23 @@ if (isset($_GET['submitOrder'])) {
         $qty = $value['getQty'];
         $totalAmount = $value['getQty'] * $value['getPrice'];
         $grandTotalPrice += $totalAmount;
-
-        $query = $pdo->prepare('insert into orders(userID,productID,productQuantity,totalAmount) values(:userID,:productID, :productQuantity, :totalAmount)');
+        $fkOrderID =
+            $query = $pdo->prepare('insert into orders(userID,productID,productQuantity,totalAmount) values(:userID,:productID, :productQuantity, :totalAmount)');
         $query->bindParam("userID", $getUserId);
         $query->bindParam("productID", $id);
         $query->bindParam("productQuantity", $qty);
+        // $query->bindParam("fkOrderID",$fkOrderID);
         $query->bindParam("totalAmount", $totalAmount);
         $query->execute();
-
         echo "<script>alert('order added successfully');
-    location.assign('index.php');
-    </script>";
+        location.assign('index.php');
+        </script>";
         unset($_SESSION['cartTwo']);
     }
 
     mysqli_query($con, "INSERT INTO final_order(user_id,qty,total_price)VALUES('$getUserId','$total_qty','$grandTotalPrice')");
-
 }
+// }
 ;
 
 if (isset($_POST['delete-review'])) {
