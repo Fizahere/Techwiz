@@ -107,7 +107,7 @@ include("php/query.php");
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-
+                <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
                     <a href="users.php" class="nav-item nav-link "><i class="fa fa-users me-2"></i>Users</a>
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-cubes me-2"></i>Categories</a>
