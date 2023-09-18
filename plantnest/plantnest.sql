@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2023 at 11:11 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Sep 18, 2023 at 11:57 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -88,6 +88,28 @@ INSERT INTO `feedback` (`feedbackID`, `feedbackUserID`, `feedback`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `final_order`
+--
+
+CREATE TABLE `final_order` (
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `total_price` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'Pending',
+  `date_of_order` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `final_order`
+--
+
+INSERT INTO `final_order` (`order_id`, `user_id`, `qty`, `total_price`, `status`, `date_of_order`) VALUES
+(1, 12, 4, 160, 'Pending', '2023-09-18 08:34:46');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
@@ -106,17 +128,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `orderDate`, `totalAmount`, `orderStatus`) VALUES
-(1, NULL, 2, '2', '2023-08-08 19:00:00', '5677', 'pending'),
-(2, NULL, 1, '2', '2023-08-08 19:00:00', '5677', 'pending'),
-(3, 6, 4, '1', '2023-08-11 19:00:00', '25.99', 'pending'),
-(4, 6, 5, '1', '2023-08-11 19:00:00', '26.99', 'pending'),
-(5, 6, 2, '1', '2023-08-11 19:00:00', '39.99', 'pending'),
-(6, 6, 3, '1', '2023-08-11 19:00:00', '35.99', 'approved'),
-(7, 6, 2, '1', '2023-08-11 19:00:00', '39.99', 'pending'),
-(8, 6, 2, '1', '2023-08-12 19:00:00', '39.99', 'pending'),
-(9, 6, 2, '1', '2023-08-12 19:00:00', '39.99', 'pending'),
-(10, 6, 2, '1', '2023-08-13 08:51:52', '39.99', 'pending'),
-(11, 6, 3, '1', '2023-08-13 08:51:52', '35.99', 'pending');
+(1, 12, 1, '3', '2023-09-18 08:34:46', '119.97', 'pending'),
+(2, 12, 2, '1', '2023-09-18 08:34:46', '39.99', 'pending');
 
 -- --------------------------------------------------------
 
@@ -207,7 +220,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `firstName`, `lastName`, `userEmail`, `userPassword`) VALUES
-(6, 'user', 'user', 'user@gmail.com', '$2y$10$kKffEgWCHe5M9H3H4oWlTOZg2Mu9cjJ7e.Lk50ZxF8pkQJsXmP/Fi');
+(6, 'user', 'user', 'user@gmail.com', '$2y$10$kKffEgWCHe5M9H3H4oWlTOZg2Mu9cjJ7e.Lk50ZxF8pkQJsXmP/Fi'),
+(7, 'Test', NULL, 'Ab@gmail.com', '$2y$10$U4o0OLktmcNW4Mhor4lWXOyZJPzvuGzZzW88GkjSwRDU/HCjo.Gnm'),
+(10, 'Test', NULL, 'Test@gmail.com', '$2y$10$Z1bNQ0BFocMjjf1eDJ/YxesNSz3ejKp5CsE/FvkhHg9p9f/GUOfpq'),
+(12, 'Talib', 'Baloch', 'talib@gmail.com', '$2y$10$0WYiFviwAiuJsCakzYb01.sZ9A2YZa5rJPqe9d/f1X70gGFxECNBm');
 
 -- --------------------------------------------------------
 
@@ -253,6 +269,13 @@ ALTER TABLE `categories`
 ALTER TABLE `feedback`
   ADD PRIMARY KEY (`feedbackID`),
   ADD KEY `feedbackKey` (`feedbackUserID`);
+
+--
+-- Indexes for table `final_order`
+--
+ALTER TABLE `final_order`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `orders`
@@ -315,10 +338,16 @@ ALTER TABLE `feedback`
   MODIFY `feedbackID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `final_order`
+--
+ALTER TABLE `final_order`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `productreviews`
@@ -336,7 +365,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
@@ -353,6 +382,12 @@ ALTER TABLE `wishlist`
 --
 ALTER TABLE `feedback`
   ADD CONSTRAINT `feedbackKey` FOREIGN KEY (`feedbackUserID`) REFERENCES `users` (`userID`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `final_order`
+--
+ALTER TABLE `final_order`
+  ADD CONSTRAINT `final_order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`);
 
 --
 -- Constraints for table `orders`
