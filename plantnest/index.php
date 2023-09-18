@@ -157,7 +157,7 @@ include("./components/header.php");
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-product js-scroll ShortFadeInUp scrolled">
                             <a href="product-single.php?id=<?php echo $plants['productID'] ?>">
-                                <div class="single-product__thumbnail">
+                                <!-- <div class="single-product__thumbnail"> -->
                                     <div class="single-product__thumbnail--meta-3">
                                         <?php
                                         if (isset($_SESSION['USER'])) {
@@ -191,7 +191,7 @@ include("./components/header.php");
                                                 alt="Product" width="344" height="370" loading="lazy" />
                                         </a>
                                     </div>
-                                </div>
+                                <!-- </div> -->
                                 <div class="single-product__info">
                                     <div class="single-product__info--tags">
                                         <a href="#">Plant</a>

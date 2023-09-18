@@ -11,7 +11,7 @@ if (!isset($_SESSION['cartTwo'])) {
             <div class="breadcrumb-wrapper text-center">
                 <h2 class="breadcrumb-wrapper__title">Checkout</h2>
                 <ul class="breadcrumb-wrapper__items justify-content-center">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><span>checkout</span></li>
                 </ul>
             </div>
@@ -42,15 +42,9 @@ if (!isset($_SESSION['cartTwo'])) {
                                 </div>
 
                                 <div class="single-form">
-                                    <input class="single-form__input" id="fullname" name="username" type="text"
+                                    <input class="single-form__input" id="fullname" name="userName" type="text"
                                         placeholder="Full name *" required />
                                     <span id="errorfullNameCheckout"></span>
-                                </div>
-
-                                <div class="single-form">
-                                    <input class="single-form__input" id="emailAddress" name="email" type="email"
-                                        placeholder="Email address *" required />
-                                    <span id="erroremailAddress"></span>
                                 </div>
                                 <div class="single-form">
                                     <input class="single-form__input" id="phone" name="phone" type="number"
@@ -58,11 +52,20 @@ if (!isset($_SESSION['cartTwo'])) {
                                     <span id="errorPhone"></span>
                                 </div>
                                 <div class="single-form">
-                                    <input class="single-form__input" id="Address" name="email" type="text"
+                                    <input class="single-form__input" id="Address" name="address" type="text"
                                         placeholder="City/Area *" required />
                                     <span id="errorAddress"></span>
                                 </div>
-
+                                <div class="single-form">
+                                    <input class="single-form__input" id="state" name="state" type="text"
+                                        placeholder="State *" required />
+                                    <span id="errorState"></span>
+                                </div>
+                                <div class="single-form">
+                                    <input class="single-form__input" id="zipCode" name="zipCode" type="number"
+                                        placeholder="Zip Code *" required />
+                                    <span id="errorZipCode"></span>
+                                </div>
                                 <p class="text-danger">
                                     <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
                                 </p>

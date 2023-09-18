@@ -162,10 +162,21 @@ if (isset($_GET['submitOrder'])) {
     $getUserId = $_GET['submitOrder'];
     $total_qty = 0;
     $grandTotalPrice = 0;
-    // if (empty($_POST['fullname'] || $_POST['emailAddress'] || $_POST['phone'] || $_POST['location'])) {
-    // }
-    // if(empty($_POST['$emailAddress'])) 
-    // else {
+    if(empty($_POST['userName'])){
+        redirectWindow('checkout.php?error=Fullname is required');
+    }
+    if(empty($_POST['phone'])){
+        redirectWindow('checkout.php?error=Phone number is required');
+    }
+    if(empty($_POST['address'])){
+        redirectWindow('checkout.php?error=Address is required');
+    }
+    if(empty($_POST['state'])){
+        redirectWindow('checkout.php?error=State is required');
+    }
+    if(empty($_POST['zip'])){
+        redirectWindow('checkout.php?error=Zip code is required');
+    }
     foreach ($_SESSION['cartTwo'] as $key => $value) {
         $id = $value['getId'];
         // $name = $value['getName'];
@@ -190,7 +201,6 @@ if (isset($_GET['submitOrder'])) {
 
     mysqli_query($con, "INSERT INTO final_order(user_id,qty,total_price)VALUES('$getUserId','$total_qty','$grandTotalPrice')");
 }
-// }
 ;
 
 if (isset($_POST['delete-review'])) {
