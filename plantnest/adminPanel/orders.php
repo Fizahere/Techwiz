@@ -89,7 +89,9 @@ if (isset($_POST['sort-order-by-name'])) {
                                  
 
                                   
-                                    
+                                <?php
+                                if($row['orderStatus'] === "pending"){
+                                ?>    
 
                                      <td class="d-flex">
       <?php echo $row['orderStatus'] ?>
@@ -109,8 +111,15 @@ if (isset($_POST['sort-order-by-name'])) {
 
 
                                 <?php
-                        };
-
+                        }else{
+                            ?>
+                            <td class="d-flex">
+                            <?php echo $row['orderStatus'] ?>
+                          
+                          </td>
+                          <?php
+                        }
+                    }
                                        ?>
                             </tbody>
                         </table>
