@@ -100,6 +100,7 @@
 <!-- JS Vendor, Plugins & Activation Script Files -->
 
 <!-- Bootstrap JS -->
+<script src="assets/js/code.jquery.com_jquery-3.7.1.min"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 
 <!-- Plugins JS -->
