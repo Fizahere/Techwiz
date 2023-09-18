@@ -11,7 +11,7 @@ include_once('php/query.php')
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Plantfy - Plants Store Website Template</title>
+    <title>PlantNest - An Online Plants Nursery</title>
 
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="Plantfy - Plants Store Website Template" />

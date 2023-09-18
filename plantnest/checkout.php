@@ -1,5 +1,6 @@
 <?php
-include("./components/header.php");
+include("./components/sessionHeader.php");
+
 ?>
 <main>
     <!-- Breadcrumb Start -->
@@ -55,7 +56,7 @@ include("./components/header.php");
                                             $userID = $user['userID'];
                                         }
                                         ?>
-                                        <a href="?submitOrder=<?php echo $userID ?>"> <button type="submit" id="signup"
+                                        <a href="?submitOrder=<?php echo $userID ?>"> <button type="button" id="signup"
                                                 name="signup" class="single-form__btn btn">
                                                 Submit
                                             </button></a>

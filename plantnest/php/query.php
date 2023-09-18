@@ -2,6 +2,8 @@
 session_start();
 include_once('models/config.php');
 include_once("models/auth.php");
+
+$con = mysqli_connect("localhost", "root", "", "plantnest");
 ?>
 
 <?php
@@ -43,8 +45,8 @@ if (isset($_POST['signup'])) {
 
         $authModel->signup($username, $fullname, $email, $password, $pdo);
     } else {
-    //   return;
-    '<script>alert("not matched!")</script>';
+        //   return;
+        '<script>alert("not matched!")</script>';
     }
     $user = $authModel->findUserWithEmail($email, $pdo);
 
@@ -167,14 +169,38 @@ if (isset($_GET['removeFromWishlist'])) {
     echo "<script>alert('Item removed from wishlist')</script>";
 }
 //checkout
-if (isset($_GET['checkout'])) {
-    $getUserId = $_GET['checkout'];
+// $order_id = $pdo->prepare("select * from orders");
+// $order_id->execute();
+// $getOrderID = $order_id->fetchAll(PDO::FETCH_ASSOC);
+// foreach ($getOrderID as $singleOrderID) {
+//     echo $singleOrderID['orderID'];
+// }
+
+
+
+
+if (isset($_GET['submitOrder'])) {
+
+
+    $getUserId = $_GET['submitOrder'];
+    // Get Last Order_id
+    // $counter = 1;
+    // $fetch = mysqli_query($con, "SELECT * FROM orders");
+    // while ($data = mysqli_fetch_assoc($fetch)) {
+    //     $counter = count($data);
+    // }
+    // $counter;
+    $total_qty = 0;
+    $grandTotalPrice = 0;
     foreach ($_SESSION['cartTwo'] as $key => $value) {
         $id = $value['getId'];
         // $name = $value['getName'];
         // $price = $value['getPrice'];
+        $total_qty += $value['getQty'];
         $qty = $value['getQty'];
         $totalAmount = $value['getQty'] * $value['getPrice'];
+        $grandTotalPrice += $totalAmount;
+
         $query = $pdo->prepare('insert into orders(userID,productID,productQuantity,totalAmount) values(:userID,:productID, :productQuantity, :totalAmount)');
         $query->bindParam("userID", $getUserId);
         $query->bindParam("productID", $id);
@@ -187,6 +213,9 @@ if (isset($_GET['checkout'])) {
     </script>";
         unset($_SESSION['cartTwo']);
     }
+
+    mysqli_query($con, "INSERT INTO final_order(user_id,qty,total_price)VALUES('$getUserId','$total_qty','$grandTotalPrice')");
+
 }
 ;
 
