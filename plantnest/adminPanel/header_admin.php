@@ -109,7 +109,7 @@ include("php/query.php");
                 <div class="navbar-nav w-100">
 
 
-                    <a href="index.php" class="nav-item nav-link "><i class="fa fa-users me-2"></i>Users</a>
+                    <a href="users.php" class="nav-item nav-link "><i class="fa fa-users me-2"></i>Users</a>
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-cubes me-2"></i>Categories</a>
                     <a href="products.php" class="nav-item nav-link"><i class="fa fa-leaf me-2"></i>Products</a>
                     <a href="orders.php" class="nav-item nav-link"><i class="fa fa-shopping-basket me-2"></i>Orders</a>
