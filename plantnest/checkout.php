@@ -62,7 +62,6 @@ include("./components/sessionHeader.php");
                                 <p class="text-danger">
                                     <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
                                 </p>
-<<<<<<< HEAD
                                 <div class="single-form">
                                     <?php
                                     if (isset($_SESSION['USER'])) {
@@ -74,11 +73,6 @@ include("./components/sessionHeader.php");
                                         ?>
                                         <a href="?submitOrder=<?php echo $userID ?>"> <button type="button" id="signup"
                                                 name="signup" class="single-form__btn btn">
-=======
-                                <div class="single-form">        
-                                        <button type="submit" id="checkout"
-                                                name="checkout" class="single-form__btn btn">
->>>>>>> a955fc7f1dfef5aafd9f6a9448b045a9d42d7c13
                                                 Submit
                                             </button>  
                                 </div>
