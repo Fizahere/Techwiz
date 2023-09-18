@@ -1,9 +1,5 @@
 <?php
 include("./components/sessionHeader.php");
-<<<<<<< HEAD
-
-=======
->>>>>>> a955fc7f1dfef5aafd9f6a9448b045a9d42d7c13
 ?>
 <main>
     <!-- Breadcrumb Start -->
@@ -54,6 +50,11 @@ include("./components/sessionHeader.php");
                                     <span id="erroremailAddress"></span>
                                 </div>
                                 <div class="single-form">
+                                    <input class="single-form__input" id="phone" name="phone" type="number" 
+                                        placeholder="03 XXXXXXXXX *" required />
+                                    <span id="errorPhone"></span>
+                                </div>
+                                <div class="single-form">
                                     <input class="single-form__input" id="Address" name="email" type="text"
                                         placeholder="City/Area *" required />
                                     <span id="errorAddress"></span>
@@ -69,7 +70,7 @@ include("./components/sessionHeader.php");
                                         foreach ($user as $user) {
                                             // echo '<script>alert("'.$user['userID'].'")</script>';
                                             $userID = $user['userID'];
-                                        }
+                                        }}
                                         ?>
                                         <a href="?submitOrder=<?php echo $userID ?>"> <button type="button" id="signup"
                                                 name="signup" class="single-form__btn btn">
@@ -146,6 +147,26 @@ include("./components/sessionHeader.php");
 
     <!-- Newsletter End -->
 </main>
+<script>
+    let phoneInputField =document.getElementById('phone')
+    let phoneErrorField= document.getElementById('errorPhone')
+  let error = false
+        let phoneRejax = /^[0-9]{11}$/
+phoneInputField.addEventListener('input', function () {
+    let phone = phoneInputField.value
+
+    if (!phoneRejax.test(phone)) {
+        phoneErrorField.innerText = 'Invalid phone number'
+        phoneErrorField.style.color = 'red'
+        error=true
+    } else {
+        phoneErrorField.innerText = ''
+    }
+})
+
+
+   
+</script>
 <script src="assets/js/app.js"></script>
 <?php
 include("./components/footer.php");
