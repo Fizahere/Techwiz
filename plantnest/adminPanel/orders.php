@@ -20,10 +20,9 @@ include_once('header_admin.php');
                                         Sort Orders
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><button class="dropdown-item" href="#" name="sort-order-by-name">Sort by
-                                                name</button></li>
-                                        <li><button class="dropdown-item" href="#" name="sort-order-by-date">Sort by
-                                                date</button></li>
+                                        <li><button class="dropdown-item" href="#" name="sort-order-by-name">Sort by user name</button></li>
+                                        <li><button class="dropdown-item" href="#" name="sort-order-by-date">Sort by order date
+                                                </button></li>
                                        
                                     </ul>
                                 </form>
