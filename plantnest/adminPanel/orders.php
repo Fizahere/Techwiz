@@ -60,7 +60,7 @@ if (isset($_POST['sort-order-by-name'])) {
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
 } else {
     // By default, get data without sorting
-    $query = $pdo->query("SELECT * FROM orders INNER JOIN users ON orders.userID = users.userID INNER JOIN  products ON orders.productID =products.productID ;");
+    $query = $pdo->query("SELECT * FROM orders INNER JOIN users ON orders.userID = users.userID INNER JOIN  products ON orders.productID =products.productID where orderStatus = 'pending' OR  orderStatus = 'approved' ;");
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
 }
                         foreach($result as $row){

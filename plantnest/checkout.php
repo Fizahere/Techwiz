@@ -1,6 +1,9 @@
 <?php
 include("./components/sessionHeader.php");
+<<<<<<< HEAD
 
+=======
+>>>>>>> a955fc7f1dfef5aafd9f6a9448b045a9d42d7c13
 ?>
 <main>
     <!-- Breadcrumb Start -->
@@ -27,26 +30,39 @@ include("./components/sessionHeader.php");
 
                         <form action="#" method='post'>
                             <div class="login-register__form">
-                                <div class="single-form">
-                                    <input class="single-form__input" id="username" name="username" type="text"
-                                        placeholder="Full name *" required />
-                                    <span id="errorFirstName"></span>
+
+                            <div class="single-form">
+                                <?php
+                                $user = $_SESSION['USER'];
+                                foreach($user as $singleUser){
+                                    $userID = $singleUser['userID'];
+                                }
+                                ?>
+                                    <input class="single-form__input" name="sessionUserID" value="<?php echo $userID ?>" 
+                                       type="hidden" />
                                 </div>
 
                                 <div class="single-form">
-                                    <input class="single-form__input" id="email" name="email" type="email"
+                                    <input class="single-form__input" id="fullname" name="username" type="text"
+                                        placeholder="Full name *" required />
+                                    <span id="errorfullNameCheckout"></span>
+                                </div>
+
+                                <div class="single-form">
+                                    <input class="single-form__input" id="emailAddress" name="email" type="email"
                                         placeholder="Email address *" required />
-                                    <span id="errorEmail"></span>
+                                    <span id="erroremailAddress"></span>
                                 </div>
                                 <div class="single-form">
-                                    <input class="single-form__input" id="email" name="email" type="email"
-                                        placeholder="Address *" required />
-                                    <span id="errorEmail"></span>
+                                    <input class="single-form__input" id="Address" name="email" type="text"
+                                        placeholder="City/Area *" required />
+                                    <span id="errorAddress"></span>
                                 </div>
 
                                 <p class="text-danger">
                                     <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
                                 </p>
+<<<<<<< HEAD
                                 <div class="single-form">
                                     <?php
                                     if (isset($_SESSION['USER'])) {
@@ -58,12 +74,13 @@ include("./components/sessionHeader.php");
                                         ?>
                                         <a href="?submitOrder=<?php echo $userID ?>"> <button type="button" id="signup"
                                                 name="signup" class="single-form__btn btn">
+=======
+                                <div class="single-form">        
+                                        <button type="submit" id="checkout"
+                                                name="checkout" class="single-form__btn btn">
+>>>>>>> a955fc7f1dfef5aafd9f6a9448b045a9d42d7c13
                                                 Submit
-                                            </button></a>
-                                        <?php
-                                        // }
-                                    }
-                                    ?>
+                                            </button>  
                                 </div>
                             </div>
                         </form>
@@ -135,7 +152,7 @@ include("./components/sessionHeader.php");
 
     <!-- Newsletter End -->
 </main>
-
+<script src="assets/js/app.js"></script>
 <?php
 include("./components/footer.php");
 ?>
