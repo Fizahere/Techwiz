@@ -37,49 +37,11 @@ include("./components/header.php");
                                         placeholder="Email address *" required />
                                     <span id="errorEmail"></span>
                                 </div>
-
-                                <h4 class="h4 mt-4">Payment Details</h4>
-                                <div class='mt-3'>
-                                    <label>
-                                        <input type="radio" name="payment" value="credit_card">
-                                        Credit Card
-                                    </label>
-
-                                    <label>
-                                        <input type="radio" name="payment" value="paypal">
-                                        PayPal
-                                    </label>
-                                </div>
                                 <div class="single-form">
-                                    <input class="single-form__input" id="email" name="email" type="text"
-                                        placeholder="Card Holder Name *" required />
+                                    <input class="single-form__input" id="email" name="email" type="email"
+                                        placeholder="Address *" required />
                                     <span id="errorEmail"></span>
                                 </div>
-                                <div class="single-form">
-                                    <input class="single-form__input" id="email" name="email" type="number"
-                                        placeholder="Card Number *" required />
-                                    <span id="errorEmail"></span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="single-form">
-
-                                            <input class="single-form__input" id="email" name="email" type="date"
-                                                placeholder="Exp Date *" required />
-                                            <span id="errorEmail"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="single-form">
-
-                                            <input class="single-form__input" id="email" name="email" type="text"
-                                                placeholder="CVC *" required />
-                                            <span id="errorEmail"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
 
                                 <p class="text-danger">
                                     <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
