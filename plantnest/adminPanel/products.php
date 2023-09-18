@@ -20,7 +20,7 @@ include_once('header_admin.php');
                                         Sort
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><button class="dropdown-item" href="#" name="sort-product-by-name">Sort by
+                                        <li><button class="dropdown-item" href="#" name="sort-product-by-name">Sort by product
                                                 name</button></li>
                                         <li><button class="dropdown-item" href="#" name="sort-product-by-price">Sort by
                                                 price</button></li>
