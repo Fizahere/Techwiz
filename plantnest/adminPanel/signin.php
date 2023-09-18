@@ -1,12 +1,15 @@
 <?php
-include('php/query.php')
+include('php/query.php');
+if (isset($_SESSION['Admin'])) {
+    redirectWindow('index.php');
+};
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Vaccination Booking System</title>
+    <title>PlantNest Admin Panel</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -52,7 +55,7 @@ include('php/query.php')
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class=" align-items-center justify-content-between mb-3">
                             <a href="index.html" class="">
-                                <h6 class="text-primary"><i class="fa fa-hashtag me-2"></i>VaccinationBookingSystem</h6>
+                                <h6 class="text-primary"><i class="fa fa-hashtag me-2"></i>PlantNest Admin Panel</h6>
                             </a>
                             <h3>Sign In</h3>
                         </div>

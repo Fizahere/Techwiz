@@ -10,7 +10,7 @@ include("php/query.php");
 
 <head>
     <meta charset="utf-8">
-    <title>Admin Panel</title>
+    <title>PlantNest Admin Panel</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -66,7 +66,7 @@ include("php/query.php");
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                <a href="index.php" class="navbar-brand mx-4 mb-3">
                     <div>
                     <h4 class="text-primary"><i class="fa fa-hashtag me-2"></i>PlantNest Panel</h4>
                     </div>
@@ -246,7 +246,8 @@ include("php/query.php");
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="adminProfile.php" class="dropdown-item">My Profile</a>
-                            <a href="signin.php" class="dropdown-item">Sign In</a>
+
+                            
                             <a href="logout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
