@@ -12,7 +12,7 @@ include_once('header_admin.php');
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-users fa-3x text-primary"></i>
+                       <a href="users.php">     <i class="fa fa-users fa-3x text-primary"></i></a>
                             <div class="ms-3">
                                 <p class="mb-2">Total Users</p>
                                 <h6 class="mb-0"><?php
@@ -28,7 +28,9 @@ include_once('header_admin.php');
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <a href="category.php">
                             <i class="fa fa-cubes fa-3x text-primary"></i>
+                            </a>
                             <div class="ms-3">
                                 <p class="mb-2">Categories</p>
                                 <h6 class="mb-0"><?php
@@ -42,7 +44,9 @@ include_once('header_admin.php');
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <a href="products.php">
                             <i class="fa fa-leaf fa-3x text-primary"></i>
+                            </a>
                             <div class="ms-3">
                                 <p class="mb-2">Products</p>
                                 <h6 class="mb-0"><?php
