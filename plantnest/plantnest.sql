@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 18, 2023 at 11:57 AM
+-- Generation Time: Sep 18, 2023 at 01:45 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -105,7 +105,14 @@ CREATE TABLE `final_order` (
 --
 
 INSERT INTO `final_order` (`order_id`, `user_id`, `qty`, `total_price`, `status`, `date_of_order`) VALUES
-(1, 12, 4, 160, 'Pending', '2023-09-18 08:34:46');
+(1, 12, 4, 160, 'Pending', '2023-09-18 08:34:46'),
+(2, 6, 2, 80, 'Pending', '2023-09-18 10:09:53'),
+(3, 6, 3, 108, 'Pending', '2023-09-18 10:21:10'),
+(4, 6, 1, 24, 'Pending', '2023-09-18 10:21:32'),
+(5, 13, 3, 120, 'Pending', '2023-09-18 11:01:23'),
+(6, 13, 0, 0, 'Pending', '2023-09-18 11:01:32'),
+(7, 13, 2, 66, 'Pending', '2023-09-18 11:07:47'),
+(8, 13, 4, 160, 'Pending', '2023-09-18 11:22:29');
 
 -- --------------------------------------------------------
 
@@ -118,18 +125,19 @@ CREATE TABLE `orders` (
   `userID` int(11) DEFAULT NULL,
   `productID` int(11) DEFAULT NULL,
   `productQuantity` varchar(225) DEFAULT NULL,
-  `orderDate` timestamp NULL DEFAULT current_timestamp(),
-  `totalAmount` varchar(225) DEFAULT NULL,
-  `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
+  `totalAmount` varchar(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `orderDate`, `totalAmount`, `orderStatus`) VALUES
-(1, 12, 1, '3', '2023-09-18 08:34:46', '119.97', 'pending'),
-(2, 12, 2, '1', '2023-09-18 08:34:46', '39.99', 'pending');
+INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `totalAmount`) VALUES
+(1, 13, 2, '3', '119.97'),
+(2, 13, 2, '1', '39.99'),
+(3, 13, 4, '1', '25.99'),
+(4, 13, 1, '2', '79.98'),
+(5, 13, 2, '2', '79.98');
 
 -- --------------------------------------------------------
 
@@ -223,7 +231,8 @@ INSERT INTO `users` (`userID`, `firstName`, `lastName`, `userEmail`, `userPasswo
 (6, 'user', 'user', 'user@gmail.com', '$2y$10$kKffEgWCHe5M9H3H4oWlTOZg2Mu9cjJ7e.Lk50ZxF8pkQJsXmP/Fi'),
 (7, 'Test', NULL, 'Ab@gmail.com', '$2y$10$U4o0OLktmcNW4Mhor4lWXOyZJPzvuGzZzW88GkjSwRDU/HCjo.Gnm'),
 (10, 'Test', NULL, 'Test@gmail.com', '$2y$10$Z1bNQ0BFocMjjf1eDJ/YxesNSz3ejKp5CsE/FvkhHg9p9f/GUOfpq'),
-(12, 'Talib', 'Baloch', 'talib@gmail.com', '$2y$10$0WYiFviwAiuJsCakzYb01.sZ9A2YZa5rJPqe9d/f1X70gGFxECNBm');
+(12, 'Talib', 'Baloch', 'talib@gmail.com', '$2y$10$0WYiFviwAiuJsCakzYb01.sZ9A2YZa5rJPqe9d/f1X70gGFxECNBm'),
+(13, 'Iman', 'Malik', 'iman@gmail.com', '$2y$10$zJua.Jnem76CQQAXrPN2duiRLsJW11Q1pqFKtoIG1wJboKIF8RPiW');
 
 -- --------------------------------------------------------
 
@@ -244,7 +253,8 @@ CREATE TABLE `wishlist` (
 INSERT INTO `wishlist` (`wishlistID`, `customerID`, `wishlistProductID`) VALUES
 (30, 6, 1),
 (33, 6, 2),
-(34, 6, 2);
+(34, 6, 2),
+(35, 6, 2);
 
 --
 -- Indexes for dumped tables
@@ -341,13 +351,13 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `final_order`
 --
 ALTER TABLE `final_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `productreviews`
@@ -365,13 +375,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlistID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `wishlistID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Constraints for dumped tables
