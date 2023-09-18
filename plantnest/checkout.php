@@ -26,7 +26,9 @@ if (!isset($_SESSION['cartTwo'])) {
                     <!-- Log In & Register Box Start -->
                     <div class="login-register">
                         <h4 class="h4">Basic Information</h4>
-
+                        <p class="text-danger">
+                            <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
+                        </p>
                         <form action="#" method='post'>
                             <div class="login-register__form">
 
@@ -66,9 +68,6 @@ if (!isset($_SESSION['cartTwo'])) {
                                         placeholder="Zip Code *" required />
                                     <span id="errorZipCode"></span>
                                 </div>
-                                <p class="text-danger">
-                                    <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
-                                </p>
                                 <div class="single-form">
                                     <?php
                                     if (isset($_SESSION['USER'])) {
@@ -79,7 +78,7 @@ if (!isset($_SESSION['cartTwo'])) {
                                         }
                                     }
                                     ?>
-                                    <a href="?submitOrder=<?php echo $userID ?>"> <button type="button" id="signup"
+                                    <a href="?submitOrder=<?php echo $userID ?>&&userName="> <button type="button" id="signup"
                                             name="submitOrder" class="single-form__btn btn">
                                             Submit
                                         </button>

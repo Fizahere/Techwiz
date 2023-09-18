@@ -162,45 +162,47 @@ if (isset($_GET['submitOrder'])) {
     $getUserId = $_GET['submitOrder'];
     $total_qty = 0;
     $grandTotalPrice = 0;
-    if(empty($_POST['userName'])){
-        redirectWindow('checkout.php?error=Fullname is required');
-    }
-    if(empty($_POST['phone'])){
-        redirectWindow('checkout.php?error=Phone number is required');
-    }
-    if(empty($_POST['address'])){
-        redirectWindow('checkout.php?error=Address is required');
-    }
-    if(empty($_POST['state'])){
-        redirectWindow('checkout.php?error=State is required');
-    }
-    if(empty($_POST['zip'])){
-        redirectWindow('checkout.php?error=Zip code is required');
-    }
-    foreach ($_SESSION['cartTwo'] as $key => $value) {
-        $id = $value['getId'];
-        // $name = $value['getName'];
-        // $price = $value['getPrice'];
-        $total_qty += $value['getQty'];
-        $qty = $value['getQty'];
-        $totalAmount = $value['getQty'] * $value['getPrice'];
-        $grandTotalPrice += $totalAmount;
-        $fkOrderID =
+    // if (!isset($_POST['userName'])) {
+    //     redirectWindow('checkout.php');
+    // } elseif (!isset($_POST['phone'])) {
+    //     redirectWindow('checkout.php');
+    // } elseif (!isset($_POST['address'])) {
+    //     redirectWindow('checkout.php');
+    // } elseif (!isset($_POST['state'])) {
+    //     redirectWindow('checkout.php');
+    // } elseif (!isset($_POST['zipCode'])) {
+    //     redirectWindow('checkout.php');
+    // } else {
+        $userName = $_POST['userName'];
+        $phone = $_POST['phone'];
+        $city = $_POST['address'];
+        $state = $_POST['state'];
+        $zipCode = $_POST['zipCode'];
+        foreach ($_SESSION['cartTwo'] as $key => $value) {
+            $id = $value['getId'];
+            // $name = $value['getName'];
+            // $price = $value['getPrice'];
+            $total_qty += $value['getQty'];
+            $qty = $value['getQty'];
+            $totalAmount = $value['getQty'] * $value['getPrice'];
+            $grandTotalPrice += $totalAmount;
+            // $fkOrderID =
             $query = $pdo->prepare('insert into orders(userID,productID,productQuantity,totalAmount) values(:userID,:productID, :productQuantity, :totalAmount)');
-        $query->bindParam("userID", $getUserId);
-        $query->bindParam("productID", $id);
-        $query->bindParam("productQuantity", $qty);
-        // $query->bindParam("fkOrderID",$fkOrderID);
-        $query->bindParam("totalAmount", $totalAmount);
-        $query->execute();
-        echo "<script>alert('order added successfully');
-        location.assign('index.php');
-        </script>";
-        unset($_SESSION['cartTwo']);
-    }
+            $query->bindParam("userID", $getUserId);
+            $query->bindParam("productID", $id);
+            $query->bindParam("productQuantity", $qty);
+            // $query->bindParam("fkOrderID",$fkOrderID);
+            $query->bindParam("totalAmount", $totalAmount);
+            $query->execute();
+            echo "<script>alert('order added successfully');
+            location.assign('index.php');
+            </script>";
+            unset($_SESSION['cartTwo']);
+        }
 
-    mysqli_query($con, "INSERT INTO final_order(user_id,qty,total_price)VALUES('$getUserId','$total_qty','$grandTotalPrice')");
-}
+        mysqli_query($con, "INSERT INTO final_order(user_id,userName,phone,city,userState,zipCode,qty,total_price)VALUES('$getUserId','$userName','$phone','$city','$userState','$zipCode','$total_qty','$grandTotalPrice')");
+    }
+// }
 ;
 
 if (isset($_POST['delete-review'])) {
