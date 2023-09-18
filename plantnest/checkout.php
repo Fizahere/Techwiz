@@ -47,9 +47,22 @@ include("./components/header.php");
                                     <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
                                 </p>
                                 <div class="single-form">
-                                    <button type="submit" id="signup" name="signup" class="single-form__btn btn">
-                                        Submit
-                                    </button>
+                                    <?php
+                                    if (isset($_SESSION['USER'])) {
+                                        $user = $_SESSION['USER'];
+                                        foreach ($user as $user) {
+                                            // echo '<script>alert("'.$user['userID'].'")</script>';
+                                            $userID = $user['userID'];
+                                        }
+                                        ?>
+                                        <a href="?submitOrder=<?php echo $userID ?>"> <button type="submit" id="signup"
+                                                name="signup" class="single-form__btn btn">
+                                                Submit
+                                            </button></a>
+                                        <?php
+                                        // }
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </form>
