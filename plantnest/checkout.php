@@ -1,5 +1,8 @@
 <?php
 include("./components/sessionHeader.php");
+if (!isset($_SESSION['cartTwo'])) {
+    redirectWindow("empty-cart.php");
+}
 ?>
 <main>
     <!-- Breadcrumb Start -->
@@ -27,15 +30,15 @@ include("./components/sessionHeader.php");
                         <form action="#" method='post'>
                             <div class="login-register__form">
 
-                            <div class="single-form">
-                                <?php
-                                $user = $_SESSION['USER'];
-                                foreach($user as $singleUser){
-                                    $userID = $singleUser['userID'];
-                                }
-                                ?>
-                                    <input class="single-form__input" name="sessionUserID" value="<?php echo $userID ?>" 
-                                       type="hidden" />
+                                <div class="single-form">
+                                    <?php
+                                    $user = $_SESSION['USER'];
+                                    foreach ($user as $singleUser) {
+                                        $userID = $singleUser['userID'];
+                                    }
+                                    ?>
+                                    <input class="single-form__input" name="sessionUserID" value="<?php echo $userID ?>"
+                                        type="hidden" />
                                 </div>
 
                                 <div class="single-form">
@@ -50,7 +53,7 @@ include("./components/sessionHeader.php");
                                     <span id="erroremailAddress"></span>
                                 </div>
                                 <div class="single-form">
-                                    <input class="single-form__input" id="phone" name="phone" type="number" 
+                                    <input class="single-form__input" id="phone" name="phone" type="number"
                                         placeholder="03 XXXXXXXXX *" required />
                                     <span id="errorPhone"></span>
                                 </div>
@@ -70,12 +73,13 @@ include("./components/sessionHeader.php");
                                         foreach ($user as $user) {
                                             // echo '<script>alert("'.$user['userID'].'")</script>';
                                             $userID = $user['userID'];
-                                        }}
-                                        ?>
-                                        <a href="?submitOrder=<?php echo $userID ?>"> <button type="button" id="signup"
-                                                name="signup" class="single-form__btn btn">
-                                                Submit
-                                            </button>  
+                                        }
+                                    }
+                                    ?>
+                                    <a href="?submitOrder=<?php echo $userID ?>"> <button type="button" id="signup"
+                                            name="submitOrder" class="single-form__btn btn">
+                                            Submit
+                                        </button>
                                 </div>
                             </div>
                         </form>
@@ -148,24 +152,29 @@ include("./components/sessionHeader.php");
     <!-- Newsletter End -->
 </main>
 <script>
-    let phoneInputField =document.getElementById('phone')
-    let phoneErrorField= document.getElementById('errorPhone')
-  let error = false
-        let phoneRejax = /^[0-9]{11}$/
-phoneInputField.addEventListener('input', function () {
-    let phone = phoneInputField.value
+    let phoneInputField = document.getElementById('phone')
+    let phoneErrorField = document.getElementById('errorPhone')
+    let error = false
+    let phoneRejax = /^[0-9]{11}$/
+    phoneInputField.addEventListener('input', function () {
+        if (phoneInputField.value < 0) {
+            phoneInputField.value = 0
+        }
+        let phone = phoneInputField.value
 
-    if (!phoneRejax.test(phone)) {
-        phoneErrorField.innerText = 'Invalid phone number'
-        phoneErrorField.style.color = 'red'
-        error=true
-    } else {
-        phoneErrorField.innerText = ''
-    }
-})
+        if (!phoneRejax.test(phone)) {
+            phoneErrorField.innerText = 'Invalid phone number'
+            phoneErrorField.style.color = 'red'
+            error = true
+        }
+
+        else {
+            phoneErrorField.innerText = ''
+        }
+    })
 
 
-   
+
 </script>
 <script src="assets/js/app.js"></script>
 <?php
