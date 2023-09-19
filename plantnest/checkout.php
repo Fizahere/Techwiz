@@ -75,30 +75,30 @@ if (!isset($_SESSION['cartTwo'])) {
                                     <span id="errorState"></span>
                                 </div>
                                 <div class="single-form">
-                                    <input class="single-form__input" id="zipCode" name="zipCode" type="number"
+                                    <input class="single-form__input" id="zipCode" pattern="[0-9]{5}" name="zipCode" type="number"
                                         placeholder="Zip Code *" required />
                                     <span id="errorZipCode"></span>
                                 </div>
                                 <div class="single-form">
-                                   <select name="payment_method" id="payment_method" class="single-form__input" onchange="showCard(this.value)">
+                                   <select name="payment_method" id="payment_method" class="single-form__input" required onchange="showCard(this.value)">
                                          <option value="">Select a payment method</option>
                                          <option value="COD">Cash on Delivery</option>
                                          <option value="Card">Card</option>
                                    </select>
                                 </div>
                                 <div class="single-form" style="display:none">
-                                    <input class="single-form__input" id="zipCode" name="card"
+                                    <input class="single-form__input" id="card" name="card"
                                         placeholder="Card Number" pattern="[0-9]{16}"  />
                                     <span id="errorZipCode"></span>
                                 </div>
                                 <div class="single-form" id="expiryDateDiv" style="display:none">
-                                    <input type="date" class="single-form__input" id="zipCode" name="expiry" type="number"
+                                    <input type="date" class="single-form__input" id="expiry" name="expiry" type="number"
                                         placeholder="expiry date"  />
                                     <span id="errorZipCode"></span>
                                 </div>
 
                                 <div class="single-form" id="cvvDiv" style="display:none">
-                                    <input type="text" class="single-form__input" id="zipCode" name="cvv" type="number"
+                                    <input type="text" class="single-form__input" id="cvv" name="cvv" type="password"
                                         placeholder="CVV" pattern="[0-9]{3}"  />
                                     <span id="errorZipCode"></span>
                                 </div>
@@ -118,7 +118,7 @@ if (!isset($_SESSION['cartTwo'])) {
                                 </script>
 
                                 <div class="single-form">
-                                       <button type="submit" id="zipCode"
+                                       <button type="submit" id="submit"
                                             name="submitOrder" class="single-form__btn btn">
                                             Submit
                                         </button>

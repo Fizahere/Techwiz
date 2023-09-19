@@ -157,7 +157,7 @@ if (isset($_GET['removeFromWishlist'])) {
     echo "<script>alert('Item removed from wishlist')</script>";
 }
 if (isset($_POST['submitOrder'])) {
-    echo "ABC";
+    // echo "ABC";
     $total_qty = 0;
     $grandTotalPrice = 0;
     $getUserId = $_POST['sessionUserID'];
@@ -172,29 +172,29 @@ if (isset($_POST['submitOrder'])) {
     $cvv = $_POST['cvv'];
     $card = $_POST['card'];
     $expiry = $_POST['expiry'];
-        foreach ($_SESSION['cartTwo'] as $key => $value) {
-            $id = $value['getId'];
-            $total_qty += $value['getQty'];
-            $qty = $value['getQty'];
-            $totalAmount = $value['getQty'] * $value['getPrice'];
-            $grandTotalPrice += $totalAmount;
-            $query = $pdo->prepare('insert into orders(userID,productID,productQuantity,totalAmount) values(:userID,:productID, :productQuantity, :totalAmount)');
-            $query->bindParam("userID", $getUserId);
-            $query->bindParam("productID", $id);
-            $query->bindParam("productQuantity", $qty);
-            $query->bindParam("totalAmount", $totalAmount);
-            $query->execute();
-            echo "<script>alert('order added successfully');
+    foreach ($_SESSION['cartTwo'] as $key => $value) {
+        $id = $value['getId'];
+        $total_qty += $value['getQty'];
+        $qty = $value['getQty'];
+        $totalAmount = $value['getQty'] * $value['getPrice'];
+        $grandTotalPrice += $totalAmount;
+        $query = $pdo->prepare('insert into orders(userID,productID,productQuantity,totalAmount) values(:userID,:productID, :productQuantity, :totalAmount)');
+        $query->bindParam("userID", $getUserId);
+        $query->bindParam("productID", $id);
+        $query->bindParam("productQuantity", $qty);
+        $query->bindParam("totalAmount", $totalAmount);
+        $query->execute();
+        echo "<script>alert('order added successfully');
             location.assign('index.php');
             </script>";
-            unset($_SESSION['cartTwo']);
-        }
+        unset($_SESSION['cartTwo']);
+    }
 
-        mysqli_query($con, "INSERT INTO final_order
+    mysqli_query($con, "INSERT INTO final_order
         (user_id,fullName,phone,city,userState,zipCode,qty,total_price,payment_method, card_number, billing_address, shipping_address, expiry_date, cvv)
         VALUES
         ('$getUserId','$fullName','$phone','$city','$userState','$zipCode','$total_qty','$grandTotalPrice', '$payment_method', '$card', '$billing_address', '$shipping_address', '$expiry', '$cvv')");
-    }
+}
 ;
 
 if (isset($_POST['delete-review'])) {
