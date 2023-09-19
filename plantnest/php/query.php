@@ -177,7 +177,7 @@ if (isset($_POST['submitOrder'])) {
         $qty = $value['getQty'];
         $totalAmount = $value['getQty'] * $value['getPrice'];
         $grandTotalPrice += $totalAmount;
-        $query = $pdo->prepare('insert into orders(userID,productID,productQuantity,totalAmount) values(:userID,:productID, :productQuantity, :totalAmount)');
+        $query = $pdo->prepare('INSERT into orders(userID,productID,productQuantity,totalAmount) values(:userID,:productID, :productQuantity, :totalAmount)');
         $query->bindParam("userID", $getUserId);
         $query->bindParam("productID", $id);
         $query->bindParam("productQuantity", $qty);

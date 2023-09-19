@@ -169,9 +169,9 @@ if (!isset($_SESSION['USER'])) {
                                 <div class="col-md-4">
                                     <h4 class="h4 mb-3">Orders Details</h4>
                                     <?php
-                                    $query = $pdo->query("SELECT orders.*,final_order.*
-                                   FROM orders 
-                                   INNER JOIN final_order ON final_order.user_id = orders.userID where orderStatus = 'pending' OR orderStatus = 'approved' GROUP BY orders.date = final_order.date_of_order;");
+                                    $query = $pdo->prepare("SELECT * FROM `final_order` WHERE user_id = :userID;");
+                                    $query->bindParam(":userID", $userID);
+                                    $query->execute();
                                     $getOrders = $query->fetchAll(PDO::FETCH_ASSOC);
                                     foreach ($getOrders as $singleOrder) {
                                         ?>
@@ -181,21 +181,47 @@ if (!isset($_SESSION['USER'])) {
                                                     Order #
                                                     <?php echo $singleOrder['order_id'] ?> :
                                                 </h4>
-                                                <p class="contact-info-item__title">Items</p>
-                                                <ul>
-                                                    <?php
-                                                    $queryToGetItems = $pdo->query("SELECT * FROM orders INNER JOIN users ON orders.userID = users.userID INNER JOIN  products ON orders.productID =products.productID");
-                                                    $orderItems = $queryToGetItems->fetchAll(PDO::FETCH_ASSOC);
-                                                    foreach ($orderItems as $singleItem) {
-                                                        echo "<script>alert('".$singleItem['productName']."')</script>";
-                                                        ?>
-                                                        <li>
-                                                            <?php echo $row['productName'] ?>
-                                                        </li>
+                                                <!-- <ul> -->
+                                                <table class="table-responsive bg- table">
+                                                    <thead>
+                                                        <th>#</th>
+                                                        <th>Items</th>
+                                                        <th>Quantity</th>
+                                                        <th>Total</th>
+                                                    </thead>
+                                                    <tbody>
                                                         <?php
-                                                    }
-                                                    ?>
-                                                </ul>
+                                                        $queryToGetItems = $pdo->prepare("SELECT * FROM orders INNER JOIN final_order ON orders.date = final_order.date_of_order INNER JOIN Products ON orders.productID = products.productID WHERE orders.userID = :userID");
+                                                        $queryToGetItems->bindParam(":userID", $userID);
+                                                        $queryToGetItems->execute();
+                                                        // echo '<script>alert("' . $userID . '")</script>';
+                                                        $orderItems = $queryToGetItems->fetchAll(PDO::FETCH_ASSOC);
+                                                        $itemCount = 1;
+                                                        foreach ($orderItems as $singleItem) {
+                                                            // echo "<script>alert('".$singleItem['productName']."')</script>";
+                                                            ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <?php echo $itemCount ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php echo $singleItem['productName'] ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php echo $singleItem['productQuantity'] ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php echo $singleItem['totalAmount'] ?>
+                                                                </td>
+                                                            </tr>
+                                                            <?php
+                                                            $itemCount++;
+                                                        }
+                                                        ?>
+                                                    </tbody>
+                                                </table>
+                                                <h6 class="">Total:</h6>
+                                                <!-- </ul> -->
                                                 <form action="" method='post'>
                                                     <button class="wishlist-table__btn btn" name='cancelOrder'>Cancel
                                                         Order</button>
