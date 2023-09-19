@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2023 at 11:38 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Sep 19, 2023 at 12:35 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -94,11 +94,32 @@ INSERT INTO `feedback` (`feedbackID`, `feedbackUserID`, `feedback`) VALUES
 CREATE TABLE `final_order` (
   `order_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `fullName` varchar(225) DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL,
+  `city` varchar(225) DEFAULT NULL,
+  `userState` varchar(225) DEFAULT NULL,
+  `zipCode` int(8) DEFAULT NULL,
   `qty` int(11) NOT NULL,
   `total_price` int(11) NOT NULL,
   `date_of_order` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
+  `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending',
+  `billing_address` text NOT NULL,
+  `shipping_address` text NOT NULL,
+  `payment_method` enum('COD','Card') NOT NULL,
+  `card_number` varchar(222) NOT NULL,
+  `expiry_date` date DEFAULT NULL,
+  `cvv` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `final_order`
+--
+
+INSERT INTO `final_order` (`order_id`, `user_id`, `fullName`, `phone`, `city`, `userState`, `zipCode`, `qty`, `total_price`, `date_of_order`, `orderStatus`, `billing_address`, `shipping_address`, `payment_method`, `card_number`, `expiry_date`, `cvv`) VALUES
+(1, 13, NULL, NULL, NULL, NULL, NULL, 1, 40, '2023-09-19 09:41:53', 'pending', '', '', 'COD', '', NULL, ''),
+(2, 13, '', 0, '', '', 0, 5, 200, '2023-09-19 09:54:18', 'pending', '', '', 'COD', '', NULL, ''),
+(3, 13, 'asdasd', 123123, 'asdasd', 'sadasd', 12323, 5, 144, '2023-09-19 10:14:47', 'pending', '', '', 'COD', '', NULL, ''),
+(4, 13, 'Ali', 2147483647, 'Sindh, Karachi', 'Sindh', 75300, 1, 40, '2023-09-19 10:32:07', 'pending', 'Karachi B', 'Karachi', 'Card', '', '2023-09-13', '121');
 
 -- --------------------------------------------------------
 
@@ -112,21 +133,25 @@ CREATE TABLE `orders` (
   `productID` int(11) DEFAULT NULL,
   `productQuantity` varchar(225) DEFAULT NULL,
   `totalAmount` varchar(225) DEFAULT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `orderStatus` varchar(255) NOT NULL DEFAULT 'pending'
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `totalAmount`, `date`, `orderStatus`) VALUES
-(1, 13, 2, '1', '39.99', '2023-09-19 08:33:32', 'pending'),
-(2, 13, 1, '2', '79.98', '2023-09-19 08:33:32', 'pending'),
-(3, 12, 3, '2', '71.98', '2023-09-19 08:35:13', 'pending'),
-(4, 12, 4, '2', '51.98', '2023-09-19 08:35:13', 'pending'),
-(5, 12, 2, '2', '79.98', '2023-09-19 08:43:45', 'pending'),
-(6, 12, 3, '3', '107.97', '2023-09-19 08:43:45', 'pending');
+INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `totalAmount`, `date`) VALUES
+(1, 13, 2, '1', '39.99', '2023-09-19 08:33:32'),
+(2, 13, 1, '2', '79.98', '2023-09-19 08:33:32'),
+(3, 12, 3, '2', '71.98', '2023-09-19 08:35:13'),
+(4, 12, 4, '2', '51.98', '2023-09-19 08:35:13'),
+(5, 12, 2, '2', '79.98', '2023-09-19 08:43:45'),
+(6, 12, 3, '3', '107.97', '2023-09-19 08:43:45'),
+(7, 13, 2, '1', '39.99', '2023-09-19 09:41:53'),
+(8, 13, 2, '5', '199.95', '2023-09-19 09:54:18'),
+(9, 13, 2, '1', '39.99', '2023-09-19 10:14:47'),
+(10, 13, 4, '4', '103.96', '2023-09-19 10:14:47'),
+(11, 13, 2, '1', '39.99', '2023-09-19 10:32:07');
 
 -- --------------------------------------------------------
 
@@ -274,6 +299,7 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `final_order`
   ADD PRIMARY KEY (`order_id`),
+  ADD UNIQUE KEY `phone` (`phone`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -340,13 +366,13 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `final_order`
 --
 ALTER TABLE `final_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `productreviews`
