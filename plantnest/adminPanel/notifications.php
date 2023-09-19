@@ -20,7 +20,7 @@ include('header_admin.php')
                             <tbody>
                                 
                                 <?php
-                        $query = $pdo->query("SELECT * from orders INNER JOIN users on orders.userID = users.userID INNER JOIN products on orders.productID = products.productID where orderStatus = 'pending'");
+                        $query = $pdo->query("SELECT * from final_order INNER JOIN users on final_order.user_id = users.userID  where orderStatus = 'pending'");
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
                
                         foreach($result as $row){
@@ -36,7 +36,7 @@ include('header_admin.php')
                                         </span>
                                         <form method="post">
                                             <input type="hidden" name="notification-order-id"
-                                                value="<?php echo $row['orderID']?>">
+                                                value="<?php echo $row['order_id']?>">
                                             <button class="approve-btn btn btn-secondary"
                                                 name='order-approve-btn'
                                                 onclick="approveRow(this)">Approve</button>

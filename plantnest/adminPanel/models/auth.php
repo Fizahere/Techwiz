@@ -101,26 +101,26 @@ function updateAdminProfileWithoutImage($admin_ID,$admin_name,$admin_email,$admi
 }
 //function for approve order on notification page;
 function approveOrderNotificatio( $id,$pdo){
-    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'approved' WHERE orderID = :_id");
+    $query = $pdo->prepare("UPDATE final_order SET orderStatus = 'approved' WHERE order_id = :_id");
     $query->bindParam('_id', $id);
     $query->execute();
 }
 //function for reject order on notification page;
 function rejectOrderNotification($id,$pdo){
-    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'rejected' WHERE orderID = :_id");
+    $query = $pdo->prepare("UPDATE final_order SET orderStatus = 'rejected' WHERE order_id = :_id");
     $query->bindParam('_id', $id);
     $query->execute();
 
 }
 // functions for approve order on order
 function   approveOrder($id,$pdo){
-    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'approved' WHERE orderID = :_id");
+    $query = $pdo->prepare("UPDATE final_order SET orderStatus = 'approved' WHERE order_id = :_id");
     $query->bindParam('_id', $id);
     $query->execute();
 }
 // functions for reject order on order
 function   rejectOrder($id,$pdo){
-    $query = $pdo->prepare("UPDATE orders SET orderStatus = 'rejected' WHERE orderID = :_id");
+    $query = $pdo->prepare("UPDATE final_order SET orderStatus = 'rejected' WHERE order_id = :_id");
     $query->bindParam('_id', $id);
     $query->execute();
 }
