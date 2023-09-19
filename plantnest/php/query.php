@@ -173,11 +173,12 @@ if (isset($_GET['submitOrder'])) {
     // } elseif (!isset($_POST['zipCode'])) {
     //     redirectWindow('checkout.php');
     // } else {
-        $userName = $_POST['userName'];
-        $phone = $_POST['phone'];
-        $city = $_POST['address'];
-        $state = $_POST['state'];
-        $zipCode = $_POST['zipCode'];
+        // $userName = $_POST['userName'];
+        // $phone = $_POST['phone'];
+        // $city = $_POST['address'];
+        // $state = $_POST['state'];
+        // $zipCode = $_POST['zipCode'];
+        
         foreach ($_SESSION['cartTwo'] as $key => $value) {
             $id = $value['getId'];
             // $name = $value['getName'];
@@ -200,7 +201,13 @@ if (isset($_GET['submitOrder'])) {
             unset($_SESSION['cartTwo']);
         }
 
-        mysqli_query($con, "INSERT INTO final_order(user_id,userName,phone,city,userState,zipCode,qty,total_price)VALUES('$getUserId','$userName','$phone','$city','$userState','$zipCode','$total_qty','$grandTotalPrice')");
+        mysqli_query($con, "INSERT INTO final_order(user_id,qty,total_price)VALUES('$getUserId','$total_qty','$grandTotalPrice')");
+        $getFkOrderID = $pdo->prepare("SELECT * FROM final_order WHERE order_id=(SELECT MAX(order_id) FROM final_order);");
+        $fetch = $getFkOrderID->fetchAll(PDO::FETCH_ASSOC);
+        $fetch->execute();
+        foreach($fetch as $fkOrderID){
+            echo "<script>alert('".$fkOrderID."')</script>";
+        }
     }
 // }
 ;

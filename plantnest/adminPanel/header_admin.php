@@ -139,7 +139,7 @@ include("php/query.php");
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
-                        <?php
+                        <?php 
                             $query = $pdo->query("SELECT * from orders  INNER JOIN  users on 
                             orders.userID = users.userID    where orderStatus	 = 'pending'  LIMIT 2");
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -152,7 +152,7 @@ include("php/query.php");
 
                             </a>
 
-                            <?php
+                            <?php 
                         } else {
 
                             ?>
@@ -166,7 +166,7 @@ include("php/query.php");
 
                             </a>
 
-                            <?php
+                            <?php 
 
                         } ?>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
