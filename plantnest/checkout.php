@@ -29,7 +29,7 @@ if (!isset($_SESSION['cartTwo'])) {
                         <p class="text-danger">
                             <?= isset($_REQUEST['error']) ? $_REQUEST['error'] : "" ?>
                         </p>
-                        <form action="#" method='post'>
+                        <form action="" method='post'>
                             <div class="login-register__form">
 
                                 <div class="single-form">
@@ -37,29 +37,40 @@ if (!isset($_SESSION['cartTwo'])) {
                                     $user = $_SESSION['USER'];
                                     foreach ($user as $singleUser) {
                                         $userID = $singleUser['userID'];
-                                    }
                                     ?>
                                     <input class="single-form__input" name="sessionUserID" value="<?php echo $userID ?>"
                                         type="hidden" />
+                                        <?php
+                                         }
+                                        ?>
                                 </div>
-
                                 <div class="single-form">
-                                    <input class="single-form__input" id="fullname" name="userName" type="text"
+                                    <input class="single-form__input" id="fullname" name="fullName" type="text"
                                         placeholder="Full name *" required />
                                     <span id="errorfullNameCheckout"></span>
                                 </div>
                                 <div class="single-form">
-                                    <input class="single-form__input" id="phone" name="phone" type="number"
+                                    <input class="single-form__input" id="phone" name="phone" type="text"
                                         placeholder="03 XXXXXXXXX *" required />
                                     <span id="errorPhone"></span>
                                 </div>
                                 <div class="single-form">
-                                    <input class="single-form__input" id="Address" name="address" type="text"
+                                    <input class="single-form__input" id="Address" name="shipping_address" type="text"
+                                        placeholder="Shipping Address *" required />
+                                    <span id="errorAddress"></span>
+                                </div>
+                                <div class="single-form">
+                                    <input class="single-form__input" id="Address" name="billing_address" type="text"
+                                        placeholder="Billing Address *" required />
+                                    <span id="errorAddress"></span>
+                                </div>
+                                <div class="single-form">
+                                    <input class="single-form__input" id="Address" name="city" type="text"
                                         placeholder="City/Area *" required />
                                     <span id="errorAddress"></span>
                                 </div>
                                 <div class="single-form">
-                                    <input class="single-form__input" id="state" name="state" type="text"
+                                    <input class="single-form__input" id="state" name="userState" type="text"
                                         placeholder="State *" required />
                                     <span id="errorState"></span>
                                 </div>
@@ -69,16 +80,45 @@ if (!isset($_SESSION['cartTwo'])) {
                                     <span id="errorZipCode"></span>
                                 </div>
                                 <div class="single-form">
-                                    <?php
-                                    if (isset($_SESSION['USER'])) {
-                                        $user = $_SESSION['USER'];
-                                        foreach ($user as $user) {
-                                            // echo '<script>alert("'.$user['userID'].'")</script>';
-                                            $userID = $user['userID'];
-                                        }
+                                   <select name="payment_method" id="payment_method" class="single-form__input" onchange="showCard(this.value)">
+                                         <option value="">Select a payment method</option>
+                                         <option value="COD">Cash on Delivery</option>
+                                         <option value="Card">Card</option>
+                                   </select>
+                                </div>
+                                <div class="single-form" style="display:none">
+                                    <input class="single-form__input" id="zipCode" name="card"
+                                        placeholder="Card Number" pattern="[0-9]{16}"  />
+                                    <span id="errorZipCode"></span>
+                                </div>
+                                <div class="single-form" id="expiryDateDiv" style="display:none">
+                                    <input type="date" class="single-form__input" id="zipCode" name="expiry" type="number"
+                                        placeholder="expiry date"  />
+                                    <span id="errorZipCode"></span>
+                                </div>
+
+                                <div class="single-form" id="cvvDiv" style="display:none">
+                                    <input type="text" class="single-form__input" id="zipCode" name="cvv" type="number"
+                                        placeholder="CVV" pattern="[0-9]{3}"  />
+                                    <span id="errorZipCode"></span>
+                                </div>
+
+
+                                <script>
+                                function showCard(val){
+                                    if(val == "COD"){
+                                        document.querySelector("#cvvDiv").style.display = "none";
+                                        document.querySelector("#expiryDateDiv").style.display = "none";
                                     }
-                                    ?>
-                                    <a href="?submitOrder=<?php echo $userID ?>&&userName="> <button type="button" id="signup"
+                                    else if(val == "Card"){
+                                        document.querySelector("#cvvDiv").style.display = "block";
+                                        document.querySelector("#expiryDateDiv").style.display = "block";
+                                    }
+                                }
+                                </script>
+
+                                <div class="single-form">
+                                       <button type="submit" id="zipCode"
                                             name="submitOrder" class="single-form__btn btn">
                                             Submit
                                         </button>
@@ -101,8 +141,6 @@ if (!isset($_SESSION['cartTwo'])) {
             <!-- Newsletter Wrapper Start -->
             <div class="newsletter-wrapper text-center">
                 <h4 class="newsletter-wrapper__title">Follow us on</h4>
-
-
                 <div class="newsletter-social">
                     <ul class="newsletter-social__list">
                         <li>
