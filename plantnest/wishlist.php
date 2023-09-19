@@ -58,7 +58,6 @@ include("./components/header.php");
                             $query->execute();
                             $wishlistData = $query->fetchAll(PDO::FETCH_ASSOC);
                             foreach ($wishlistData as $data) {
-                                // $query = $pdo->prepare("Select * from products where ")
                                 ?>
                                 <tr class="wishlist-item">
                                     <td class="product-remove">

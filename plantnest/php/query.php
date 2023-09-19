@@ -157,7 +157,6 @@ if (isset($_GET['removeFromWishlist'])) {
     echo "<script>alert('Item removed from wishlist')</script>";
 }
 if (isset($_POST['submitOrder'])) {
-    // echo "ABC";
     $total_qty = 0;
     $grandTotalPrice = 0;
     $getUserId = $_POST['sessionUserID'];
