@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 18, 2023 at 01:45 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Sep 19, 2023 at 11:38 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -96,23 +96,9 @@ CREATE TABLE `final_order` (
   `user_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
   `total_price` int(11) NOT NULL,
-  `status` varchar(255) NOT NULL DEFAULT 'Pending',
-  `date_of_order` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date_of_order` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `orderStatus` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `final_order`
---
-
-INSERT INTO `final_order` (`order_id`, `user_id`, `qty`, `total_price`, `status`, `date_of_order`) VALUES
-(1, 12, 4, 160, 'Pending', '2023-09-18 08:34:46'),
-(2, 6, 2, 80, 'Pending', '2023-09-18 10:09:53'),
-(3, 6, 3, 108, 'Pending', '2023-09-18 10:21:10'),
-(4, 6, 1, 24, 'Pending', '2023-09-18 10:21:32'),
-(5, 13, 3, 120, 'Pending', '2023-09-18 11:01:23'),
-(6, 13, 0, 0, 'Pending', '2023-09-18 11:01:32'),
-(7, 13, 2, 66, 'Pending', '2023-09-18 11:07:47'),
-(8, 13, 4, 160, 'Pending', '2023-09-18 11:22:29');
 
 -- --------------------------------------------------------
 
@@ -125,19 +111,22 @@ CREATE TABLE `orders` (
   `userID` int(11) DEFAULT NULL,
   `productID` int(11) DEFAULT NULL,
   `productQuantity` varchar(225) DEFAULT NULL,
-  `totalAmount` varchar(225) DEFAULT NULL
+  `totalAmount` varchar(225) DEFAULT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `orderStatus` varchar(255) NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `totalAmount`) VALUES
-(1, 13, 2, '3', '119.97'),
-(2, 13, 2, '1', '39.99'),
-(3, 13, 4, '1', '25.99'),
-(4, 13, 1, '2', '79.98'),
-(5, 13, 2, '2', '79.98');
+INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `totalAmount`, `date`, `orderStatus`) VALUES
+(1, 13, 2, '1', '39.99', '2023-09-19 08:33:32', 'pending'),
+(2, 13, 1, '2', '79.98', '2023-09-19 08:33:32', 'pending'),
+(3, 12, 3, '2', '71.98', '2023-09-19 08:35:13', 'pending'),
+(4, 12, 4, '2', '51.98', '2023-09-19 08:35:13', 'pending'),
+(5, 12, 2, '2', '79.98', '2023-09-19 08:43:45', 'pending'),
+(6, 12, 3, '3', '107.97', '2023-09-19 08:43:45', 'pending');
 
 -- --------------------------------------------------------
 
@@ -293,7 +282,7 @@ ALTER TABLE `final_order`
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`orderID`),
   ADD KEY `p_fk` (`productID`),
-  ADD KEY `u_fk` (`userID`);
+  ADD KEY `u_fk` (`userID`) USING BTREE;
 
 --
 -- Indexes for table `productreviews`
@@ -351,13 +340,13 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `final_order`
 --
 ALTER TABLE `final_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `productreviews`
@@ -404,7 +393,7 @@ ALTER TABLE `final_order`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `p_fk` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `u_fk` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL ON UPDATE SET NULL;
+  ADD CONSTRAINT `u_fk` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `productreviews`
