@@ -140,8 +140,8 @@ include("php/query.php");
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <?php 
-                            $query = $pdo->query("SELECT * from orders  INNER JOIN  users on 
-                            orders.userID = users.userID    where orderStatus	 = 'pending'  LIMIT 2");
+                            $query = $pdo->query("SELECT * from final_order  INNER JOIN  users on 
+                            final_order.user_id = users.userID    where orderStatus	 = 'pending'  LIMIT 2");
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
                         if (empty($result)) {
                             ?>
