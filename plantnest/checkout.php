@@ -50,7 +50,7 @@ if (!isset($_SESSION['cartTwo'])) {
                                     <span id="errorfullNameCheckout"></span>
                                 </div>
                                 <div class="single-form">
-                                    <input class="single-form__input" id="phone" name="phone" type="text"
+                                    <input class="single-form__input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phone" name="phone" type="number"
                                         placeholder="03 XXXXXXXXX *" required />
                                     <span id="errorPhone"></span>
                                 </div>
@@ -70,7 +70,7 @@ if (!isset($_SESSION['cartTwo'])) {
                                     <span id="errorAddress"></span>
                                 </div>
                                 <div class="single-form">
-                                    <input class="single-form__input" id="state" name="userState" type="text"
+                                    <input class="single-form__input" id="state" pattern="[a-zA-Z]{3,}" name="userState" type="text"
                                         placeholder="State *" required />
                                     <span id="errorState"></span>
                                 </div>

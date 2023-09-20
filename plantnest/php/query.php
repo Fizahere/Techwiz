@@ -195,7 +195,6 @@ if (isset($_POST['submitOrder'])) {
         ('$getUserId','$fullName','$phone','$city','$userState','$zipCode','$total_qty','$grandTotalPrice', '$payment_method', '$card', '$billing_address', '$shipping_address', '$expiry', '$cvv')");
 }
 ;
-
 if (isset($_POST['delete-review'])) {
     $reviewID = $_POST['reviewID'];
     $authModel->deleteReview($reviewID, $pdo);

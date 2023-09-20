@@ -161,7 +161,7 @@ include("./components/header.php");
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="product-single-content__social">
+                                    <!-- <div class="product-single-content__social">
                                         <div class="label">Share</div>
                                         <ul class="socail-icon">
                                             <li>
@@ -180,7 +180,7 @@ include("./components/header.php");
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <!-- Product Single content End -->
                             </div>
