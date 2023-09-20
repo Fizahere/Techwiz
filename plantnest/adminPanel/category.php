@@ -232,7 +232,7 @@ include_once('header_admin.php');
 
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10"> <input placeholder="Enter category name.." class="form-control bg-white"
+                        <div class="col-sm-10"> <input placeholder="Enter category name.." class="form-control bg-white" required
                                 name="insert-category-name"></div>
                     </div>
 

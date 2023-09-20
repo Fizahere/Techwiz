@@ -137,7 +137,7 @@ include_once('header_admin.php');
                                                     <div class="mb-3 row form-group">
                                                         <label class="col-sm-2 col-form-label">Name</label>
                                                         <div class="col-sm-10">
-                                                            <input value="<?php echo $row['productName'] ?>"
+                                                            <input value="<?php echo $row['productName'] ?>" required
                                                                 name="update-product-name" class="form-control"
                                                                 type="text">
                                                         </div>
@@ -145,7 +145,7 @@ include_once('header_admin.php');
                                                     <div class="mb-3 row form-group">
                                                         <label class="col-sm-2 col-form-label">Description</label>
                                                         <div class="col-sm-10">
-                                                            <input value="<?php echo $row['productDescription'] ?>"
+                                                            <input value="<?php echo $row['productDescription'] ?>" required
                                                                 name="update-product-description" class="form-control"
                                                                 type="text">
                                                         </div>
@@ -153,17 +153,17 @@ include_once('header_admin.php');
                                                     <div class="mb-3 row form-group">
                                                         <label class="col-sm-2 col-form-label">Price</label>
                                                         <div class="col-sm-10">
-                                                            <input value="<?php echo $row['productPrice'] ?>"
+                                                            <input value="<?php echo $row['productPrice'] ?>"  min="1" max="1000000" required
                                                                 name="update-product-price" class="form-control"
-                                                                type="text">
+                                                                type="number">
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row form-group">
                                                         <label class="col-sm-2 col-form-label">Stock</label>
                                                         <div class="col-sm-10">
-                                                            <input value="<?php echo $row['productStock'] ?>"
+                                                            <input value="<?php echo $row['productStock'] ?>"  min="0" max="1000000" required
                                                                 name="update-product-stock" class="form-control"
-                                                                type="text">
+                                                                type="number">
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row form-group">
@@ -293,7 +293,7 @@ include_once('header_admin.php');
     <div class="modal-dialog modal-xl bg-white">
         <div class= "modal-content bg-white">
             <div class="modal-header">
-                <h4 class="modal-title">Add Category</h4>
+                <h4 class="modal-title">Add Products</h4>
                 <button type="button" class="btn-close bg-white" data-bs-dismiss="modal"></button>
             </div>
             <!-- Modal body -->
@@ -302,22 +302,22 @@ include_once('header_admin.php');
 
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10"> <input placeholder="Insert product name.." class="form-control bg-white"
+                        <div class="col-sm-10"> <input required placeholder="Insert product name.." class="form-control bg-white"
                                 name="insert-product-name"></div>
                     </div>
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Description</label>
-                        <div class="col-sm-10"> <input placeholder="Add description" class="form-control bg-white"
+                        <div class="col-sm-10"> <input required placeholder="Add description" class="form-control bg-white"
                                 name="insert-product-description"></div>
                     </div>
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Price</label>
-                        <div class="col-sm-10"> <input placeholder="Enter price" class="form-control bg-white"
+                        <div class="col-sm-10"> <input placeholder="Enter price" class="form-control bg-white" type="number"  min="1" max="1000000" required
                                 name="insert-product-price"></div>
                     </div>
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Stock</label>
-                        <div class="col-sm-10"> <input placeholder="Add number of stock" class="form-control bg-white"
+                        <div class="col-sm-10"> <input type="number" required min="0" max="1000000" placeholder="Add number of stock" class="form-control bg-white"
                                 name="insert-product-stock"></div>
                     </div>
                     <div class="mb-3 row form-group">
@@ -346,7 +346,7 @@ include_once('header_admin.php');
                     <div class="mb-3 row form-group">
                         <label for="" class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-10">
-                            <input type="file" name="insert-product-image" class="form-control bg-white">
+                            <input type="file" required name="insert-product-image" class="form-control bg-white">
                         </div>
                     </div>
 
