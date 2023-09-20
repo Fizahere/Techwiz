@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2023 at 10:26 AM
+-- Generation Time: Sep 20, 2023 at 09:41 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -118,6 +118,7 @@ CREATE TABLE `final_order` (
 INSERT INTO `final_order` (`order_id`, `user_id`, `fullName`, `phone`, `city`, `userState`, `zipCode`, `qty`, `total_price`, `date_of_order`, `orderStatus`, `billing_address`, `shipping_address`, `payment_method`, `card_number`, `expiry_date`, `cvv`) VALUES
 (1, 13, 'Iman', 2147483647, 'PAF base', 'Karachi', 134567, 6, 144, '2023-09-19 16:16:14', 'pending', 'SFC', 'Korangi', 'COD', '', '0000-00-00', ''),
 (2, 13, 'Iman', 2147483647, 'PAF base', 'Karachi', 13950, 6, 232, '2023-09-19 18:45:51', 'pending', 'SFC', 'Korangi', 'COD', '', '0000-00-00', ''),
+(3, 6, 'User', 2147483647, 'Karachi', 'Karachi', 13950, 2, 64, '2023-09-19 19:12:33', 'pending', 'Shahrah-e-Faisal', 'Aptech SFC', 'COD', '', '0000-00-00', ''),
 (7, 14, 'Fiza', 2147483647, 'SFC', 'Karachi', 1356788, 1, 24, '2023-09-20 07:21:08', 'pending', 'SFC', 'Karachi', 'COD', '', '0000-00-00', '');
 
 -- --------------------------------------------------------
@@ -140,7 +141,15 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `totalAmount`, `date`) VALUES
-(1, 13, 9, '6', '143.94', '2023-09-19 16:16:14');
+(1, 13, 9, '6', '143.94', '2023-09-19 16:16:14'),
+(2, 13, 3, '2', '71.98', '2023-09-19 18:45:51'),
+(3, 13, 1, '4', '159.96', '2023-09-19 18:45:51'),
+(4, 6, 2, '1', '39.99', '2023-09-19 19:12:33'),
+(5, 6, 9, '1', '23.99', '2023-09-19 19:12:33'),
+(6, 14, 2, '1', '39.99', '2023-09-20 05:34:59'),
+(7, 14, 2, '4', '159.96', '2023-09-20 05:49:30'),
+(8, 14, 9, '1', '23.99', '2023-09-20 06:53:00'),
+(9, 14, 9, '1', '23.99', '2023-09-20 07:21:08');
 
 -- --------------------------------------------------------
 
@@ -232,6 +241,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userID`, `firstName`, `lastName`, `userEmail`, `userPassword`) VALUES
 (6, 'user', 'user', 'user@gmail.com', '$2y$10$kKffEgWCHe5M9H3H4oWlTOZg2Mu9cjJ7e.Lk50ZxF8pkQJsXmP/Fi'),
+(12, 'Talib', 'Baloch', 'talib@gmail.com', '$2y$10$0WYiFviwAiuJsCakzYb01.sZ9A2YZa5rJPqe9d/f1X70gGFxECNBm'),
 (13, 'Iman', 'Malik', 'iman@gmail.com', '$2y$10$zJua.Jnem76CQQAXrPN2duiRLsJW11Q1pqFKtoIG1wJboKIF8RPiW'),
 (14, 'Fiza', 'Batol', 'fiza@gmail.com', '$2y$10$I6UzrrBlS5boMiN7kLs8zu1T.dOGgWJO8398Tz3.RwdW/8GSPzq6C');
 
@@ -252,7 +262,10 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`wishlistID`, `customerID`, `wishlistProductID`) VALUES
-(36, 6, 2);
+(30, 6, 1),
+(33, 6, 2),
+(34, 6, 2),
+(35, 6, 2);
 
 --
 -- Indexes for dumped tables
@@ -379,7 +392,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlistID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `wishlistID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Constraints for dumped tables
