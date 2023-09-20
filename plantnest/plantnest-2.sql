@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2023 at 10:42 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Sep 19, 2023 at 12:35 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `admins` (
   `adminEmail` varchar(225) DEFAULT NULL,
   `password` varchar(225) DEFAULT NULL,
   `adminImage` varchar(325) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admins`
@@ -52,7 +52,7 @@ CREATE TABLE `categories` (
   `categoryID` int(11) NOT NULL,
   `categoryName` varchar(225) DEFAULT NULL,
   `categoryImage` varchar(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
@@ -76,7 +76,7 @@ CREATE TABLE `feedback` (
   `feedbackID` int(11) NOT NULL,
   `feedbackUserID` int(11) DEFAULT NULL,
   `feedback` varchar(325) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `feedback`
@@ -109,16 +109,17 @@ CREATE TABLE `final_order` (
   `card_number` varchar(222) NOT NULL,
   `expiry_date` date DEFAULT NULL,
   `cvv` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `final_order`
 --
 
 INSERT INTO `final_order` (`order_id`, `user_id`, `fullName`, `phone`, `city`, `userState`, `zipCode`, `qty`, `total_price`, `date_of_order`, `orderStatus`, `billing_address`, `shipping_address`, `payment_method`, `card_number`, `expiry_date`, `cvv`) VALUES
-(1, 13, 'Iman', 2147483647, 'PAF base', 'Karachi', 134567, 6, 144, '2023-09-19 16:16:14', 'pending', 'SFC', 'Korangi', 'COD', '', '0000-00-00', ''),
-(2, 13, 'Iman', 2147483647, 'PAF base', 'Karachi', 13950, 6, 232, '2023-09-19 18:45:51', 'pending', 'SFC', 'Korangi', 'COD', '', '0000-00-00', ''),
-(3, 6, 'User', 2147483647, 'Karachi', 'Karachi', 13950, 2, 64, '2023-09-19 19:12:33', 'pending', 'Shahrah-e-Faisal', 'Aptech SFC', 'COD', '', '0000-00-00', '');
+(1, 13, NULL, NULL, NULL, NULL, NULL, 1, 40, '2023-09-19 09:41:53', 'pending', '', '', 'COD', '', NULL, ''),
+(2, 13, '', 0, '', '', 0, 5, 200, '2023-09-19 09:54:18', 'pending', '', '', 'COD', '', NULL, ''),
+(3, 13, 'asdasd', 123123, 'asdasd', 'sadasd', 12323, 5, 144, '2023-09-19 10:14:47', 'pending', '', '', 'COD', '', NULL, ''),
+(4, 13, 'Ali', 2147483647, 'Sindh, Karachi', 'Sindh', 75300, 1, 40, '2023-09-19 10:32:07', 'pending', 'Karachi B', 'Karachi', 'Card', '', '2023-09-13', '121');
 
 -- --------------------------------------------------------
 
@@ -133,18 +134,24 @@ CREATE TABLE `orders` (
   `productQuantity` varchar(225) DEFAULT NULL,
   `totalAmount` varchar(225) DEFAULT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `totalAmount`, `date`) VALUES
-(1, 13, 9, '6', '143.94', '2023-09-19 16:16:14'),
-(2, 13, 3, '2', '71.98', '2023-09-19 18:45:51'),
-(3, 13, 1, '4', '159.96', '2023-09-19 18:45:51'),
-(4, 6, 2, '1', '39.99', '2023-09-19 19:12:33'),
-(5, 6, 9, '1', '23.99', '2023-09-19 19:12:33');
+(1, 13, 2, '1', '39.99', '2023-09-19 08:33:32'),
+(2, 13, 1, '2', '79.98', '2023-09-19 08:33:32'),
+(3, 12, 3, '2', '71.98', '2023-09-19 08:35:13'),
+(4, 12, 4, '2', '51.98', '2023-09-19 08:35:13'),
+(5, 12, 2, '2', '79.98', '2023-09-19 08:43:45'),
+(6, 12, 3, '3', '107.97', '2023-09-19 08:43:45'),
+(7, 13, 2, '1', '39.99', '2023-09-19 09:41:53'),
+(8, 13, 2, '5', '199.95', '2023-09-19 09:54:18'),
+(9, 13, 2, '1', '39.99', '2023-09-19 10:14:47'),
+(10, 13, 4, '4', '103.96', '2023-09-19 10:14:47'),
+(11, 13, 2, '1', '39.99', '2023-09-19 10:32:07');
 
 -- --------------------------------------------------------
 
@@ -158,7 +165,7 @@ CREATE TABLE `productreviews` (
   `productID` int(11) DEFAULT NULL,
   `userID` int(11) DEFAULT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `productreviews`
@@ -181,7 +188,7 @@ CREATE TABLE `products` (
   `productImage` varchar(225) DEFAULT NULL,
   `productStock` varchar(255) NOT NULL,
   `categoryID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
@@ -228,7 +235,7 @@ CREATE TABLE `users` (
   `lastName` varchar(225) DEFAULT NULL,
   `userEmail` varchar(225) NOT NULL,
   `userPassword` varchar(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -251,7 +258,7 @@ CREATE TABLE `wishlist` (
   `wishlistID` int(11) NOT NULL,
   `customerID` int(11) DEFAULT NULL,
   `wishlistProductID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `wishlist`
@@ -292,6 +299,7 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `final_order`
   ADD PRIMARY KEY (`order_id`),
+  ADD UNIQUE KEY `phone` (`phone`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -358,13 +366,13 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `final_order`
 --
 ALTER TABLE `final_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `productreviews`

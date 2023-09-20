@@ -214,13 +214,13 @@ if (!isset($_SESSION['USER'])) {
                                                                     <?php echo $singleItem['totalAmount'] ?>
                                                                 </td>
                                                             </tr>
-                                                            <?php
+                                                    </tbody>
+                                                </table>
+                                                <h6 class="">Total: <?php echo $singleItem['total_price'] ?></h6>
+                                                <?php
                                                             $itemCount++;
                                                         }
                                                         ?>
-                                                    </tbody>
-                                                </table>
-                                                <h6 class="">Total:</h6>
                                                 <!-- </ul> -->
                                                 <form action="" method='post'>
                                                     <button class="wishlist-table__btn btn" name='cancelOrder'>Cancel

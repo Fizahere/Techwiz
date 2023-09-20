@@ -176,7 +176,23 @@ include_once('php/query.php')
                                 <li class="cart">
                                     <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="Cart">
                                         <i class="lastudioicon-shopping-cart-1"></i>
-                                        <!-- <span class="badge">03</span> -->
+                                        <?php
+                                        if (isset($_SESSION['cartTwo'])) {
+                                            $count = count($_SESSION['cartTwo']);
+                                            // echo "<script>alert('" . $count . "')</script>";
+                                            ?>
+
+                                            <span class="badge">
+                                                <?php echo $count ?>
+                                            </span>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <span class="badge">0
+                                            </span>
+                                            <?php
+                                        }
+                                        ?>
                                     </button>
                                 </li>
                             </ul>
