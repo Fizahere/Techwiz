@@ -110,12 +110,7 @@ if(isset($_POST['update_category_info'])){
     if (isset($_POST['delete_category_info'])) {
         $category_delete_id = $_POST['delete_category_id'];
         $authModel->deleteCategory( $category_delete_id, $pdo);                
-    echo
-       "<script>
-       alert('Category deleted')
-       location.assign('category.php')
-       </script>";
-   
+
 }
 // ---------------------------------------------------------------------------|
 // query for delete category                                                  |
@@ -243,11 +238,7 @@ if(isset($_POST['update_product_info'])){
 if (isset($_POST['delete_product_info'])) {
     $product_delete_id = $_POST['delete_product_id'];
     $authModel->deleteProducts( $product_delete_id, $pdo);                
-echo
-   "<script>
-   alert('product deleted')
-   location.assign('products.php')
-   </script>";
+
 
 }
 // ---------------------------------------------------------------------------|

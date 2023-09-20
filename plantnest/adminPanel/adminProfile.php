@@ -74,7 +74,7 @@ include_once('header_admin.php');
                                             <div class="modal-body">
                                                 <form method="post" action="" enctype="multipart/form-data">
 
-                                                    <input value="<?php echo $row['adminID'] ?>" name="model-admin-ID"
+                                                    <input value="<?php echo $row['adminID'] ?>" name="model-admin-ID" 
                                                         class="form-control" type="hidden">
                                                     <?php
                                                     if($row['adminImage']){
@@ -94,7 +94,7 @@ include_once('header_admin.php');
                                                     <div class="mb-3 row">
                                                         <label class="col-sm-2 col-form-label">Name</label>
                                                         <div class="col-sm-10">
-                                                            <input value="<?php echo $row['adminName'] ?>"
+                                                            <input value="<?php echo $row['adminName'] ?>" required
                                                                 id="modal-category-name" name="model-admin-name"
                                                                 class="form-control" type="text">
                                                         </div>
@@ -102,15 +102,15 @@ include_once('header_admin.php');
                                                     <div class="mb-3 row">
                                                         <label class="col-sm-2 col-form-label">Email</label>
                                                         <div class="col-sm-10">
-                                                            <input value="<?php echo $row['adminEmail'] ?>"
+                                                            <input value="<?php echo $row['adminEmail'] ?>" required
                                                                 name="modal-admin-email" class="form-control"
-                                                                type="text">
+                                                                type="email">
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row">
                                                         <label class="col-sm-2 col-form-label">Password</label>
                                                         <div class="col-sm-10 password-div">
-                                                            <input value="<?php echo $row['password'] ?>"
+                                                            <input value="<?php echo $row['password'] ?>" minlength="4" required
                                                                 name="modal-admin-password"
                                                                 class="form-control password-input" type="password">
                                                             <span class="toggle-password"

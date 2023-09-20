@@ -36,6 +36,14 @@ include("php/query.php");
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+
+
+<!-- jquery  -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 </head>
 <style>
     h4 {
@@ -58,6 +66,9 @@ include("php/query.php");
     .fa-eye.visible {
         color: red;
         /* Change this color to your preferred color */
+    }
+    .ac{
+        color:blue !important;
     }
 </style>
 
@@ -107,15 +118,16 @@ include("php/query.php");
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-
-                    <a href="users.php" class="nav-item nav-link "><i class="fa fa-users me-2"></i>Users</a>
-                    <a href="category.php" class="nav-item nav-link"><i class="fa fa-cubes me-2"></i>Categories</a>
-                    <a href="products.php" class="nav-item nav-link"><i class="fa fa-leaf me-2"></i>Products</a>
-                    <a href="orders.php" class="nav-item nav-link"><i class="fa fa-shopping-basket me-2"></i>Orders</a>
-                    <a href="notifications.php" class="nav-item nav-link"><i class="fa fa-bell me-2"></i>Notifications</a>
-                    <a href="reviews.php" class="nav-item nav-link"><i class="fa fa-star me-2"></i>Reviews</a>
-                    <a href="feedback.php" class="nav-item nav-link"><i class="fa fa-comment me-2"></i>User's Feedback</a>
+                    <li id="dashboard">
+                <a   href="index.php"  class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                </li>
+                    <a href="users.php" id ="users" class="nav-item nav-link "><i class="fa fa-users me-2"></i>Users</a>
+                    <a href="category.php" id="categories" class="nav-item nav-link"><i class="fa fa-cubes me-2"></i>Categories</a>
+                    <a href="products.php" id="products" class="nav-item nav-link"><i class="fa fa-leaf me-2"></i>Products</a>
+                    <a href="orders.php" id="orders" class="nav-item nav-link"><i class="fa fa-shopping-basket me-2"></i>Orders</a>
+                    <a href="notifications.php" id="notifications" class="nav-item nav-link"><i class="fa fa-bell me-2"></i>Notifications</a>
+                    <a href="reviews.php" id= "reviews" class="nav-item nav-link"><i class="fa fa-star me-2"></i>Reviews</a>
+                    <a href="feedback.php" id="feedback" class="nav-item nav-link"><i class="fa fa-comment me-2"></i>User's Feedback</a>
 
                 </div>
             </nav>
@@ -255,3 +267,7 @@ include("php/query.php");
             </nav>
 
             <!-- Navbar End -->
+            <script>
+
+  
+</script>
