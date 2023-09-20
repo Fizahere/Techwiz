@@ -135,17 +135,17 @@ include("./components/header.php");
                     </h2>
                     <ul class="contact-social__social">
                         <li>
-                            <a href="https://facebook.com" target='blank' aria-label="facebook">
+                            <a href="https://www.facebook.com/profile.php?id=61551557849096" target='_blank' aria-label="facebook">
                                 <i class="lastudioicon-b-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com" target='blank' aria-label="twitter">
+                            <a href="https://instagram.com/plantnest111?igshid=NzZlODBkYWE4Ng==" target='_blank' aria-label="twitter">
                                 <i class="lastudioicon-b-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://instagram.com" target='blank' aria-label="instagram">
+                            <a href="https://instagram.com/plantnest111?igshid=NzZlODBkYWE4Ng==" target='_blank' aria-label="instagram">
                                 <i class="lastudioicon-b-instagram"></i>
                             </a>
                         </li>

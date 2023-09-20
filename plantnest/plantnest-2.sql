@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2023 at 12:35 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Sep 20, 2023 at 09:41 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -116,10 +116,10 @@ CREATE TABLE `final_order` (
 --
 
 INSERT INTO `final_order` (`order_id`, `user_id`, `fullName`, `phone`, `city`, `userState`, `zipCode`, `qty`, `total_price`, `date_of_order`, `orderStatus`, `billing_address`, `shipping_address`, `payment_method`, `card_number`, `expiry_date`, `cvv`) VALUES
-(1, 13, NULL, NULL, NULL, NULL, NULL, 1, 40, '2023-09-19 09:41:53', 'pending', '', '', 'COD', '', NULL, ''),
-(2, 13, '', 0, '', '', 0, 5, 200, '2023-09-19 09:54:18', 'pending', '', '', 'COD', '', NULL, ''),
-(3, 13, 'asdasd', 123123, 'asdasd', 'sadasd', 12323, 5, 144, '2023-09-19 10:14:47', 'pending', '', '', 'COD', '', NULL, ''),
-(4, 13, 'Ali', 2147483647, 'Sindh, Karachi', 'Sindh', 75300, 1, 40, '2023-09-19 10:32:07', 'pending', 'Karachi B', 'Karachi', 'Card', '', '2023-09-13', '121');
+(1, 13, 'Iman', 2147483647, 'PAF base', 'Karachi', 134567, 6, 144, '2023-09-19 16:16:14', 'pending', 'SFC', 'Korangi', 'COD', '', '0000-00-00', ''),
+(2, 13, 'Iman', 2147483647, 'PAF base', 'Karachi', 13950, 6, 232, '2023-09-19 18:45:51', 'pending', 'SFC', 'Korangi', 'COD', '', '0000-00-00', ''),
+(3, 6, 'User', 2147483647, 'Karachi', 'Karachi', 13950, 2, 64, '2023-09-19 19:12:33', 'pending', 'Shahrah-e-Faisal', 'Aptech SFC', 'COD', '', '0000-00-00', ''),
+(7, 14, 'Fiza', 2147483647, 'SFC', 'Karachi', 1356788, 1, 24, '2023-09-20 07:21:08', 'pending', 'SFC', 'Karachi', 'COD', '', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -141,17 +141,15 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderID`, `userID`, `productID`, `productQuantity`, `totalAmount`, `date`) VALUES
-(1, 13, 2, '1', '39.99', '2023-09-19 08:33:32'),
-(2, 13, 1, '2', '79.98', '2023-09-19 08:33:32'),
-(3, 12, 3, '2', '71.98', '2023-09-19 08:35:13'),
-(4, 12, 4, '2', '51.98', '2023-09-19 08:35:13'),
-(5, 12, 2, '2', '79.98', '2023-09-19 08:43:45'),
-(6, 12, 3, '3', '107.97', '2023-09-19 08:43:45'),
-(7, 13, 2, '1', '39.99', '2023-09-19 09:41:53'),
-(8, 13, 2, '5', '199.95', '2023-09-19 09:54:18'),
-(9, 13, 2, '1', '39.99', '2023-09-19 10:14:47'),
-(10, 13, 4, '4', '103.96', '2023-09-19 10:14:47'),
-(11, 13, 2, '1', '39.99', '2023-09-19 10:32:07');
+(1, 13, 9, '6', '143.94', '2023-09-19 16:16:14'),
+(2, 13, 3, '2', '71.98', '2023-09-19 18:45:51'),
+(3, 13, 1, '4', '159.96', '2023-09-19 18:45:51'),
+(4, 6, 2, '1', '39.99', '2023-09-19 19:12:33'),
+(5, 6, 9, '1', '23.99', '2023-09-19 19:12:33'),
+(6, 14, 2, '1', '39.99', '2023-09-20 05:34:59'),
+(7, 14, 2, '4', '159.96', '2023-09-20 05:49:30'),
+(8, 14, 9, '1', '23.99', '2023-09-20 06:53:00'),
+(9, 14, 9, '1', '23.99', '2023-09-20 07:21:08');
 
 -- --------------------------------------------------------
 
@@ -243,10 +241,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userID`, `firstName`, `lastName`, `userEmail`, `userPassword`) VALUES
 (6, 'user', 'user', 'user@gmail.com', '$2y$10$kKffEgWCHe5M9H3H4oWlTOZg2Mu9cjJ7e.Lk50ZxF8pkQJsXmP/Fi'),
-(7, 'Test', NULL, 'Ab@gmail.com', '$2y$10$U4o0OLktmcNW4Mhor4lWXOyZJPzvuGzZzW88GkjSwRDU/HCjo.Gnm'),
-(10, 'Test', NULL, 'Test@gmail.com', '$2y$10$Z1bNQ0BFocMjjf1eDJ/YxesNSz3ejKp5CsE/FvkhHg9p9f/GUOfpq'),
 (12, 'Talib', 'Baloch', 'talib@gmail.com', '$2y$10$0WYiFviwAiuJsCakzYb01.sZ9A2YZa5rJPqe9d/f1X70gGFxECNBm'),
-(13, 'Iman', 'Malik', 'iman@gmail.com', '$2y$10$zJua.Jnem76CQQAXrPN2duiRLsJW11Q1pqFKtoIG1wJboKIF8RPiW');
+(13, 'Iman', 'Malik', 'iman@gmail.com', '$2y$10$zJua.Jnem76CQQAXrPN2duiRLsJW11Q1pqFKtoIG1wJboKIF8RPiW'),
+(14, 'Fiza', 'Batol', 'fiza@gmail.com', '$2y$10$I6UzrrBlS5boMiN7kLs8zu1T.dOGgWJO8398Tz3.RwdW/8GSPzq6C');
 
 -- --------------------------------------------------------
 
@@ -299,7 +296,6 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `final_order`
   ADD PRIMARY KEY (`order_id`),
-  ADD UNIQUE KEY `phone` (`phone`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -366,13 +362,13 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `final_order`
 --
 ALTER TABLE `final_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `productreviews`
@@ -390,7 +386,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
@@ -412,14 +408,14 @@ ALTER TABLE `feedback`
 -- Constraints for table `final_order`
 --
 ALTER TABLE `final_order`
-  ADD CONSTRAINT `final_order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`);
+  ADD CONSTRAINT `final_order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `p_fk` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `u_fk` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL;
+  ADD CONSTRAINT `p_fk` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `u_fk` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `productreviews`

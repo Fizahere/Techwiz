@@ -174,13 +174,20 @@ if (!isset($_SESSION['USER'])) {
                                     $query->execute();
                                     $getOrders = $query->fetchAll(PDO::FETCH_ASSOC);
                                     foreach ($getOrders as $singleOrder) {
-                                        ?>
+                                      $getOrderID = $singleOrder['order_id'];
+                                    //   echo '<script>alert("' . $getOrderID . '")</script>';
+                                ?>
+                               
                                         <div class="single-form">
                                             <div class="col-md-12 mt-4">
                                                 <h4 class="contact-info-item__title">
                                                     Order #
                                                     <?php echo $singleOrder['order_id'] ?> :
                                                 </h4>
+                                                <?php    
+                                }
+                                    // echo '<script>alert("' . $getOrderID . '")</script>';
+                                    ?>
                                                 <!-- <ul> -->
                                                 <table class="table-responsive bg- table">
                                                     <thead>
@@ -191,16 +198,16 @@ if (!isset($_SESSION['USER'])) {
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $queryToGetItems = $pdo->prepare("SELECT * FROM orders INNER JOIN final_order ON orders.date = final_order.date_of_order INNER JOIN Products ON orders.productID = products.productID WHERE orders.userID = :userID");
+                                                        $queryToGetItems = $pdo->prepare("SELECT * FROM orders INNER JOIN final_order ON orders.date = final_order.date_of_order INNER JOIN Products ON orders.productID = products.productID WHERE orders.userID = :userID  AND final_order.orderStatus = 'pending' AND orders.date=final_order.date_of_order order by final_order.date_of_order desc limit 1");
                                                         $queryToGetItems->bindParam(":userID", $userID);
                                                         $queryToGetItems->execute();
                                                         // echo '<script>alert("' . $userID . '")</script>';
                                                         $orderItems = $queryToGetItems->fetchAll(PDO::FETCH_ASSOC);
                                                         $itemCount = 1;
-                                                        foreach ($orderItems as $singleItem) {
                                                             // echo "<script>alert('".$singleItem['productName']."')</script>";
-                                                            ?>
-                                                            <tr>
+                                                            foreach ($orderItems as $singleItem) {
+                                                                ?>
+                                                                <tr>
                                                                 <td>
                                                                     <?php echo $itemCount ?>
                                                                 </td>
@@ -213,23 +220,19 @@ if (!isset($_SESSION['USER'])) {
                                                                 <td>
                                                                     <?php echo $singleItem['totalAmount'] ?>
                                                                 </td>
+                                                                <td>
+                                                                    <?php echo $singleItem['total_price'] ?>
+                                                                </td>
                                                             </tr>
-                                                    </tbody>
-                                                </table>
-                                                <h6 class="">Total: <?php echo $singleItem['total_price'] ?></h6>
-                                                <?php
+                                                            <?php
                                                             $itemCount++;
                                                         }
                                                         ?>
+                                                            </tbody>
+                                                       
+                                                       
+                                                </table>
                                                 <!-- </ul> -->
-                                                <form action="" method='post'>
-                                                    <button class="wishlist-table__btn btn" name='cancelOrder'>Cancel
-                                                        Order</button>
-                                                </form>
-                                                <?php
-                                                // }
-                                                ?>
-
                                                 <div class="contact-info-item__service mt-4">
                                                 </div>
                                                 <?php
@@ -238,9 +241,6 @@ if (!isset($_SESSION['USER'])) {
                                                 ?>
                                             </div>
                                         </div>
-                                        <?php
-                                    }
-                                    ?>
                                 </div>
                             </div>
                             <div class="col-md-4"></div>

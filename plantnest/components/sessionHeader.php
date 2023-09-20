@@ -135,7 +135,7 @@ include_once('php/query.php')
                                 <!-- Menu Item List Start -->
                                 <ul class="menu-items-list menu-items-list--dark d-flex justify-content-center">
                                     <li>
-                                        <a class="active" href="index.php">
+                                        <a href="index.php">
                                             Home
                                         </a>
                                     </li>
