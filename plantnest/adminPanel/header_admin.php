@@ -269,7 +269,5 @@ include("php/query.php");
             <!-- Navbar End -->
             <script>
 
-  $("#dashboard").click(function(){
-    $("#dashboard").css("border-bottom","1px solid black");
-  });
+  
 </script>

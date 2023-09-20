@@ -155,7 +155,7 @@ include_once('header_admin.php');
                                                         <div class="col-sm-10">
                                                             <input value="<?php echo $row['productPrice'] ?>"  min="1" max="1000000" required
                                                                 name="update-product-price" class="form-control"
-                                                                type="">
+                                                                type="number">
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row form-group">

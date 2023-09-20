@@ -60,7 +60,10 @@ include_once('header_admin.php');
                     </div>
                     <div class="col-sm-6 col-xl-6">
                         <div class="bg-light rounded d-flex align-items-center justify-content-start p-5">
-                            <i class="fa fa-shopping-basket fa-3x text-primary"></i>
+                            <a href="orders.php">
+
+                                <i class="fa fa-shopping-basket fa-3x text-primary"></i>
+                            </a>
                             <div class="ms-4">
                                 <p class="mb-2">Orders</p>
                                 <h6 class="mb-0"><?php
@@ -74,7 +77,10 @@ include_once('header_admin.php');
                     </div>
                     <div class="col-sm-6 col-xl-6">
                         <div class="bg-light rounded d-flex align-items-center justify-content-start p-5">
-                            <i class="fa fa-star fa-3x text-primary"></i>
+                            <a href="reviews.php">
+
+                                <i class="fa fa-star fa-3x text-primary"></i>
+                            </a>
                             <div class="ms-4">
                                 <p class="mb-2">Reviews</p>
                                 <h6 class="mb-0"><?php
@@ -89,7 +95,10 @@ include_once('header_admin.php');
                     
                     <div class="col-sm-6 col-xl-6">
                         <div class="bg-light rounded d-flex align-items-center justify-content-start p-5">
-                            <i class="fa fa-comment fa-3x text-primary"></i>
+                            <a href="feedback.php">
+
+                                <i class="fa fa-comment fa-3x text-primary"></i>
+                            </a>
                             <div class="ms-4">
                                 <p class="mb-2">Feedback</p>
                                 <h6 class="mb-0"><?php
