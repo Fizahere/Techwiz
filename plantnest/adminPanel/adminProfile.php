@@ -18,13 +18,13 @@ include_once('header_admin.php');
                                 <?php
                                  $admin = $_SESSION['Admin'];
 
-                                 foreach($admin as  $value){
-                                    $U_ID =   $value['adminID'];
+                                 
+                                    
                                   $query = $pdo->prepare("SELECT * FROM admins WHERE adminID = :iD ");
-                                  $query->bindParam(':iD',  $U_ID);
+                                  $query->bindParam(':iD', $admin);
                                   $query->execute();
                                   $result = $query->fetchAll(PDO::FETCH_ASSOC);
-                                 }
+                                 
                                   foreach ($result as $row) {
                                  
 

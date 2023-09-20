@@ -1,8 +1,101 @@
 <?php
 session_start();
+$con = mysqli_connect('localhost','root','','plantnest');
 include_once('models/config.php');
 include_once("models/auth.php");
 $authModel  =  new Auth();
+?>
+<?php
+// if (isset($_POST['signin'])) {
+//     if (empty($_POST['email'])) {
+//         redirectWindow('signin.php?error=email is required');
+//     }
+//     if (empty($_POST['password'])) {
+//         redirectWindow('signin.php?error=password is required');
+//     }
+//     $email = $_POST['email'];
+//     $password = $_POST['password'];
+   
+//         $user = $authModel->findUserWithEmailAdmin($email, $pdo);
+//         if ($_SESSION['Admin'] = $user) {
+//             redirectWindow('index.php');
+//         } else {
+//             redirectWindow('signin.php?error=invalid credentials');
+//         };
+   
+// };
+
+// Sign In
+
+// if (isset($_POST['signin'])) {
+//     if (empty($_POST['email'])) {
+//         redirectWindow('signin.php?error=email is required');
+//     }
+//     if (empty($_POST['password'])) {
+//         redirectWindow('signin.php?error=password is required');
+//     }
+//     $email = $_POST['email'];
+//     $password = $_POST['password'];
+
+//     $user = $authModel->findUserWithEmail($email, $pdo);
+//     print_r($user);
+//     die();
+//     if($_SESSION['Admin'] = $user) {
+//         redirectWindow('index.php');
+//     } else {
+//         redirectWindow('signin.php?error=invalid credentials');
+//     }
+// }
+
+
+
+if (isset($_POST['signin'])) {
+    
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $isDataAvaialbe = mysqli_query($con,"SELECT * FROM admins WHERE adminEmail = '$email' AND password = '$password'") or die(mysqli_error($con));
+    $data = mysqli_fetch_assoc($isDataAvaialbe);
+    if($exists = mysqli_num_rows($isDataAvaialbe) > 0){
+        $_SESSION['Admin'] =  $data['adminID'];
+        redirectWindow('index.php');
+        
+        
+    }else{
+        redirectWindow('signin.php?error=Email Or Password Not Correct');
+    }
+    // if (empty($_POST['email'])) {
+    //     redirectWindow('signin.php?error=email is required');
+    // }
+    
+    // if (empty($_POST['password'])) {
+    //     redirectWindow('signin.php?error=password is required');
+    // }
+    
+    // $email = $_POST['email'];
+    // $password = $_POST['password'];
+
+    
+    // $user = $authModel->findUserWithEmail($email, $pdo);    
+    // print_r($user);
+
+    // die();
+    // foreach($user as $key => $value){
+    //     if($value['adminEmail'] == $_POST['email']){
+    //         echo "Working";
+    //         die();
+    //         echo "<script>
+    //             location.assign('index.php');
+    //         </script>";
+    //         break;
+
+    //     }else{
+    //         redirectWindow('signin.php?error=Email Or Password Not Correct');
+    //     }
+    // }
+   
+}
+
 ?>
 <!-----------------------------------------------------------------------------
 |   php tag start for queries to add , update , delete                        |
@@ -362,7 +455,10 @@ if (isset($_POST['update_admin_info'])) {
 if (isset($_POST['delete_admin_info'])) {
     $admin_delete_id = $_POST['delete_admin_account'];
     $authModel->deleteAdmin( $admin_delete_id, $pdo);                
-
+    echo "<script>
+    location.assign('signin.php')
+    </script>";
+    
 
 }
 // ---------------------------------------------------------------------------|
@@ -378,23 +474,3 @@ if (isset($_POST['delete_admin_info'])) {
 
 
 <!-- //signin start -->
-
-<?php
-if (isset($_POST['signin'])) {
-    if (empty($_POST['email'])) {
-        redirectWindow('signin.php?error=email is required');
-    }
-    if (empty($_POST['password'])) {
-        redirectWindow('signin.php?error=password is required');
-    }
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $user = $authModel->findUserWithEmail($email, $pdo);
-    if($_SESSION['Admin'] = $user) {
-        redirectWindow('index.php');
-    } else {
-        redirectWindow('signin.php?error=invalid credentials');
-    }
-}
-?>

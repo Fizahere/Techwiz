@@ -2,6 +2,14 @@
 
 class Auth
 {
+    function findUserWithEmailAdmin($email, $pdo)
+    {
+        $query = $pdo->prepare('select * from admins where adminEmail = :email');
+        $query->bindParam(':email', $email);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 //function for insert category;
     function insertCategory($category_name, $category_image, $pdo)
     {
@@ -79,6 +87,7 @@ function deleteProducts( $product_delete_id, $pdo)
       $query = $pdo->prepare(" DELETE FROM products WHERE productID = :id");
       $query->bindParam('id', $product_delete_id);
       $query->execute();
+
     }
 //function for update admin profile;
 function updateAdminProfile($admin_ID,$admin_name,$admin_email,$admin_password,$admin_image,$pdo){
@@ -130,13 +139,13 @@ function deleteAdmin(  $admin_delete_id, $pdo)
       $query = $pdo->prepare(" DELETE FROM admins WHERE adminID = :id");
       $query->bindParam('id', $admin_delete_id);
       $query->execute();
-      redirectWindow('signIn.php');
+      redirectWindow('logout.php');
     }
 
 function findUserWithEmail($email, $pdo)
 {
     $query = $pdo->prepare('select * from admins where adminEmail = :email');
-    $query->bindParam(':email', $email);
+    $query->bindParam('email', $email);
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     return $result;

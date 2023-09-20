@@ -90,11 +90,9 @@ include("php/query.php");
                                  
                                  if(isset($_SESSION['Admin'])){
                                     $admin = $_SESSION['Admin'];
-                               
-                                 foreach($admin as $value){
-                                    $U_ID =   $value['adminID'];
+ 
                                   $query = $pdo->prepare("SELECT * FROM admins WHERE adminID = :iD ");
-                                  $query->bindParam(':iD',  $U_ID);
+                                  $query->bindParam(':iD',  $admin);
                                   $query->execute();
                                   $result = $query->fetch(PDO::FETCH_ASSOC);
                                  
@@ -110,7 +108,7 @@ include("php/query.php");
                              <span><?php echo ucfirst($result['adminName'])?></span>
                             </h6>
 </span>    <?php
-                      };  
+                       
                        
                     }
 
@@ -222,11 +220,11 @@ include("php/query.php");
                                  
                                  if(isset($_SESSION['Admin'])){
                                     $admin = $_SESSION['Admin'];
-                               
-                                 foreach($admin as $value){
-                                    $U_ID =   $value['adminID'];
+                                    
+                                
+
                                   $query = $pdo->prepare("SELECT * FROM admins WHERE adminID = :iD ");
-                                  $query->bindParam(':iD',  $U_ID);
+                                  $query->bindParam(':iD', $admin);
                                   $query->execute();
                                   $result = $query->fetch(PDO::FETCH_ASSOC);
                                  
@@ -252,7 +250,7 @@ include("php/query.php");
                                         
                                 </span>
                                 <?php
-                            }
+                        
                         }
                             ?>
                         </a>
