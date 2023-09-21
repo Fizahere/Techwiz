@@ -156,6 +156,7 @@ if (isset($_GET['removeFromWishlist'])) {
     $query->execute();
     echo "<script>alert('Item removed from wishlist')</script>";
 }
+
 if (isset($_POST['submitOrder'])) {
     $total_qty = 0;
     $grandTotalPrice = 0;
