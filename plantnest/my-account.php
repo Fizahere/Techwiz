@@ -122,7 +122,6 @@ if (!isset($_SESSION['USER'])) {
                                 <div class="container mt-3">
                                     <div class="row">
                                         <div class="col-md-3"></div>
-
                                         <div class="col-md-6">
                                             <input type="hidden" name="userID" value="<?php echo $userID ?>">
                                             <div class="single-form">
@@ -169,7 +168,7 @@ if (!isset($_SESSION['USER'])) {
                                 <div class="col-md-4">
                                     <h4 class="h4 mb-3">Orders Details</h4>
                                     <?php
-                                    $query = $pdo->prepare("SELECT * FROM `final_order` WHERE user_id = :userID;");
+                                    $query = $pdo->prepare("SELECT * FROM `final_order` WHERE user_id = :userID order by final_order.date_of_order desc limit 1;");
                                     $query->bindParam(":userID", $userID);
                                     $query->execute();
                                     $getOrders = $query->fetchAll(PDO::FETCH_ASSOC);
