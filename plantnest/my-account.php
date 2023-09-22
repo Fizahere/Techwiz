@@ -111,13 +111,12 @@ if (!isset($_SESSION['USER'])) {
                         $query->execute();
                         $result = $query->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($result as $value) {
-
                             $userName = $value['firstName'];
                             $lastName = $value['lastName'];
                             $emailAddress = $value['userEmail'];
                         }
                         ?>
-                        <div class="my-account-dashboard">
+                         <div class="my-account-dashboard">
                             <form action="#" method='post'>
                                 <div class="container mt-3">
                                     <div class="row">
@@ -174,7 +173,7 @@ if (!isset($_SESSION['USER'])) {
                                     $getOrders = $query->fetchAll(PDO::FETCH_ASSOC);
                                     foreach ($getOrders as $singleOrder) {
                                       $getOrderID = $singleOrder['order_id'];
-                                    //   echo '<script>alert("' . $getOrderID . '")</script>';
+                                      echo '<script>alert("' . $getOrderID . '")</script>';
                                 ?>
                                
                                         <div class="single-form">
